@@ -1,0 +1,1545 @@
+//#import header_design_index.html
+<link href="../res/style/index_New.css" rel="stylesheet">
+<!--右边内容-->
+<div class="wrapper">
+    <div class="sub-warp line-ws">
+        <div class="frstoreF"></div>
+        <div data-type="textLinkList" data-id="mall_List" class="frstore" >
+            <ul class="slideContent">
+                {{?it.mall_List&&it.mall_List.length>0}}
+                {{~it.mall_List:value:index}}
+                <li><p><a target="_blank" href="{{=value.linkTo}}">{{=value.content}}</a></p>
+                </li>
+                {{~}}
+                {{??}} 
+                <li>
+                    <p><a target="_blank" href="#">武汉国际广场购物中心</a></p>
+                </li>
+                {{?}}
+            </ul>
+        </div>
+
+        <div data-id="movie_in" data-type="imgLink" imgSize="208X200" class="movie_in">
+               {{?it.movie_in && it.movie_in.imgUrl}}
+                <a href="{{=it.movie_in.imgLinkTo}}" target="_blank" ><img src="{{=it.movie_in.imgUrl}}" alt="{{=it.movie_in.description}}" /></a>
+                {{??}}
+                <a href="javascript:void(0);" target="_blank"><img src="../res/images/adv.gif" width="208" height="200"/></a>
+                {{?}}
+        </div>
+        <!--end右边内容-->
+    </div>
+</div>
+
+
+<div class="wrapper bg-1 pad-bt20">
+    <!--  轮换广告-->
+    <div class="slide_banner">
+        <div class="slide_wrap" data-type="imgLinkList" data-id="indexBanner" imgSize="792x400">
+            <ul class="slide_adv">
+                {{?it.indexBanner&&it.indexBanner.length>0}}
+                {{~it.indexBanner:value:index}}
+				{{?index==0}}
+				<li style="background-color: {{=value.description}}; display:block;">
+				{{??}}
+                <li style="background-color: {{=value.description}}; display:none;">
+				{{?}}
+                    <div class="wbox slide_main" >
+                        <a target="_blank" href="{{=value.linkTo}}" class="slide_link">
+                            <img src="{{=value.imgUrl}}" alt="{{=value.description}}" width="792" height="400">
+                        </a>
+                    </div>
+                </li>
+                {{~}}
+                {{??}}
+                <li style="background-image:url(../res/case/adv1440x420.jpg);">
+                    <div class="wbox slide_main" >
+                        <a target="_blank" href="#" class="slide_link"></a>
+                    </div>
+                </li>
+                {{?}}
+            </ul>
+        </div>
+        <div class="slide_box">
+            <!--轮换圆点-->
+            <div class="num">
+                <ul>
+                    {{?it.indexBanner&&it.indexBanner.length>0}}
+                    {{~it.indexBanner:value:index}}
+                    {{?index==0}}
+                    <li class="cur">
+                    {{??}}
+                    <li>
+                    {{?}}
+                   
+                    </li>
+                    {{~}}
+                    {{?}}
+
+                </ul>
+            </div>
+            <!--end 轮换圆点-->
+        </div>
+    </div>
+    <!-- end 轮换广告-->
+
+    <div class="wbox hide" style="margin-top:15px;">
+
+		<div class="indexAd_1 fl" data-id="indexAd_1" data-type="imgLink" imgSize="211X300">
+		    {{?it.indexAd_1 && it.indexAd_1.imgUrl}}
+		    <a href="{{=it.indexAd_1.imgLinkTo}}" target="_blank"><img src="{{=it.indexAd_1.imgUrl}}" alt="{{=it.indexAd_1.description}}" width="211" height="300"/></a>
+		    {{??}}
+		    <a href="javascript:void(0);" target="_blank"><img src="../res/images/adv.gif" width="211" height="300"/></a>
+		    {{?}}
+		</div>
+
+		<div class="nextIssue fl">
+			<div class="wushanghui" data-id="wushanghui" data-type="imgLink">
+	            {{?it.wushanghui && it.wushanghui.imgUrl}}
+	                <a href="{{=it.wushanghui.imgLinkTo}}" target="_blank"><img src="{{=it.wushanghui.imgUrl}}" /></a>
+	            {{??}}
+	                <a href="javascript:void(0);"><img src="../res/images/adv.gif" /></a>
+	            {{?}}
+			</div> 
+			<div class="wsh_plist" >
+				{{for(var i=1; i<=6; i++){ }}
+				{{var dataId="wsh_pro" + i; var data=it[dataId];if(!data){data = {} }; }}
+				{{?i%3==0}}
+				<div class="wsh_box" style="border-right:0">
+				{{??}}
+				<div class="wsh_box">
+				{{?}}
+				<ul data-type="productGroup" data-id="{{=dataId}}.wsh">
+				    {{?data.wsh && data.wsh.length>0}}
+				    {{~data.wsh :value:index}}
+				    <li>
+				      <div class="pic"><a target="_blank" href="/product.jsp?id={{=value.id}}"><img src="{{=value.imgUrl}}" alt="{{=value.name}}"></a></div>
+				      <div class="price">&yen;&nbsp;{{=value.memberPrice}}</div>
+					  <div class="bnt"><a target="_blank" href="/product.jsp?id={{=value.id}}">立即抢</a></div>	
+				    </li>
+				    <div class="wsh_infor">
+				    	<a target="_blank" href="/product.jsp?id={{=value.id}}">
+				        <div data-type="htmlSource" data-id="{{=dataId}}.sellpoint" class="sellpoint">
+							{{?data.sellpoint}}
+							{{=data.sellpoint}}
+							{{??}}
+							<h3>产品名</h3>
+							<p>描述</p>
+							{{?}}
+				        </div>
+				        </a>
+				        <span style="color:#6a6a6a">库存</span>
+				        <div class="kc" data-type="textLink" data-id="{{=dataId}}.kc">
+							{{?data.kc && data.kc.content}}
+							<p style="width:{{=data.kc.content}}"></p>
+							{{??}}
+							<p></p>
+							{{?}}
+					    </div>	
+				    </div>
+				    {{~}}
+				    {{??}}
+				    <li>
+				        <div class="pic"><a href="#"><img src="../res/images/adv.gif"></a></div>
+				        <div class="title"><a href="#">【回家送礼】东阿阿胶清仓促销 养生堂 祛斑焕白套装</a></div>
+				        <div class="price">&yen;&nbsp;119.00</div>
+						<div class="discount">&yen;&nbsp;119.00</div>		
+				    </li>
+				    {{?}}
+				</ul>
+				</div>
+				{{ } }}
+			</div>
+		</div>
+		<!--
+		<div class="nextIssue fl">
+            <h2 data-id="nextIssueTitle" data-type="htmlSource">
+                {{?it.nextIssueTitle}}
+                {{=it.nextIssueTitle}}
+                {{??}}
+                团购抢购下期预告
+                {{?}}
+            </h2>
+
+            <div class="con" data-id="nextIssuePic" data-type="imgLinkList" showTIme="true" imgSize="240X270">
+                <div class="prev"></div>
+                <div class="next"></div>
+                <div class="pic slide_wrap">
+                    <ul>
+                        {{?it.nextIssuePic && it.nextIssuePic.length > 0}}
+                        {{~it.nextIssuePic:value:index}}
+                        <li>
+                            <a href="{{=value.linkTo}}"><img src="{{=value.imgUrl}}" width="240" height="270" alt="1"/></a>
+                        </li>
+                        {{~}}
+                        {{??}}
+                        <li>
+                            <a href="javascript:void(0);"><img src="../res/images/adv.gif" width="240" height="270" alt="1"/></a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);"><img src="../res/images/adv.gif" width="240" height="270" alt="2"/></a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);"><img src="../res/images/adv.gif" width="240" height="270" alt="3"/></a>
+                        </li>
+                        {{?}}
+                    </ul>
+                </div>
+            </div>
+        </div>
+		-->
+		<div class="indexAd-2 fr" data-id="indexAd_2" data-type="imgLinkList" imgSize="208X150">
+		    {{?it.indexAd_2 && it.indexAd_2.length>0}}
+		    {{~it.indexAd_2:value:index}}
+		    <a href="{{=value.linkTo}}" target="_blank"><img src="{{=value.imgUrl}}" alt="{{=value.description}}" width="208" height="150"/></a>
+		    {{~}}
+		    {{??}}
+		    <a href="javascript:void(0);" target="_blank"><img src="../res/images/adv.gif" width="208" height="150"/></a>
+		    {{?}}
+		</div>
+    </div>
+
+    <div class="wbox">
+   <div class="str"> <img src="../res/images/br_st.jpg"/></div>
+    	<div class="indexAd_4 fl">
+            <div data-id="indexAd_4" data-type="imgLink" imgSize="200X300">
+                {{?it.indexAd_4 && it.indexAd_4.imgUrl}}
+                <a href="{{=it.indexAd_4.imgLinkTo}}" target="_blank"><img src="{{=it.indexAd_4.imgUrl}}" alt="{{=it.indexAd_4.description}}"/></a>
+                {{??}}
+                <a href="javascript:void(0);" target="_blank"><img src="../res/images/movie.jpg" width="200" height="300"/></a>
+                {{?}}
+            </div>
+        </div>
+
+        <div class="hotbrand" data-id="hotbrand" data-type="imgLinkList" imgSize="160X60">
+                <div class="prev"></div>
+                <div class="next"></div>
+                <div class="pic slide_wrap">
+                    <ul>
+                        {{?it.hotbrand && it.hotbrand.length > 0}}
+                        {{~it.hotbrand:value:index}}
+                        <li>
+                            <a href="{{=value.linkTo}}" target="_blank"><img src="{{=value.imgUrl}}"  alt="{{=value.description}}" width="154" height="60" alt="1"/></a>
+                        </li>
+                        {{~}}
+                        {{??}}
+                        <li>
+                            <a href="javascript:void(0);"><img src="../res/images/adv.gif" width="154" height="60" alt="1"/></a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);"><img src="../res/images/adv.gif" width="154" height="60"  alt="2"/></a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);"><img src="../res/images/adv.gif" width="154" height="60"  alt="3"/></a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);"><img src="../res/images/adv.gif" width="154" height="60" alt="4"/></a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);"><img src="../res/images/adv.gif" width="154" height="60"  alt="5"/></a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);"><img src="../res/images/adv.gif" width="154" height="60"  alt="6"/></a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);"><img src="../res/images/adv.gif" width="154" height="60" alt="7"/></a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);"><img src="../res/images/adv.gif" width="154" height="60"  alt="8"/></a>
+                        </li>
+                        {{?}}
+                    </ul>
+                </div>
+            </div>
+
+        <div class="indexAd_3 fr">
+            <div data-id="indexAd_3" data-type="imgLink" imgSize="208X300">
+                {{?it.indexAd_3 && it.indexAd_3.imgUrl}}
+                <a href="{{=it.indexAd_3.imgLinkTo}}" target="_blank"><img src="{{=it.indexAd_3.imgUrl}}" alt="{{=it.indexAd_3.description}}" width="208" height="300"/></a>
+                {{??}}
+                <a href="javascript:void(0);" target="_blank"><img src="../res/images/movie.jpg" width="208" height="300"/></a>
+                {{?}}
+            </div>
+        </div>
+
+
+    </div>
+   	{{?it.config&&it.config.levelNum&&it.config.levelNum.value.indexOf("ADV")>-1}}
+     <div class="wbox centerAdv" data-type="imgLink" data-id="TOPAdv" imgSize="1200X80">
+        {{?it.TOPAdv&&it.TOPAdv.imgUrl}}
+        <a href="{{=it.TOPAdv.imgLinkTo}}" target="_blank" ><img width="1200px" height="80px" src="{{=it.TOPAdv.imgUrl}}" alt="{{=it.TOPAdv.description}}" /></a>
+        {{??}}
+        <a href="#" target="_blank"><img src="../res/images/adv.gif" width="1200px" height="80px"/></a>
+        {{?}}
+    </div>
+    {{?}}
+    <!--f1-->
+    {{?it.config&&it.config.levelNum&&it.config.levelNum.value.indexOf("1")>-1}}
+    <div class="wbox floor">
+	
+        <div class="wrapper_f1">
+		
+			<div class="title_adv fl" data-type="imgLink" data-id="f1_title" imgSize="X50">
+				{{?it.f1_title && it.f1_title.imgUrl }}
+				<a href="{{=it.f1_title.imgLinkTo}}" target="_blank" ><img height="50" src="{{=it.f1_title.imgUrl}}" alt="{{=it.f1_title.description}}" /></a>
+				{{??}}
+				<img src="../images/fl1_tit.jpg" />
+                {{?}}
+            </div>
+			
+			 <div class="brand1 fl clearfix">
+                <ul data-id="brand_1F" data-type="textLinkList">
+                    {{?it.brand_1F && it.brand_1F.length > 0}}
+                    {{~it.brand_1F:value:index}}
+                    <li><a href="{{=value.linkTo}}" target="_blank">{{=value.content}}</a></li>
+                    {{~}}
+                    {{??}}
+                    <li><a href="javascript:void(0);">周大福</a></li>
+                    <li><a href="javascript:void(0);">周先生</a></li>
+                    <li><a href="javascript:void(0);">六福珠宝</a></li>
+                    <li><a href="javascript:void(0);">金太福</a></li>
+                    <li><a href="javascript:void(0);">千禧之星</a></li>
+                    <li><a href="javascript:void(0);">周大生</a></li>
+                    {{?}}
+                </ul>
+
+				<span data-id="joinChannel_1F" data-type="textLink">
+                    {{?it.joinChannel_1F && it.joinChannel_1F.linkTo}}
+                    <a href="{{=it.joinChannel_1F.linkTo}}" target="_blank">{{=it.joinChannel_1F.content}}</a>
+                    {{??}}
+                    <a href="javascript:void(0);">More</a>
+                    {{?}}
+                </span>
+				
+            </div>
+           
+        </div>
+
+        <div class="wrapper con">
+		
+            <div class="F-sort f1 fl">
+                <div class="text f1" data-id="sort_1F" data-type="textLinkList">
+                    <ul>
+                        {{?it.sort_1F && it.sort_1F.length > 0}}
+                        {{~it.sort_1F:value:index}}
+						{{?index == 2}}
+						<li><a href="{{=value.linkTo}}" class="cur" target="_blank">{{=value.content}}</a></li>
+						{{??index == 4}}
+                		<li><a href="{{=value.linkTo}}" class="cur" target="_blank">{{=value.content}}</a></li>
+                		{{??index == 7}}
+                		<li><a href="{{=value.linkTo}}" class="cur" target="_blank">{{=value.content}}</a></li>
+                		{{??index == 10}}
+                		<li><a href="{{=value.linkTo}}" class="cur" target="_blank">{{=value.content}}</a></li>
+                		{{??}}
+                        <li><a href="{{=value.linkTo}}" target="_blank">{{=value.content}}</a></li>
+                        {{?}}
+                		{{~}}
+                		{{??}}
+                        <li><a href="javascript:void(0);">项链</a></li>
+                        <li><a href="javascript:void(0);">手链</a></li>
+                        <li><a href="javascript:void(0);">戒指</a></li>
+                        <li><a href="javascript:void(0);">耳饰</a></li>
+                        <li><a href="javascript:void(0);">发饰</a></li>
+                        <li><a href="javascript:void(0);">定价黄金</a></li>
+                        <li><a href="javascript:void(0);">计价黄金</a></li>
+                        <li><a href="javascript:void(0);">特价黄金</a></li>
+                        <li><a href="javascript:void(0);">项链</a></li>
+                        <li><a href="javascript:void(0);">耳饰</a></li>
+                        <li><a href="javascript:void(0);">手镯</a></li>
+                        <li><a href="javascript:void(0);">特价黄金</a></li>
+                        {{?}}
+                    </ul>
+                </div>
+				
+				<div class="floor_logo">
+                    <div class="prev"></div>
+                    <div class="next"></div>
+                    <div class="pic slide_wrap" data-id="sortPic_1F" data-type="imgLinkList">
+                        <ul>
+                            {{?it.sortPic_1F && it.sortPic_1F.length > 0}}
+                            {{~it.sortPic_1F:value:index}}
+                            <li>
+                                <a href="{{=value.linkTo}}" target="_blank"><img src="{{=value.imgUrl}}" alt="{{=value.description}}" width="200" height="55"/></a>
+                            </li>
+                            {{~}}
+                            {{??}}
+                            <li>
+                                <a href="javascript:void(0);"><img src="../res/images/adv.gif" width="200" height="55"/></a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);"><img src="../res/images/adv.gif" width="200" height="55"/></a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);"><img src="../res/images/adv.gif" width="200" height="55"/></a>
+                            </li>
+                            {{?}}
+                        </ul>
+                    </div>
+				</div>
+					
+			</div>
+				
+			
+            <div class="promotions fl">
+                <div class="up" data-id="promotionsUp_1F" data-type="imgLink">
+                    {{?it.promotionsUp_1F && it.promotionsUp_1F.imgUrl }}
+                    <a href="{{=it.promotionsUp_1F.imgLinkTo}}" target="_blank"><img src="{{=it.promotionsUp_1F.imgUrl}}" alt="{{=it.promotionsUp_1F.description}}" width="500" height="250"/></a>
+                    {{??}}
+                    <a href="javascript:void(0);"><img src="../res/images/adv.gif" width="500" height="250"/></a>
+                    {{?}}
+                </div>
+                <div class="dn" data-id="promotionsDn_1F" data-type="imgLink">
+                    {{?it.promotionsDn_1F && it.promotionsDn_1F.imgUrl }}
+                    <a href="{{=it.promotionsDn_1F.imgLinkTo}}" target="_blank"><img src="{{=it.promotionsDn_1F.imgUrl}}" alt="{{=it.promotionsDn_1F.description}}" width="500" height="150"/></a>
+                    {{??}}
+                    <a href="javascript:void(0);"><img src="../res/images/adv.gif" width="500" height="150"/></a>
+                    {{?}}
+                </div>
+            </div>
+            <div class="commodity fl">
+                <div class="pic fl">
+                    <div class="com" data-id="commodityBox1_1F" data-type="imgLink">
+                        {{?it.commodityBox1_1F && it.commodityBox1_1F.imgUrl}}
+                        <a href="{{=it.commodityBox1_1F.imgLinkTo}}" target="_blank"><img src="{{=it.commodityBox1_1F.imgUrl}}"  alt="{{=it.commodityBox1_1F.description}}" width="235" height="130"/></a>
+                        {{??}}
+                        <a href="javascript:void(0);"><img src="../res/images/adv.gif" width="235" height="130"/></a>
+                        {{?}}
+                    </div>
+                    <div class="com big" data-id="commodityBox2_1F" data-type="imgLink">
+                        {{?it.commodityBox2_1F && it.commodityBox2_1F.imgUrl}}
+                        <a href="{{=it.commodityBox2_1F.imgLinkTo}}" target="_blank"><img src="{{=it.commodityBox2_1F.imgUrl}}"  alt="{{=it.commodityBox2_1F.description}}" width="235" height="270"/></a>
+                        {{??}}
+                        <a href="javascript:void(0);"><img src="../res/images/adv.gif" width="235" height="270"/></a>
+                        {{?}}
+                    </div>
+                </div>
+                <div class="pic fl">
+                    {{for(var i=3; i<=5; i++){ }}
+                    {{var dataId="commodityBox" + i + "_1F"; var data=it[dataId];if(!data){data = {} }; }}
+                    <div class="com" data-type="imgLink" data-id="{{=dataId}}">
+                        {{?data && data.imgUrl}}
+                        <a href="{{=data.imgLinkTo}}" target="_blank"><img src="{{=data.imgUrl}}" alt="{{=data.description}}" width="235" height="130"/></a>
+                        {{??}}
+                        <a href="javascript:void(0);"><img src="../res/images/adv.gif" width="235" height="130"/></a>
+                        {{?}}
+                    </div>
+                    {{ } }}
+                </div>
+            </div>
+        </div>
+		
+    </div>
+    {{?}}
+    <!--end f1-->
+
+    <!--f2-->
+    {{?it.config&&it.config.levelNum&&it.config.levelNum.value.indexOf("2")>-1}}
+    <div class="wbox floor">
+
+ 		<div class="wrapper_f2">
+			<div class="title_adv fl" data-type="imgLink" data-id="f2_title" imgSize="X50">
+				{{?it.f2_title && it.f2_title.imgUrl }}
+				<a href="{{=it.f2_title.imgLinkTo}}" target="_blank"><img height="50" src="{{=it.f2_title.imgUrl}}" alt="{{=it.f2_title.description}}" /></a>
+				{{??}}
+				<img src="../images/fl2_tit.jpg" />
+                {{?}}
+            </div>
+			
+			 <div class="brand2 fl clearfix">
+                <ul data-id="brand_2F" data-type="textLinkList">
+                    {{?it.brand_2F && it.brand_2F.length > 0}}
+                    {{~it.brand_2F:value:index}}
+                    <li><a href="{{=value.linkTo}}" target="_blank">{{=value.content}}</a></li>
+                    {{~}}
+                    {{??}}
+                    <li><a href="javascript:void(0);">周大福</a></li>
+                    <li><a href="javascript:void(0);">周先生</a></li>
+                    <li><a href="javascript:void(0);">六福珠宝</a></li>
+                    <li><a href="javascript:void(0);">金太福</a></li>
+                    <li><a href="javascript:void(0);">千禧之星</a></li>
+                    <li><a href="javascript:void(0);">周大生</a></li>
+                    {{?}}
+                </ul>
+
+				<span data-id="joinChannel_2F" data-type="textLink">
+                    {{?it.joinChannel_2F && it.joinChannel_2F.linkTo}}
+                    <a href="{{=it.joinChannel_2F.linkTo}}" target="_blank">{{=it.joinChannel_2F.content}}</a>
+                    {{??}}
+                    <a href="javascript:void(0);">More</a>
+                    {{?}}
+                </span>
+				
+            </div>
+           
+        </div>
+        <div class="wrapper con">
+            <div class="F-sort f2 fl">
+                <div class="text" data-id="sort_2F" data-type="textLinkList">
+                    <ul>
+                       {{?it.sort_2F && it.sort_2F.length > 0}}
+                        {{~it.sort_2F:value:index}}
+						{{?index == 2}}
+						<li><a href="{{=value.linkTo}}" class="cur" target="_blank">{{=value.content}}</a></li>
+						{{??index == 4}}
+                		<li><a href="{{=value.linkTo}}" class="cur" target="_blank">{{=value.content}}</a></li>
+                		{{??index == 7}}
+                		<li><a href="{{=value.linkTo}}" class="cur" target="_blank">{{=value.content}}</a></li>
+                		{{??index == 10}}
+                		<li><a href="{{=value.linkTo}}" class="cur" target="_blank">{{=value.content}}</a></li>
+                		{{??}}
+                        <li><a href="{{=value.linkTo}}" target="_blank">{{=value.content}}</a></li>
+                        {{?}}
+                		{{~}}
+                		{{??}}
+                        <li><a href="javascript:void(0);">项链</a></li>
+                        <li><a href="javascript:void(0);">手链</a></li>
+                        <li><a href="javascript:void(0);">戒指</a></li>
+                        <li><a href="javascript:void(0);">耳饰</a></li>
+                        <li><a href="javascript:void(0);">发饰</a></li>
+                        <li><a href="javascript:void(0);">定价黄金</a></li>
+                        <li><a href="javascript:void(0);">计价黄金</a></li>
+                        <li><a href="javascript:void(0);">特价黄金</a></li>
+                        <li><a href="javascript:void(0);">项链</a></li>
+                        <li><a href="javascript:void(0);">耳饰</a></li>
+                        <li><a href="javascript:void(0);">手镯</a></li>
+                        <li><a href="javascript:void(0);">特价黄金</a></li>
+                        {{?}}
+                    </ul>
+                </div>
+               <div class="floor_logo">
+                    <div class="prev"></div>
+                    <div class="next"></div>
+                    <div class="pic slide_wrap" data-id="sortPic_2F" data-type="imgLinkList">
+                        <ul>
+                            {{?it.sortPic_2F && it.sortPic_2F.length > 0}}
+                            {{~it.sortPic_2F:value:index}}
+                            <li>
+                                <a href="{{=value.linkTo}}" target="_blank"><img src="{{=value.imgUrl}}" alt="{{=value.description}}" width="200" height="55"/></a>
+                            </li>
+                            {{~}}
+                            {{??}}
+                            <li>
+                                <a href="javascript:void(0);"><img src="../res/images/adv.gif" width="200" height="55"/></a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);"><img src="../res/images/adv.gif" width="200" height="55"/></a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);"><img src="../res/images/adv.gif" width="200" height="55"/></a>
+                            </li>
+                            {{?}}
+                        </ul>
+                    </div>
+				</div>
+            </div>
+            <div class="promotions fl">
+                <div class="up" data-id="promotionsUp_2F" data-type="imgLink">
+                    {{?it.promotionsUp_2F && it.promotionsUp_2F.imgUrl }}
+                    <a href="{{=it.promotionsUp_2F.imgLinkTo}}" target="_blank"><img src="{{=it.promotionsUp_2F.imgUrl}}" alt="{{=it.promotionsUp_2F.description}}" width="500" height="250"/></a>
+                    {{??}}
+                    <a href="javascript:void(0);"><img src="../res/images/adv.gif" width="500" height="250"/></a>
+                    {{?}}
+                </div>
+                <div class="dn" data-id="promotionsDn_2F" data-type="imgLink">
+                    {{?it.promotionsDn_2F && it.promotionsDn_2F.imgUrl}}
+                    <a href="{{=it.promotionsDn_2F.imgLinkTo}}" target="_blank"><img src="{{=it.promotionsDn_2F.imgUrl}}" alt="{{=it.promotionsDn_2F.description}}" width="500" height="150"/></a>
+                    {{??}}
+                    <a href="javascript:void(0);"><img src="../res/images/adv.gif" width="500" height="150"/></a>
+                    {{?}}
+                </div>
+            </div>
+            <div class="commodity fl">
+                <div class="pic fl">
+                    <div class="com" data-id="commodityBox1_2F" data-type="imgLink">
+                        {{?it.commodityBox1_2F && it.commodityBox1_2F.imgUrl}}
+                        <a href="{{=it.commodityBox1_2F.imgLinkTo}}" target="_blank"><img src="{{=it.commodityBox1_2F.imgUrl}}"  alt="{{=it.commodityBox1_2F.description}}" width="235" height="130"/></a>
+                        {{??}}
+                        <a href="javascript:void(0);"><img src="../res/images/adv.gif" width="235" height="130"/></a>
+                        {{?}}
+                    </div>
+                    <div class="com big" data-id="commodityBox2_2F" data-type="imgLink">
+                        {{?it.commodityBox2_2F && it.commodityBox2_2F.imgUrl }}
+                        <a href="{{=it.commodityBox2_2F.imgLinkTo}}" target="_blank"><img src="{{=it.commodityBox2_2F.imgUrl}}"  alt="{{=it.commodityBox2_2F.description}}" width="235" height="270"/></a>
+                        {{??}}
+                        <a href="javascript:void(0);"><img src="../res/images/adv.gif" width="235" height="270"/></a>
+                        {{?}}
+                    </div>
+                </div>
+                <div class="pic fl">
+                    {{for(var i=3; i<=5; i++){ }}
+                    {{var dataId="commodityBox" + i + "_2F"; var data=it[dataId];if(!data){data = {} }; }}
+                    <div class="com" data-type="imgLink" data-id="{{=dataId}}">
+                        {{?data && data.imgUrl}}
+                        <a href="{{=data.imgLinkTo}}" target="_blank"><img src="{{=data.imgUrl}}" alt="{{=data.description}}" width="235" height="130"/></a>
+                        {{??}}
+                        <a href="javascript:void(0);"><img src="../res/images/adv.gif" width="235" height="130"/></a>
+                        {{?}}
+                    </div>
+                    {{ } }}
+                </div>
+            </div>
+        </div>
+    </div>
+    {{?}}
+    <!--end f2-->
+
+    <!--centeradv1-->
+    <div class="wbox centerAdv" data-type="imgLink" data-id="centerAdv1" imgSize="1200X80">
+        {{?it.centerAdv1&&it.centerAdv1.imgUrl}}
+        <a href="{{=it.centerAdv1.imgLinkTo}}" target="_blank" ><img width="1200px" height="80px" src="{{=it.centerAdv1.imgUrl}}"  alt="{{=it.centerAdv1.description}}" /></a>
+        {{??}}
+        <a href="#"><img src="../res/images/adv.gif" width="1200px" height="80px"/></a>
+        {{?}}
+    </div>
+    <!--end centeradv1-->
+
+    <!--f3-->
+    {{?it.config&&it.config.levelNum&&it.config.levelNum.value.indexOf("3")>-1}}
+    <div class="wbox floor">
+        		<div class="wrapper_f3">
+		
+			<div class="title_adv fl" data-type="imgLink" data-id="f3_title" imgSize="X50">
+				{{?it.f3_title && it.f3_title.imgUrl }}
+				<a href="{{=it.f3_title.imgLinkTo}}" target="_blank" ><img height="50" src="{{=it.f3_title.imgUrl}}" alt="{{=it.f3_title.description}}" /></a>
+				{{??}}
+				<img src="../images/fl3_tit.jpg" />
+                {{?}}
+            </div>
+			
+			 <div class="brand3 fl clearfix">
+                <ul data-id="brand_3F" data-type="textLinkList">
+                    {{?it.brand_3F && it.brand_3F.length > 0}}
+                    {{~it.brand_3F:value:index}}
+                    <li><a href="{{=value.linkTo}}" target="_blank">{{=value.content}}</a></li>
+                    {{~}}
+                    {{??}}
+                    <li><a href="javascript:void(0);">周大福</a></li>
+                    <li><a href="javascript:void(0);">周先生</a></li>
+                    <li><a href="javascript:void(0);">六福珠宝</a></li>
+                    <li><a href="javascript:void(0);">金太福</a></li>
+                    <li><a href="javascript:void(0);">千禧之星</a></li>
+                    <li><a href="javascript:void(0);">周大生</a></li>
+                    {{?}}
+                </ul>
+
+				<span data-id="joinChannel_3F" data-type="textLink">
+                    {{?it.joinChannel_3F && it.joinChannel_3F.linkTo}}
+                    <a href="{{=it.joinChannel_3F.linkTo}}" target="_blank">{{=it.joinChannel_3F.content}}</a>
+                    {{??}}
+                    <a href="javascript:void(0);">More</a>
+                    {{?}}
+                </span>
+				
+            </div>
+           
+        </div>
+
+        <div class="wrapper con">
+            <div class="F-sort f3 fl">
+                <div class="text" data-id="sort_3F" data-type="textLinkList">
+                    <ul>
+                        {{?it.sort_3F && it.sort_3F.length > 0}}
+                        {{~it.sort_3F:value:index}}
+						{{?index == 2}}
+						<li><a href="{{=value.linkTo}}" class="cur" target="_blank">{{=value.content}}</a></li>
+						{{??index == 4}}
+                		<li><a href="{{=value.linkTo}}" class="cur" target="_blank">{{=value.content}}</a></li>
+                		{{??index == 7}}
+                		<li><a href="{{=value.linkTo}}" class="cur" target="_blank">{{=value.content}}</a></li>
+                		{{??index == 10}}
+                		<li><a href="{{=value.linkTo}}" class="cur" target="_blank">{{=value.content}}</a></li>
+                		{{??}}
+                        <li><a href="{{=value.linkTo}}" target="_blank">{{=value.content}}</a></li>
+                        {{?}}
+                		{{~}}
+                		{{??}}
+                        <li><a href="javascript:void(0);">项链</a></li>
+                        <li><a href="javascript:void(0);">手链</a></li>
+                        <li><a href="javascript:void(0);">戒指</a></li>
+                        <li><a href="javascript:void(0);">耳饰</a></li>
+                        <li><a href="javascript:void(0);">发饰</a></li>
+                        <li><a href="javascript:void(0);">定价黄金</a></li>
+                        <li><a href="javascript:void(0);">计价黄金</a></li>
+                        <li><a href="javascript:void(0);">特价黄金</a></li>
+                        <li><a href="javascript:void(0);">项链</a></li>
+                        <li><a href="javascript:void(0);">耳饰</a></li>
+                        <li><a href="javascript:void(0);">手镯</a></li>
+                        <li><a href="javascript:void(0);">特价黄金</a></li>
+                        {{?}}
+                    </ul>
+                </div>
+              <div class="floor_logo">
+                    <div class="prev"></div>
+                    <div class="next"></div>
+                    <div class="pic slide_wrap" data-id="sortPic_3F" data-type="imgLinkList">
+                        <ul>
+                            {{?it.sortPic_3F && it.sortPic_3F.length > 0}}
+                            {{~it.sortPic_3F:value:index}}
+                            <li>
+                                <a href="{{=value.linkTo}}" target="_blank"><img src="{{=value.imgUrl}}" alt="{{=value.description}}" width="200" height="55"/></a>
+                            </li>
+                            {{~}}
+                            {{??}}
+                            <li>
+                                <a href="javascript:void(0);"><img src="../res/images/adv.gif" width="200" height="55"/></a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);"><img src="../res/images/adv.gif" width="200" height="55"/></a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);"><img src="../res/images/adv.gif" width="200" height="55"/></a>
+                            </li>
+                            {{?}}
+                        </ul>
+                    </div>
+				</div>
+            </div>
+            <div class="promotions fl">
+                <div class="up" data-id="promotionsUp_3F" data-type="imgLink">
+                    {{?it.promotionsUp_3F && it.promotionsUp_3F.imgUrl }}
+                    <a href="{{=it.promotionsUp_3F.imgLinkTo}}" target="_blank"><img src="{{=it.promotionsUp_3F.imgUrl}}" alt="{{=it.promotionsUp_3F.description}}" width="500" height="250"/></a>
+                    {{??}}
+                    <a href="javascript:void(0);"><img src="../res/images/adv.gif" width="500" height="250"/></a>
+                    {{?}}
+                </div>
+                <div class="dn" data-id="promotionsDn_3F" data-type="imgLink">
+                    {{?it.promotionsDn_3F && it.promotionsDn_3F.imgUrl }}
+                    <a href="{{=it.promotionsDn_3F.imgLinkTo}}" target="_blank"><img src="{{=it.promotionsDn_3F.imgUrl}}" alt="{{=it.promotionsDn_3F.description}}" width="500" height="150"/></a>
+                    {{??}}
+                    <a href="javascript:void(0);"><img src="../res/images/adv.gif" width="500" height="150"/></a>
+                    {{?}}
+                </div>
+            </div>
+            <div class="commodity fl">
+                <div class="pic fl">
+                    <div class="com" data-id="commodityBox1_3F" data-type="imgLink">
+                        {{?it.commodityBox1_3F && it.commodityBox1_3F.imgUrl }}
+                        <a href="{{=it.commodityBox1_3F.imgLinkTo}}" target="_blank"><img src="{{=it.commodityBox1_3F.imgUrl}}" alt="{{=it.commodityBox1_3F.description}}" width="235" height="130"/></a>
+                        {{??}}
+                        <a href="javascript:void(0);"><img src="../res/images/adv.gif" width="235" height="130"/></a>
+                        {{?}}
+                    </div>
+                    <div class="com big" data-id="commodityBox2_3F" data-type="imgLink">
+                        {{?it.commodityBox2_3F && it.commodityBox2_3F.imgUrl }}
+                        <a href="{{=it.commodityBox2_3F.imgLinkTo}}" target="_blank"><img src="{{=it.commodityBox2_3F.imgUrl}}" alt="{{=it.commodityBox2_3F.description}}" width="235" height="270"/></a>
+                        {{??}}
+                        <a href="javascript:void(0);"><img src="../res/images/adv.gif" width="235" height="270"/></a>
+                        {{?}}
+                    </div>
+                </div>
+                <div class="pic fl">
+                    {{for(var i=3; i<=5; i++){ }}
+                    {{var dataId="commodityBox" + i + "_3F"; var data=it[dataId];if(!data){data = {} }; }}
+                    <div class="com" data-type="imgLink" data-id="{{=dataId}}">
+                        {{?data && data.imgUrl}}
+                        <a href="{{=data.imgLinkTo}}" target="_blank"><img src="{{=data.imgUrl}}" alt="{{=data.description}}" width="235" height="130"/></a>
+                        {{??}}
+                        <a href="javascript:void(0);"><img src="../res/images/adv.gif" width="235" height="130"/></a>
+                        {{?}}
+                    </div>
+                    {{ } }}
+                </div>
+            </div>
+        </div>
+    </div>
+    {{?}}
+    <!--end f3-->
+
+    <!--f4-->
+    {{?it.config&&it.config.levelNum&&it.config.levelNum.value.indexOf("4")>-1}}
+    <div class="wbox floor">
+      <div class="wrapper_f4">
+		
+			<div class="title_adv fl" data-type="imgLink" data-id="f4_title" imgSize="X50">
+				{{?it.f4_title && it.f4_title.imgUrl }}
+				<a href="{{=it.f4_title.imgLinkTo}}" target="_blank"><img height="50" src="{{=it.f4_title.imgUrl}}" alt="{{=it.f4_title.description}}" /></a>
+				{{??}}
+				<img src="../images/fl4_tit.jpg" />
+                {{?}}
+            </div>
+			
+			 <div class="brand4 fl clearfix">
+                <ul data-id="brand_4F" data-type="textLinkList">
+                    {{?it.brand_4F && it.brand_4F.length > 0}}
+                    {{~it.brand_4F:value:index}}
+                    <li><a href="{{=value.linkTo}}" target="_blank">{{=value.content}}</a></li>
+                    {{~}}
+                    {{??}}
+                    <li><a href="javascript:void(0);">周大福</a></li>
+                    <li><a href="javascript:void(0);">周先生</a></li>
+                    <li><a href="javascript:void(0);">六福珠宝</a></li>
+                    <li><a href="javascript:void(0);">金太福</a></li>
+                    <li><a href="javascript:void(0);">千禧之星</a></li>
+                    <li><a href="javascript:void(0);">周大生</a></li>
+                    {{?}}
+                </ul>
+	
+				<span data-id="joinChannel_4F" data-type="textLink">
+                    {{?it.joinChannel_4F && it.joinChannel_4F.linkTo}}
+                    <a href="{{=it.joinChannel_4F.linkTo}}" target="_blank">{{=it.joinChannel_4F.content}}</a>
+                    {{??}}
+                    <a href="javascript:void(0);">More</a>
+                    {{?}}
+                </span>
+				
+            </div>
+           
+        </div>
+
+        <div class="wrapper con">
+            <div class="F-sort f4 fl">
+                <div class="text" data-id="sort_4F" data-type="textLinkList">
+                    <ul>
+                         {{?it.sort_4F && it.sort_4F.length > 0}}
+                        {{~it.sort_4F:value:index}}
+						{{?index == 2}}
+						<li><a href="{{=value.linkTo}}" class="cur" target="_blank">{{=value.content}}</a></li>
+						{{??index == 4}}
+                		<li><a href="{{=value.linkTo}}" class="cur" target="_blank">{{=value.content}}</a></li>
+                		{{??index == 7}}
+                		<li><a href="{{=value.linkTo}}" class="cur" target="_blank">{{=value.content}}</a></li>
+                		{{??index == 10}}
+                		<li><a href="{{=value.linkTo}}" class="cur" target="_blank">{{=value.content}}</a></li>
+                		{{??}}
+                        <li><a href="{{=value.linkTo}}" target="_blank">{{=value.content}}</a></li>
+                        {{?}}
+                		{{~}}
+                		{{??}}
+                        <li><a href="javascript:void(0);">项链</a></li>
+                        <li><a href="javascript:void(0);">手链</a></li>
+                        <li><a href="javascript:void(0);">戒指</a></li>
+                        <li><a href="javascript:void(0);">耳饰</a></li>
+                        <li><a href="javascript:void(0);">发饰</a></li>
+                        <li><a href="javascript:void(0);">定价黄金</a></li>
+                        <li><a href="javascript:void(0);">计价黄金</a></li>
+                        <li><a href="javascript:void(0);">特价黄金</a></li>
+                        <li><a href="javascript:void(0);">项链</a></li>
+                        <li><a href="javascript:void(0);">耳饰</a></li>
+                        <li><a href="javascript:void(0);">手镯</a></li>
+                        <li><a href="javascript:void(0);">特价黄金</a></li>
+                        {{?}}
+                    </ul>
+                </div>
+                <div class="floor_logo">
+                    <div class="prev"></div>
+                    <div class="next"></div>
+                    <div class="pic slide_wrap" data-id="sortPic_4F" data-type="imgLinkList">
+                        <ul>
+                            {{?it.sortPic_4F && it.sortPic_4F.length > 0}}
+                            {{~it.sortPic_4F:value:index}}
+                            <li>
+                                <a href="{{=value.linkTo}}" target="_blank"><img src="{{=value.imgUrl}}" alt="{{=value.description}}" width="200" height="55"/></a>
+                            </li>
+                            {{~}}
+                            {{??}}
+                            <li>
+                                <a href="javascript:void(0);"><img src="../res/images/adv.gif" width="200" height="55"/></a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);"><img src="../res/images/adv.gif" width="200" height="55"/></a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);"><img src="../res/images/adv.gif" width="200" height="55"/></a>
+                            </li>
+                            {{?}}
+                        </ul>
+                    </div>
+				</div>
+            </div>
+            <div class="promotions fl">
+                <div class="up" data-id="promotionsUp_4F" data-type="imgLink">
+                    {{?it.promotionsUp_4F && it.promotionsUp_4F.imgUrl }}
+                    <a href="{{=it.promotionsUp_4F.imgLinkTo}}" target="_blank"><img src="{{=it.promotionsUp_4F.imgUrl}}" alt="{{=it.promotionsUp_4F.description}}" width="500" height="250"/></a>
+                    {{??}}
+                    <a href="javascript:void(0);"><img src="../res/images/adv.gif" width="500" height="250"/></a>
+                    {{?}}
+                </div>
+                <div class="dn" data-id="promotionsDn_4F" data-type="imgLink">
+                    {{?it.promotionsDn_4F && it.promotionsDn_4F.imgUrl }}
+                    <a href="{{=it.promotionsDn_4F.imgLinkTo}}" target="_blank"><img src="{{=it.promotionsDn_4F.imgUrl}}" alt="{{=it.promotionsDn_4F.description}}" width="500" height="150"/></a>
+                    {{??}}
+                    <a href="javascript:void(0);"><img src="../res/images/adv.gif" width="500" height="150"/></a>
+                    {{?}}
+                </div>
+            </div>
+            <div class="commodity fl">
+                <div class="pic fl">
+                    <div class="com" data-id="commodityBox1_4F" data-type="imgLink">
+                        {{?it.commodityBox1_4F && it.commodityBox1_4F.imgUrl }}
+                        <a href="{{=it.commodityBox1_4F.imgLinkTo}}" target="_blank"><img src="{{=it.commodityBox1_4F.imgUrl}}" alt="{{=it.commodityBox1_4F.description}}" width="235" height="130"/></a>
+                        {{??}}
+                        <a href="javascript:void(0);"><img src="../res/images/adv.gif" width="235" height="130"/></a>
+                        {{?}}
+                    </div>
+                    <div class="com big" data-id="commodityBox2_4F" data-type="imgLink">
+                        {{?it.commodityBox2_4F && it.commodityBox2_4F.imgUrl }}
+                        <a href="{{=it.commodityBox2_4F.imgLinkTo}}" target="_blank"><img src="{{=it.commodityBox2_4F.imgUrl}}" alt="{{=it.commodityBox2_4F.description}}" width="235" height="270"/></a>
+                        {{??}}
+                        <a href="javascript:void(0);"><img src="../res/images/adv.gif" width="235" height="270"/></a>
+                        {{?}}
+                    </div>
+                </div>
+                <div class="pic fl">
+                    {{for(var i=3; i<=5; i++){ }}
+                    {{var dataId="commodityBox" + i + "_4F"; var data=it[dataId];if(!data){data = {} }; }}
+                    <div class="com" data-type="imgLink" data-id="{{=dataId}}">
+                        {{?data && data.imgUrl}}
+                        <a href="{{=data.imgLinkTo}}" target="_blank"><img src="{{=data.imgUrl}}" alt="{{=data.description}}" width="235" height="130"/></a>
+                        {{??}}
+                        <a href="javascript:void(0);"><img src="../res/images/adv.gif" width="235" height="130"/></a>
+                        {{?}}
+                    </div>
+                    {{ } }}
+                </div>
+            </div>
+        </div>
+    </div>
+    {{?}}
+    <!--end f4-->
+
+    <!--centeradv2-->
+    <div class="wbox centerAdv" data-type="imgLink" data-id="centerAdv2" imgSize="1200X80">
+        {{?it.centerAdv2&&it.centerAdv2.imgUrl}}
+        <a href="{{=it.centerAdv2.imgLinkTo}}" target="_blank"><img width="1200px" height="80px" src="{{=it.centerAdv2.imgUrl}}"  alt="{{=it.centerAdv2.description}}" /></a>
+        {{??}}
+        <a href="#"><img src="../res/images/adv.gif" width="1200px" height="80px"/></a>
+        {{?}}
+    </div>
+    <!--end centeradv2-->
+
+    <!--f5-->
+    {{?it.config&&it.config.levelNum&&it.config.levelNum.value.indexOf("5")>-1}}
+    <div class="wbox floor">
+        <div class="wrapper_f5">
+		
+			<div class="title_adv fl" data-type="imgLink" data-id="f5_title" imgSize="X50">
+				{{?it.f5_title && it.f5_title.imgUrl }}
+				<a href="{{=it.f5_title.imgLinkTo}}" target="_blank"><img height="50" src="{{=it.f5_title.imgUrl}}" alt="{{=it.f5_title.description}}" /></a>
+				{{??}}
+				<img src="../images/fl5_tit.jpg" />
+                {{?}}
+            </div>
+			
+			 <div class="brand5 fl clearfix">
+                <ul data-id="brand_5F" data-type="textLinkList">
+                    {{?it.brand_5F && it.brand_5F.length > 0}}
+                    {{~it.brand_5F:value:index}}
+                    <li><a href="{{=value.linkTo}}" target="_blank">{{=value.content}}</a></li>
+                    {{~}}
+                    {{??}}
+                    <li><a href="javascript:void(0);">周大福</a></li>
+                    <li><a href="javascript:void(0);">周先生</a></li>
+                    <li><a href="javascript:void(0);">六福珠宝</a></li>
+                    <li><a href="javascript:void(0);">金太福</a></li>
+                    <li><a href="javascript:void(0);">千禧之星</a></li>
+                    <li><a href="javascript:void(0);">周大生</a></li>
+                    {{?}}
+                </ul>
+
+				<span data-id="joinChannel_5F" data-type="textLink">
+                    {{?it.joinChannel_5F && it.joinChannel_5F.linkTo}}
+                    <a href="{{=it.joinChannel_5F.linkTo}}" target="_blank">{{=it.joinChannel_5F.content}}</a>
+                    {{??}}
+                    <a href="javascript:void(0);">More</a>
+                    {{?}}
+                </span>
+				
+            </div>
+           
+        </div>
+
+        <div class="wrapper con">
+            <div class="F-sort f5 fl">
+                <div class="text" data-id="sort_5F" data-type="textLinkList">
+                    <ul>
+                        {{?it.sort_5F && it.sort_5F.length > 0}}
+                        {{~it.sort_5F:value:index}}
+						{{?index == 2}}
+						<li><a href="{{=value.linkTo}}" class="cur" target="_blank">{{=value.content}}</a></li>
+						{{??index == 4}}
+                		<li><a href="{{=value.linkTo}}" class="cur" target="_blank">{{=value.content}}</a></li>
+                		{{??index == 7}}
+                		<li><a href="{{=value.linkTo}}" class="cur" target="_blank">{{=value.content}}</a></li>
+                		{{??index == 10}}
+                		<li><a href="{{=value.linkTo}}" class="cur" target="_blank">{{=value.content}}</a></li>
+                		{{??}}
+                        <li><a href="{{=value.linkTo}}" target="_blank">{{=value.content}}</a></li>
+                        {{?}}
+                		{{~}}
+                		{{??}}
+                        <li><a href="javascript:void(0);">项链</a></li>
+                        <li><a href="javascript:void(0);">手链</a></li>
+                        <li><a href="javascript:void(0);">戒指</a></li>
+                        <li><a href="javascript:void(0);">耳饰</a></li>
+                        <li><a href="javascript:void(0);">发饰</a></li>
+                        <li><a href="javascript:void(0);">定价黄金</a></li>
+                        <li><a href="javascript:void(0);">计价黄金</a></li>
+                        <li><a href="javascript:void(0);">特价黄金</a></li>
+                        <li><a href="javascript:void(0);">项链</a></li>
+                        <li><a href="javascript:void(0);">耳饰</a></li>
+                        <li><a href="javascript:void(0);">手镯</a></li>
+                        <li><a href="javascript:void(0);">特价黄金</a></li>
+                        {{?}}
+                    </ul>
+                </div>
+               <div class="floor_logo">
+                    <div class="prev"></div>
+                    <div class="next"></div>
+                    <div class="pic slide_wrap" data-id="sortPic_5F" data-type="imgLinkList">
+                        <ul>
+                            {{?it.sortPic_5F && it.sortPic_5F.length > 0}}
+                            {{~it.sortPic_5F:value:index}}
+                            <li>
+                                <a href="{{=value.linkTo}}" target="_blank"><img src="{{=value.imgUrl}}" alt="{{=value.description}}"width="200" height="55"/></a>
+                            </li>
+                            {{~}}
+                            {{??}}
+                            <li>
+                                <a href="javascript:void(0);"><img src="../res/images/adv.gif" width="200" height="55"/></a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);"><img src="../res/images/adv.gif" width="200" height="55"/></a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);"><img src="../res/images/adv.gif" width="200" height="55"/></a>
+                            </li>
+                            {{?}}
+                        </ul>
+                    </div>
+				</div>
+            </div>
+            <div class="promotions fl">
+                <div class="up" data-id="promotionsUp_5F" data-type="imgLink">
+                    {{?it.promotionsUp_5F && it.promotionsUp_5F.imgUrl }}
+                    <a href="{{=it.promotionsUp_5F.imgLinkTo}}" target="_blank"><img src="{{=it.promotionsUp_5F.imgUrl}}" alt="{{=it.promotionsUp_5F.description}}" width="500" height="250"/></a>
+                    {{??}}
+                    <a href="javascript:void(0);"><img src="../res/images/adv.gif" width="500" height="250"/></a>
+                    {{?}}
+                </div>
+                <div class="dn" data-id="promotionsDn_5F" data-type="imgLink">
+                    {{?it.promotionsDn_5F && it.promotionsDn_5F.imgUrl }}
+                    <a href="{{=it.promotionsDn_5F.imgLinkTo}}" target="_blank"><img src="{{=it.promotionsDn_5F.imgUrl}}" alt="{{=it.promotionsDn_5F.description}}" width="500" height="150"/></a>
+                    {{??}}
+                    <a href="javascript:void(0);"><img src="../res/images/adv.gif" width="500" height="150"/></a>
+                    {{?}}
+                </div>
+            </div>
+            <div class="commodity fl">
+                <div class="pic fl">
+                    <div class="com" data-id="commodityBox1_5F" data-type="imgLink">
+                        {{?it.commodityBox1_5F && it.commodityBox1_5F.imgUrl }}
+                        <a href="{{=it.commodityBox1_5F.imgLinkTo}}" target="_blank"><img src="{{=it.commodityBox1_5F.imgUrl}}" alt="{{=it.commodityBox1_5F.description}}" width="235" height="130"/></a>
+                        {{??}}
+                        <a href="javascript:void(0);"><img src="../res/images/adv.gif" width="235" height="130"/></a>
+                        {{?}}
+                    </div>
+                    <div class="com big" data-id="commodityBox2_5F" data-type="imgLink">
+                        {{?it.commodityBox2_5F && it.commodityBox2_5F.imgUrl }}
+                        <a href="{{=it.commodityBox2_5F.imgLinkTo}}" target="_blank"><img src="{{=it.commodityBox2_5F.imgUrl}}" alt="{{=it.commodityBox2_5F.description}}" width="235" height="270"/></a>
+                        {{??}}
+                        <a href="javascript:void(0);"><img src="../res/images/adv.gif" width="235" height="270"/></a>
+                        {{?}}
+                    </div>
+                </div>
+                <div class="pic fl">
+                    {{for(var i=3; i<=5; i++){ }}
+                    {{var dataId="commodityBox" + i + "_5F"; var data=it[dataId];if(!data){data = {} }; }}
+                    <div class="com" data-type="imgLink" data-id="{{=dataId}}">
+                        {{?data && data.imgUrl}}
+                        <a href="{{=data.imgLinkTo}}" target="_blank"><img src="{{=data.imgUrl}}" alt="{{=data.description}}" width="235" height="130"/></a>
+                        {{??}}
+                        <a href="javascript:void(0);"><img src="../res/images/adv.gif" width="235" height="130"/></a>
+                        {{?}}
+                    </div>
+                    {{ } }}
+                </div>
+            </div>
+        </div>
+    </div>
+    {{?}}
+    <!--end f5-->
+
+    <!--f6-->
+    {{?it.config&&it.config.levelNum&&it.config.levelNum.value.indexOf("6")>-1}}
+    <div class="wbox floor">
+       <div class="wrapper_f6">
+		
+			<div class="title_adv fl" data-type="imgLink" data-id="f6_title" imgSize="X50">
+				{{?it.f6_title && it.f6_title.imgUrl }}
+				<a href="{{=it.f6_title.imgLinkTo}}" target="_blank"><img height="50" src="{{=it.f6_title.imgUrl}}" alt="{{=it.f6_title.description}}" /></a>
+				{{??}}
+				<img src="../images/fl6_tit.jpg" />
+                {{?}}
+            </div>
+			
+			 <div class="brand6 fl clearfix">
+                <ul data-id="brand_6F" data-type="textLinkList">
+                    {{?it.brand_6F && it.brand_6F.length > 0}}
+                    {{~it.brand_6F:value:index}}
+                    <li><a href="{{=value.linkTo}}" target="_blank">{{=value.content}}</a></li>
+                    {{~}}
+                    {{??}}
+                    <li><a href="javascript:void(0);">周大福</a></li>
+                    <li><a href="javascript:void(0);">周先生</a></li>
+                    <li><a href="javascript:void(0);">六福珠宝</a></li>
+                    <li><a href="javascript:void(0);">金太福</a></li>
+                    <li><a href="javascript:void(0);">千禧之星</a></li>
+                    <li><a href="javascript:void(0);">周大生</a></li>
+                    {{?}}
+                </ul>
+	
+				<span data-id="joinChannel_6F" data-type="textLink">
+                    {{?it.joinChannel_6F && it.joinChannel_6F.linkTo}}
+                    <a href="{{=it.joinChannel_6F.linkTo}}" target="_blank">{{=it.joinChannel_6F.content}}</a>
+                    {{??}}
+                    <a href="javascript:void(0);">More</a>
+                    {{?}}
+                </span>
+				
+            </div>
+           
+        </div>
+
+        <div class="wrapper con">
+            <div class="F-sort f6 fl">
+                <div class="text" data-id="sort_6F" data-type="textLinkList">
+                    <ul>
+                         {{?it.sort_6F && it.sort_6F.length > 0}}
+                        {{~it.sort_6F:value:index}}
+						{{?index == 2}}
+						<li><a href="{{=value.linkTo}}" class="cur" target="_blank">{{=value.content}}</a></li>
+						{{??index == 4}}
+                		<li><a href="{{=value.linkTo}}" class="cur" target="_blank">{{=value.content}}</a></li>
+                		{{??index == 7}}
+                		<li><a href="{{=value.linkTo}}" class="cur" target="_blank">{{=value.content}}</a></li>
+                		{{??index == 10}}
+                		<li><a href="{{=value.linkTo}}" class="cur" target="_blank">{{=value.content}}</a></li>
+                		{{??}}
+                        <li><a href="{{=value.linkTo}}" target="_blank">{{=value.content}}</a></li>
+                        {{?}}
+                		{{~}}
+                		{{??}}
+                        <li><a href="javascript:void(0);">项链</a></li>
+                        <li><a href="javascript:void(0);">手链</a></li>
+                        <li><a href="javascript:void(0);">戒指</a></li>
+                        <li><a href="javascript:void(0);">耳饰</a></li>
+                        <li><a href="javascript:void(0);">发饰</a></li>
+                        <li><a href="javascript:void(0);">定价黄金</a></li>
+                        <li><a href="javascript:void(0);">计价黄金</a></li>
+                        <li><a href="javascript:void(0);">特价黄金</a></li>
+                        <li><a href="javascript:void(0);">项链</a></li>
+                        <li><a href="javascript:void(0);">耳饰</a></li>
+                        <li><a href="javascript:void(0);">手镯</a></li>
+                        <li><a href="javascript:void(0);">特价黄金</a></li>
+                        {{?}}
+                    </ul>
+                </div>
+                <div class="floor_logo">
+                    <div class="prev"></div>
+                    <div class="next"></div>
+                    <div class="pic slide_wrap" data-id="sortPic_6F" data-type="imgLinkList">
+                        <ul>
+                            {{?it.sortPic_6F && it.sortPic_6F.length > 0}}
+                            {{~it.sortPic_6F:value:index}}
+                            <li>
+                                <a href="{{=value.linkTo}}" target="_blank"><img src="{{=value.imgUrl}}" alt="{{=value.description}}"width="200" height="55"/></a>
+                            </li>
+                            {{~}}
+                            {{??}}
+                            <li>
+                                <a href="javascript:void(0);"><img src="../res/images/adv.gif" width="200" height="55"/></a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);"><img src="../res/images/adv.gif" width="200" height="55"/></a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);"><img src="../res/images/adv.gif" width="200" height="55"/></a>
+                            </li>
+                            {{?}}
+                        </ul>
+                    </div>
+				</div>
+            </div>
+            <div class="promotions fl">
+                <div class="up" data-id="promotionsUp_6F" data-type="imgLink">
+                    {{?it.promotionsUp_6F && it.promotionsUp_6F.imgUrl }}
+                    <a href="{{=it.promotionsUp_6F.imgLinkTo}}" target="_blank"><img src="{{=it.promotionsUp_6F.imgUrl}}" alt="{{=it.promotionsUp_6F.description}}" width="500" height="250"/></a>
+                    {{??}}
+                    <a href="javascript:void(0);"><img src="../res/images/adv.gif" width="500" height="250"/></a>
+                    {{?}}
+                </div>
+                <div class="dn" data-id="promotionsDn_6F" data-type="imgLink">
+                    {{?it.promotionsDn_6F && it.promotionsDn_6F.imgUrl }}
+                    <a href="{{=it.promotionsDn_6F.imgLinkTo}}" target="_blank"><img src="{{=it.promotionsDn_6F.imgUrl}}" alt="{{=it.promotionsDn_6F.description}}" width="500" height="150"/></a>
+                    {{??}}
+                    <a href="javascript:void(0);"><img src="../res/images/adv.gif" width="500" height="150"/></a>
+                    {{?}}
+                </div>
+            </div>
+            <div class="commodity fl">
+                <div class="pic fl">
+                    <div class="com" data-id="commodityBox1_6F" data-type="imgLink">
+                        {{?it.commodityBox1_6F && it.commodityBox1_6F.imgUrl }}
+                        <a href="{{=it.commodityBox1_6F.imgLinkTo}}" target="_blank"><img src="{{=it.commodityBox1_6F.imgUrl}}" alt="{{=it.commodityBox1_6F.description}}" width="235" height="130"/></a>
+                        {{??}}
+                        <a href="javascript:void(0);"><img src="../res/images/adv.gif" width="235" height="130"/></a>
+                        {{?}}
+                    </div>
+                    <div class="com big" data-id="commodityBox2_6F" data-type="imgLink">
+                        {{?it.commodityBox2_6F && it.commodityBox2_6F.imgUrl }}
+                        <a href="{{=it.commodityBox2_6F.imgLinkTo}}" target="_blank"><img src="{{=it.commodityBox2_6F.imgUrl}}" alt="{{=it.commodityBox2_6F.description}}" width="235" height="270"/></a>
+                        {{??}}
+                        <a href="javascript:void(0);"><img src="../res/images/adv.gif" width="235" height="270"/></a>
+                        {{?}}
+                    </div>
+                </div>
+                <div class="pic fl">
+                    {{for(var i=3; i<=5; i++){ }}
+                    {{var dataId="commodityBox" + i + "_6F"; var data=it[dataId];if(!data){data = {} }; }}
+                    <div class="com" data-type="imgLink" data-id="{{=dataId}}">
+                        {{?data && data.imgUrl}}
+                        <a href="{{=data.imgLinkTo}}" target="_blank"><img src="{{=data.imgUrl}}" alt="{{=data.description}}" width="235" height="130"/></a>
+                        {{??}}
+                        <a href="javascript:void(0);"><img src="../res/images/adv.gif" width="235" height="130"/></a>
+                        {{?}}
+                    </div>
+                    {{ } }}
+                </div>
+            </div>
+        </div>
+    </div>
+    {{?}}
+    <!--end f6-->
+	
+	<!--f7-->
+    {{?it.config&&it.config.levelNum&&it.config.levelNum.value.indexOf("7")>-1}}
+    <div class="wbox floor">
+       <div class="wrapper_f7">
+		
+			<div class="title_adv fl" data-type="imgLink" data-id="f7_title" imgSize="X50">
+				{{?it.f7_title && it.f7_title.imgUrl }}
+				<a href="{{=it.f7_title.imgLinkTo}}" target="_blank"><img height="50" src="{{=it.f7_title.imgUrl}}" alt="{{=it.f7_title.description}}" /></a>
+				{{??}}
+				<img src="../images/fl7_tit.jpg" />
+                {{?}}
+            </div>
+			
+			 <div class="brand7 fl clearfix">
+                <ul data-id="brand_7F" data-type="textLinkList">
+                    {{?it.brand_7F && it.brand_7F.length > 0}}
+                    {{~it.brand_7F:value:index}}
+                    <li><a href="{{=value.linkTo}}" target="_blank">{{=value.content}}</a></li>
+                    {{~}}
+                    {{??}}
+                    <li><a href="javascript:void(0);">周大福</a></li>
+                    <li><a href="javascript:void(0);">周先生</a></li>
+                    <li><a href="javascript:void(0);">六福珠宝</a></li>
+                    <li><a href="javascript:void(0);">金太福</a></li>
+                    <li><a href="javascript:void(0);">千禧之星</a></li>
+                    <li><a href="javascript:void(0);">周大生</a></li>
+                    {{?}}
+                </ul>
+
+				<span data-id="joinChannel_7F" data-type="textLink">
+                    {{?it.joinChannel_7F && it.joinChannel_7F.linkTo}}
+                    <a href="{{=it.joinChannel_7F.linkTo}}" target="_blank">{{=it.joinChannel_7F.content}}</a>
+                    {{??}}
+                    <a href="javascript:void(0);">More</a>
+                    {{?}}
+                </span>
+				
+            </div>
+           
+        </div>
+        <div class="wrapper con">
+            <div class="F-sort f7 fl">
+                <div class="text" data-id="sort_7F" data-type="textLinkList">
+                    <ul>
+                         {{?it.sort_7F && it.sort_7F.length > 0}}
+                        {{~it.sort_7F:value:index}}
+						{{?index == 2}}
+						<li><a href="{{=value.linkTo}}" class="cur" target="_blank">{{=value.content}}</a></li>
+						{{??index == 4}}
+                		<li><a href="{{=value.linkTo}}" class="cur" target="_blank">{{=value.content}}</a></li>
+                		{{??index == 7}}
+                		<li><a href="{{=value.linkTo}}" class="cur" target="_blank">{{=value.content}}</a></li>
+                		{{??index == 10}}
+                		<li><a href="{{=value.linkTo}}" class="cur" target="_blank">{{=value.content}}</a></li>
+                		{{??}}
+                        <li><a href="{{=value.linkTo}}" target="_blank">{{=value.content}}</a></li>
+                        {{?}}
+                		{{~}}
+                		{{??}}
+                        <li><a href="javascript:void(0);">项链</a></li>
+                        <li><a href="javascript:void(0);">手链</a></li>
+                        <li><a href="javascript:void(0);">戒指</a></li>
+                        <li><a href="javascript:void(0);">耳饰</a></li>
+                        <li><a href="javascript:void(0);">发饰</a></li>
+                        <li><a href="javascript:void(0);">定价黄金</a></li>
+                        <li><a href="javascript:void(0);">计价黄金</a></li>
+                        <li><a href="javascript:void(0);">特价黄金</a></li>
+                        <li><a href="javascript:void(0);">项链</a></li>
+                        <li><a href="javascript:void(0);">耳饰</a></li>
+                        <li><a href="javascript:void(0);">手镯</a></li>
+                        <li><a href="javascript:void(0);">特价黄金</a></li>
+                        {{?}}
+                    </ul>
+                </div>
+                <div class="floor_logo">
+                    <div class="prev"></div>
+                    <div class="next"></div>
+                    <div class="pic slide_wrap" data-id="sortPic_7F" data-type="imgLinkList">
+                        <ul>
+                            {{?it.sortPic_7F && it.sortPic_7F.length > 0}}
+                            {{~it.sortPic_7F:value:index}}
+                            <li>
+                                <a href="{{=value.linkTo}}" target="_blank"><img src="{{=value.imgUrl}}" alt="{{=value.description}}"width="200" height="55"/></a>
+                            </li>
+                            {{~}}
+                            {{??}}
+                            <li>
+                                <a href="javascript:void(0);"><img src="../res/images/adv.gif" width="200" height="55"/></a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);"><img src="../res/images/adv.gif" width="200" height="55"/></a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);"><img src="../res/images/adv.gif" width="200" height="55"/></a>
+                            </li>
+                            {{?}}
+                        </ul>
+                    </div>
+				</div>
+            </div>
+            <div class="promotions fl">
+                <div class="up" data-id="promotionsUp_7F" data-type="imgLink">
+                    {{?it.promotionsUp_7F && it.promotionsUp_7F.imgUrl }}
+                    <a href="{{=it.promotionsUp_7F.imgLinkTo}}" target="_blank"><img src="{{=it.promotionsUp_7F.imgUrl}}" alt="{{=it.promotionsUp_7F.description}}" width="500" height="250"/></a>
+                    {{??}}
+                    <a href="javascript:void(0);"><img src="../res/images/adv.gif" width="500" height="250"/></a>
+                    {{?}}
+                </div>
+                <div class="dn" data-id="promotionsDn_7F" data-type="imgLink">
+                    {{?it.promotionsDn_7F && it.promotionsDn_7F.imgUrl }}
+                    <a href="{{=it.promotionsDn_7F.imgLinkTo}}" target="_blank"><img src="{{=it.promotionsDn_7F.imgUrl}}" alt="{{=it.promotionsDn_7F.description}}" width="500" height="150"/></a>
+                    {{??}}
+                    <a href="javascript:void(0);"><img src="../res/images/adv.gif" width="500" height="150"/></a>
+                    {{?}}
+                </div>
+            </div>
+            <div class="commodity fl">
+                <div class="pic fl">
+                    <div class="com" data-id="commodityBox1_7F" data-type="imgLink">
+                        {{?it.commodityBox1_7F && it.commodityBox1_7F.imgUrl }}
+                        <a href="{{=it.commodityBox1_7F.imgLinkTo}}" target="_blank"><img src="{{=it.commodityBox1_7F.imgUrl}}" alt="{{=it.commodityBox1_7F.description}}" width="235" height="130"/></a>
+                        {{??}}
+                        <a href="javascript:void(0);"><img src="../res/images/adv.gif" width="235" height="130"/></a>
+                        {{?}}
+                    </div>
+                    <div class="com big" data-id="commodityBox2_7F" data-type="imgLink">
+                        {{?it.commodityBox2_7F && it.commodityBox2_7F.imgUrl }}
+                        <a href="{{=it.commodityBox2_7F.imgLinkTo}}" target="_blank"><img src="{{=it.commodityBox2_7F.imgUrl}}" alt="{{=it.commodityBox2_7F.description}}" width="235" height="270"/></a>
+                        {{??}}
+                        <a href="javascript:void(0);"><img src="../res/images/adv.gif" width="235" height="270"/></a>
+                        {{?}}
+                    </div>
+                </div>
+                <div class="pic fl">
+                    {{for(var i=3; i<=5; i++){ }}
+                    {{var dataId="commodityBox" + i + "_7F"; var data=it[dataId];if(!data){data = {} }; }}
+                    <div class="com" data-type="imgLink" data-id="{{=dataId}}">
+                        {{?data && data.imgUrl}}
+                        <a href="{{=data.imgLinkTo}}" target="_blank"><img src="{{=data.imgUrl}}" alt="{{=data.description}}" width="235" height="130"/></a>
+                        {{??}}
+                        <a href="javascript:void(0);"><img src="../res/images/adv.gif" width="235" height="130"/></a>
+                        {{?}}
+                    </div>
+                    {{ } }}
+                </div>
+            </div>
+        </div>
+    </div>
+    {{?}}
+    <!--end f7-->
+
+    <div class="wbox centerAdv" data-type="imgLink" data-id="bottomAdv" imgSize="1200X80">
+        {{?it.bottomAdv&&it.bottomAdv.imgUrl}}
+        <a href="{{=it.bottomAdv.imgLinkTo}}" target="_blank"><img width="1200px" height="80px" src="{{=it.bottomAdv.imgUrl}}"  alt="{{=it.bottomAdv.description}}" /></a>
+        {{??}}
+        <a href="#"><img src="../res/images/adv.gif" width="1200px" height="80px"/></a>
+        {{?}}
+    </div>
+</div>
+
+<div class="right_bar">
+	<ul>
+		<li class="right_login">
+			<a href="/login/sign_in.jsp" target="_blank"></a>
+			<div>立即登录</div>
+		</li>
+		<li class="right_center">
+			<a href="/member/index.jsp" target="_blank"></a>
+			<div>会员中心</div>
+		</li>
+		<li class="right_shopcar">
+			<a href="/shopping/cart.jsp" target="_blank">购物车<span class="mini_num">0</span></a>
+		</li>
+		<li class="right_order">
+			<a href="/member/order_list.jsp?tag=1" target="_blank"></a>
+			<div>我的订单</div>
+		</li>
+		<li class="right_ma">
+			<img src="../res/images/mweb.jpg" width="100" >
+		</li>
+		<li class="right_service">
+			<div>在线客服</div>
+		</li>
+		<li class="right_400">
+			<div>客服电话 400-848-1228</div>
+		</li>
+	</ul>
+	<div class="right_gotop"><div>回到顶部</div></div>
+</div>
+
+<div class="insight_log" style="display: none" pageName="首页" userId="{{=it.userId}}" m="{{=it._m_}}" templateId="{{=it._pageId_}}" appId="{{=it._appId_}}" ></div>
+
+<!--end 主体-->
+
+{{?it.productionMode}}
+{{=$.importUrl("/defaultFooter.html?m=head_merchant&productionMode=true")}}
+{{??}}
+{{=$.importUrl("/defaultFooter.html?m=head_merchant&productionMode=false")}}
+{{?}}
+
+
+
+<!--
+<div class="pop-box">
+    <div class="bg"></div>
+    <div class="con">
+        <a href="#"><img src="http://219.140.62.244/img/2014/5/31/180001.jpg" alt="" width="1200" height="500"/></a>
+        <a href="javascript:void(0)" class="close">&times;</a>
+    </div>
+</div>
+-->
+
+<!--
+<div class="rg-sidebar">
+    <div class="main" data-type="imgLinkList" data-id="slideAdv_imgList">
+        <div class="title">
+            <h2>线上逛武商</h2>
+        </div>
+        <ul>
+            {{?it.slideAdv_imgList&&it.slideAdv_imgList.length>0&&it.slideAdv_imgList.length<10}}
+            {{~it.slideAdv_imgList:value:index}}
+            {{var desStr=value.description;var desA =desStr.split("|");}}
+            <li>
+                <div class="abb-tt">
+                    <h3><a href="{{=value.imgLinkTo}}">{{=desA[0]}}</a></h3>
+                </div>
+                <div class="con">
+                    <h3><a href="{{=value.imgLinkTo}}">{{=desA[1]}}</a></h3>
+                    <div class="img">
+                        <a href="{{=value.imgLinkTo}}"><img src="{{=value.imgUrl}}" alt="{{=value.description}}" width="188" height="92"></a>
+                    </div>
+                </div>
+            </li>
+            {{~}}
+            {{??}}
+            <li>
+                <div class="abb-tt">
+                    <h3>武商量贩</h3>
+                </div>
+                <div class="con">
+                    <h3><a href="#">武商量贩连锁有限公司</a></h3>
+                    <div class="img">
+                        <img src="http://img1.wushang.com/img/2014/10/26/2060936.jpg" alt="武商量贩连锁有限公司" width="188" height="92">
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="abb-tt">
+                    <h3>武商量贩</h3>
+                </div>
+                <div class="con">
+                    <h3><a href="#">武商量贩连锁有限公司</a></h3>
+                    <div class="img">
+                        <img src="http://img1.wushang.com/img/2014/10/26/2060936.jpg" alt="武商量贩连锁有限公司" width="188" height="92">
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="abb-tt">
+                    <h3>武商量贩</h3>
+                </div>
+                <div class="con">
+                    <h3><a href="#">武商量贩连锁有限公司</a></h3>
+                    <div class="img">
+                        <img src="http://img1.wushang.com/img/2014/10/26/2060936.jpg" alt="武商量贩连锁有限公司" width="188" height="92">
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="abb-tt">
+                    <h3>武商量贩</h3>
+                </div>
+                <div class="con">
+                    <h3><a href="#">武商量贩连锁有限公司</a></h3>
+                    <div class="img">
+                        <img src="http://img1.wushang.com/img/2014/10/26/2060936.jpg" alt="武商量贩连锁有限公司" width="188" height="92">
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="abb-tt">
+                    <h3>武商量贩</h3>
+                </div>
+                <div class="con">
+                    <h3><a href="#">武商量贩连锁有限公司</a></h3>
+                    <div class="img">
+                        <img src="http://img1.wushang.com/img/2014/10/26/2060936.jpg" alt="武商量贩连锁有限公司" width="188" height="92">
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="abb-tt">
+                    <h3>武商量贩</h3>
+                </div>
+                <div class="con">
+                    <h3><a href="#">武商量贩连锁有限公司</a></h3>
+                    <div class="img">
+                        <img src="http://img1.wushang.com/img/2014/10/26/2060936.jpg" alt="武商量贩连锁有限公司" width="188" height="92">
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="abb-tt">
+                    <h3>武商量贩</h3>
+                </div>
+                <div class="con">
+                    <h3><a href="#">武商量贩连锁有限公司</a></h3>
+                    <div class="img">
+                        <img src="http://img1.wushang.com/img/2014/10/26/2060936.jpg" alt="武商量贩连锁有限公司" width="188" height="92">
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="abb-tt">
+                    <h3>武商量贩</h3>
+                </div>
+                <div class="con">
+                    <h3><a href="#">武商量贩连锁有限公司</a></h3>
+                    <div class="img">
+                        <img src="http://img1.wushang.com/img/2014/10/26/2060936.jpg" alt="武商量贩连锁有限公司" width="188" height="92">
+                    </div>
+                </div>
+            </li>
+            {{?}}
+        </ul>
+    </div>
+</div>
+
+-->
+<script src="../res/js/index_New.js" type="text/javascript"></script>
+<script src="../res/js/3x.js" type="text/javascript"></script>
+</body>
+</html>

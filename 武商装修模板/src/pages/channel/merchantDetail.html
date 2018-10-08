@@ -1,0 +1,28 @@
+//#import ../headerTuan_design.html
+<link href="../res/style/floor.css" rel="stylesheet">
+<script src="../res/js/merchantDetail.js" rel="stylesheet"></script>
+
+<div class="detailWrap">
+    <div class="f_detail">
+        <div class="mt"><b>商铺名称：</b>MAC</div>
+        <div class="mc clearfix">
+            <div class="fd_logo"><img width="280" height="140" /></div>
+            <div class="fd_con">
+                <div class="articlePic">
+                    <p><img /></p>
+                </div>
+                <div class="article">
+                    <p></p>
+            </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- 页尾-->
+{{?it.productionMode}}
+{{=$.importUrl("/defaultFooter.html?m=head_merchant&productionMode=true")}}
+{{??}}
+{{=$.importUrl("/defaultFooter.html?m=head_merchant&productionMode=false")}}
+{{?}}
+

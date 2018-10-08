@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<!--[if lte IE 7 ]> <html class="lte_ie7 lte_ie8" lang="zh-CN"> <![endif]-->
+<!--[if lte IE 8 ]> <html class="lte_ie8" lang="zh-CN"> <![endif]-->
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title><%=seo ? seo.seo_title : ''%></title>
+    <meta name="keywords" content="<%=seo ? seo.seo_keywords : ''%>"/>
+    <meta name="description" content="<%=seo ? seo.seo_description : ''%>"/>
+    <meta http-equiv="X-UA-Compatible" content="edge" />
+    <meta name="renderer" content="webkit"/>
+    <link rel="icon" type="image/x-icon" href="/upload/zhaoshang.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="/upload/zhaoshang.ico">
+    <link rel="Bookmark" type="image/x-icon" href="/upload/zhaoshang.ico">
+
+</head>
+<body>
+<%if(productionMode){%>
+<%=#importUrl("/header.html?keyword=" + searchKeywordEncode)%>
+<%}else{%>
+<%=#importUrl("/header.html")%>
+<%}%>
+
+<link rel="stylesheet" type="text/css" href="@{res/style/list.css}@" />
+<link rel="stylesheet" type="text/css" href="@{res/style/page.css}@" />
+<img id="greyImg" src="@{res/images/grey.gif}@" style="display: none;"/>
+
+<!--当前位置-->
+<div class="positionBox wbox">
+    <a href="/">首页</a><i>></i>
+    <%if(position && position.length > 0){%>
+    <%for(var i=0;i< position.length;i++){%>
+    <%if(i!=position.length-1){%>
+    <a href="<%=position[i].url%>"><%=position[i].title%></a><i>></i>
+    <%}else{%>
+    <span><%=position[i].title%></span>
+    <%}}}%>
+</div>
+
+<!--产品列表-->
+<div class="listCon wbox clearfix">
+    <div class="leftSide">
+        <div class="title" data-type="text" data-id="leftRecommendProductTitle"><%= leftRecommendProductTitle ? leftRecommendProductTitle : '商品热卖'%></div>
+        <ul class="list-shop" data-type="productGroup" data-id="leftRecommendProduct" data-spec="180X180">
+            <%if(leftRecommendProduct && leftRecommendProduct.length > 0){%>
+                <%for(var i=0;i< leftRecommendProduct.length;i++){%>
+                    <%var product = leftRecommendProduct[i],productLink = "/product.html?id=" + product.id + "&mid=" + product.merchantId;%>
+                    <li style="<%if(i!=0){%>border-top: 1px solid #f5f5f5;<%}%>">
+                        <div class="item-pic">
+                            <a href="<%=productLink%>" target="_blank"><img src="<%=!productionMode ? product.imgUrl : ''%>" original="<%=productionMode ? product.imgUrl : ''%>" alt="<%=product.name%>"/></a>
+                        </div>
+                        <div class="item-details">
+                            <p class="item-price"><%if(product.memberPrice > 0){%><span class="new">&yen;<%=product.memberPrice%></span><%}%></p>
+                            <p class="item-name"><a href="<%=productLink%>" target="_blank"><%=product.name%></a></p>
+                            <p class="item-intro"><%=product.sellingPoint%></p>
+                        </div>
+                    </li>
+                <%}%>
+            <%}else{%>
+                <%for(var j=0;j<2;j++){%>
+                    <li  style="<%if(j!=0){%>border-top: 1px solid #f5f5f5;<%}%>">
+                        <div class="item-pic"><a href="#"><img src="@{res/case/180x180.jpg}@"></a></div>
+                        <div class="item-details">
+                            <p class="item-price"><span class="new">$189</span></p>
+                            <p class="item-name"><a href="#">BALENCIAGA</a></p>
+                            <p class="item-intro">纽崔莱蛋白质粉孕妇可用</p>
+                        </div>
+                    </li>
+                <%}%>
+            <%}%>
+        </ul>
+    </div>
+    <div class="rightSide">
+        <div class="filter-box">
+            <div class="t-head">商品筛选 <span>（共<b><%=productList.total%></b>件相关商品）</span></div>
+
+            <%if(searchCondition.column_facetColumn && searchCondition.column_facetColumn.length > 0){%>
+            <div class="t-row">
+                <span class="label">类别：</span>
+                <div class="listA">
+                    <%for(var i=0;i< searchCondition.column_facetColumn.length;i++){%>
+                    <a href="<%=searchCondition.column_facetColumn[i].url%>"><%=searchCondition.column_facetColumn[i].displayName%></a>
+                    <%}%>
+                </div>
+            </div>
+            <%}%>
+
+            <%if(searchCondition.brandList && searchCondition.brandList.length > 0){%>
+            <div class="t-row" style="height: 72px;">
+                <span class="label">品牌：</span>
+                <div class="listA">
+                    <%for(var i=0;i< searchCondition.brandList.length;i++){%>
+                    <a href="<%=searchCondition.brandList[i].url%>"><%=searchCondition.brandList[i].displayName%></a>
+                    <%}%>
+                </div>
+            </div>
+            <%}%>
+
+            <%if(searchCondition.DynaAttr && searchCondition.DynaAttr.length > 0){%>
+            <%for(var i=0;i < searchCondition.DynaAttr.length;i++){%>
+            <%var dynaAttr = searchCondition.DynaAttr[i];%>
+
+            <%}%>
+
+
+            <%}%>
+
+        </div>
+        <div class="list-sort">
+            <div class="l-select">
+                <a href="<%=defaultOrderByLink%>" class="<%= (!searchHistory.orderBy) || searchHistory.orderBy=='default' ? 'active' : ''%>">默认排序</a>
+                <a href="<%=saleCountOrderByLink%>" class="<%=searchHistory.orderBy=='saleCount' ? 'active' : ''%>">销量</a>
+                <%if(searchHistory.orderBy=="priceLow"){%>
+                <a href="<%=priceHighOrderByLink%>" class="active">价格<s></s></a>
+                <%}else if(searchHistory.orderBy=="priceHigh"){%>
+                <a href="<%=priceLowOrderByLink%>" class="active">价格</a>
+                <%}else{%>
+                <a href="<%=priceLowOrderByLink%>">价格</a>
+                <%}%>
+                <a href="<%=publishTimeOrderByLink%>" class="<%=searchHistory.orderBy=='publishTime' ? 'active' : ''%>">上架时间</a>
+            </div>
+            <div class="l-info">
+                <div class="shop-info">
+                    <span class="s-num">总共<%=productList.total%>件商品</span>
+                    <span class="p-num"><%=pageCur%>/<%=pageNum%></span>
+                </div>
+                <div class="btn-box">
+                    <a href="<%=prevPageLink%>" class="prev"></a>
+                    <a href="<%=nextPageLink%>" class="next"></a>
+                </div>
+            </div>
+        </div>
+        <div class="floorMain list-floor">
+            <ul class="mask-item">
+                <%if(productList && productList.total > 0){%>
+                    <%for(var i=0;i < productList.products.length;i++){%>
+                        <%var product = productList.products[i];%>
+                        <%var proLogo = (product.logos=='/upload/nopic_200.jpg' ? product.logos : product.logos[0]);%>
+                        <%var productLink = "/product.html?id=" + product.id + "&mid=" + product.merchantId;%>
+                        <%
+                        var promotionLogos = product.promotionLogosArray,showPromotionLogo = null;
+                        if(promotionLogos && promotionLogos.length > 0){
+                        showPromotionLogo = promotionLogos[0];
+                        }
+                        %>
+                        <li objId="<%=product.id%>" mid="<%=product.merchantId%>">
+                            <div class="item-pic">
+                                <a href="<%=productLink%>" target="_blank">
+                                    <img alt="<%= product.name ? product.name : product.title%>" src="<%=!productionMode ? proLogo : '/'%>" original="<%=productionMode ? proLogo : ''%>"/>
+                                </a>
+                            </div>
+                            <div class="item">
+                                <div class="item-details">
+                                    <p class="item-price">
+                                        <%if(product.memberPrice > 0){%><span class="new">&yen;<%=product.memberPrice%></span><%}%> <%if(product.marketPrice > 0){%><s>&yen;<%=product.marketPrice%></s><%}%>
+                                    </p>
+                                    <p class="item-name"><a href="<%=productLink%>" target="_blank"><%=product.name%></a></p>
+                                    <p class="item-intro"><%=product.sellingPoint%></p>
+                                </div>
+                                <div class="vender">
+                                    <div class="v-contray">
+                                        <%if(product.countryPicUrl){%><img src="<%=product.countryPicUrl%>"/><%}%>
+                                        <%if(product.supplyAndDeliveryDesc){%><span><%=product.supplyAndDeliveryDesc%></span><%}%>
+                                    </div>
+                                    <div class="v-deal">
+                                        <b><%=product.salesAmount || '0'%></b>
+                                        <span>该月成交</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    <%}%>
+                <%}%>
+
+            </ul>
+        </div>
+        <div class="pageBox">
+            <div class="pagination" id="pageList" total="<%=productList.total%>"></div>
+
+
+            <!--<div class="fr">-->
+                <!--<a href="javascript:;" class="p-btn btn-prev"><i></i>上一页</a>-->
+                <!--<a href="javascript:;" class="p-btn btn-next"><i></i>下一页</a>-->
+                <!--<ul>-->
+                    <!--<li class="active"><a href="#">1</a></li>-->
+                    <!--<li><a href="#">2</a></li>-->
+                <!--</ul>-->
+            <!--</div>-->
+        </div>
+    </div>
+</div>
+
+<!--商品精选-->
+<div class="box floor wbox">
+    <div class="title">
+        <%if(bottomRecommendProductTitleImg && bottomRecommendProductTitleImg.imgUrl){%>
+        <img src="<%=bottomRecommendProductTitleImg.imgUrl%>" data-type="image" data-id="bottomRecommendProductTitleImg" imgSize="190X52">
+        <%}else{%>
+        <img src="@{res/images/floor_title5.png}@" data-type="image" data-id="bottomRecommendProductTitleImg" imgSize="190X52">
+        <%}%>
+    </div>
+    <div class="floorMain" data-type="productGroup" data-id="bottomRecommendProduct" data-spec="200X200">
+        <ul class="mask-item">
+            <%if(bottomRecommendProduct && bottomRecommendProduct.length > 0){%>
+                <%for(var i=0;i< bottomRecommendProduct.length;i++){%>
+                    <%if(i>4){break;}%>
+                    <%var product = bottomRecommendProduct[i],productLink = "/product.html?id=" + product.id + "&mid=" + product.merchantId;%>
+                    <li>
+                        <div class="item-pic">
+                            <a href="<%=productLink%>" target="_blank">
+                                <img alt="<%= product.name ? product.name : product.title%>" src="<%=!productionMode ? product.imgUrl : '/'%>" original="<%=productionMode ? product.imgUrl : ''%>"/>
+                            </a>
+                        </div>
+                        <div class="item">
+                            <div class="item-details">
+                                <p class="item-price">
+                                    <%if(product.memberPrice > 0){%><span class="new">&yen;<%=product.memberPrice%></span><%}%> <%if(product.marketPrice > 0){%><s>&yen;<%=product.marketPrice%></s><%}%>
+                                </p>
+                                <p class="item-name"><a href="<%=productLink%>" target="_blank"><%=product.name%></a></p>
+                                <p class="item-intro"><%=product.sellingPoint%></p>
+                            </div>
+                            <div class="vender">
+                                <div class="v-contray">
+                                    <%if(product.countryPicUrl){%><img src="<%=product.countryPicUrl%>"/><%}%>
+                                    <%if(product.supplyAndDeliveryDesc){%><span><%=product.supplyAndDeliveryDesc%></span><%}%>
+                                </div>
+                                <div class="v-deal">
+                                    <b><%=product.salesAmount || '0'%></b>
+                                    <span>该月成交</span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                <%}%>
+            <%}else{%>
+                <%for(var j=0;j<5;j++){%>
+                <li>
+                    <div class="item-pic"><a href="#"><img src="@{res/case/200x200.jpg}@"/></a></div>
+                    <div class="item">
+                        <div class="item-details">
+                            <p class="item-price"><span class="new">$189</span> <s>$256</s></p>
+                            <p class="item-name"><a href="#">TOPVALU SELECT</a></p>
+                            <p class="item-intro">玻尿酸原液30ml</p>
+                        </div>
+                        <div class="vender">
+                            <div class="v-contray">
+                                <img src="@{res/images/icon-country.png}@"/>
+                                <span>德国直供</span>
+                            </div>
+                            <div class="v-deal">
+                                <b>67</b>
+                                <span>该月成交</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <%}%>
+            <%}%>
+        </ul>
+    </div>
+</div>
+
+
+<%if(productionMode){%>
+<script>var serverUrl = "<%=webUrl%>",rappId = "<%=rappId%>";</script>
+
+<script src="@{res/js/jquery.lazyloaded.js}@" type="text/javascript"></script>
+<script type="text/javascript" src="@{res/js/SkuSelector.js}@"></script>
+<script type="text/javascript" src="@{res/js/product_list.js}@"></script>
+<script type="text/javascript" src="@{res/js/page.js}@"></script>
+<%}%>
+
+</body>
+</html>

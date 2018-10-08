@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="../bootstrap/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="/resources/bootstrap3.3.5/css/bootstrap.min.css" >
+    <link href="../style/app.css" rel="stylesheet">
+    <!--<script type="text/javascript" src="/resources/jquery-1.7.2.min.js"></script>-->
+    <!--<script src="/resources/bootstrap3.3.4/js/bootstrap.min.js"></script>-->
+    <script src="/resources/jquery-1.10.2.min.js"></script>
+    <script src="/resources/bootstrap3.3.5/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/resources/pagination/IsoneAjaxPagination-1.10.js"></script>
+    <script type="text/javascript" src='/resources/doT.min.js'></script>
+    <script>
+        var merchantId = "{{=it.merchantId}}";
+    </script>
+    <script type="text/javascript" src="../js/ProductList.js"></script>
+</head>
+<body>
+{{=$.inc("pages/include_nav.jsx")}}
+
+<div class="container-fluid">
+
+    <div class="well" id="searchForm">
+        <div class="row">
+            <div class="col-xs-2" style="width: auto;margin-bottom: 10px;">
+                <span class="label_name">关键字</span>
+                <input type="text" style="float:left;width: 180px;" class="form-control input-sm" id="keyword" placeholder="商品ID">
+            </div>
+            <div class="col-xs-1" style="width: auto;">
+                <input type="hidden" value="{{=it.listType}}" name="listType" id="listType">
+                <input type="hidden" value="{{=it.merchantId}}" name="merchantId" id="merchantId">
+                <input type="hidden" value="{{=it.detail}}" name="detail" id="detail">
+                <button type="button" class="btn btn-default input-sm" id="search">搜 索</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="">
+        <!--异步加载数据列表部分-->
+        <div class="row-fluid">
+            <div id="record_list" class="record_list span12">
+            </div>
+        </div>
+
+        <!--分页部分-->
+        <div class="row-fluid">
+            <div style="margin-top: 5px;padding-top: 10px; border-top: 1px solid #DDDDDD;text-align: right;">
+                <div class="pagination well" style="margin: 0; ">
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>

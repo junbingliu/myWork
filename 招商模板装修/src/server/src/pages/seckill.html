@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>首页</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+    <link href="../res/style/zhaoshang.css" rel="stylesheet"/>
+    <link href="../res/style/style.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="container" style="padding-bottom: 2.8rem;">
+    <%if(productionMode){%>
+    <div class="indexHead">
+        <nav class="indexHead-bar">
+            <div class="index-search">
+                <span class="logo"></span>
+                <input type="text" class="textInput" placeholder="想要啥，你就搜 ">
+            </div>
+            <a href="#" class="ico-search"></a>
+        </nav>
+    </div>
+    <%}%>
+    <article class="seckill rowTop">
+        <div class="seckill-title" data-id="seckill_title" data-type="textLink">
+            <%if(seckill_title){%>
+            <span><%=seckill_title.content%></span>
+            <%}else{%><span>全球好货 限时抢购</span><%}%>
+        </div>
+        <div class="seckill-clock">
+
+            <div class="commend-tab Belarus-tab">
+                <ul data-type="textLinkList" data-id="scareTabs">
+                    <li>
+                        <span >点击此处，编辑下面分类</span>
+                    </li>
+                </ul>
+            </div>
+
+            <ul data-type="tabs">
+                <%if(scareTabs&&scareTabs.length>0){%>
+                <%for(var i=0;i< scareTabs.length;i++){%>
+                <%if(i==0){%>
+                <li class="cur" tab-target="ToSnapUp<%=i+1%>">
+                    <span ><%=scareTabs[i].content%></span>
+                </li>
+                <%}else{%>
+                <li tab-target="ToSnapUp<%=i+1%>">
+                    <span ><%=scareTabs[i].content%></span>
+                </li>
+                <%}%>
+                <%}%>
+                <%}else{%>
+                <li tab-target="ToSnapUp1"><span>10:00</span></li>
+                <li tab-target="ToSnapUp2" class="cur"><span>12:00</span></li>
+                <li tab-target="ToSnapUp3"><span>16:00</span></li>
+                <li tab-target="ToSnapUp4"><span>20:00</span></li>
+                <%}%>
+            </ul>
+        </div>
+        <%if(productionMode){%>
+        <div class="seckill-tips">2小时内166个商品被抢光了哦</div>
+        <%}%>
+
+        <%for(var t=1; t<=scareTabs.length; t++){
+        var dataIdOne=commend?commend["ToSnapUp" + t]:null;
+        var dataTabs=dataIdOne;%>
+        <div id="ToSnapUp<%=t%>" class="seckill-list" data-type="productGroup" data-id="commend.ToSnapUp<%=t%>" data-spec="290X290">
+            <%if(dataTabs && dataTabs.length>0){
+            for(var x=0;x < dataTabs.length;x++){
+            var value=dataTabs[x];%>
+            <div class="item">
+                <div class="view-img">
+                    <a href="#"><img src="<%=value.imgUrl%>"/></a>
+                        <span class="clock">
+                            距离结束00:45:20
+                        </span>
+                </div>
+                <div class="cont">
+                    <p class="desc"><%=value.sellingPoint%></p>
+
+                    <p class="name"><%=value.name%></p>
+
+                    <p class="price">
+                        <strong class="fl">&yen;&nbsp;<%=value.memberPrice%></strong>
+                            <span class="fl">
+                                <em><i class="line"></i><i>&yen;<%=value.memberPrice%></i></em>
+                                <em>省&yen;81</em>
+                            </span>
+                    </p>
+
+                    <p class="percent">
+                        <span class="bar" style="width: 82%;">已抢购82%</span>
+                    </p>
+
+                    <p class="btn"><a href="#" class="w-btn">立即抢购</a></p>
+                </div>
+            </div>
+            <%}}else{%>
+
+            <div class="item">
+                <div class="view-img">
+                    <a href="#"><img src="../res/case/seckill290x290.jpg"/></a>
+                        <span class="clock">
+                            距离结束00:45:20
+                        </span>
+                </div>
+                <div class="cont">
+                    <p class="desc">养颜级保湿</p>
+
+                    <p class="name">法国France玫瑰纯露喷雾</p>
+
+                    <p class="price">
+                        <strong class="fl">&yen;&nbsp;299</strong>
+                            <span class="fl">
+                                <em><i class="line"></i><i>&yen;380</i></em>
+                                <em>省&yen;81</em>
+                            </span>
+                    </p>
+
+                    <p class="percent">
+                        <span class="bar" style="width: 82%;">已抢购82%</span>
+                    </p>
+
+                    <p class="btn"><a href="#" class="w-btn">立即抢购</a></p>
+                </div>
+            </div>
+            <div class="item">
+                <div class="view-img">
+                    <a href="#"><img src="../res/case/seckill290x290.jpg"/></a>
+                        <span class="clock">
+                            距离结束00:45:20
+                        </span>
+                    <span class="ico-slodOut"></span>
+                </div>
+                <div class="cont">
+                    <p class="desc fz28">养颜级保湿</p>
+
+                    <p class="name">法国France玫瑰纯露喷雾</p>
+
+                    <p class="price">
+                        <strong class="fl">&yen;&nbsp;299</strong>
+                            <span class="fl">
+                                <em><i class="line"></i><i>&yen;380</i></em>
+                                <em>省&yen;81</em>
+                            </span>
+                    </p>
+
+                    <p class="percent">
+                        <span class="bar" style="width: 82%;">已抢购82%</span>
+                    </p>
+
+                    <p class="btn"><a href="#" class="w-btn soldOut">商品已售罄</a></p>
+                </div>
+            </div>
+            <div class="item">
+                <div class="view-img">
+                    <a href="#"><img src="../res/case/seckill290x290.jpg"/></a>
+                        <span class="clock">
+                            距离结束00:45:20
+                        </span>
+                </div>
+                <div class="cont">
+                    <p class="desc fz28">养颜级保湿</p>
+
+                    <p class="name">法国France玫瑰纯露喷雾</p>
+
+                    <p class="price">
+                        <strong class="fl">&yen;&nbsp;299</strong>
+                            <span class="fl">
+                                <em><i class="line"></i><i>&yen;380</i></em>
+                                <em>省&yen;81</em>
+                            </span>
+                    </p>
+
+                    <p class="percent">
+                        <span class="bar" style="width: 82%;">已抢购82%</span>
+                    </p>
+
+                    <p class="btn"><a href="#" class="w-btn">立即抢购</a></p>
+                </div>
+            </div>
+            <div class="item">
+                <div class="view-img">
+                    <a href="#"><img src="../res/case/seckill290x290.jpg"/></a>
+                        <span class="clock">
+                            距离结束00:45:20
+                        </span>
+                </div>
+                <div class="cont">
+                    <p class="desc fz28">养颜级保湿</p>
+
+                    <p class="name">法国France玫瑰纯露喷雾</p>
+
+                    <p class="price">
+                        <strong class="fl">&yen;&nbsp;299</strong>
+                            <span class="fl">
+                                <em><i class="line"></i><i>&yen;380</i></em>
+                                <em>省&yen;81</em>
+                            </span>
+                    </p>
+
+                    <p class="percent">
+                        <span class="bar" style="width: 82%;">已抢购82%</span>
+                    </p>
+
+                    <p class="btn"><a href="#" class="w-btn">立即抢购</a></p>
+                </div>
+            </div>
+            <%}%>
+        </div>
+        <%}%>
+    </article>
+
+
+
+</div>
+
+</body>
+</html>

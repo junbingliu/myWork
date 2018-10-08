@@ -1,0 +1,6 @@
+{
+    "libs_namespace": "merchantOrderExportFieldsMgt",
+    "libs": ["service/OrderExportFieldsService.jsx"],
+    "obj_prefixes": ["merchantOrderExportFieldsMgtObj"],
+    "list_prefixes": ["merchantOrderExportFieldsMgtList"]
+}

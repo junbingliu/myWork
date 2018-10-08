@@ -1,0 +1,78 @@
+{
+    "libs_namespace": "wsLogin",
+    "libs": ["service/service.jsx"],
+    "obj_prefixes": ["scanObj"],
+    "appEditor":{"enabled":true},
+    "renderEngine":"artTemplate",
+    "pages" : [
+        {"url":"/openlogin/bind.html","name":"绑定页","pageId":"bind","template":"pages/bind.html","dataProcessor":"@processes/bind_process.jsx",
+            "initData":[
+              {"dataId":"config.title","dataValue":{"name":"网站标题","value":""},"dataSpec":{"id":"config.title","type":"string"}},
+              {"dataId":"config.keywords","dataValue":{"name":"网站关键字","value":""},"dataSpec":{"id":"config.keywords","type":"string"}},
+              {"dataId":"config.description","dataValue":{"name":"网站描述","value":""},"dataSpec":{"id":"config.description","type":"string"}},
+                {"dataId":"config.msgInterval","dataValue":{"name":"每次获取短信验证码间隔时间(秒)","value":"120"},"dataSpec":{"id":"config.msgInterval","type":"string"}},
+              {"dataId":"config.accessValidate","dataValue":{"name":"第三方接入验证代码","value":""},"dataSpec":{"id":"config.accessValidate","type":"string"}},
+              {"dataId":"config.cacheControlTime","dataValue":{"name":"浏览器缓存时间（秒）","value":"2592000"},"dataSpec":{"id":"config.cacheControlTime","type":"string"}}
+            ]
+        },
+        {"url":"/login/sign_in.jsp","name":"登陆页","pageId":"login","template":"pages/login.html","dataProcessor":"@processes/login_process.jsx",
+            "initData":[
+                {"dataId":"config.title","dataValue":{"name":"网站标题","value":""},"dataSpec":{"id":"config.title","type":"string"}},
+                {"dataId":"config.keywords","dataValue":{"name":"网站关键字","value":""},"dataSpec":{"id":"config.keywords","type":"string"}},
+                {"dataId":"config.description","dataValue":{"name":"网站描述","value":""},"dataSpec":{"id":"config.description","type":"string"}},
+                {"dataId":"config.msgInterval","dataValue":{"name":"每次获取短信验证码间隔时间(秒)","value":"120"},"dataSpec":{"id":"config.msgInterval","type":"string"}},
+                {"dataId":"config.accessValidate","dataValue":{"name":"第三方接入验证代码","value":""},"dataSpec":{"id":"config.accessValidate","type":"string"}},
+                {"dataId":"config.cacheControlTime","dataValue":{"name":"浏览器缓存时间（秒）","value":"2592000"},"dataSpec":{"id":"config.cacheControlTime","type":"string"}}
+            ]
+        },
+        {"url":"/login/register.jsp","name":"注册页","pageId":"register","template":"pages/register.html","dataProcessor":"@processes/register_process.jsx",
+            "initData":[
+                {"dataId":"config.title","dataValue":{"name":"网站标题","value":""},"dataSpec":{"id":"config.title","type":"string"}},
+                {"dataId":"config.keywords","dataValue":{"name":"网站关键字","value":""},"dataSpec":{"id":"config.keywords","type":"string"}},
+                {"dataId":"config.description","dataValue":{"name":"网站描述","value":""},"dataSpec":{"id":"config.description","type":"string"}},
+                {"dataId":"config.msgInterval","dataValue":{"name":"每次获取短信验证码间隔时间(秒)","value":"120"},"dataSpec":{"id":"config.msgInterval","type":"string"}},
+                {"dataId":"config.accessValidate","dataValue":{"name":"第三方接入验证代码","value":""},"dataSpec":{"id":"config.accessValidate","type":"string"}},
+                {"dataId":"config.cacheControlTime","dataValue":{"name":"浏览器缓存时间（秒）","value":"2592000"},"dataSpec":{"id":"config.cacheControlTime","type":"string"}}
+            ]
+        }
+    ],
+    "templates" : [
+        {"template":"pages/bind.html","name":"绑定页","description":"手机号码绑定页面。","dataProcessor":"@processes/bind_process.jsx",
+            "initData":[
+                {"dataId":"config.title","dataValue":{"name":"网站标题","value":""},"dataSpec":{"id":"config.title","type":"string"}},
+                {"dataId":"config.keywords","dataValue":{"name":"网站关键字","value":""},"dataSpec":{"id":"config.keywords","type":"string"}},
+                {"dataId":"config.description","dataValue":{"name":"网站描述","value":""},"dataSpec":{"id":"config.description","type":"string"}},
+                {"dataId":"config.accessValidate","dataValue":{"name":"第三方接入验证代码","value":""},"dataSpec":{"id":"config.accessValidate","type":"string"}},
+                {"dataId":"config.cacheControlTime","dataValue":{"name":"浏览器缓存时间（秒）","value":"3600"},"dataSpec":{"id":"config.cacheControlTime","type":"string"}}
+            ]
+        },
+        {"template":"pages/login.html","name":"登陆页","description":"复杂的页面，可以作为首页，频道页等。","dataProcessor":"@processes/login_process.jsx",
+            "initData":[
+                {"dataId":"config.title","dataValue":{"name":"网站标题","value":""},"dataSpec":{"id":"config.title","type":"string"}},
+                {"dataId":"config.keywords","dataValue":{"name":"网站关键字","value":""},"dataSpec":{"id":"config.keywords","type":"string"}},
+                {"dataId":"config.description","dataValue":{"name":"网站描述","value":""},"dataSpec":{"id":"config.description","type":"string"}},
+                {"dataId":"config.accessValidate","dataValue":{"name":"第三方接入验证代码","value":""},"dataSpec":{"id":"config.accessValidate","type":"string"}},
+                {"dataId":"config.cacheControlTime","dataValue":{"name":"浏览器缓存时间（秒）","value":"3600"},"dataSpec":{"id":"config.cacheControlTime","type":"string"}}
+            ]
+        },
+        {"template":"pages/register.html","name":"注册页","description":"复杂的页面，可以作为首页，频道页等。","dataProcessor":"@processes/register_process.jsx",
+            "initData":[
+                {"dataId":"config.title","dataValue":{"name":"网站标题","value":""},"dataSpec":{"id":"config.title","type":"string"}},
+                {"dataId":"config.keywords","dataValue":{"name":"网站关键字","value":""},"dataSpec":{"id":"config.keywords","type":"string"}},
+                {"dataId":"config.msgInterval","dataValue":{"name":"每次获取短信验证码间隔时间(秒)","value":"120"},"dataSpec":{"id":"config.msgInterval","type":"string"}},
+                {"dataId":"config.description","dataValue":{"name":"网站描述","value":""},"dataSpec":{"id":"config.description","type":"string"}},
+                {"dataId":"config.accessValidate","dataValue":{"name":"第三方接入验证代码","value":""},"dataSpec":{"id":"config.accessValidate","type":"string"}},
+                {"dataId":"config.cacheControlTime","dataValue":{"name":"浏览器缓存时间（秒）","value":"3600"},"dataSpec":{"id":"config.cacheControlTime","type":"string"}}
+            ]
+        }
+    ],
+    "rules":[{
+        "id":"fullControl",
+        "name":"完全控制",
+        "pattern":".*"
+    },{
+        "id":"readOnly",
+        "name":"查看权限",
+        "pattern":"(pages/viewAppPrivilege/.*)|(pages/viewUserPrivilege/.*)|(pages/home.jsx)"
+    }]
+}

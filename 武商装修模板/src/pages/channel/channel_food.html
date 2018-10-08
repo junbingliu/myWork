@@ -1,0 +1,146 @@
+//#import ../header_secondary_page.html
+
+<link href="../res/style/channel_food.css" rel="stylesheet">
+<div class="banner">
+    <ul class="pic" id="slide_adv">
+        {{for(var i=1; i<=5; i++){ }}
+        {{var dataId="bigAdvTab" + i; var data=it[dataId];if(!data){data = {} }; }}
+        {{?data.recommendImg && data.recommendImg.imgUrl}}
+            <li id="{{=dataId}}"  data-type="imgLink" data-id="{{=dataId}}.recommendImg" data-height="300" imgSize="1920x" style="background-image:url({{=data.recommendImg.imgUrl}});height:{{=data.recommendImg.description}} ">
+                <a href="{{=data.recommendImg.imgLinkTo}}" style="height:{{=data.recommendImg.description}} "> </a>
+            </li>
+        {{??}}
+            <li id="{{=dataId}}" data-type="imgLink" data-id="{{=dataId}}.recommendImg" data-height="300" imgSize="1920x" style="background-image:url(http://img2.wushang.com/img/2017/3/23/134203369532507398071640.jpg);">
+                <a  href="#" ></a>
+            </li>
+        {{?}}
+        {{ } }}
+    </ul>
+    <div class="num">
+        <p data-type="tabs" data-id="bigAdvTab">
+            {{?it.bigAdvTab}}
+            {{=it.bigAdvTab}}
+            {{??}}
+              <span>
+                  <b class="cur" tab-target="bigAdvTab1"></b>
+                  <b tab-target="bigAdvTab2"></b>
+                  <b tab-target="bigAdvTab3"></b>
+                  <b tab-target="bigAdvTab4"></b>
+                  <b tab-target="bigAdvTab5"></b>
+              </span>
+            {{?}}
+            </p>
+    </div>
+</div>
+
+{{?it.config&&it.config.levelNum&&it.config.levelNum.value.indexOf("A")>-1}}
+{{?it.itemA_bg && it.itemA_bg.content }}
+<div class="wrap" data-height="20" data-type="textLink" data-id="itemA_bg" style="background:{{=it.itemA_bg.content}};">
+{{??}}
+<div class="wrap" data-height="20" data-type="textLink" data-id="itemA_bg">
+    {{?}}
+    <div class="box1200" id="itemA" data-id="itemA" data-type="imgLinkList" imgSize="楼层A,图片区域，随机尺寸">
+        <ul class="imgAdd">
+            {{?it.itemA && it.itemA.length>0 }}
+            {{~it.itemA:value:index}}
+            {{?value.linkTo==""}}
+            <li id="{{=('itemA'+(index+1))}}"><img src="{{=value.imgUrl}}"></li>
+            {{??value.description!="" }}
+            <li id="{{=('itemA'+(index+1))}}"><a target="{{=value.openInNewPage}}" href="{{=value.linkTo}}"><img src="{{=value.imgUrl}}"><p>{{=value.description}}</p></a></li>
+            {{??}}
+            <li id="{{=('itemA'+(index+1))}}"><a target="{{=value.openInNewPage}}" href="{{=value.linkTo}}"><img src="{{=value.imgUrl}}"></a></li>
+            {{?}}
+            {{~}}
+            {{??}}
+            <li><a href="#" target="_blank"><img src="../res/images/adv.gif" width="1200" height="50"></a></li>
+            {{?}}
+        </ul>
+    </div>
+</div>
+{{?}}
+
+{{?it.config && it.config.levelNum && it.config.levelNum.value.length >0}}
+{{var floors=it.config.levelNum.value.split(",");}}
+{{for(var i=0;i < floors.length;i++){}}
+{{?floors[i]!="0" && floors[i]!="A"}}
+{{var f=parseInt(floors[i]);}}
+<div class="box1200">
+    <div class="floor_t">
+  {{var floor_tId="floor_t"+f; var floor_t=it[floor_tId];var floor_ttId="floor_tt"+f; var floor_tt=it[floor_ttId];}}
+    <p data-type="textLinkList" data-id="{{=floor_tId}}">
+        {{?floor_t && floor_t.length>0}}
+        {{~floor_t:value:index}}
+        {{=value.content}}
+        {{~}}
+        {{??}}
+        食品酒水
+        {{?}}
+	</p>
+	<h3 data-type="textLinkList" data-id="{{=floor_ttId}}">
+            {{?floor_tt && floor_tt.length>0}}
+            {{~floor_tt:value:index}}
+            <a target="_blank" href="{{=value.linkTo}}">{{=value.content}}</a>
+            {{~}}
+            {{??}}
+            <a href="#">品牌</a>
+            <a href="#">品牌</a>
+            <a href="#">品牌</a>
+            <a href="#">品牌</a>
+            <a href="#">品牌</a>
+            <a href="#">品牌</a>
+            <a href="#">品牌</a>
+            {{?}}
+    </h3>
+  </div>
+    {{var floor_contentId="floor_content"+f; var floor_content=it[floor_contentId]; }}
+        {{?floor_content && floor_content.content }}
+    <div class="floor_content"  data-height="20" data-type="textLink" data-id="{{=floor_contentId}}" style="background:{{=floor_content.content}};">
+        {{??}}
+        <div class="floor_content"  data-height="20" data-type="textLink" data-id="{{=floor_contentId}}">
+        {{?}}
+        {{var floor_lId="floor_l"+f; var floor_l=it[floor_lId];var floor_mId="floor_m"+f; var floor_m=it[floor_mId];var floor_rId="floor_r"+f; var floor_r=it[floor_rId]; }}
+        <div class="floor_l" data-type="imgLink" data-id="{{=floor_lId}}" imgSize="260X500">
+            {{?floor_l && floor_l.imgUrl}}
+            <a href="{{=floor_l.imgLinkTo}}"><img src="{{=floor_l.imgUrl}}" alt="{{=floor_l.description}}" title="{{=floor_l.description}}" width="260" height="500" /></a>
+            {{??}}
+            <img src="http://219.140.62.244/img/2017/4/1/21402725160586832836639.png" alt="" title="" width="260" height="500">
+            {{?}}
+        </div>
+        <div class="floor_m" data-type="productGroup" data-id="{{=floor_mId}}" data-spec="160X160">
+            <ul>
+            {{?floor_m && floor_m.length>0}}
+            {{~floor_m:value:index}}
+            <li>
+                <a target="_blank" href="/product.jsp?id={{=value.id}}">
+                <div class="pic"><img src="{{=value.imgUrl}}" alt="{{=value.name}}" title="{{=value.name}}"></div>
+                <div class="title"><a target="_blank" href="/product.jsp?id={{=value.id}}">{{=value.name}}</a></div>
+                <div class="mp"><h1>&yen</h1><h2>{{=value.memberPrice}}</h2><div class="bnt"><img src="http://219.140.62.244/img/2017/4/1/21402844372959902799494.png" ></div></div>
+                </a>
+            </li>
+            {{~}}
+            {{??}}
+                <li><a target="_blank" href="/product.jsp?id=p_870016"><div class="pic"><img src="http://219.140.62.244/img/2016/12/20/20200061177061254396995_160X160.jpg" alt="澳洲镶花款Pt950铂金钻石戒指" title="澳洲镶花款Pt950铂金钻石戒指"></div></a><div class="title"><a target="_blank" href="/product.jsp?id=p_870016"></a><a target="_blank" href="/product.jsp?id=p_870016">澳洲镶花款Pt950铂金钻石戒指</a></div><div class="mp"><h1>¥</h1><h2>9999.00</h2><div class="bnt"><img src="http://219.140.62.244/img/2017/4/1/21402844372959902799494.png"></div></div></li>
+            {{?}}
+            </ul>
+        </div>
+        <div class="floor_r" data-type="imgLinkList" data-id="{{=floor_rId}}" imgSize="180*226">
+          {{?floor_r && floor_r.length>0}}
+            {{~floor_r:value:index}}
+          <a href="{{=value.linkTo}}"><img src="{{=value.imgUrl}}" /></a>
+            {{~}}
+          {{??}}
+            <a href=""><img src="http://219.140.62.244/img/2017/4/1/21402735072238760937544.png"></a>
+            <a href=""><img src="http://219.140.62.244/img/2017/4/1/21402735072238760937544.png"></a>
+          {{?}}
+        </div>
+	</div>
+</div>
+{{?}}
+{{ } }}
+{{?}}
+<!--end page-->
+{{?it.productionMode}}
+{{=$.importUrl("/defaultFooter.html?m=head_merchant&productionMode=true")}}
+{{??}}
+{{=$.importUrl("/defaultFooter.html?m=head_merchant&productionMode=false")}}
+{{?}}

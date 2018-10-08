@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>定制套餐</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <link href="../res/style/style1.css" rel="stylesheet"/>
+</head>
+
+<body class="bd_bg">
+<div class="wrapper" style="padding-bottom: 60px;">
+
+    <div class="newHead-bar">
+        <header class="new_head">
+            <div class="new_fl"><a href="#" class="s_back"><span>返回</span></a></div>
+            <div class="new_midKey">
+                <h2 class="midKey">定制套餐</h2>
+            </div>
+            <div class="new_fr">
+                <span class="b-txt">户型</span>
+            </div>
+        </header>
+    </div>
+
+    <article class="row-top">
+        <div class="banner-slide">
+            <div class="slide-pic"  data-type="imgLinkList" data-id="rotate" imgSize="640x400" data-spec="640X400">
+                <%if(rotate && rotate.length>0){%>
+                <%if(!productionMode){%>
+                <div class="pic" style="display: block;">
+                    <a href="<%=rotate[0].linkTo%>" target="<%=rotate[0].openInNewPage%>">
+                        <img src="<%=rotate[0].imgUrl%>" class="half_img" width="640" height="400">
+                    </a>
+                </div>
+                <%}else{%>
+                <%for(var i=0;i < rotate.length;i++){%>
+                <%var value=rotate[i];%>
+
+                    <div class="pic" style="display: block;">
+                        <a href="<%=value.linkTo%>" target="<%=value.openInNewPage%>">
+                            <img src="<%=value.imgUrl%>" class="half_img">
+                        </a>
+                        </div>
+                <%}%>
+                <%}%>
+                <%}else{%>
+                <div class="pic"style="display: block;"><a href="#"><img src="../res/case/combin640x300.jpg" class="half_img"></a></div>
+                <div class="pic"><a href="#"><img src="../res/case/combin640x300.jpg" class="half_img"></a></div>
+                <div class="pic"><a href="#"><img src="../res/case/combin640x300.jpg" class="half_img"></a></div>
+                <%}%>
+
+            </div>
+            <div class="slide-nav">
+
+                <%if(rotate && rotate.length>0){%>
+                <%for(var i=0;i < rotate.length;i++){%>
+                <%if(i==0){%>
+                <span class="dot active"></span>
+                <%}else{%>
+                <span class="dot"></span>
+                <%}%>
+                <%}%>
+                <%}else{%>
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <%}%>
+            </div>
+        </div>
+
+        <div class="combin-tabs mt10"  data-type="textLinkList" data-id="combin" >
+            <ul>
+                <%if(combin && combin.length>0){%>
+                <%for(var i=0;i < combin.length;i++){%>
+                <%var value=combin[i];%>
+                <li>
+                    <span class="tab"><%=value.content%></span>
+                </li>
+                <%}%>
+                <%}else{%>
+                <li class="active">
+                    <span class="tab">定制家具 </span>
+                </li>
+                <li>
+                    <span class="tab">定制家电</span>
+                </li>
+                <li>
+                    <span class="tab">定制窗帘 </span>
+                </li>
+                <li>
+                    <span class="tab">精选床品  </span>
+                </li>
+                <%}%>
+            </ul>
+        </div>
+
+        <div class="listSort-tab">
+            <ul>
+                <li >
+                    <span class="tab">默认</span>
+                </li>
+                <li>
+                    <span class="tab">销量</span>
+                </li>
+                <li class="active">
+                    <span class="tab"><em>价格</em><i class="ico-high"></i></span> <!--点击时图标样式切换为 ico-low-->
+                </li>
+            </ul>
+        </div>
+
+        <div class="combin-list">
+            <ul>
+                <li class="item">
+                    <div class="view-img">
+                        <a href="#"><img src="../res/case/combin600x400.jpg" class="half_img"></a>
+                    </div>
+                    <div class="bottom">
+                        <div class="name">
+                            <p>简约小户型布艺沙发</p>
+                        </div>
+                        <p class="price"><em>恒大价：</em><strong>&yen;5179.00</strong></p>
+                        <p class="price"><em>市场价：</em><del>&yen;00.00</del>
+                        </p>
+                        <a href="#" class="buy m_btn">立即购买</a>
+                    </div>
+                </li>
+                <li class="item">
+                    <div class="view-img">
+                        <a href="#"><img src="../res/case/combin600x400.jpg" class="half_img"></a>
+                    </div>
+                    <div class="bottom">
+                        <div class="name">
+                            <p>简约小户型布艺沙发</p>
+                        </div>
+                        <p class="price"><em>恒大价：</em><strong>&yen;5179.00</strong></p>
+                        <p class="price"><em>市场价：</em><del>&yen;00.00</del>
+                        </p>
+                        <a href="#" class="buy m_btn">立即购买</a>
+                    </div>
+                </li>
+                <li class="item">
+                    <div class="view-img">
+                        <a href="#"><img src="../res/case/combin600x400.jpg" class="half_img"></a>
+                    </div>
+                    <div class="bottom">
+                        <div class="name">
+                            <p>简约小户型布艺沙发</p>
+                        </div>
+                        <p class="price"><em>恒大价：</em><strong>&yen;5179.00</strong></p>
+                        <p class="price"><em>市场价：</em><del>&yen;00.00</del>
+                        </p>
+                        <a href="#" class="buy m_btn">立即购买</a>
+                    </div>
+                </li>
+                <li class="item">
+                    <div class="view-img">
+                        <a href="#"><img src="../res/case/combin600x400.jpg" class="half_img"></a>
+                    </div>
+                    <div class="bottom">
+                        <div class="name">
+                            <p>简约小户型布艺沙发</p>
+                        </div>
+                        <p class="price"><em>恒大价：</em><strong>&yen;5179.00</strong></p>
+                        <p class="price"><em>市场价：</em><del>&yen;00.00</del>
+                        </p>
+                        <a href="#" class="buy m_btn">立即购买</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+    </article>
+
+</div>
+
+<footer class="home_footer">
+    <section class="foot_nav">
+        <ul>
+            <li>
+                <a href="" class="cur">
+                    <span class="fticon icon_home"></span>
+                    <span class="icon_name">首页</span>
+                </a>
+            </li>
+            <li>
+                <a href="" class="">
+                    <span class="fticon icon_fav"></span>
+                    <span class="icon_name">收藏</span>
+                    <div class="ftCount">20</div>
+                </a>
+
+            </li>
+            <li>
+                <a href="" class="">
+                    <span class="fticon icon_service"></span>
+                    <span class="icon_name">客服</span>
+                </a>
+            </li>
+            <li>
+                <a href="" class="">
+                    <span class="fticon icon_user"></span>
+                    <span class="icon_name">个人中心</span>
+                </a>
+            </li>
+
+        </ul>
+    </section>
+</footer>
+
+
+</body>
+</html>

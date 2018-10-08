@@ -1,0 +1,366 @@
+//#import ../header_secondary_page.html
+<link href="../res/style/live_service.css" rel="stylesheet">
+<i></i>  
+<div class="wbox">
+	<div class="mallCategory" categoryShow="{{=it.config&&it.config.showCategory&&it.config.showCategory.value||'F'}}">
+		<div class="mallSort" data-type='fcat' dataId="sortLayer_channel">
+			{{? it.sortLayer_channel}}
+			<div class="sort-m" style="display:block;">
+				<div class="sort" style="display:{{?it.config&&it.config.showCategory&&it.config.showCategory.value=='F'}}none{{??}}block{{?}};">
+					{{~it.sortLayer_channel.children:value:index}}
+					{{?index<7}}
+					<div class="item">
+						<h3><a target="_blank" href="{{=value.url}}">{{=value.name}}</a></h3><i>></i>
+						{{var dataId="hf" + index; var data=it[dataId]; }}
+						<p data-type="textLinkList" data-id="{{=dataId}}">
+							{{?data && data.length>0}}
+							{{~data:valuehf:indexhf}}
+							<a target="_blank" href="{{=valuehf.linkTo}}">{{=valuehf.content}}</a>
+							{{~}}
+							{{??}}
+							<a target="_blank">hf</a>
+							{{?}}
+						</p>
+					</div>
+					{{?}}
+					{{~}}
+			</div>
+			<div class="sort-two">
+				<!--第二层商品分类层-->
+				{{~it.sortLayer_channel.children:value:index}}
+				{{?value!=null}}
+				{{?value.children && value.children.length>0}}
+				<div class="sortLayer" style="display:none; opacity: 0.8;">
+					<div class="itemBg"></div>
+					{{~value.children:level2:index2}}
+					<div class="itemCon">
+						<div class="subMain">
+							<dl>
+								<dt><a target="_blank" href="{{=level2.url}}">{{=level2.name}}</a></dt>
+								<dd>
+									{{~level2.children:level3:index3}}
+									<a target="_blank" href="{{=level3.url}}">{{=level3.name}}</a>
+									{{~}}<!--level3-->
+								</dd>
+							</dl>
+						</div>
+					</div>
+					{{~}}                        </div>
+					{{?}}
+					{{?}}
+					{{~}}
+					<!--end 第二层商品分类层-->
+				</div>
+			</div>
+			{{??}}
+			<!--end 所有商品分类-->
+			<!--所有商品分类-->
+			<div class="sort" style="display:{{?it.config&&it.config.showCategory&&it.config.showCategory.value=='F'}}none{{??}}block{{?}};" data-type='fcat' dataId="header:cat_nav">
+
+				<div class="item">
+					<h3><a href="#">进口食品</a><s></s></h3>
+				</div>
+				<div class="item">
+					<h3><a href="#">食品饮料生鲜</a><s></s></h3>
+					<div class="sortLayer" style=" display:none; ">
+						<div class="itemCon">
+							<div class="subMain">
+								<dl>
+									<dt><a href="#">食品</a></dt>
+									<dd>
+										<a href="#">粮油</a>
+										<a href="#">厨房调味</a>
+										<a href="#">冲调品</a>
+										<a href="#">果汁饮料</a>
+										<a href="#">酒类 </a>
+										<a href="#">奶制品 </a>
+										<a href="#">母婴产品 </a>
+										<a href="#">休闲食品 </a>
+										<a href="#">饼干蛋糕 </a>
+										<a href="#">早餐产品 </a>
+										<a href="#">方便食品 </a>
+										<a href="#">茶品 </a>
+										<a href="#">进口食品 </a>                                        </dd>
+									</dl>
+							</div>
+						</div>
+
+						<div class="itemCon">
+							<div class="subMain">
+								<dl>
+									<dt><a href="#">日用百货</a></dt>
+									<dd>
+										<a href="#">粮油</a>
+										<a href="#">厨房调味</a>
+										<a href="#">冲调品</a>
+										<a href="#">果汁饮料</a>
+										<a href="#">酒类 </a>
+										<a href="#">奶制品 </a>
+										<a href="#">母婴产品 </a>
+										<a href="#">休闲食品 </a>
+										<a href="#">饼干蛋糕 </a>
+										<a href="#">早餐产品 </a>
+										<a href="#">方便食品 </a>
+										<a href="#">茶品 </a>
+										<a href="#">进口食品 </a>                                        </dd>
+									</dl>
+							</div>
+						</div>
+
+						<div class="itemCon">
+							<div class="subMain">
+								<dl>
+									<dt><a href="#">生鲜蔬果</a></dt>
+									<dd>
+										<a href="#">粮油</a>
+										<a href="#">厨房调味</a>
+										<a href="#">冲调品</a>
+										<a href="#">果汁饮料</a>
+										<a href="#">酒类 </a>
+										<a href="#">奶制品 </a>
+										<a href="#">母婴产品 </a>
+										<a href="#">休闲食品 </a>
+										<a href="#">饼干蛋糕 </a>
+										<a href="#">早餐产品 </a>
+										<a href="#">方便食品 </a>
+										<a href="#">茶品 </a>
+										<a href="#">进口食品 </a>                                        </dd>
+									</dl>
+							</div>
+						</div>
+
+						<div class="itemCon last">
+							<div class="subMain">
+								<dl>
+									<dt><a href="#">宠物食品、用品</a></dt>
+									<dd>
+										<a href="#">粮油</a>
+										<a href="#">厨房调味</a>
+										<a href="#">冲调品</a>
+										<a href="#">果汁饮料</a>
+										<a href="#">酒类 </a>
+										<a href="#">奶制品 </a>
+										<a href="#">母婴产品 </a>                                        </dd>
+								</dl>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--end 所有商品分类层-->
+				<div class="item">
+					<h3><a href="#">家居厨卫</a><s></s></h3>
+				</div>
+				<div class="item">
+					<h3><a href="#">国际精品</a><s></s></h3>
+				</div>
+				<div class="item">
+					<h3><a href="#">美容美妆</a><s></s></h3>
+				</div>
+				<div class="item">
+					<h3><a href="#">黄金珠宝</a><s></s></h3>
+				</div>
+				<div class="item">
+					<h3><a href="#">母婴童品</a><s></s></h3>
+				</div>
+				<div class="item">
+					<h3><a href="#">滋补保健</a><s></s></h3>
+				</div>
+				<div class="item">
+					<h3><a href="#">箱包鞋靴</a><s></s></h3>
+				</div>
+				<div class="item">
+					<h3><a href="#">男装女装</a><s></s></h3>
+				</div>
+				<div class="item">
+					<h3><a href="#">内衣配饰</a><s></s></h3>
+				</div>
+				<div class="item">
+					<h3><a href="#">运动户外</a><s></s></h3>
+				</div>
+				<div class="item last">
+					<h3><a href="#">餐饮娱乐</a><s></s></h3>
+				</div>
+			</div>
+			{{?}}
+			<!--end 所有商品分类-->
+		</div>
+	</div>
+	<div class="banner">
+		<ul class="pic" id="slide_adv" >
+			{{for(var i=1; i<=5; i++){ }}
+			{{var dataId="bigAdvTab" + i; var data=it[dataId];if(!data){data = {} }; }}
+			{{?data.recommendImg && data.recommendImg.imgUrl}}
+			<li id="{{=dataId}}" style="background:url({{=data.recommendImg.imgUrl}}) no-repeat center 0;display: none">
+				<div class="box">
+					<a class="large" target="_blank" href="{{=data.recommendImg.imgLinkTo}}" data-type="imgLink" data-id="{{=dataId}}.recommendImg" imgSize="750X400" data-height="370"></a>
+				</div>
+			</li>
+			{{??}}
+			<li id="{{=dataId}}" style="background:url(../res/adv.gif) no-repeat center 0;display: none">
+				<div class="box">
+					<a class="large" target="_blank" href="#" data-type="imgLink" data-id="{{=dataId}}.recommendImg" imgSize="750X400" data-height="370"></a>
+				</div>
+			</li>
+			{{?}}
+			{{ } }}
+		</ul>
+		<div class="num">
+			<p data-type="tabs" data-id="bigAdvTab" >
+				{{?it.bigAdvTab}}
+				{{=it.bigAdvTab}}
+				{{??}}
+				<span>
+					<b class="cur" tab-target="bigAdvTab1"></b>
+					<b tab-target="bigAdvTab2"></b>
+					<b tab-target="bigAdvTab3"></b>
+					<b tab-target="bigAdvTab4"></b>
+					<b tab-target="bigAdvTab5"></b>
+				</span>
+				{{?}}
+			</p>
+		</div>
+	</div>
+	<div class="banner_mini" data-type="imgLink" data-id="banner_mini" imgSize="230X400" >
+			{{?it.banner_mini&&it.banner_mini.imgUrl}}
+			<a href="{{=it.banner_mini.imgLinkTo}}" target="_blank"><img src="{{=it.banner_mini.imgUrl}}"></a>
+			{{??}}
+			<a href="#"><img src="../res/images/adv.gif"></a>
+			{{?}}
+	</div>
+</div>
+{{?it.config&&it.config.levelNum&&it.config.levelNum.value.indexOf("A")>-1}}
+<div class="wrapper">
+    <div class="sub-warp">
+        <div class="adv_imgL_D" data-type="imgLink" data-id="adv_imgL_D" data-height="40" imgSize="1200X40">
+            {{?it.adv_imgL_D && it.adv_imgL_D.imgUrl}}
+            <a href="{{=it.adv_imgL_D.imgLinkTo}}" target="_blank"><img src="{{=it.adv_imgL_D.imgUrl}}" alt="{{=it.adv_imgL_D.description}}" width="1200"/></a>
+            {{??}}
+            <a href="#"><img src="../res/images/adv.gif" width="1200"/></a>
+            {{?}}
+        </div>
+        <div class="recommend_list" data-type="productGroup" data-id="recommend_list"  data-height="200" data-spec="284X284" >
+                <ul>
+                    {{?it.recommend_list && it.recommend_list.length>0}}
+                    {{~it.recommend_list:value:index}}
+                    <li>
+                        <div class="pic"><a target="_blank" href="/product.jsp?id={{=value.id}}"><img src="{{=value.imgUrl}}" alt="{{=value.name}}" title="{{=value.name}}" /></a></div>
+                        <div class="name"><a target="_blank" href="/product.jsp?id={{=value.id}}">{{=value.name}}</a></div>
+                        {{var infor_id="infor"+index;var infor=it[infor_id];if(!infor){infor = {} }; }}
+                        <div class="sellP" data-type="textLink" data-id="{{=infor_id}}.sellP">
+                            {{? infor.sellP &&  infor.sellP.content }}
+                            <p>{{=infor.sellP.content}}</p>
+                            {{??}}
+                            <p>{{=value.sellingPoint}}</p>
+                            {{?}}
+                        </div>
+                        <div class="priebox">
+                            <span class="price">&yen;<b>{{=value.memberPrice}}</b></span>
+                        </div>
+                        <div class="sellN" data-type="textLink" data-id="{{=infor_id}}.sellN">
+                            {{? infor.sellN &&  infor.sellN.content }}
+                            <p>已售<span>{{=infor.sellN.content}}</span></p>
+                            {{??}}
+                            <p>已售<span>{{=value.salesAmount}}</span></p>
+                            {{?}}
+                        </div>
+                    </li>
+                    {{~}}
+                    {{??}}
+                    <li>
+                        <div class="pic"><a href="javascript:void(0);"><img src="../res/images/adv.gif"></a></div>
+                        <div class="title"><a href="javascript:void(0);">【回家送礼】东阿阿胶清仓促销 养生堂 祛斑焕白套装</a></div>
+                        <div class="price">&yen;&nbsp;119.00</div>
+                    </li>
+                    {{?}}
+                </ul>
+            </div>
+    </div>
+</div>
+{{?}}
+
+{{for(var i = 1; i <= 9; i++){}}
+{{?it.config&&it.config.levelNum&&it.config.levelNum.value.indexOf(''+i)>-1}}
+<div class="wbox floor">
+	<div class="floor_text">
+	    {{var f_title_h2Id="f_title_h2"+i; var f_title_h2=it[f_title_h2Id];if(!f_title_h2){f_title_h2 = {} }; }}
+	    <div class="f_title fl" data-type="textLink" data-id="{{=f_title_h2Id}}">
+		{{?f_title_h2 && f_title_h2.content }}
+		<h2>{{=f_title_h2.content}}</h2>
+		{{??}}
+		<h2>喂养用品</h2>
+		{{?}}
+	    </div>
+        <div class="f_title fr" data-type="textLink" data-id="{{=f_title_h2Id}}.p">
+            {{?f_title_h2.p && f_title_h2.p.content }}
+           <a href="{{=f_title_h2.p.linkTo}}" target="_blank"><h3>{{=f_title_h2.p.content}}</h3></a>
+            {{??}}
+            <h3>更多</h3>
+            {{?}}
+        </div>
+    </div>
+    <div class="wbox con">
+        {{var f_keywordId="f_keyword"+i; var f_keyword=it[f_keywordId];if(!f_keyword){f_keyword = {} }; }}
+        <div class="w260 fl">
+            <div class="text" data-id="{{=f_keywordId}}.text" data-type="imgLinkList" data-height="24">
+                <ul>
+                    {{?f_keyword.text && f_keyword.text.length > 0}}
+                    {{~f_keyword.text:value:index}}
+                    {{var textmore_id=f_keywordId+"tt"+index; var textmore=it[textmore_id]; }}
+                    <li><a href="{{=value.linkTo}}" target="_blank"><img src="{{=value.imgUrl}}" width="50" height="50" />{{=value.description}}</a>
+                    <div data-type="htmlSource" data-id="{{=textmore_id}}" class="texts">
+                        {{?textmore}}
+                        {{=textmore}}
+                        {{??}}
+                        <a href="#" target="_blank">小标题</a><a href="#">小标题</a><a href="#">小标题</a>
+                        {{?}}
+                    </div>
+                    </li>
+                    {{~}}
+                    {{??}}
+                    <li><a href="javascript:void(0);"><img src="../res/images/adv.gif" width="50" height="50"/>项链</a></li>
+                    {{?}}
+                </ul>
+            </div>
+            <div class="wsfc_adv_shareL" data-type="imgLink" data-id="{{=f_keywordId}}.fbanner" imgSize="270X">
+                {{?f_keyword.fbanner && f_keyword.fbanner.imgUrl }}
+                <a target="_blank" href="{{=f_keyword.fbanner.imgLinkTo}}">
+                    <img src="{{=f_keyword.fbanner.imgUrl}}"  alt="{{=f_keyword.fbanner.description}}" title="{{=f_keyword.fbanner.description}}" width="270" /></a>
+                {{??}}
+                <img src="../res/images/adv.gif" width="270" height="190" />
+                {{?}}
+            </div>
+        </div>
+        {{var f_prolistId="f_prolist"+i; var f_prolist=it[f_prolistId];}}
+        <ul class="f_prolist" data-type="productGroup" data-id="{{=f_prolistId}}" data-spec="220X220">
+            {{?f_prolist&&f_prolist.length>0}}
+            {{~f_prolist:value:index}}
+            {{?index<8}}
+            <li>
+                <a target="_blank" href="/product.jsp?id={{=value.id}}">
+                <div class="pic"><img src="{{=value.imgUrl}}" alt="{{=value.name}}"  title="{{=value.name}}" width="220"/></div>
+                <div class="title">{{=value.name}}</div>
+                <div class="price"><h2>&yen;{{=value.memberPrice}}<span>&yen;{{=value.marketPrice}}</span></h2></div>
+                </a>
+            </li>
+            {{??}}
+            {{?}}
+            {{~}}
+            {{??}}
+            <li>
+                <div class="pic"><a href="#"><img src="../res/images/adv.gif" width="220"></a></div>
+                <div class="title"><a href="#">优乐美奶茶(麦香味)80g/杯明星产品，重点推荐</a></div>
+                <div class="price">&yen;59.90</div>
+            </li>
+            {{?}}
+        </ul>
+    </div>
+</div>
+{{?}}
+{{ } }}
+
+<!--end page-->
+{{?it.productionMode}}
+{{=$.importUrl("/defaultFooter.html?m=head_merchant&productionMode=true")}}
+{{??}}
+{{=$.importUrl("/defaultFooter.html?m=head_merchant&productionMode=false")}}
+{{?}}

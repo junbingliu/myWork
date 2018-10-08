@@ -1,0 +1,60 @@
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<table class="table table-striped table-bordered table-over" id="record_table">
+    <thead>
+    <tr>
+        <th width="80px;"><input type="checkbox" id="selectAll"><label for="selectAll">全选</label></th>
+        <th width="100px;">内部ID</th>
+        <th width="160px;">标题</th>
+        <th width="250px;">内容</th>
+        <th width="160px;">联系方式</th>
+        <th width="80px;">反馈类型</th>
+        <th width="80px;">状态</th>
+        <th width="100px;">创建时间</th>
+        <th width="100px;">创建人</th>
+        <th width="260px;">操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{~it.recordList:value:index}}
+    <tr>
+        <td><input type="checkbox" name="test" data-a="{{=value.id}}"></td>
+        <td >{{=value.id}}</td>
+        <td >{{=value.title}}</td>
+        <td >{{=value.content}}</td>
+        <td >{{=value.contact}}</td>
+        <td >
+            {{? value.type == 'product'}}
+            <span class="label label-primary">产品问题</span>
+            {{?? value.type == 'pay'}}
+            <span class="label label-success">支付问题</span>
+            {{?? value.type == 'delivery'}}
+            <span class="label label-info">配送问题</span>
+            {{?? value.type == 'afterSale'}}
+            <span class="label label-warning">售后服务</span>
+            {{??}}
+            <span class="label label-default">其他</span>
+            {{?}}
+        </td>
+        <td >
+            {{? value.state == '1'}}
+            <span style="color: #0b70af">已处理</span>
+            {{??}}
+            已提交
+            {{?}}
+        </td>
+        <td >{{=value.formatCreateTime}}</td>
+        <td >{{=value.createUserName}}</td>
+        <td>
+            <a class="btn btn-info btn-sm" href="RecordDetail.jsx?id={{=value.id}}" target="_blank">详情</a>
+            <a class="btn btn-primary btn-sm doUpdate" href="javascript:;" data-a="{{=value.id}}">编辑</a>
+            <a class="btn btn-danger btn-sm delete" href="javascript:;" data-a="{{=value.id}}">删除</a>
+        </td>
+    </tr>
+    {{~}}
+    </tbody>
+</table>
+<div class="pagination_params" totalPages="{{=it.pageParams.totalPages}}"
+     currentPage="{{=it.pageParams.currentPage}}" totalRecords="{{=it.pageParams.totalRecords}}"
+     displayNum="{{=it.pageParams.displayNum}}" pageLimit="{{=it.pageParams.pageLimit}}"
+     recordType="{{=it.pageParams.recordType}}">
+</div>

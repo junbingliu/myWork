@@ -1,0 +1,36 @@
+@charset "utf-8";
+/* CSS Document */
+/*error*/
+.wbox_error{width:990px; margin:0 auto;clear:both;}
+.wbox_error:after { content:"."; display:block; height:0; clear:both; visibility:hidden; }
+.wbox_error { display:inline-block; }/* Hides from IE-mac \*/
+* html .wbox_error { zoom:1; }
+.wbox_error { display:block; }/* End hide from IE-mac */
+
+
+
+.error_top{height:185px; float:left; position:relative; padding:50px 0px 0px 0px;}
+.error_top .left{width:300px; float:left; position:relative; overflow:hidden;}
+.error_top .right{width:690px; float:left; position:relative;}
+.error_top .textstyle{float:left; position:relative; padding:30px 0px 0px 30px;}
+.error_top .textstyle h2{font-size:18px; color:#333; font-family:microsoft yahei; font-weight:bold; line-height:30px; padding:0px 0px 30px 0px;}
+.error_top .textstyle h3{font-size:12px; color:#333; font-family:"宋体"; font-weight:normal; line-height:18px; padding:0px 0px 15px 0px;}
+.error_top .textstyle h4 a{font-size:12px; color:#00b5be; font-family:"宋体"; font-weight:normal;}
+.error_top .textstyle h4 a:hover{text-decoration:none; color:#f80;}
+
+.error_cbanner{float:left; overflow:hidden;}
+
+.floor{padding-top:10px;}
+.floor_list{float:left;width:1030px;overflow:hidden;}
+.floor_list ul{float:left; width:100%}
+.floor_list li{float:left;width:200px;padding-top:10px;}
+.floor_list .pic{width:180px;height:180px;overflow:hidden;margin:0 auto;}
+.floor_list .title{width:160px;margin:4px auto 0 auto;height:36px;line-height:18px;overflow:hidden;}
+.floor_list .price{width:160px;margin:2px auto 0 auto;font-weight:bold;color:#e60000;font-size:14px;height:18px;line-height:18px;overflow:hidden;}
+
+
+
+
+
+
+/*end error*/

@@ -1,0 +1,441 @@
+<%if(!productionMode){%>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>首页</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+    <link href="../res/style/style.css" rel="stylesheet"/>
+</head>
+<%}%>
+
+<body class="bd_bg">
+
+<div class="wrapper">
+
+    <header class="home_head">
+        <a href="#" class="h-logo"></a>
+
+        <div class="putbox">
+            <div class="put"><i class="sea"></i><input type="text" placeholder="想要啥，你就搜 "></div>
+        </div>
+        <a href="#" class=" cate">
+            <i></i>分类
+        </a>
+    </header>
+
+
+    <section class="home_rotate">
+        <div class="rimg">
+            <ul data-type="imgLinkList" data-id="rotate" imgSize="640x400" data-spec="640X400">
+                <%if(rotate && rotate.length>0){%>
+                <%if(!productionMode){%>
+                <li>
+                    <a href="<%=rotate[0].linkTo%>" target="<%=rotate[0].openInNewPage%>">
+                        <img src="<%=rotate[0].imgUrl%>" class="half_img" width="640" height="400">
+                    </a>
+                </li>
+                <%}else{%>
+                <%for(var i=0;i < rotate.length;i++){%>
+                <%var value=rotate[i];%>
+                <li>
+                    <a href="<%=value.linkTo%>" target="<%=value.openInNewPage%>">
+                        <img src="<%=value.imgUrl%>" class="half_img">
+                    </a>
+                </li>
+                <%}%>
+                <%}%>
+                <%}else{%>
+                <li>
+                    <a href="#"><img src="../res/case/640x400.jpg" class="half_img"></a>
+                </li>
+                <%}%>
+            </ul>
+        </div>
+        <ul class="rstate tbl_type">
+            <%if(rotate && rotate.length>0){%>
+            <%for(var i=0;i < rotate.length;i++){%>
+            <%if(i==0){%>
+            <li class="active"></li>
+            <%}else{%>
+            <li></li>
+            <%}%>
+            <%}%>
+            <%}else{%>
+            <li></li>
+            <li></li>
+            <li class="active"></li>
+            <li></li>
+            <li></li>
+            <%}%>
+        </ul>
+    </section>
+
+    <section class="home_cate">
+        <div class="">
+            <ul class="flex" data-type="imgLinkList" data-id="cateList" imgSize="40X40">
+                <%if(cateList && cateList.length>0){
+                for(var i=0;i < cateList.length;i++){
+                var value=cateList[i];
+                if(i<4){%>
+                <li>
+                    <a href="<%=value.linkTo%>" target="<%=value.openInNewPage%>">
+                        <span class="icon"><img src="<%=value.imgUrl%>" width="40" height="40"></span>
+                        <span class="name"><%=value.description%></span>
+                    </a>
+                </li>
+                <%}}}else{%>
+                <li>
+                    <a href="#">
+                        <span class="icon"><img src="../res/case/ico40x40@2x.png" width="40" height="40"></span>
+                        <span class="name">精选搭配</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon"><img src="../res/case/ico40x40_2@2x.png" width="40" height="40"></span>
+                        <span class="name">单品选购</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon"><img src="../res/case/ico40x40_3@2x.png" width="40" height="40"></span>
+                        <span class="name">我的订单</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon"><img src="../res/case/ico40x40_4@2x.png" width="40" height="40"></span>
+                        <span class="name">购物车</span>
+                    </a>
+                </li>
+                <%}%>
+
+            </ul>
+        </div>
+    </section>
+
+
+    <div class="home_floor">
+        <div class="hd" data-type="htmlSource" data-id="floor1">
+            <%if(floor1){%>
+            <%=#floor1%>
+            <%}else{%>
+            <p class="title">Hot! 精选搭配</p>
+
+            <p class="summy">"&nbsp;最省钱的套餐，最高效，最放心&nbsp;"</p>
+            <%}%>
+        </div>
+        <div class="bd">
+            <div class="combin home_rotate">
+                <div class="rimg" data-type="imgLinkList" data-id="combin1" imgSize="300X150" data-spec="300X150" >
+                    <ul>
+                        <%if(combin1 && combin1.length>0){
+                        if(!productionMode){%>
+                        <li>
+                            <a href="<%=combin1[0].linkTo%>" target="<%=combin1[0].openInNewPage%>">
+                                <img src="<%=combin1[0].imgUrl%>" class="half_img" width="300" height="150"></a>
+                        </li>
+                        <%}else{
+                        for(var i=0;i < combin1.length;i++){
+                        var value=combin1[i];%>
+                        <li>
+                            <a href="<%=value.linkTo%>" target="<%=value.openInNewPage%>">
+                                <img src="<%=value.imgUrl%>" class="half_img" width="300" height="150">
+                            </a>
+                        </li>
+                        <%}%>
+                        <%}%>
+                        <%}else{%>
+                        <li>
+                            <a href="#"><img src="../res/case/adv620x300.jpg" class="half_img" width="300" height="150"></a>
+                        </li>
+                        <%}%>
+                    </ul>
+                </div>
+                <ul class="rstate tbl_type">
+                    <%if(combin1 && combin1.length>0){
+                    for(var i=0;i < combin1.length;i++){
+                    if(i==0){%>
+                    <li class="active"></li>
+                    <%}else{%>
+                    <li></li>
+                    <%}%>
+                    <%}%>
+                    <%}else{%>
+                    <li></li>
+                    <li></li>
+                    <li class="active"></li>
+                    <li></li>
+                    <li></li>
+                    <%}%>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="home_floor">
+        <div class="hd" data-type="htmlSource" data-id="home2">
+            <%if(home2){%>
+            <%=#home2%>
+            <%}else{%>
+            <p class="title">Hit! 精品家具</p>
+
+            <p class="summy">"&nbsp;流畅的线条，极致的简约，接近自然原始生态美&nbsp;"</p>
+            <%}%>
+        </div>
+        <div class="bd">
+            <div class="floor-mod">
+                <ul>
+                    <li data-id="item0" data-type="imgLink" imgSize="310x310">
+                        <%if(item0 && item0.imgUrl){%>
+                        <a href="<%=item0.linkTo%>" target="<%=item0.openInNewPage%>"><img src="<%=item0.imgUrl%>"
+                                                                                           class="half_img" width="310"
+                                                                                           height="310"></a>
+                        <%}else{%>
+                        <a href="#"><img src="../res/case/310x310.jpg" class="half_img"></a>
+                        <%}%>
+                    </li>
+                    <li>
+                        <div>
+                            <dl class="tbl_type" data-type="imgLinkList" data-id="item1" imgSize="150X150">
+                                <%if(item1 && item1.length>0){
+                                for(var i=0;i< item1.length;i++){
+                                var value=item1[i];
+                                if(i<2){%>
+                                <dd class="tbl_cell"><a href="<%=value.linkTo%>" target="<%=value.openInNewPage%>"
+                                                        class="hot-item-<%=i%>"><img src="<%=value.imgUrl%>"
+                                                                                 class="half_img" width="150"
+                                                                                 height="150"></a></dd>
+                                <%}}}else{%>
+                                <dd class="tbl_cell"><a href="#" class="hot-item-0"><img src="../res/case/150x150.jpg"
+                                                                                         class="half_img"></a>
+                                </dd>
+                                <dd class="tbl_cell"><a href="#" class="hot-item-1"><img src="../res/case/150x150.jpg"
+                                                                                         class="half_img"></a>
+                                </dd>
+                                <%}%>
+                            </dl>
+                            <dl class="tbl_type" data-type="imgLinkList" data-id="item2" imgSize="150X150">
+                                <%if(item2 && item2.length>0){
+                                for(var i=0;i< item2.length;i++){
+                                var value=item2[i];
+                                if(i<2){%>
+                                <dd class="tbl_cell"><a href="<%=value.linkTo%>" target="<%=value.openInNewPage%>"
+                                                        class="hot-item-<%=i+2%>"><img src="<%=value.imgUrl%>"
+                                                                                   class="half_img" width="150"
+                                                                                   height="150"></a></dd>
+                                <%}}}else{%>
+                                <dd class="tbl_cell"><a href="#" class="hot-item-2"><img src="../res/case/150x150.jpg"
+                                                                                         class="half_img"></a>
+                                </dd>
+                                <dd class="tbl_cell"><a href="#" class="hot-item-3"><img src="../res/case/150x150.jpg"
+                                                                                         class="half_img"></a>
+                                </dd>
+                                <%}%>
+                            </dl>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="home_floor">
+        <div class="hd" data-type="htmlSource" data-id="home3">
+            <%if(home3){%>
+            <%=#home3%>
+            <%}else{%>
+            <p class="title">Hot! 温馨家纺</p>
+
+            <p class="summy">"&nbsp;回归恬静和温暖，给你家的感觉&nbsp;"</p>
+            <%}%>
+        </div>
+        <div class="bd">
+            <div class="floor-mod">
+                <ul>
+                    <li>
+                        <div>
+                            <dl class="tbl_type" data-type="imgLinkList" data-id="hotItem1" imgSize="150X150">
+                                <%if(hotItem1 && hotItem1.length>0){
+                                for(var i=0;i< hotItem1.length;i++){
+                                var value=hotItem1[i];
+                                if(i<2){%>
+                                <dd class="tbl_cell">
+                                    <a href="<%=value.linkTo%>" target="<%=value.openInNewPage%>"
+                                       class="hot-item-<%=i%>"><img src="<%=value.imgUrl%>" class="half_img" width="150"
+                                                                    height="150">
+                                    </a>
+                                </dd>
+                                <%}%>
+                                <%}}else{%>
+                                <dd class="tbl_cell"><a href="#" class="hot-item-0"><img src="../res/case/150x150.jpg"
+                                                                                         class="half_img"></a>
+                                </dd>
+                                <dd class="tbl_cell"><a href="#" class="hot-item-1"><img src="../res/case/150x150.jpg"
+                                                                                         class="half_img"></a>
+                                </dd>
+                                <%}%>
+                            </dl>
+                            <dl class="tbl_type" class="tbl_type" data-type="imgLinkList" data-id="hotItem2"
+                                imgSize="150X150">
+                                <%if(hotItem2 && hotItem2.length>0){
+                                for(var i=0;i< hotItem2.length;i++){
+                                var value=hotItem2[i];
+                                if(i<2){%>
+                                <dd class="tbl_cell">
+                                    <a href="<%=value.linkTo%>" target="<%=value.openInNewPage%>"
+                                       class="hot-item-<%=i+2%>"><img src="<%=value.imgUrl%>" class="half_img"
+                                                                      width="150" height="150">
+                                    </a>
+                                </dd>
+                                <%}%>
+                                <%}}else{%>
+                                <dd class="tbl_cell"><a href="#" class="hot-item-2"><img src="../res/case/150x150.jpg"
+                                                                                         class="half_img"></a>
+                                </dd>
+                                <dd class="tbl_cell"><a href="#" class="hot-item-3"><img src="../res/case/150x150.jpg"
+                                                                                         class="half_img"></a>
+                                </dd>
+                                <%}%>
+                            </dl>
+                        </div>
+                    </li>
+                    <li data-id="hotItem3" data-type="imgLink" imgSize="310x310">
+                        <%if(hotItem3 && hotItem3.imgUrl){%>
+                        <a href="<%=hotItem3.linkTo%>" target="<%=hotItem3.openInNewPage%>"><img
+                                src="<%=hotItem3.imgUrl%>" class="half_img" width="310" height="310"></a>
+                        <%}else{%>
+                        <a href="#"><img src="../res/case/310x310.jpg" class="half_img"></a>
+                        <%}%>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="home_floor">
+        <div class="hd" data-type="htmlSource" data-id="home4">
+            <%if(home4){%>
+            <%=#home4%>
+            <%}else{%>
+            <p class="title">Hot! 生活电器</p>
+
+            <p class="summy">"&nbsp;无家电不生活，那些关于家电的事儿&nbsp;"</p>
+            <%}%>
+        </div>
+
+        <div class="bd">
+            <div class="floor-mod">
+                <ul>
+                    <li data-id="item3" data-type="imgLink" imgSize="310x310">
+                        <%if(item3 && item3.imgUrl){%>
+                        <a href="<%=item3.linkTo%>" target="<%=item3.openInNewPage%>"><img src="<%=item3.imgUrl%>"
+                                                                                           class="half_img" width="310"
+                                                                                           height="310"></a>
+                        <%}else{%>
+                        <a href="#"><img src="../res/case/310x310.jpg" class="half_img"></a>
+                        <%}%>
+                    </li>
+                    <li>
+                        <div>
+                            <dl class="tbl_type" data-type="imgLinkList" data-id="item4" imgSize="150X150">
+                                <%if(item4 && item4.length>0){
+                                for(var i=0;i< item4.length;i++){
+                                var value=item4[i];
+                                if(i<2){%>
+                                <dd class="tbl_cell"><a href="<%=value.linkTo%>" target="<%=value.openInNewPage%>"
+                                                        class="item-<%=i%>"><img src="<%=value.imgUrl%>"
+                                                                                 class="half_img" width="150"
+                                                                                 height="150"></a></dd>
+                                <%}}}else{%>
+                                <dd class="tbl_cell"><a href="#" class="hot-item-0"><img src="../res/case/150x150.jpg"
+                                                                                         class="half_img"></a>
+                                </dd>
+                                <dd class="tbl_cell"><a href="#" class="hot-item-1"><img src="../res/case/150x150.jpg"
+                                                                                         class="half_img"></a>
+                                </dd>
+                                <%}%>
+                            </dl>
+                            <dl class="tbl_type" data-type="imgLinkList" data-id="item5" imgSize="150X150">
+                                <%if(item5 && item5.length>0){
+                                for(var i=0;i< item5.length;i++){
+                                var value=item5[i];
+                                if(i<2){%>
+                                <dd class="tbl_cell"><a href="<%=value.linkTo%>" target="<%=value.openInNewPage%>"
+                                                        class="item-<%=i+2%>"><img src="<%=value.imgUrl%>"
+                                                                                   class="half_img" width="150"
+                                                                                   height="150"></a></dd>
+                                <%}}}else{%>
+                                <dd class="tbl_cell"><a href="#" class="hot-item-2"><img src="../res/case/150x150.jpg"
+                                                                                         class="half_img"></a>
+                                </dd>
+                                <dd class="tbl_cell"><a href="#" class="hot-item-3"><img src="../res/case/150x150.jpg"
+                                                                                         class="half_img"></a>
+                                </dd>
+                                <%}%>
+                            </dl>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
+
+<div class="side-backtop">
+    <a href="#">
+        <span>顶部</span>
+    </a>
+</div>
+<%if(!productionMode){%>
+<footer class="home_footer">
+    <section class="foot_nav">
+        <ul>
+            <li>
+                <a href="" class="cur">
+                    <span class="fticon icon_home"></span>
+                    <span class="icon_name">首页</span>
+                </a>
+            </li>
+            <li>
+                <a href="" class="">
+                    <span class="fticon icon_combin"></span>
+                    <span class="icon_name">套餐</span>
+                </a>
+            </li>
+            <li>
+                <a href="" class="">
+                    <span class="fticon icon_single"></span>
+                    <span class="icon_name">单品</span>
+                </a>
+            </li>
+            <li style="position:relative;">
+                <a href="" class="">
+                    <span class="fticon icon_cart"></span>
+                    <span class="icon_name">购物车</span>
+                </a>
+
+                <div class="cartCount">0</div>
+            </li>
+            <li>
+                <a href="" class="">
+                    <span class="fticon icon_user"></span>
+                    <span class="icon_name">会员专区</span>
+                </a>
+            </li>
+        </ul>
+    </section>
+</footer>
+
+
+</body>
+</html>
+<%}%>

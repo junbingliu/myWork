@@ -1,0 +1,87 @@
+
+
+.pagination {
+    margin: 18px 0;
+    text-align: right;
+    font-size: 12px;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+}
+.paginationTotal {
+    display: inline-block;
+    margin: 0 16px;
+    color: #999;
+}
+.paginationTotal span {
+    color: #666;
+}
+.pagination ul {
+    display: inline-block;
+}
+.pagination li {
+    display: inline-block;
+    margin: 0 2px 0 5px;
+}
+.pagination li a {
+    display: inline-block;
+    line-height: 28px;
+    padding: 0 13px;
+    color: #333;
+    background: #fff;
+    border: 1px solid #d7d7d7;
+}
+.pagination li.active a, .pagination li:hover a {
+    color: #fff;
+    background: #e14041;
+    border-color: #e14041;
+}
+
+
+
+
+
+.pagination {
+    float: right;
+    clear: both;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-size: 12px;
+    line-height: 32px;
+}
+
+.pagination > .title {
+    color: #999;
+    float: left;
+}
+
+.pagination > .title .colore333 {
+    margin: 0 10px;
+}
+
+.pagination > .but {
+    background-color: #fff;
+    float: left;
+    cursor: pointer;
+    color: #999;
+    font-size: 18px;
+    line-height: 36px;
+    margin-left: 7px;
+    padding: 0 13px;
+}
+.pagination > .but.page {
+    font-size: 14px;
+}
+
+
+.pagination > .but:hover, .pagination > .but.active {
+    color: #fafafa;
+    background: #30315e;
+}
+
+.pagination .omission {
+    float: left;
+    margin-left: 7px;
+}

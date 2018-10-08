@@ -1,0 +1,71 @@
+@charset "utf-8";
+.wrap-bg1{background: #FFF;}
+.wrap-bg2{background: #f2f2f2;}
+.exclusive-t{width: 100%; overflow: hidden;}
+.exclusive-t h1{margin: 0 auto; overflow: hidden; text-align: center;}
+.exclusive-c{width: 1205px; margin-top: 20px;position:relative; float:left;}
+.exclusive-c li{float: left; width: 236px; margin:0px 5px 0px 0px; overflow: hidden;position: relative;}
+
+.brand-logo{float: left; width: 117px; opacity: 0.5; cursor: pointer; overflow: hidden;
+    -webkit-transition: width .3s ease-out;
+    transition: width .3s ease-out;
+}
+.brand-logo.cur{width: 381px; opacity: 1;}
+.brand-logo.border-top0{border-top: #7e1143 5px solid;}
+.brand-logo.border-top1{border-top: #515e93 5px solid;}
+.brand-logo.border-top2{border-top: #795287 5px solid;}
+.brand-logo.border-top3{border-top: #b2a274 5px solid;}
+.brand-logo.border-top4{border-top: #8b8a3b 5px solid;}
+.brand-logo.border-top5{border-top: #49928e 5px solid;}
+.brand-logo.border-top6{border-top: #eea283 5px solid;}
+.brand-logo.border-top7{border-top: #7e1143 5px solid;}
+.brand-logo .item{border-right: #eee 1px solid; border-bottom: #eee 1px solid;}
+.brand-logo:first-child .item{border-left: #eee 1px solid;}
+
+.brand-logo .con{width: 372px; height: 355px; overflow: hidden;}
+.brand-logo .con h3{padding-top: 25px; padding-left: 25px; font-size: 20px; line-height: 25px; font-weight: bold;}
+.brand-logo .con h4{margin-left: 25px; margin-bottom: 10px; font-size: 14px; line-height: 18px; font-weight: bold;}
+.brand-logo .con ul{width: 100%; overflow: hidden;}
+.brand-logo .con li{width: 95px; height: 45px; padding: 20px 8px 0 20px; float: left; text-align: center;}
+.brand-logo .con li img{ height: 45px;}
+
+.brand-logo.border-top0 h3{color: #7e1143;}
+.brand-logo.border-top0 h4{color: #7e1143;}
+.brand-logo.border-top1 h3{color: #242d55;}
+.brand-logo.border-top1 h4{color: #242d55;}
+.brand-logo.border-top2 h3{color: #4e1262;}
+.brand-logo.border-top2 h4{color: #4e1262;}
+.brand-logo.border-top3 h3{color: #c8a645;}
+.brand-logo.border-top3 h4{color: #c8a645;}
+.brand-logo.border-top4 h3{color: #7d7c35;}
+.brand-logo.border-top4 h4{color: #7d7c35;}
+.brand-logo.border-top5 h3{color: #428380;}
+.brand-logo.border-top5 h4{color: #428380;}
+.brand-logo.border-top6 h3{color: #ae7a65;}
+.brand-logo.border-top6 h4{color: #ae7a65;}
+
+
+.cate{width: 100%; height: 44px; margin-top: 30px; text-align: center; overflow: hidden;}
+.cate .tabs{display: inline-block; padding: 0 20px; height: 44px; background-color: #333; overflow: hidden;position: relative;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.cate .tabs li{float: left; color: #FFF; height: 44px; line-height: 44px; font-size: 16px; padding: 0 10px; cursor: pointer;}
+.cate .tabs li span{display: inline-block; width: 14px; height: 14px; margin-right: 10px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+}
+.cate .tabs li.cur span{background-color: #00b5be;}
+.cate .tabs li.cur em{color: #00b5be;}
+
+.brand-list{width: 100%; margin-top: 15px; overflow: hidden;}
+.brand-list .item{width: 1215px; overflow: hidden;}
+.brand-list .item li{float: left; width: 228px; margin: 15px 15px 0 0; overflow: hidden;}
+.brand-list .item li img{width: 228px; }

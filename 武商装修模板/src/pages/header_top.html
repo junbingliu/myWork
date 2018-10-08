@@ -1,0 +1,117 @@
+{{? it.config && it.config.topBannerH.value}}
+{{ var topBannerH = it.config.topBannerH.value; }}
+{{?}}
+
+{{?it.header &&it.header.topBanner&&it.header.topBanner.imgUrl}}
+	<div class="topbanner havaData" data-type="imgLink" imgSize="1200X90" data-id="header:topBanner" data-height="90"
+    style="background:{{=it.header.topBanner.description}}; display:block;width:100%;height:{{=topBannerH}}px; overflow: hidden">
+	    <a target="_blank" href="{{=it.header.topBanner.imgLinkTo}}" style="height:{{=topBannerH}}px;"><img src="{{=it.header.topBanner.imgUrl}}"></a>
+	</div>
+	{{??}}
+	<div class="topbanner noDate" data-type="imgLink" imgSize="1200X90" data-id="header:topBanner" data-height="90"
+	     style="background-image:url(../res/images/x.gif); display:block;;width:100%; height:2px;"><a href="#"></a>
+	</div>
+{{?}}
+<style type="text/css">
+    .right_bar { width: 35px; background: #414342; position: fixed;right: 0;top:0; bottom: 0;height: 100%; z-index: 4000;}
+    .right_bar ul {padding:0;list-style: none;}
+    .right_bar li, .right_bar .right_gotop {width: 35px;height: 35px; background: url("../res/images/right_bar_icon.png") no-repeat 0 0;}
+    .right_bar li:hover, .right_bar .right_gotop:hover { background-color: #1396a0; color: #fff;}
+    .right_bar li { margin-bottom: 16px; position: relative; cursor: pointer;}
+    .right_bar li a { display: block; width: 35px; height: 35px;}
+    .right_bar li span { width: 70px;height: 35px; top:0;display: none; position: absolute; right: 60px;background:#444851; color: #fff; text-align: center; line-height: 35px;}
+    .right_bar li span:after { position: absolute; content: ""; width: 0; height: 0;border-top:5px solid transparent; border-bottom:5px solid transparent;border-left:5px solid #444851; right: -5px;top:14px; }
+    .right_bar .right_center { background-position:-35px 0; }
+    .right_bar .right_shopcar { background-position:-70px 0;color: #fff; height: 127px;}
+    .right_bar .right_shopcar div { right:70px; bottom: 0;}
+    .right_bar .right_shopcar a{ display:block;color: #fff;font-size: 14px; width: 22px;height: 82px;margin-left:6px;padding-top: 35px;padding-bottom:8px;border:1px solid #888; border-left:none; border-right:none; text-align: center; margin-left: 6px; }
+    .right_bar .right_shopcar:hover a { color: #fff; border-color: #1396a0}
+    .right_bar .right_order { background-position:-105px 0; }
+    .right_bar .right_QA { background-position:-280px 0; }
+    .right_bar .right_ma { background-position:-140px 0; cursor: auto;}
+    .right_bar .right_ma img{ display: none; position: absolute; bottom: 0; right: 35px;}
+    .right_bar .right_service { background-position:-175px 0; }
+    .right_bar .right_400 { background-position:-245px 0; }
+    .right_bar .right_400 span {  width: 150px;}
+    .right_bar .right_gotop { background-position:-210px 0; position: absolute; bottom: 0; cursor: pointer;}
+    .right_bar .right_gotop span { width: 70px;height: 35px; display: none; position: absolute; right: 70px;background:#444851; color: #fff; text-align: center; line-height: 35px;}
+    .right_bar .right_gotop span:after { position: absolute; content: ""; width: 0; height: 0;border-top:5px solid transparent; border-bottom:5px solid transparent;border-left:5px solid #444851; right: -5px;top:14px; }
+    .right_shopcar div.mini_num {background: #f80;border-radius: 50%;color: #fff;font-size: 12px;height: 18px;line-height: 18px;width: 16px;padding-right:2px;display: block;margin-top:4px; margin-left: 3px;}
+.pobox {position: relative}
+    .cartLayerr {color:#333; border:#f0f0f0 1px solid; background:#fff; width:348px;height: auto; font-family:microsoft yahei; overflow:hidden; position:absolute; right:35px; top:0px; z-index:98;transition:0.5s}
+    .cartEmptyr{ border:#f0f0f0 1px solid; background:#fff; width:348px; font-family:microsoft yahei; overflow:hidden; position:absolute; right:35px; top:0px; z-index:98;}
+    .cartEmptyr{ width:218px;}
+    .cartLayerr p{ color:#666;  padding:12px; line-height:20px;}
+    .cartLayerr p a{ color:#06c;}
+    .cartLayerr h4{ font-weight:bold; padding:10px 0 10px 10px; border-bottom:#e6e6e6 1px solid;}
+    .cartLayerr .cartBox{ width:100%; overflow:hidden;max-height: 300px; overflow: auto }
+    .cartLayerr dl{ width:100%; padding:10px 0;  border-top:#ccc 1px dotted; margin-top:-1px; overflow:hidden;}
+    .cartLayerr dl .pic{ float:left; width:60px; height:60px; border:#e6e6e6 1px solid;  margin:0px 10px; display:inline; overflow:hidden; }
+    .cartLayerr dl .name{ float:left; width:150px; margin-top:5px; color:#666; line-height:18px; height:36px; overflow:hidden;}
+    .cartLayerr dl .price{ float:right; display:inline; margin:5px 10px 0 0; width:100px; text-align:right;}
+
+    .cartLayerr dl .price{ color:#999; font-weight:bold; }
+    .cartLayerr dl .price b{ color:#e60000; font-family:microsoft yahei; }
+    .cartLayerr dl .price a.del{ display:block; margin-top:5px; color:#06c; font-weight:normal;}
+    .cartLayerr dl .gift{ color:#999; margin:10px 0 0 10px;}
+
+    .cartLayerr .totalbox{ background:#efefef;}
+    .cartLayerr .total{ padding:10px 10px 6px; text-align:right;}
+    .cartLayerr .total span{ color:#e60000; padding:0 3px;}
+    .cartLayerr .total b{ font-size:16px; margin-left:5px; color:#c30;}
+    .cartLayerr .cartBtn{ float:right; display:inline; height:28px; margin:0 10px 10px 0;}
+    .cartLayerr .cartBtn a{ display:inline-block;  background:#e60000 url(/img/2014/4/24/60439.png) repeat-x 0 0; border:#c30 1px solid; padding:0 20px; height:28px; font:bold 12px/28px; color:#fff;}
+    .cartLayerr .cartBtn a:hover{ text-decoration:none;}
+
+</style>
+<div class="right_bar">
+    <ul>
+        <div data-type="imgLink" imgSize="35" data-id="rightbarimg" data-height="50" >
+            {{?it.rightbarimg &&it.rightbarimg.imgUrl}}
+            <a target="_blank" href="{{=it.rightbarimg.imgLinkTo}}"><img src="{{=it.rightbarimg.imgUrl}}" width="35"></a>
+            {{??}}
+            <a href="#" style="display: block;width: 35px; height: 35px;"> </a>
+            {{?}}
+        </div>
+        <li class="right_login">
+            <a href="/login/sign_in.jsp" target="_blank"></a>
+            <span>立即登录</span>
+        </li>
+        <li class="right_center">
+            <a href="/member/index.jsp" target="_blank"></a>
+            <span>会员中心</span>
+        </li>
+        <div class="pobox">
+        <li class="right_shopcar">
+            <a href="/shopping/cart.jsp" target="_blank">购物车<div class="mini_num">0</div></a>
+        </li>
+            <div class="cartLayerr"  style="display:none;"></div>
+        </div>
+        <li class="right_order">
+            <a href="/member/order_list.jsp?tag=1" target="_blank"></a>
+            <span>我的订单</span>
+        </li>
+        <li class="right_ma">
+            <img src="../res/images/mweb.jpg" width="100" >
+        </li>
+        <li class="right_service">
+            <span>在线客服</span>
+        </li>
+        <li class="right_400">
+            <span>客服电话 400-848-1228</span>
+        </li>
+        <li class="right_QA">
+            <a href="/help/index-3630000.html" target="_blank"></a>
+            <span>常见问题</span>
+        </li>
+    </ul>
+    <div class="right_gotop"><span>回到顶部</span></div>
+</div>
+<script  type="text/javascript">
+    $(function () {
+        var topbanner = $(".topbanner");
+        if(topbanner.hasClass("noDate")){
+            topbanner.css("display","none");
+        }
+    });
+</script>

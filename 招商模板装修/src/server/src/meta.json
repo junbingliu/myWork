@@ -1,0 +1,88 @@
+{
+    "context":"weixin",
+    "appEditor":{"enabled":true},
+    "renderEngine":"artTemplate",
+    "pages" : [
+        {"url":"/mobile/index.html","name":"首页","pageId":"homePage","template":"pages/index_design.html","dataProcessor":"@process/index_process.jsx","dependsOn":"header",
+            "initData":[
+
+                {"dataId":"config.title","dataValue":{"name":"网站标题","value":""},"dataSpec":{"id":"config.title","type":"string"}},
+                {"dataId":"config.keywords","dataValue":{"name":"网站关键字","value":""},"dataSpec":{"id":"config.keywords","type":"string"}},
+                {"dataId":"config.description","dataValue":{"name":"网站描述","value":""},"dataSpec":{"id":"config.description","type":"string"}},
+                {"dataId":"config.updateTime","dataValue":{"name":"数据更新周期(分)","value":"5"},"dataSpec":{"id":"config.updateTime","type":"string"}},
+                {"dataId":"config.headerCode","dataValue":{"name":"头部统计代码","value":""},"dataSpec":{"id":"config.headerCode","type":"string"}},
+                {"dataId":"config.footerCode","dataValue":{"name":"尾部统计代码","value":""},"dataSpec":{"id":"config.footerCode","type":"string"}}
+
+            ]},
+        {"url":"/mobile/Package.html","name":"套餐首页","pageId":"Package","template":"pages/Package.html","dataProcessor":"@process/index_process.jsx","dependsOn":"header",
+         "initData":[
+           {"dataId":"config.title","dataValue":{"name":"网站标题","value":""},"dataSpec":{"id":"config.title","type":"string"}},
+           {"dataId":"config.keywords","dataValue":{"name":"网站关键字","value":""},"dataSpec":{"id":"config.keywords","type":"string"}},
+           {"dataId":"config.description","dataValue":{"name":"网站描述","value":""},"dataSpec":{"id":"config.description","type":"string"}},
+           {"dataId":"config.updateTime","dataValue":{"name":"数据更新周期(分)","value":"5"},"dataSpec":{"id":"config.updateTime","type":"string"}},
+           {"dataId":"config.headerCode","dataValue":{"name":"头部统计代码","value":""},"dataSpec":{"id":"config.headerCode","type":"string"}},
+           {"dataId":"config.footerCode","dataValue":{"name":"尾部统计代码","value":""},"dataSpec":{"id":"config.footerCode","type":"string"}}
+
+         ]},
+        {"url":"/mobile/category.html","name":"商品分类","pageId":"category","template":"pages/category_design.html","dataProcessor":"@process/index_process.jsx","dependsOn":"header",
+            "initData":[
+            ]} ,
+
+        {"url":"/mobile/choose.html","name":"单品选购","pageId":"choose","template":"pages/choose.html","dataProcessor":"@process/index_process.jsx","dependsOn":"header",
+         "initData":[
+         ]} ,
+        {"url":"/mobile/tuangou.html","name":"团购促销","pageId":"tuangou","template":"pages/tuangou.html","dataProcessor":"@process/index_process.jsx","dependsOn":"header",
+         "initData":[
+         ]} ,
+
+        {"url":"/mobile/hotKeyword.html","name":"热门搜索","pageId":"hotKeyword","template":"pages/hotKeyword.html","dataProcessor":"@process/category_process.jsx","dependsOn":"header",
+            "initData":[
+            ]}
+    ],
+    "templates" : [
+        {"template":"pages/index_design.html","name":"主页模版","description":"复杂的页面，可以作为首页，频道页等。","dataProcessor":"@process/index_process.jsx","dependsOn":"header",
+            "initData":[
+
+                {"dataId":"config.title","dataValue":{"name":"网站标题","value":""},"dataSpec":{"id":"config.title","type":"string"}},
+                {"dataId":"config.keywords","dataValue":{"name":"网站关键字","value":""},"dataSpec":{"id":"config.keywords","type":"string"}},
+                {"dataId":"config.description","dataValue":{"name":"网站描述","value":""},"dataSpec":{"id":"config.description","type":"string"}},
+                {"dataId":"config.updateTime","dataValue":{"name":"数据更新周期(分)","value":"5"},"dataSpec":{"id":"config.updateTime","type":"string"}}
+            ]},
+        {"template":"pages/Package.html","name":"套餐模版","description":"复杂的页面，可以作为首页，频道页等。","dataProcessor":"@process/index_process.jsx","dependsOn":"header",
+         "initData":[
+           {"dataId":"config.title","dataValue":{"name":"网站标题","value":""},"dataSpec":{"id":"config.title","type":"string"}},
+           {"dataId":"config.keywords","dataValue":{"name":"网站关键字","value":""},"dataSpec":{"id":"config.keywords","type":"string"}},
+           {"dataId":"config.description","dataValue":{"name":"网站描述","value":""},"dataSpec":{"id":"config.description","type":"string"}},
+           {"dataId":"config.updateTime","dataValue":{"name":"数据更新周期(分)","value":"5"},"dataSpec":{"id":"config.updateTime","type":"string"}}
+         ]},
+        {"template":"pages/category_design.html","name":"分类设置","description":"设置分类浏览功能","dataProcessor":"@process/index_process.jsx","dependsOn":"header",
+            "initData":[
+                {"dataId":"config.updateTime","dataValue":{"name":"数据更新周期(分)","value":"5"},"dataSpec":{"id":"config.updateTime","type":"string"}}
+            ]},
+
+        {"template":"pages/tuangou.html","name":"团购促销","description":"团购促销","dataProcessor":"@process/index_process.jsx","dependsOn":"header",
+         "initData":[
+             {"dataId":"config.updateTime","dataValue":{"name":"数据更新周期(分)","value":"5"},"dataSpec":{"id":"config.updateTime","type":"string"}}
+         ]},
+        {"template":"pages/choose.html","name":"单品选购","description":"单品选购","dataProcessor":"@process/index_process.jsx","dependsOn":"header",
+         "initData":[
+           {"dataId":"config.updateTime","dataValue":{"name":"数据更新周期(分)","value":"5"},"dataSpec":{"id":"config.updateTime","type":"string"}}
+         ]},
+
+ {"template":"pages/hotKeyword.html","name":"热门搜索设置","description":"热门搜索","dataProcessor":"@process/category_process.jsx","dependsOn":"header",
+            "initData":[
+                {"dataId":"config.updateTime","dataValue":{"name":"数据更新周期(分)","value":"5"},"dataSpec":{"id":"config.updateTime","type":"string"}}
+            ]}
+
+    ],
+    "rules":[{
+        "id":"fullControl",
+        "name":"完全控制",
+        "pattern":".*"
+    },{
+        "id":"readOnly",
+        "name":"查看权限",
+        "pattern":"(pages/viewAppPrivilege/.*)|(pages/viewUserPrivilege/.*)|(pages/home.jsx)"
+    }]
+
+}

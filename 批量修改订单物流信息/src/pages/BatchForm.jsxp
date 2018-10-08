@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="../bootstrap/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>批量修改订单物流信息</title>
+    <link rel="stylesheet" type="text/css" href="/resources/bootstrap3.3.0/css/bootstrap.css">
+    <script type="text/javascript" src="/resources/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="/resources/bootstrap3.3.0/js/bootstrap.js"></script>
+    <script type="text/javascript" src="/resources/plugin/layer-v1.7.1/layer.min.js"></script>
+    <script>
+        var merchantId = '{{=it.merchantId}}';
+    </script>
+    <script type="text/javascript" src="../js/BatchForm.js"></script>
+</head>
+<body>
+
+{{=$.inc("pages/include_nav.jsx")}}
+
+<div class="container-fluid">
+    <div class="">
+        <div class="panel panel-success">
+            <div class="panel-body">
+                <form id="importDataForm" class="form form-horizontal" role="form" action="BatchForm_handler.jsx?m={{=it.merchantId}}" method="post"
+                      enctype="multipart/form-data" target="submit_data_frame">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="importFileId">请上传Excel文件</label>
+                        <div class="col-sm-10">
+                            <input type="file" id="importFileId" name="importFileId" required>
+                            <input type="hidden" name="merchantId" value="{{=it.merchantId}}" id="merchantId">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label"></label>
+                        <div class="col-sm-10">
+                            <input type="radio" name="modify_type" value="0"/>只修改物流信息<br/>
+                            <input type="radio" name="modify_type" value="1"/>根据物流信息修改后同时修改为已出库，不允许物流信息为空<br/>
+                            <input type="radio" name="modify_type" value="2"/>根据物流信息修改后同时修改为已出库，允许物流信息为空<br/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label"></label>
+                        <div class="col-sm-10">
+                            <button type="button" id="submit_form" class="btn btn-primary">执行批量修改</button>
+                        </div>
+                    </div>
+
+                    <iframe name='submit_data_frame' id="submit_data_frame" style="display: none;"></iframe>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!--<div class="">-->
+        <!--<hr>-->
+        <!--<div class="alert alert-success" role="alert" style="line-height: 28px;">-->
+            <!--订单导入说明：<br>-->
+            <!--1、Excel文件不能超过5M<br>-->
+        <!--</div>-->
+    <!--</div>-->
+</div>
+
+</body>
+</html>

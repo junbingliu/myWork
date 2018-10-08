@@ -1,0 +1,15 @@
+{
+    "libs_namespace": "ProductStockEarlyWarning",
+    "libs": ["services/ProductStockQuery.jsx","services/ProductStockService.jsx"],
+    "obj_prefixes":  ["ProductStockEarlyWarning"],
+    "list_prefixes": ["ProductStockEarlyWarning"],
+    "eventHandlers":[
+        {
+            "eventName": "skuRealAmountUpdated",
+            "pageId": "eventHandlers/BuildProductStockIndexEvent.jsx",
+            "handlerId": "BuildProductStockIndex_OnSkuSellableCountUpdated",
+            "description": "商品库存变动建索引"
+        }
+    ]
+
+}

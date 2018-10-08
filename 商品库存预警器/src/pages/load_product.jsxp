@@ -1,0 +1,125 @@
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+{{? it.listType == 'downStock'}}
+<div class="row">
+    <div class="col-xs-5" style="width: auto;margin-bottom: 10px;">
+        <table class="table table-bordered table-condensed">
+            <thead>
+            <tr class="alert alert-info">
+                <th style="text-align: center;">下架日期</th>
+                <th style="text-align: center;">商品下架总数</th>
+                <th style="text-align: center;">操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            {{~it.recordList:value:index}}
+            <tr>
+                <td style="text-align: center;">{{=value.downTime}}</td>
+                <td style="text-align: center;">{{=value.total}}</td>
+                <td style="text-align: center;">
+                    <a class="check-detail" data-a="{{=value.id}}" href="javascript:void (0);">查看详情</a>
+                </td>
+            </tr>
+            {{~}}
+            </tbody>
+        </table>
+        <div class="pagination_params" totalPages="{{=it.pageParams.totalPages}}"
+             currentPage="{{=it.pageParams.currentPage}}" totalRecords="{{=it.pageParams.totalRecords}}"
+             displayNum="{{=it.pageParams.displayNum}}" pageLimit="{{=it.pageParams.pageLimit}}"
+             recordType="{{=it.pageParams.recordType}}" enableToPage="false">
+        </div>
+    </div>
+    <div class="col-xs-7" style="width: auto;margin-bottom: 10px;" id="showInfo"></div>
+</div>
+<script id="template" type="text/x-dot-template">
+    <table class="table table-bordered table-condensed">
+        <thead>
+        <tr class="alert alert-info">
+        <th style="text-align: center;">商品ID</th>
+        <th style="text-align: center;">商品名称</th>
+        <th style="text-align: center;">下架时间</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{~it.downStockDetail:value:index}}
+        <tr>
+        <td style="text-align: center;">{{=value.objId}}</td>
+        <td style="text-align: center;"><a target="_blank" href="/shop/product.jsp?id={{=value.objId}}&m={{=value.merchantId}}">{{=value.name}}</a></td>
+        <td style="text-align: center;">{{=value.downStockTime}}</td>
+        </tr>
+        {{~}}
+        </tbody>
+    </table>
+    <div class="pagination_params"></div>
+</script>
+{{??}}
+<table class="table table-bordered table-over">
+    <thead>
+    <tr class="alert alert-info">
+        <th width="60px;" style="text-align: center;">图片</th>
+        <th width="100px;" style="text-align: center;">商品ID</th>
+        <th width="200px;" style="text-align: center;">商品名称</th>
+        {{? it.merchantId == 'head_merchant'}}
+        <th width="130px;" style="text-align: center;">所属商家</th>
+        {{?}}
+        <th width="100px;" style="text-align: center;">上下架状态</th>
+        <th style="text-align: center;">商品SKU</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{~it.recordList:value:index}}
+    <tr>
+        <td><img src="{{=value.logoUrl}}" style="width: 40px;height: 40px;"></td>
+        <td>{{=value.objId}}</td>
+        <td><a target="_blank" href="/shop/product.jsp?id={{=value.objId}}&m={{=value.merchantId}}">{{=value.name}}</a></td>
+        {{? it.merchantId == 'head_merchant'}}
+        <td>{{=value.merchantName}}</td>
+        {{?}}
+        <td>
+            {{? value.publishState == '1'}}
+            <span>上架</span>
+            {{??}}
+            <span style="color: #FF6600;">下架</span>
+            {{?}}
+        </td>
+        <td style="text-align: center;">
+            {{? value.skus}}
+            <table class="table table-bordered">
+                <thead>
+                <tr class="alert alert-success">
+                    <th width="150px;"  style="text-align: center;">SKU内部ID</th>
+                    <th width="150px;"  style="text-align: center;">SKU外部ID</th>
+                    <th width="100px;" style="text-align: center;">可卖数</th>
+                    <th width="100px;"  style="text-align: center;">安全可卖数</th>
+                </tr>
+                </thead>
+                <tbody>
+                {{~value.skus:sku:skuIndex}}
+                <tr class="alert alert-warning">
+                    <td>{{=sku.id}}</td>
+                    <td>{{=sku.skuId}}</td>
+                    {{? (sku.sellableCount <= 0)}}
+                    <td style="color: #CC3300;">{{=sku.sellableCount}}</td>
+                    {{??}}
+                    <td>{{=sku.sellableCount}}</td>
+                    {{?}}
+                    <td>{{=sku.securitySellableCount}}</td>
+                </tr>
+                {{~}}
+                </tbody>
+            </table>
+            {{?}}
+        </td>
+    </tr>
+    {{~}}
+    </tbody>
+</table>
+<div class="pagination_params" totalPages="{{=it.pageParams.totalPages}}"
+     currentPage="{{=it.pageParams.currentPage}}" totalRecords="{{=it.pageParams.totalRecords}}"
+     displayNum="{{=it.pageParams.displayNum}}" pageLimit="{{=it.pageParams.pageLimit}}"
+     recordType="{{=it.pageParams.recordType}}" enableToPage="false">
+</div>
+{{?}}
+
+
+
+

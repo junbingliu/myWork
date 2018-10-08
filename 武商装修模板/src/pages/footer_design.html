@@ -1,0 +1,206 @@
+<link href="../res/style/footer.css" rel="stylesheet">
+<!-- 页尾-->
+<div class="wrapper">
+<div class="footer_b">
+
+ <!--服务-->
+    <div class="service wbox">
+        <ul class="clearfix" data-type="textLinkList" data-id="footer:service_text">
+            {{?it.footer && it.footer.service_text&&it.footer.service_text.length>0}}
+            {{~it.footer.service_text:value:index}}
+            <li><span><b class="ic{{=index+1}}"></b>{{=value.content}}</span></li>
+            {{~}}
+            {{??}}
+            <li><span><b class="ic1"></b>优质优选</span></li>
+            <li><span><b class="ic2"></b>正品保障</span></li>
+            <li ><span><b class="ic3"></b>生活便民</span></li>
+            <li ><span><b class="ic4"></b>贴心服务</span></li>
+            <li ><span><b class="ic5"></b>闪电速递</span></li>
+            <li ><span><b class="ic6"></b>售后无忧</span></li>
+            {{?}}
+        </ul>
+    </div>
+    <!-- end 服务-->
+
+    <div class="helper clearfix">
+    	<div class="wbox" style=" position: relative; ">
+	        <dl data-type="textLinkList" data-id="footer:xszn_text">
+	            {{?it.footer && it.footer.xszn_text&&it.footer.xszn_text.length>0}}
+	            {{~it.footer.xszn_text:value:index}}
+	            {{?index==0}}
+	            <dt class="xssl">{{=value.content}}</dt>
+	            {{??}}
+	            <dd><a rel="nofollow" href="{{=value.linkTo}}" target="_blank">{{=value.content}}</a></dd>
+	            {{?}}
+	            {{~}}
+	            {{??}}
+	            <dt>新手指南</dt>
+	            <dd><a rel="nofollow" href="#">购物券使用</a></dd>
+	            <dd><a rel="nofollow" href="#">会员制度</a></dd>
+	            <dd><a rel="nofollow" href="#">注册与登录</a></dd>
+	            <dd><a rel="nofollow" href="#">购物流程</a></dd>
+	            {{?}}
+	        </dl>
+	        <dl data-type="textLinkList" data-id="footer:wlpss_text">
+	            {{?it.footer && it.footer.wlpss_text&&it.footer.wlpss_text.length>0}}
+	            {{~it.footer.wlpss_text:value:index}}
+	            {{?index==0}}
+	            <dt class="gwzn">{{=value.content}}</dt>
+	            {{??}}
+	            <dd><a rel="nofollow" href="{{=value.linkTo}}" target="_blank">{{=value.content}}</a></dd>
+	            {{?}}
+	            {{~}}
+	            {{??}}
+	            <dt>物流配送</dt>
+	            <dd><a rel="nofollow" href="#">闪电送</a></dd>
+	            <dd><a rel="nofollow" href="#">宅夜送</a></dd>
+	            <dd><a rel="nofollow" href="#">24小时必达</a></dd>
+	            <dd><a rel="nofollow" href="#">欢乐提</a></dd>
+	            {{?}}
+	        </dl>
+	        <dl data-type="textLinkList" data-id="footer:zffs_text">
+	            {{?it.footer && it.footer.zffs_text&&it.footer.zffs_text.length>0}}
+	            {{~it.footer.zffs_text:value:index}}
+	            {{?index==0}}
+	            <dt class="wlkd">{{=value.content}}</dt>
+	            {{??}}
+	            {{?index==(it.footer.zffs_text.length-1)}}
+	            <dd class="wlcx_icon"><a rel="nofollow" href="{{=value.linkTo}}" target="_blank">{{=value.content}}</a></dd>
+	            {{??}}
+	             <dd><a rel="nofollow" href="{{=value.linkTo}}" target="_blank">{{=value.content}}</a></dd>
+	             {{?}}
+	            {{?}}
+	            {{~}}
+	            {{??}}
+	            <dt>支付方式</dt>
+	            <dd><a rel="nofollow" href="#">在线支付</a></dd>
+	            <dd><a rel="nofollow" href="#">货到付款</a></dd>
+	            <dd><a rel="nofollow" href="#">亚泰币兑换</a></dd>
+	            <dd><a rel="nofollow" href="#">手机支付</a></dd>
+	            {{?}}
+	        </dl>
+	        <dl data-type="textLinkList" data-id="footer:shfw_text">
+	            {{?it.footer && it.footer.shfw_text&&it.footer.shfw_text.length>0}}
+	            {{~it.footer.shfw_text:value:index}}
+	            {{?index==0}}
+	            <dt class="shfw">{{=value.content}}</dt>
+	            {{??}}
+	            <dd><a rel="nofollow" href="{{=value.linkTo}}" target="_blank">{{=value.content}}</a></dd>
+	            {{?}}
+	            {{~}}
+	            {{??}}
+	            <dt>售后服务</dt>
+	            <dd><a rel="nofollow" href="#">退换货流程</a></dd>
+	            <dd><a rel="nofollow" href="#">安装与维修</a></dd>
+	            <dd><a rel="nofollow" href="#">退换货原则</a></dd>
+	            <dd><a rel="nofollow" href="#">退款流程</a></dd>
+	            {{?}}
+	        </dl>
+	        <dl  data-type="textLinkList" data-id="footer:hyzc_text">
+	            {{?it.footer && it.footer.hyzc_text&&it.footer.hyzc_text.length>0}}
+	            {{~it.footer.hyzc_text:value:index}}
+	            {{?index==0}}
+	            <dt class="hyzc">{{=value.content}}</dt>
+	            {{??}}
+	            <dd><a rel="nofollow" href="{{=value.linkTo}}" target="_blank">{{=value.content}}</a></dd>
+	            {{?}}
+	            {{~}}
+	            {{??}}
+	            <dt>会员政策</dt>
+	            <dd><a rel="nofollow" href="#">会员等级</a></dd>
+	            <dd><a rel="nofollow" href="#">优惠券使用</a></dd>
+	            <dd><a rel="nofollow" href="#">会员积分</a></dd>
+	            {{?}}
+	        </dl>
+	        <dl data-type="textLinkList" data-id="footer:kfzx_text">
+	            {{?it.footer && it.footer.kfzx_text&&it.footer.kfzx_text.length>0}}
+	            {{~it.footer.kfzx_text:value:index}}
+	            {{?index==0}}
+	            <dt class="tsws">{{=value.content}}</dt>
+	            {{??}}
+	            <dd><a rel="nofollow" href="{{=value.linkTo}}" target="_blank">{{=value.content}}</a></dd>
+	            {{?}}
+	            {{~}}
+	            {{??}}
+	            <dt>客服中心</dt>
+	            <dd><a rel="nofollow" href="#">在线客服</a></dd>
+	            <dd><a rel="nofollow" href="#">常见问题</a></dd>
+	            <dd><a rel="nofollow" href="#">发票制度</a></dd>
+	            {{?}}
+	        </dl>
+	        <div class="foot_grcode">
+	            
+	            <p class="wxtitle" data-type="textLink" data-id="footer:wxtitle">
+	            {{?it.footer && it.footer.wxtitle && it.footer.wxtitle.content}}
+	            {{=it.footer.wxtitle.content}}
+	            {{??}}
+	            微信关注武商网
+	            {{?}}
+	            </p>
+	            
+	            <p class="weixin" width="100" height="100" data-type="imgLink" data-id="footer:weixin" imgSize="100X100">
+	            {{?it.footer && it.footer.weixin && it.footer.weixin.imgUrl}}
+	            <img src="{{=it.footer.weixin.imgUrl}}" width="100" height="100" />
+	            {{??}}
+	            <img src="../res/images/mweb.jpg" width="100" height="100" /> 
+	            {{?}}
+	            </p>
+	        </div>
+        </div>
+    </div>
+   
+    <div class="menu" data-type="textLinkList" data-id="footer:about_text">
+    <p>
+        {{?it.footer && it.footer.about_text&&it.footer.about_text.length>0}}
+        {{~it.footer.about_text:value:index}}
+        {{?index==it.footer.about_text.length-1}}
+        <a rel="nofollow" href="{{=value.linkTo}}" target="_blank">{{=value.content}}</a>
+        {{??value.content=="友情链接"}}
+		<a  href="{{=value.linkTo}}" target="_blank">{{=value.content}}</a>|
+		{{??}}
+        <a rel="nofollow" href="{{=value.linkTo}}" target="_blank">{{=value.content}}</a>|
+        {{?}}
+        {{~}}
+        {{??}}
+        <a rel="nofollow" href="#">关于武商</a>|
+        <a rel="nofollow" href="#">诚邀精英</a>|
+        <a rel="nofollow" href="#">网站地图</a>|
+        <a rel="nofollow" href="#">帮助中心</a>|
+        <a rel="nofollow" href="#">联系我们</a>|
+        <a rel="nofollow" href="#">版权声明</a>
+        {{?}}
+        </p>
+    </div>
+    <div class="copyright" data-type="htmlSource" data-id="footer:copyright">
+        {{?it.footer && it.footer.copyright}}
+        {{=it.footer.copyright}}
+        {{??}}
+		<div>
+			<p>ICP证：鄂ICP备13014517号 增值电信业务经营许可证：鄂B2-20100129</p>
+			<div style="width:30px;margin:0 auto; float: right;">
+				<a target="_blank" href="http://wljg.egs.gov.cn/iciaicweb/dzbscheck.do?method=change&id=E2014122100067591" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;">
+					<img alt="网络经济主体信息" border="0" DRAGOVER="true" src="../res/images/logo-wj.png" width="30px" />
+				</a>
+			</div>
+		</div>
+        <p>版权所有 武汉武商电子商务有限公司 All Rights Reserved 2013-2016 </p>
+        <p class="light">技术支持：广州市信景技术有限公司</p>
+
+		<div style="width:300px;margin:0 auto; padding:10px 0;">
+			<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=42010302000218" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;">
+				<img src="../res/images/beiAn.png" width="20" style="float:left;"/>
+				<p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">鄂公网安备 42010302000218号</p></a>
+		</div>
+        {{?}}
+    </div>
+    {{?it.productionMode}}
+    {{?it.config&&it.config.footerCode}}
+    {{=it.config.footerCode.value}}
+    {{?}}
+    {{?}}
+
+</div>
+<!--end 页尾-->
+</div>
+</body>
+</html>

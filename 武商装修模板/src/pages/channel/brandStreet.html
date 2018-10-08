@@ -1,0 +1,182 @@
+//#import ../header_design.html
+<link href="../res/style/channel/brandStreet.css" rel="stylesheet">
+<div class="wrapper wrap-bg1 mt25 pad-bt20">
+    <div class="sub-warp">
+        <div class="exclusive-t" data-type="imgLink" data-id="exclusiveT">
+            {{?it.exclusiveT && it.exclusiveT.imgUrl}}
+            <h1><img src="{{=it.exclusiveT.imgUrl}}" alt="{{=it.exclusiveT.description}}"></h1>
+            {{??}}
+            <h1><img src="http://pic11.secooimg.com/imagesNew/flagship/pp_pngimg.png" alt=""></h1>
+            {{?}}
+        </div>
+        <div class="exclusive-c" data-type="imgLinkList" data-id="exclusiveC" data-height="236" imgSize="236X">
+            <ul>
+                {{?it.exclusiveC && it.exclusiveC.length > 0}}
+                {{~it.exclusiveC:value:index}}
+                <li>
+                    <a href="{{=value.linkTo}}" target="_blank"><img src="{{=value.imgUrl}}" alt="{{=value.description}}" width="236" /><div class="infor">{{=value.description}}</div></a></li>
+                </li>
+                {{~}}
+                {{??}}
+                <li>
+                    <a href="javascript:void(0)"><img src="http://pic1.secoo.com/push/15/5/a2d1ac8614944d8ab6ac6cc161cbdaa6.jpg" alt=""></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)"><img src="http://pic1.secoo.com/push/15/5/080e4c31672944e3adcd388e92221169.jpg" alt=""></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)"><img src="http://pic1.secoo.com/push/15/5/1dca79585560434dbc300f472812bc5f.jpg" alt=""></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)"><img src="http://pic1.secoo.com/push/15/6/b2fd71dabfb8457489792f8b75d7a4c2.jpg" alt=""></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)"><img src="http://pic1.secoo.com/push/15/5/a1f27fd478c741a39892000781b6b9d9.jpg" alt=""></a>
+                </li>
+                {{?}}
+            </ul>
+        </div>
+    </div>
+
+    <div class="sub-warp wrap-bg1 mt20" data-type="tabs" data-id="brandLogo">
+        {{ for(var i = 0; i < 8; i++){ }}
+        {{?i == 0}}
+        <div class="brand-logo border-top{{=i}} cur" tab-target="brand_cate_{{=i}}">
+        {{??}}
+        <div class="brand-logo border-top{{=i}}" tab-target="brand_cate_{{=i}}">
+        {{?}}
+            <div class="item">
+                <div class="con">
+                    {{ var cateTitleCnId = "cateTitleCn_" + i;
+                       var cateTitleCn = it[cateTitleCnId];
+                       if(!cateTitleCn){ cateTitleCn = {} };
+                    }}
+                    <h3 data-type="textLink" data-id="{{=cateTitleCnId}}">
+                        {{?cateTitleCn}}
+                        <a href="{{=cateTitleCn.linkTo}}">{{=cateTitleCn.content}}</a>
+                        {{??}}
+                        流行女装
+                        {{?}}
+                    </h3>
+
+                    {{ var cateTitleEnId = "cateTitleEn_" + i;
+                       var cateTitleEn = it[cateTitleEnId];
+                       if(!cateTitleEn){ cateTitleEn = {} };
+                    }}
+                    <h4 data-type="textLink" data-id="{{=cateTitleEnId}}">
+                        {{?cateTitleEn}}
+                        <a href="{{=cateTitleEn.linkTo}}">{{=cateTitleEn.content}}</a>
+                        {{??}}
+                        FASHION WOMEN
+                        {{?}}
+                    </h4>
+
+                    {{ var logoPicId = "logoPic_" + i;
+                       var logoPic = it[logoPicId];
+                       if(!logoPic){ logoPic = {} };
+                    }}
+                    <ul data-type="imgLinkList" data-id="{{=logoPicId}}">
+                        {{?logoPic && logoPic.length > 0}}
+                        {{~logoPic:value:index}}
+                        <li>
+                            <a href="{{=value.linkTo}}" target="_blank"><img src="{{=value.imgUrl}}" alt="{{=value.description}}"></a>
+                        </li>
+                        {{~}}
+                        {{??}}
+                        <li>
+                            <a href="javascript:void(0)"><img src="http://img.alicdn.com/bao/uploaded/i2/T1DhDuXalnXXbc_Djq-90-45.jpg_90x90.jpg" alt=""></a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)"><img src="http://img.alicdn.com/bao/uploaded/i2/T1DhDuXalnXXbc_Djq-90-45.jpg_90x90.jpg" alt=""></a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)"><img src="http://img.alicdn.com/bao/uploaded/i2/T1DhDuXalnXXbc_Djq-90-45.jpg_90x90.jpg" alt=""></a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)"><img src="http://img.alicdn.com/bao/uploaded/i2/T1DhDuXalnXXbc_Djq-90-45.jpg_90x90.jpg" alt=""></a>
+                        </li>
+                        {{?}}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        {{ } }}
+    </div>
+</div>
+
+<div class="wrapper wrap-bg2 pad-bt20">
+    <div class="sub-warp">
+        <div class="cate">
+            <div class="tabs" data-type="tabs" data-id="cateTab">
+                {{?it.cateTab}}
+                {{=it.cateTab}}
+                {{??}}
+                <ul>
+                    <li class="cur" tab-target="brand_item_1"><span></span><em>精选</em></li>
+                    <li tab-target="brand_item_2"><span></span><em>女爱</em></li>
+                    <li tab-target="brand_item_3"><span></span><em>男欢</em></li>
+                    <li tab-target="brand_item_4"><span></span><em>搭配</em></li>
+                    <li tab-target="brand_item_5"><span></span><em>美妆</em></li>
+                    <li tab-target="brand_item_6"><span></span><em>私享家</em></li>
+                </ul>
+                {{?}}
+            </div>
+        </div>
+        <div class="brand-list">
+            {{var floorNum = it.config.levelNum.value.split(",");}}
+            {{ for(var i = 0; i <= floorNum.length -1; i++){ }}
+            {{? parseInt(floorNum[i]) != 0 }}
+
+            {{ var brand_item_id = "brand_item_" + (i + 1);
+            var brand_item = it[brand_item_id];
+            if(!brand_item){ brand_item = {} };
+            }}
+            <div class="item" id="{{=brand_item_id}}" data-type="imgLinkList" data-id="{{=brand_item_id}}" style="display: none;">
+                <ul>
+                    {{?brand_item && brand_item.length > 0}}
+                    {{~brand_item:value:index}}
+                    <li>
+                        <a href="{{=value.linkTo}}" target="_blank"><img src="{{=value.imgUrl}}" alt="{{=value.description}}"></a>
+                    </li>
+                    {{~}}
+                    {{??}}
+                    <li>
+                        <a href="javascript:void(0)"><img src="http://img.alicdn.com/bao/uploaded/TB1EU25HVXXXXXXXVXXSutbFXXX.jpg_440x440Q90.jpg" alt=""></a>
+                    </li>
+                    {{?}}
+                </ul>
+            </div>
+            {{?}}
+            {{ } }}
+        </div>
+    </div>
+</div>
+    <script>
+        $(function(){
+            $('.tabs li').unbind('mouseenter');
+            $('.tabs li').each(function(i,ele){
+
+                var t = $(ele).attr("tab-target");
+                var isCur = $(ele).hasClass("cur");
+                if(!isCur){
+                    $("#" + t).hide();
+                }
+                else{
+                    $("#" + t).show();
+                }
+
+                $(this).click(function(){
+                    $(this).addClass('cur').siblings().removeClass('cur');
+                    var target = $(this).attr("tab-target");
+                    $("#" + target).show().siblings().hide();
+                });
+            });
+        });
+    </script>
+
+<!--end page-->
+{{?it.productionMode}}
+{{=$.importUrl("/defaultFooter.html?m=head_merchant&productionMode=true")}}
+{{??}}
+{{=$.importUrl("/defaultFooter.html?m=head_merchant&productionMode=false")}}
+{{?}}

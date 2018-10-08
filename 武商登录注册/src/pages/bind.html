@@ -1,0 +1,70 @@
+<title><%if(config && config.title && config.title.value !=""){%><%=config.title.value%><%}else{%>号码绑定 - <%=webName%><%}%></title>
+<%=#importUrl("/defaultHeader.html")%>
+<%if(productionMode){%>
+<script src="/resources/jquery.form.js" type="text/javascript"></script>
+<script type="text/javascript" src="/resources/jquery.validate.min.js"></script>
+<script type="text/javascript">var appId="<%=appId %>",mid="<%=mid %>",msgInterval="<%=intervalTime %>",wsRValue="<%=pageValidateCode %>",wsRATValue="<%=pageValidateCodeValue %>";</script>
+<script src="../res/js/bind.js" type="text/javascript"></script>
+<%}%>
+<link href="../res/style/login.css" rel="stylesheet" />
+
+<div class="login-wrap" style="background: #f6f6f6; margin: 20px 0;">
+    <div class="inner verification">
+        <div class="verify">
+            <h2>请完成手机绑定</h2>
+            <div class="con-box">
+                <div class="nav-con">
+                    <div class="nav-tab">
+                        <ul id="navTab">
+                            <li id="new_tab" style="float: left;"><a href="javascript:void(0);">没有武商网账号</a></li>
+                            <li class="cur" id="old_tab" style="float: right;"><a href="javascript:void(0);">已有武商网账号</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="new_form" class="verify-box" style="display: none;">
+                    <form id="phoneForm" action="javascript:;" method="post" autocomplete="off">
+                        <input type="hidden" name="loginType" value="<%=loginType %>" />
+                        <div class="content">
+                            <div class="import clearfix">
+                                <p>手机号码:</p>
+                                <input style="width: 280px;" type="text" class="login-put" id="mobilePhone" name="mobilePhone" placeholder="请输入您的手机号码">
+                                <span class="send active fl"><a href="javascript:void(0);" id="sendCode">发送验证码</a></span>
+                            </div>
+                            <div class="import clearfix">
+                                <p>验 证 码:</p>
+                                <input style="width: 185px;" type="text" class="login-put" id="mobileValidateCode" name="mobileValidateCode" placeholder="请输入验证码">
+                                <span class="hint fl" style="display: none;">验证码有误，请重输。</span>
+                            </div>
+                            <div class="submit">
+                                <button type="submit" class="btn-submit">提交注册</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div id="old_form" class="verify-box">
+                    <form id="bindForm" action="javascript:;" method="post" autocomplete="off">
+                        <input type="hidden" name="loginType" value="<%=loginType %>" />
+                        <div class="content">
+                            <div class="import clearfix">
+                                <p>账 号:</p>
+                                <input type="text" class="login-put" id="loginId" name="loginId" placeholder="请输入您的登录账号或手机号码">
+                            </div>
+                            <div class="import clearfix">
+                                <p>密 码:</p>
+                                <input style="width: 280px;" type="password" class="login-put" id="password" name="password" placeholder="请输入登录密码">
+                                <span class="forget-pwd"><a href="/login/lost_password.jsp" target="_blank">忘记密码？</a></span>
+                            </div>
+                            <div class="submit">
+                                <button type="submit" class="btn-submit">绑定账号</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%=#importUrl("/defaultFooter.html")%>
+

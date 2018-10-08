@@ -1,0 +1,702 @@
+
+<!DOCTYPE html>
+<!--[if lte IE 7 ]> <html class="lte_ie7 lte_ie8" lang="zh-CN"> <![endif]-->
+<!--[if lte IE 8 ]> <html class="lte_ie8" lang="zh-CN"> <![endif]-->
+<html>
+<head lang="en">
+    <title><%if(config && config.title && config.title.value){%><%=config.title.value%><%}else{%><%=webName%><%}%></title>
+    <meta name="description" content="<%if(config && config.description){%><%=config.description.value%><%}%>"/>
+    <meta name="keywords" content="<%if(config && config.keywords){%><%=config.keywords.value%><%}%>"/>
+    <meta http-equiv="X-UA-Compatible" content="edge" />
+    <meta name="renderer" content="webkit"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="/upload/zhaoshang.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="/upload/zhaoshang.ico">
+    <link rel="Bookmark" type="image/x-icon" href="/upload/zhaoshang.ico">
+
+    <%if(!productionMode){%>
+    <style>
+        .listCon{z-index: 10;}
+        /*.mask{z-index: 20 !important;}*/
+    </style>
+    <%}%>
+</head>
+<body>
+<%=#importUrl("/header.html?onlyShowTopNav=true")%>
+<link href="@{res/style/p_detail.css}@" type="text/css" rel="stylesheet">
+<img id="greyImg" src="@{res/images/grey.gif}@" style="display: none;"/>
+<!--全球馆banner-->
+<div class="globalBanner" data-type="image" data-id="bgBanner" imgSize="1920X920" mask-type="2">
+    <%if(bgBanner && bgBanner.imgUrl){%>
+    <img src="<%=bgBanner.imgUrl%>" alt="">
+    <%}else{%>
+        <%if(_pageId_ == 'japanRoom'){%>
+            <img src="@{res/images/j-banner.jpg}@" alt="">
+        <%}else{%>
+            <img src="@{res/images/A-banner.jpg}@" alt="">
+        <%}%>
+    <%}%>
+</div>
+<!--全球馆banner-->
+
+<!--商品分类-->
+<div class="listCon wbox" style="z-index: 20;">
+    <div class="searchCty"><div class="searchBox"><a href="#" class="search-btn"><i></i></a><input type="text" class="searchVal"></div></div>
+    <div class="l-wrap">
+        <div class="l-menu" data-type='fcat' dataId="cat_nav">
+            <div class="l-title">商品分类：</div>
+            <ul class="subMenu">
+                <%if(cat_nav && cat_nav.children && cat_nav.children.length > 0){%>
+                    <%for(var i=0,level1Length=cat_nav.children.length;i < level1Length;i++){%>
+                    <%var level1 = cat_nav.children[i];%>
+                    <%var linkTo1 = level1.url ? level1.url : level1.columnId ? '/product_list.html?columnId='+level1.columnId : 'javascript:;'%>
+                    <%if(!level1){continue;}%>
+                        <li>
+                            <a href="<%=linkTo1%>">
+                                <%if(level1.icon){%>
+                                <s style="background-image: url(<%=level1.icon%>);"></s>
+                                <%}else{%>
+                                <s class="s1"></s>
+                                <%}%>
+                                <b><%=level1.name%></b>
+                            </a>
+                        </li>
+                    <%}%>
+                <%}else{%>
+                <li><a href="#"><s class="s1"></s><b>美妆个护</b></a></li>
+                <li><a href="#"><s class="s2"></s><b>食品保健</b></a></li>
+                <li><a href="#"><s class="s3"></s><b>母婴用品</b></a></li>
+                <li><a href="#"><s class="s4"></s><b>服饰鞋帽</b></a></li>
+                <li><a href="#"><s class="s5"></s><b>生鲜/水果</b></a></li>
+                <li><a href="#"><s class="s6"></s><b>厨具</b></a></li>
+                <li><a href="#"><s class="s7"></s><b>珠宝/手表</b></a></li>
+                <%}%>
+            </ul>
+        </div>
+        <div class="floorBox l-shops">
+            <div class="floorMain">
+                <ul class="mask-item">
+                    <li class="slide_banner f-flash vf4" data-type="imgLinkList" data-id="sideBanner1" imgSize="480X360">
+                        <ul class="slide_adv">
+                            <%if(sideBanner1 && sideBanner1.length > 0){%>
+                            <%for(var kk=0;kk< sideBanner1.length;kk++){%>
+                            <li style="background-image:url(<%=sideBanner1[kk].imgUrl%>);">
+                                <a href="<%=sideBanner1[kk].linkTo%>" target="<%=sideBanner1[kk].openInNewPage%>"></a>
+                            </li>
+                            <%}%>
+                            <%}else{%>
+                            <li style="background-image:url(@{res/case/480x360.jpg}@);">
+                                <a href="#"></a>
+                            </li>
+                            <li style="background-image:url(@{res/case/480x360.jpg}@);">
+                                <a href="#"></a>
+                            </li>
+                            <%}%>
+
+                        </ul>
+                    </li>
+                    <li class="list" data-type="productGroup" data-id="topProduct1" data-spec="180X180">
+                        <%if(topProduct1 && topProduct1.length > 0){%>
+                        <%var product = topProduct1[0],productLink = "/product.html?id=" + product.id + "&mid=" + product.merchantId;%>
+                        <div class="item-pic">
+                            <a href="<%=productLink%>" target="_blank"><img src="<%=product.imgUrl%>" alt="<%=product.name%>"/></a>
+                        </div>
+                        <div class="item">
+                            <div class="scroll-box">
+                                <div class="vender">
+                                    <div class="v-contray">
+                                        <%if(product.countryPicUrl){%><img src="<%=product.countryPicUrl%>"/><%}%>
+                                        <%if(product.supplyAndDeliveryDesc){%><span><%=product.supplyAndDeliveryDesc%></span><%}%>
+                                    </div>
+                                </div>
+                                <div class="item-details">
+                                    <p class="item-name"><a href="<%=productLink%>" target="_blank"><%=product.name%></a></p>
+                                    <p class="item-intro"><%=product.sellingPoint%></p>
+                                    <p class="item-price"><%if(product.memberPrice > 0){%><span class="new">&yen;<%=product.memberPrice%></span><%}%> <%if(product.marketPrice > 0){%><s>&yen;<%=product.marketPrice%></s><%}%></p>
+                                </div>
+                            </div>
+                            <div class="btn-box"><a href="<%=productLink%>" target="_blank">立即购买</a></div>
+                        </div>
+                        <%}else{%>
+                        <div class="item-pic"><a href="#"><img src="@{res/case/180x180.jpg}@"/></a></div>
+                        <div class="item">
+                            <div class="scroll-box">
+                                <div class="vender">
+                                    <div class="v-contray">
+                                        <img src="@{res/images/icon-country.png}@"/>
+                                        <span>德国直供</span>
+                                    </div>
+                                </div>
+                                <div class="item-details">
+                                    <p class="item-name"><a href="#">BALENCIAGA</a></p>
+                                    <p class="item-intro">纽崔莱蛋白质粉孕妇可用</p>
+                                    <p class="item-price"><span class="new">$189</span></p>
+                                </div>
+                            </div>
+                            <div class="btn-box"><a href="javascript:;">立即购买</a></div>
+                        </div>
+                        <%}%>
+                    </li>
+                    <li class="list" data-type="productGroup" data-id="topProduct2" data-spec="180X180">
+                        <%if(topProduct2 && topProduct2.length > 0){%>
+                        <%var product = topProduct2[0],productLink = "/product.html?id=" + product.id + "&mid=" + product.merchantId;%>
+                        <div class="item-pic">
+                            <a href="<%=productLink%>" target="_blank"><img src="<%=product.imgUrl%>" alt="<%=product.name%>"/></a>
+                        </div>
+                        <div class="item">
+                            <div class="scroll-box">
+                                <div class="vender">
+                                    <div class="v-contray">
+                                        <%if(product.countryPicUrl){%><img src="<%=product.countryPicUrl%>"/><%}%>
+                                        <%if(product.supplyAndDeliveryDesc){%><span><%=product.supplyAndDeliveryDesc%></span><%}%>
+                                    </div>
+                                </div>
+                                <div class="item-details">
+                                    <p class="item-name"><a href="<%=productLink%>" target="_blank"><%=product.name%></a></p>
+                                    <p class="item-intro"><%=product.sellingPoint%></p>
+                                    <p class="item-price"><%if(product.memberPrice > 0){%><span class="new">&yen;<%=product.memberPrice%></span><%}%> <%if(product.marketPrice > 0){%><s>&yen;<%=product.marketPrice%></s><%}%></p>
+                                </div>
+                            </div>
+                            <div class="btn-box"><a href="<%=productLink%>" target="_blank">立即购买</a></div>
+                        </div>
+                        <%}else{%>
+                        <div class="item-pic"><a href="#"><img src="@{res/case/180x180.jpg}@"/></a></div>
+                        <div class="item">
+                            <div class="scroll-box">
+                                <div class="vender">
+                                    <div class="v-contray">
+                                        <img src="@{res/images/icon-country.png}@"/>
+                                        <span>德国直供</span>
+                                    </div>
+                                </div>
+                                <div class="item-details">
+                                    <p class="item-name"><a href="#">BALENCIAGA</a></p>
+                                    <p class="item-intro">纽崔莱蛋白质粉孕妇可用</p>
+                                    <p class="item-price"><span class="new">$189</span></p>
+                                </div>
+                            </div>
+                            <div class="btn-box"><a href="javascript:;">立即购买</a></div>
+                        </div>
+                        <%}%>
+                    </li>
+                    <li class="list" data-type="productGroup" data-id="topProduct3" data-spec="180X180">
+                        <%if(topProduct3 && topProduct3.length > 0){%>
+                        <%var product = topProduct3[0],productLink = "/product.html?id=" + product.id + "&mid=" + product.merchantId;%>
+                        <div class="item-pic">
+                            <a href="<%=productLink%>" target="_blank"><img src="<%=product.imgUrl%>" alt="<%=product.name%>"/></a>
+                        </div>
+                        <div class="item">
+                            <div class="scroll-box">
+                                <div class="vender">
+                                    <div class="v-contray">
+                                        <%if(product.countryPicUrl){%><img src="<%=product.countryPicUrl%>"/><%}%>
+                                        <%if(product.supplyAndDeliveryDesc){%><span><%=product.supplyAndDeliveryDesc%></span><%}%>
+                                    </div>
+                                </div>
+                                <div class="item-details">
+                                    <p class="item-name"><a href="<%=productLink%>" target="_blank"><%=product.name%></a></p>
+                                    <p class="item-intro"><%=product.sellingPoint%></p>
+                                    <p class="item-price"><%if(product.memberPrice > 0){%><span class="new">&yen;<%=product.memberPrice%></span><%}%> <%if(product.marketPrice > 0){%><s>&yen;<%=product.marketPrice%></s><%}%></p>
+                                </div>
+                            </div>
+                            <div class="btn-box"><a href="<%=productLink%>" target="_blank">立即购买</a></div>
+                        </div>
+                        <%}else{%>
+                        <div class="item-pic"><a href="#"><img src="@{res/case/180x180.jpg}@"/></a></div>
+                        <div class="item">
+                            <div class="scroll-box">
+                                <div class="vender">
+                                    <div class="v-contray">
+                                        <img src="@{res/images/icon-country.png}@"/>
+                                        <span>德国直供</span>
+                                    </div>
+                                </div>
+                                <div class="item-details">
+                                    <p class="item-name"><a href="#">BALENCIAGA</a></p>
+                                    <p class="item-intro">纽崔莱蛋白质粉孕妇可用</p>
+                                    <p class="item-price"><span class="new">$189</span></p>
+                                </div>
+                            </div>
+                            <div class="btn-box"><a href="javascript:;">立即购买</a></div>
+                        </div>
+                        <%}%>
+                    </li>
+                    <li class="list" data-type="productGroup" data-id="topProduct4" data-spec="180X180">
+                        <%if(topProduct4 && topProduct4.length > 0){%>
+                        <%var product = topProduct4[0],productLink = "/product.html?id=" + product.id + "&mid=" + product.merchantId;%>
+                        <div class="item-pic">
+                            <a href="<%=productLink%>" target="_blank"><img src="<%=product.imgUrl%>" alt="<%=product.name%>"/></a>
+                        </div>
+                        <div class="item">
+                            <div class="scroll-box">
+                                <div class="vender">
+                                    <div class="v-contray">
+                                        <%if(product.countryPicUrl){%><img src="<%=product.countryPicUrl%>"/><%}%>
+                                        <%if(product.supplyAndDeliveryDesc){%><span><%=product.supplyAndDeliveryDesc%></span><%}%>
+                                    </div>
+                                </div>
+                                <div class="item-details">
+                                    <p class="item-name"><a href="<%=productLink%>" target="_blank"><%=product.name%></a></p>
+                                    <p class="item-intro"><%=product.sellingPoint%></p>
+                                    <p class="item-price"><%if(product.memberPrice > 0){%><span class="new">&yen;<%=product.memberPrice%></span><%}%> <%if(product.marketPrice > 0){%><s>&yen;<%=product.marketPrice%></s><%}%></p>
+                                </div>
+                            </div>
+                            <div class="btn-box"><a href="<%=productLink%>" target="_blank">立即购买</a></div>
+                        </div>
+                        <%}else{%>
+                        <div class="item-pic"><a href="#"><img src="@{res/case/180x180.jpg}@"/></a></div>
+                        <div class="item">
+                            <div class="scroll-box">
+                                <div class="vender">
+                                    <div class="v-contray">
+                                        <img src="@{res/images/icon-country.png}@"/>
+                                        <span>德国直供</span>
+                                    </div>
+                                </div>
+                                <div class="item-details">
+                                    <p class="item-name"><a href="#">BALENCIAGA</a></p>
+                                    <p class="item-intro">纽崔莱蛋白质粉孕妇可用</p>
+                                    <p class="item-price"><span class="new">$189</span></p>
+                                </div>
+                            </div>
+                            <div class="btn-box"><a href="javascript:;">立即购买</a></div>
+                        </div>
+                        <%}%>
+                    </li>
+                    <li class="list" data-type="productGroup" data-id="topProduct5" data-spec="180X180">
+                        <%if(topProduct5 && topProduct5.length > 0){%>
+                        <%var product = topProduct5[0],productLink = "/product.html?id=" + product.id + "&mid=" + product.merchantId;%>
+                        <div class="item-pic">
+                            <a href="<%=productLink%>" target="_blank"><img src="<%=product.imgUrl%>" alt="<%=product.name%>"/></a>
+                        </div>
+                        <div class="item">
+                            <div class="scroll-box">
+                                <div class="vender">
+                                    <div class="v-contray">
+                                        <%if(product.countryPicUrl){%><img src="<%=product.countryPicUrl%>"/><%}%>
+                                        <%if(product.supplyAndDeliveryDesc){%><span><%=product.supplyAndDeliveryDesc%></span><%}%>
+                                    </div>
+                                </div>
+                                <div class="item-details">
+                                    <p class="item-name"><a href="<%=productLink%>" target="_blank"><%=product.name%></a></p>
+                                    <p class="item-intro"><%=product.sellingPoint%></p>
+                                    <p class="item-price"><%if(product.memberPrice > 0){%><span class="new">&yen;<%=product.memberPrice%></span><%}%> <%if(product.marketPrice > 0){%><s>&yen;<%=product.marketPrice%></s><%}%></p>
+                                </div>
+                            </div>
+                            <div class="btn-box"><a href="<%=productLink%>" target="_blank">立即购买</a></div>
+                        </div>
+                        <%}else{%>
+                        <div class="item-pic"><a href="#"><img src="@{res/case/180x180.jpg}@"/></a></div>
+                        <div class="item">
+                            <div class="scroll-box">
+                                <div class="vender">
+                                    <div class="v-contray">
+                                        <img src="@{res/images/icon-country.png}@"/>
+                                        <span>德国直供</span>
+                                    </div>
+                                </div>
+                                <div class="item-details">
+                                    <p class="item-name"><a href="#">BALENCIAGA</a></p>
+                                    <p class="item-intro">纽崔莱蛋白质粉孕妇可用</p>
+                                    <p class="item-price"><span class="new">$189</span></p>
+                                </div>
+                            </div>
+                            <div class="btn-box"><a href="javascript:;">立即购买</a></div>
+                        </div>
+                        <%}%>
+                    </li>
+                    <li class="list" data-type="productGroup" data-id="topProduct6" data-spec="180X180">
+                        <%if(topProduct6 && topProduct6.length > 0){%>
+                        <%var product = topProduct6[0],productLink = "/product.html?id=" + product.id + "&mid=" + product.merchantId;%>
+                        <div class="item-pic">
+                            <a href="<%=productLink%>" target="_blank"><img src="<%=product.imgUrl%>" alt="<%=product.name%>"/></a>
+                        </div>
+                        <div class="item">
+                            <div class="scroll-box">
+                                <div class="vender">
+                                    <div class="v-contray">
+                                        <%if(product.countryPicUrl){%><img src="<%=product.countryPicUrl%>"/><%}%>
+                                        <%if(product.supplyAndDeliveryDesc){%><span><%=product.supplyAndDeliveryDesc%></span><%}%>
+                                    </div>
+                                </div>
+                                <div class="item-details">
+                                    <p class="item-name"><a href="<%=productLink%>" target="_blank"><%=product.name%></a></p>
+                                    <p class="item-intro"><%=product.sellingPoint%></p>
+                                    <p class="item-price"><%if(product.memberPrice > 0){%><span class="new">&yen;<%=product.memberPrice%></span><%}%> <%if(product.marketPrice > 0){%><s>&yen;<%=product.marketPrice%></s><%}%></p>
+                                </div>
+                            </div>
+                            <div class="btn-box"><a href="<%=productLink%>" target="_blank">立即购买</a></div>
+                        </div>
+                        <%}else{%>
+                        <div class="item-pic"><a href="#"><img src="@{res/case/180x180.jpg}@"/></a></div>
+                        <div class="item">
+                            <div class="scroll-box">
+                                <div class="vender">
+                                    <div class="v-contray">
+                                        <img src="@{res/images/icon-country.png}@"/>
+                                        <span>德国直供</span>
+                                    </div>
+                                </div>
+                                <div class="item-details">
+                                    <p class="item-name"><a href="#">BALENCIAGA</a></p>
+                                    <p class="item-intro">纽崔莱蛋白质粉孕妇可用</p>
+                                    <p class="item-price"><span class="new">$189</span></p>
+                                </div>
+                            </div>
+                            <div class="btn-box"><a href="javascript:;">立即购买</a></div>
+                        </div>
+                        <%}%>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="brand-list" data-type="textLinkList" data-id="brandItemList" data-make-id="true" mask-type="2">
+        <div class="title"><i></i><span class="chn">日本大牌</span><span class="eng">RECOMMEND</span></div>
+
+        <%if(brandItemList && brandItemList.length > 0){%>
+            <%for(var i=0;i < brandItemList.length;i++){%>
+                <%var brandItem = brandItemList[i];%>
+                <div class="b-item">
+                    <div class="brand-box">
+                        <div class="b-img" data-type="image" data-id="brandData.banner_<%=brandItem.recordId%>" imgSize="1210X240">
+                            <%if(brandData && brandData['banner_'+brandItem.recordId] && brandData['banner_'+brandItem.recordId].imgUrl){%>
+                            <img src="<%=brandData['banner_'+brandItem.recordId].imgUrl%>" alt="">
+                            <%}else{%>
+                            <img src="@{res/images/brand_banner.jpg}@" alt="">
+                            <%}%>
+                        </div>
+                        <div class="b-detail">
+                            <div class="b-logo" data-type="image" data-id="brandData.logo_<%=brandItem.recordId%>" imgSize="94X94">
+                                <%if(brandData && brandData['logo_'+brandItem.recordId] && brandData['logo_'+brandItem.recordId].imgUrl){%>
+                                <img src="<%=brandData['logo_'+brandItem.recordId].imgUrl%>" alt="">
+                                <%}else{%>
+                                <img src="@{res/case/94x94.png}@" alt="">
+                                <%}%>
+                            </div>
+                            <div class="b-about">
+                                <div class="b-name" data-type="text" data-id="brandData.name_<%=brandItem.recordId%>"><%=brandData && brandData['name_'+brandItem.recordId] ? brandData['name_'+brandItem.recordId] : 'UNIMATRIKEN'%></div>
+                                <div class="b-intro" data-type="text" data-id="brandData.intro_<%=brandItem.recordId%>"><%=brandData && brandData['intro_'+brandItem.recordId] ? brandData['intro_'+brandItem.recordId] : 'UNIMATRIKEN日本中高端保健品品牌 健康生活全家一起分享'%></div>
+                            </div>
+                            <%if(brandData && brandData['btnLink_'+brandItem.recordId]){%>
+                            <a href="<%=brandData['btnLink_'+brandItem.recordId].linkTo%>" target="<%=brandData['btnLink_'+brandItem.recordId].openInNewPage%>" class="btn-all" data-type="textLink" data-id="brandData.btnLink_<%=brandItem.recordId%>"><%=brandData['btnLink_'+brandItem.recordId].content%></a>
+                            <%}else{%>
+                            <a href="#" class="btn-all" data-type="textLink" data-id="brandData.btnLink_<%=brandItem.recordId%>">全部商品</a>
+                            <%}%>
+                        </div>
+                    </div>
+                    <div class="brand-shop">
+                        <div class="floorMain">
+                            <ul class="mask-item" data-type="productGroup" data-id="brandData.products_<%=brandItem.recordId%>" data-spec="200X200">
+                                <%if(brandData && brandData['products_'+brandItem.recordId] && brandData['products_'+brandItem.recordId].length> 0){%>
+                                    <%for(var i=0;i< brandData['products_'+brandItem.recordId].length;i++){%>
+                                    <%if(i>4){break;}%>
+                                    <%var product = brandData['products_'+brandItem.recordId][i],productLink = "/product.html?id=" + product.id + "&mid=" + product.merchantId;%>
+                                    <li>
+                                        <div class="item-pic">
+                                            <a href="<%=productLink%>" target="_blank"><img src="<%=!productionMode ? product.imgUrl : ''%>" original="<%=productionMode ? product.imgUrl : ''%>" alt="<%=product.name%>"/></a>
+                                        </div>
+                                        <div class="item">
+                                            <div class="item-details">
+                                                <p class="item-price"><%if(product.memberPrice > 0){%><span class="new">&yen;<%=product.memberPrice%></span><%}%> <%if(product.marketPrice > 0){%><s>&yen;<%=product.marketPrice%></s><%}%></p>
+                                                <p class="item-name"><a href="<%=productLink%>" target="_blank"><%=product.name%></a></p>
+                                                <p class="item-intro"><%=product.sellingPoint%></p>
+                                            </div>
+                                            <div class="vender">
+                                                <div class="v-contray">
+                                                    <%if(product.countryPicUrl){%><img src="<%=product.countryPicUrl%>"/><%}%>
+                                                    <%if(product.supplyAndDeliveryDesc){%><span><%=product.supplyAndDeliveryDesc%></span><%}%>
+                                                </div>
+                                                <div class="v-deal">
+                                                    <b><%=product.salesAmount || '0'%></b>
+                                                    <span>该月成交</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <%}%>
+                                <%}else{%>
+                                    <%for(var j=0;j<5;j++){%>
+                                    <li>
+                                        <div class="item-pic"><a href="#"><img src="@{res/case/200x200.jpg}@"/></a></div>
+                                        <div class="item">
+                                            <div class="item-details">
+                                                <p class="item-price"><span class="new">$189</span> <s>$256</s></p>
+                                                <p class="item-name"><a href="#">TOPVALU SELECT</a></p>
+                                                <p class="item-intro">玻尿酸原液30ml</p>
+                                            </div>
+                                            <div class="vender">
+                                                <div class="v-contray">
+                                                    <img src="@{res/images/icon-country.png}@"/>
+                                                    <span>德国直供</span>
+                                                </div>
+                                                <div class="v-deal">
+                                                    <b>67</b>
+                                                    <span>该月成交</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <%}%>
+                                <%}%>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            <%}%>
+        <%}else{%>
+            <div class="b-item">
+                <div class="brand-box">
+                    <div class="b-img"><img src="@{res/images/brand_banner.jpg}@" alt=""></div>
+                    <div class="b-detail">
+                        <div class="b-logo"><img src="@{res/case/94x94.png}@" alt=""></div>
+                        <div class="b-about">
+                            <div class="b-name">UNIMATRIKEN</div>
+                            <div class="b-intro">UNIMATRIKEN日本中高端保健品品牌 健康生活全家一起分享</div>
+                        </div>
+                        <a href="#" class="btn-all">全部商品</a>
+                    </div>
+                </div>
+                <div class="brand-shop">
+                    <div class="floorMain">
+                        <ul class="mask-item">
+                            <li>
+                                <div class="item-pic"><a href="#"><img src="@{res/case/200x200.jpg}@"/></a></div>
+                                <div class="item">
+                                    <div class="item-details">
+                                        <p class="item-price"><span class="new">$189</span> <s>$256</s></p>
+                                        <p class="item-name"><a href="#">TOPVALU SELECT</a></p>
+                                        <p class="item-intro">玻尿酸原液30ml</p>
+                                    </div>
+                                    <div class="vender">
+                                        <div class="v-contray">
+                                            <img src="@{res/images/icon-country.png}@"/>
+                                            <span>德国直供</span>
+                                        </div>
+                                        <div class="v-deal">
+                                            <b>67</b>
+                                            <span>该月成交</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-pic"><a href="#"><img src="@{res/case/200x200.jpg}@"/></a></div>
+                                <div class="item">
+                                    <div class="item-details">
+                                        <p class="item-price"><span class="new">$189</span> <s>$256</s></p>
+                                        <p class="item-name"><a href="#">TOPVALU SELECT</a></p>
+                                        <p class="item-intro">玻尿酸原液30ml尿酸原液30ml尿酸原液30ml尿酸原液30ml尿酸原液30ml</p>
+                                    </div>
+                                    <div class="vender">
+                                        <div class="v-contray">
+                                            <img src="@{res/images/icon-country.png}@"/>
+                                            <span>德国直供</span>
+                                        </div>
+                                        <div class="v-deal">
+                                            <b>67</b>
+                                            <span>该月成交</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-pic"><a href="#"><img src="@{res/case/200x200.jpg}@"/></a></div>
+                                <div class="item">
+                                    <div class="item-details">
+                                        <p class="item-price"><span class="new">$189</span> <s>$256</s></p>
+                                        <p class="item-name"><a href="#">TOPVALU SELECT</a></p>
+                                        <p class="item-intro">30ml尿酸原液30ml尿酸原液30ml</p>
+                                    </div>
+                                    <div class="vender">
+                                        <div class="v-contray">
+                                            <img src="@{res/images/icon-country.png}@"/>
+                                            <span>德国直供</span>
+                                        </div>
+                                        <div class="v-deal">
+                                            <b>67</b>
+                                            <span>该月成交</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-pic"><a href="#"><img src="@{res/case/200x200.jpg}@"/></a></div>
+                                <div class="item">
+                                    <div class="item-details">
+                                        <p class="item-price"><span class="new">$189</span> <s>$256</s></p>
+                                        <p class="item-name"><a href="#">TOPVALU SELECT</a></p>
+                                        <p class="item-intro">尿酸原液30ml尿酸原液30ml</p>
+                                    </div>
+                                    <div class="vender">
+                                        <div class="v-contray">
+                                            <img src="@{res/images/icon-country.png}@"/>
+                                            <span>德国直供</span>
+                                        </div>
+                                        <div class="v-deal">
+                                            <b>67</b>
+                                            <span>该月成交</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-pic"><a href="#"><img src="@{res/case/200x200.jpg}@"/></a></div>
+                                <div class="item">
+                                    <div class="item-details">
+                                        <p class="item-price"><span class="new">$189</span> <s>$256</s></p>
+                                        <p class="item-name"><a href="#">TOPVALU SELECT</a></p>
+                                        <p class="item-intro">玻尿酸原液30ml</p>
+                                    </div>
+                                    <div class="vender">
+                                        <div class="v-contray">
+                                            <img src="@{res/images/icon-country.png}@"/>
+                                            <span>德国直供</span>
+                                        </div>
+                                        <div class="v-deal">
+                                            <b>67</b>
+                                            <span>该月成交</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="b-item">
+                <div class="brand-box">
+                    <div class="b-img"><img src="@{res/images/brand_banner.jpg}@" alt=""></div>
+                    <div class="b-detail">
+                        <div class="b-logo"><img src="@{res/case/94x94.png}@" alt=""></div>
+                        <div class="b-about">
+                            <div class="b-name">UNIMATRIKEN</div>
+                            <div class="b-intro">UNIMATRIKEN日本中高端保健品品牌 健康生活全家一起分享</div>
+                        </div>
+                        <a href="#" class="btn-all">全部商品</a>
+                    </div>
+                </div>
+                <div class="brand-shop">
+                    <div class="floorMain">
+                        <ul class="mask-item">
+                            <li>
+                                <div class="item-pic"><a href="#"><img src="@{res/case/200x200.jpg}@"/></a></div>
+                                <div class="item">
+                                    <div class="item-details">
+                                        <p class="item-price"><span class="new">$189</span> <s>$256</s></p>
+                                        <p class="item-name"><a href="#">TOPVALU SELECT</a></p>
+                                        <p class="item-intro">玻尿酸原液30ml</p>
+                                    </div>
+                                    <div class="vender">
+                                        <div class="v-contray">
+                                            <img src="@{res/images/icon-country.png}@"/>
+                                            <span>德国直供</span>
+                                        </div>
+                                        <div class="v-deal">
+                                            <b>67</b>
+                                            <span>该月成交</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-pic"><a href="#"><img src="@{res/case/200x200.jpg}@"/></a></div>
+                                <div class="item">
+                                    <div class="item-details">
+                                        <p class="item-price"><span class="new">$189</span> <s>$256</s></p>
+                                        <p class="item-name"><a href="#">TOPVALU SELECT</a></p>
+                                        <p class="item-intro">玻尿酸原液30ml尿酸原液30ml尿酸原液30ml尿酸原液30ml尿酸原液30ml</p>
+                                    </div>
+                                    <div class="vender">
+                                        <div class="v-contray">
+                                            <img src="@{res/images/icon-country.png}@"/>
+                                            <span>德国直供</span>
+                                        </div>
+                                        <div class="v-deal">
+                                            <b>67</b>
+                                            <span>该月成交</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-pic"><a href="#"><img src="@{res/case/200x200.jpg}@"/></a></div>
+                                <div class="item">
+                                    <div class="item-details">
+                                        <p class="item-price"><span class="new">$189</span> <s>$256</s></p>
+                                        <p class="item-name"><a href="#">TOPVALU SELECT</a></p>
+                                        <p class="item-intro">30ml尿酸原液30ml尿酸原液30ml</p>
+                                    </div>
+                                    <div class="vender">
+                                        <div class="v-contray">
+                                            <img src="@{res/images/icon-country.png}@"/>
+                                            <span>德国直供</span>
+                                        </div>
+                                        <div class="v-deal">
+                                            <b>67</b>
+                                            <span>该月成交</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-pic"><a href="#"><img src="@{res/case/200x200.jpg}@"/></a></div>
+                                <div class="item">
+                                    <div class="item-details">
+                                        <p class="item-price"><span class="new">$189</span> <s>$256</s></p>
+                                        <p class="item-name"><a href="#">TOPVALU SELECT</a></p>
+                                        <p class="item-intro">尿酸原液30ml尿酸原液30ml</p>
+                                    </div>
+                                    <div class="vender">
+                                        <div class="v-contray">
+                                            <img src="@{res/images/icon-country.png}@"/>
+                                            <span>德国直供</span>
+                                        </div>
+                                        <div class="v-deal">
+                                            <b>67</b>
+                                            <span>该月成交</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-pic"><a href="#"><img src="@{res/case/200x200.jpg}@"/></a></div>
+                                <div class="item">
+                                    <div class="item-details">
+                                        <p class="item-price"><span class="new">$189</span> <s>$256</s></p>
+                                        <p class="item-name"><a href="#">TOPVALU SELECT</a></p>
+                                        <p class="item-intro">玻尿酸原液30ml</p>
+                                    </div>
+                                    <div class="vender">
+                                        <div class="v-contray">
+                                            <img src="@{res/images/icon-country.png}@"/>
+                                            <span>德国直供</span>
+                                        </div>
+                                        <div class="v-deal">
+                                            <b>67</b>
+                                            <span>该月成交</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        <%}%>
+    </div>
+</div>
+<!--end 商品分类-->
+
+<%if(productionMode){%>
+<script src="@{res/js/jquery-1.12.1.min.js}@"></script>
+<script src="@{res/js/jquery.lazyloaded.js}@" type="text/javascript"></script>
+<script src="@{res/js/unslider-min.js}@"></script>
+<script src="@{res/js/p_detail.js}@"></script>
+<%}%>
+
+</body>
+</html>

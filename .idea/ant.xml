@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AntConfiguration">
+    <buildFile url="file://$PROJECT_DIR$/173共享妈妈首页装修模板/build.xml" />
+    <buildFile url="file://$PROJECT_DIR$/商品库存预警器/build.xml" />
+    <buildFile url="file://$PROJECT_DIR$/商家订单导出字段管理/build.xml" />
+    <buildFile url="file://$PROJECT_DIR$/招商模板装修/build.xml" />
+    <buildFile url="file://$PROJECT_DIR$/拼图验证码插件/build.xml" />
+    <buildFile url="file://$PROJECT_DIR$/武商大会员系统接口对接/build.xml" />
+    <buildFile url="file://$PROJECT_DIR$/武商装修模板/build.xml" />
+    <buildFile url="file://$PROJECT_DIR$/预存款充值设置/build.xml" />
+    <buildFile url="file://$PROJECT_DIR$/173共享妈妈首页装修模板/build.xml" />
+    <buildFile url="file://$PROJECT_DIR$/平台意见反馈管理/build.xml" />
+    <buildFile url="file://$PROJECT_DIR$/批量修改订单物流信息/build.xml" />
+  </component>
+</project>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="../bootstrap/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" type="text/css" href="/resources/bootstrap3.3.4/css/bootstrap.css" rel="stylesheet">
+    <script type="text/javascript" src="/resources/jquery-1.10.2.min.js"></script>
+    <script src="/resources/bootbox.min.js"></script>
+    <script type="text/javascript" src="/resources/bootstrap3.3.4/js/bootstrap.js"></script>
+    <script type="text/javascript" src="/resources/plugin/layer-v1.7.1/layer.min.js"></script>
+    <script>
+        var merchantId = '{{=it.merchantId}}';
+    </script>
+    <script type="text/javascript" src="../js/OTORelationList.js"></script>
+</head>
+<body>
+
+<div class="container-fluid">
+
+    <div class="panel panel-default" style="width: 600px;">
+        <div class="panel-heading">
+            商家ID和机构编码的关系
+            <button type="button" class="btn btn-default btn-xs" aria-label="Left Align" style="float: right;" id="online_btn" data-a="0">
+                <span id="online_span" class="glyphicon glyphicon-menu-up" aria-hidden="true"></span>
+            </button>
+        </div>
+        <table class="table table-bordered table-over" id="online_tab">
+            <thead>
+            <tr>
+                <th width="160px">商家名称</th>
+                <th width="160px">商家ID</th>
+                <th width="160px">机构编码</th>
+                <th width="160px">操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            {{~it.merchantId2branchcodeRecordList:value:index}}
+            <tr>
+                <td >{{=value.name}}</td>
+                <td >{{=value.mid}}</td>
+                <td>{{=value.branchcode}}</td>
+                <td><a class="delete" data-a="{{=value.mid}}" href="javascript:;">删除</a></td>
+            </tr>
+            {{~}}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>

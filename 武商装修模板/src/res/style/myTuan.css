@@ -1,0 +1,358 @@
+@charset "utf-8";
+
+/*================= 公共-css =================*/
+.wrapper{*zoom:1;width: 100%;}
+.wrapper:before,.wrapper:after{display:table;content:'';}
+.wrapper:after{clear:both;}
+
+.sub-warp{*zoom:1; width: 1200px; margin: 0 auto;}
+.sub-warp:before,.sub-warp:after{display:table;content:'';}
+.sub-warp:after{clear:both;}
+
+.sub_hd,.sub_bd{*zoom:1; width: 100%;}
+.sub_hd:before,.sub_hd:after,.sub_bd:before,.sub_bd:after{display:table;content:'';height:0}
+.sub_hd:after,.sub_bd:after{clear:both}
+
+.bg-1{background: #f4f4f4;}
+.bg-2{background: #f0f0f0;}
+
+.pt50{padding-top:20px;}
+
+.height40{height: 40px;}
+
+.fl{float:left;}
+.fr{float:right;}
+
+.hidden{overflow:hidden;}
+
+
+/*================= 团购首页-css =================*/
+.tuanWrap{background:url(../images/tuan-bg.jpg) no-repeat center -60px;/* background:#ffffff;*/}
+.wbox_wstq{width:1200px; margin:0 auto;clear:both;}
+.wbox_wstq:after { content:"."; display:block; height:0; clear:both; visibility:hidden; }
+.wbox_wstq { display:inline-block; }/* Hides from IE-mac \*/
+* html .wbox_wstq { zoom:1; }
+.wbox_wstq { display:block; }/* End hide from IE-mac */
+
+.tuan-banner{overflow:hidden; position:relative; width: 750px; height: 300px; float:left;}
+.tuan-banner .pic{position: relative; width: 100%; height: 100%; overflow: hidden;}
+.tuan-banner .pic ul{position: absolute; left: 0px; top: 0px;}
+.tuan-banner .pic li{float: left; width: 750px; height: 300px; overflow: hidden;}
+.tuan-banner .num{position: absolute; right: 10px; bottom: 15px;}
+.tuan-banner .num li{height: 24px; width: 24px; line-height: 24px; background-color: rgba(0,0,0,0.6); float: left; font-size: 14px; color: #FFF; cursor: pointer; text-align: center; margin-right: 5px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;}
+.tuan-banner .num .cur{background-color: #02b7bb;}
+
+
+.TB_area{height:480px; position:relative; float:left}
+.TB_area .left{width:200px;position:relative; float:left}
+.TB_area .left .height{height:300px; position:relative; float:left; /*background:#00b5be; */width:100%;}
+.TB_area .left h2{font-weight:normal; overflow:hidden; width:175px; margin:0 auto; height: 32px; line-height: 32px;}
+.TB_area .left h2 a{font:15px/32px Microsoft YaHei; color:#ffffff;margin:5px 5px 0px 5px; font-weight:bold; cursor: default;}
+.TB_area .left h2 a:hover{ text-decoration:none; color:#ff8800;}
+.TB_area .left h3{font-weight:normal; overflow:hidden; width:176px; margin:0 auto; height: 32px; line-height: 32px;}
+.TB_area .left h3 a{font:13px/32px Microsoft YaHei; color:#ffffff; float: left; width: 88px; text-align: center;-webkit-transition:all .2s ease-in;-moz-transition:all .2s ease-in;transition:all .2s ease-in}
+.TB_area .left h3 a:hover{text-decoration:none;font-size:15px;color:#ffffff;font-weight:bold;}
+
+.TB_area .center{width:750px;position:relative; float:left}
+.TB_area .center .bimgl{ width:100%; height:100%; margin-top:0px; overflow:hidden;}
+.TB_area .center .bimgl li{display:inline;width:250px; height:180px; overflow:hidden; border:0px solid #eeeeee;}
+.TB_area .center .bimgl li.last{ margin-right:0;}
+
+.TB_area .right{width:250px;position:relative; float:left}
+
+
+
+.tuanmain{ width:1200px;position:relative; float:left;}
+.recommend{ margin:30px 0 0 0;}
+.recommend .mt{ width:100%; padding-bottom: 5px; overflow: hidden;}
+.recommend .mt h2{ float:left; color:#02b7bb; font-family: "microsoft yahei"; font-size: 24px; padding:0px 5px 0px 0px;}
+.recommend .mt h3{ float:left; color:#999; font-family: "microsoft yahei"; font-size: 12px; margin-top: 12px;}
+
+
+.recommend .mc{border-top:#dcdcdc 2px solid;position:relative; width: 1208px;}
+
+.scrollboxarea{ width:302px;overflow: visible;position:relative; height: 390px;float: left}
+.scrollboxS{ width:302px;overflow: visible;position:relative; height: 390px; }
+.scrollboxS li{float:left; width:290px; padding: 0px; border: #f0f0f0 1px solid; margin:8px 10px 0 0;background:#ffffff;outline: 2px solid #ffffff;}
+.scrollboxS li .pic{width:284px; height:284px; overflow:hidden; margin:0 auto 0; background:#ffffff; text-align:center;}
+.scrollboxS li .pic a{display:table-cell;vertical-align:middle;width: 284px; height: 284px;}
+.scrollboxS li .pic img{width: 284px;}
+.scrollboxS li .name{width: 270px; font-size: 16px; height:20px; line-height:20px; padding:0px 10px 0; overflow:hidden; text-align: center;}
+.scrollboxS li .name p{overflow:hidden;text-align:center;font-size:14px;color:#333333;text-overflow: ellipsis;white-space: nowrap; font-weight:bold;}
+
+.scrollboxS li .bareabox{background:url(../images/wsh_ui_pl.jpg) bottom left no-repeat; height: 66px;width: 290px;}
+.scrollboxS li .priebox{width:290px;font-weight:bold;color:#ffffff;height:46px;overflow:hidden;position:relative; text-align: center; padding:20px 0px 0px; float: left;}
+.scrollboxS li .priebox .price{font-weight:bold;color:#ffffff;height:46px;overflow:hidden;position:relative; text-align: center;width: 205px;float: left; line-height: 46px;}
+.scrollboxS li .priebox .price i{font-weight:normal;color:#ffffff;font-size:11px; }
+.scrollboxS li .priebox .price em{font-weight:bold;color:#ffffff;font-size:28px;}
+.scrollboxS li .priebox .price del{font-weight: normal;color:#ffffff;font-size:12px; padding: 0px 0px 0px 5px;}
+.scrollboxS li .bnt{width: 65px;line-height: 46px;height: 46px;color: #f61d4b; font-size: 18px; float: right; right: 3px;}
+.scrollboxS li .bnt a{line-height: 46px;height: 46px;color: #f61d4b; font-size: 18px;}
+
+
+.scrollboxS li:hover {background:#ffffff; border: #02b7bb 1px solid; transition: background-color 0.5s ease 0s, border-color 0.5s ease 0s; outline: 2px solid #02b7bb;}
+.scrollboxS li:hover .name p{color:#02b7bb; text-decoration:none;}
+.scrollboxS li:hover .priebox span.price,
+.scrollboxS li:hover .priebox span.price b,
+.scrollboxS li:hover .priebox em,
+.scrollboxS li:hover .priebox del,
+.scrollboxS li:hover .message span{color:#ffffff; text-decoration:none;}
+.scrollboxS li:hover .priebox del{text-decoration:line-through;}
+
+.scrollboxarea .pl_text1 {width:280px; position:absolute;top:304px;left:0; height: 20px;line-height: 20px; outline: 0; border: 0; padding: 7px 0px 0px 10px; float: left;}
+.scrollboxarea .pl_text1 h2{ float:left; color:#02b7bb; font-family: "microsoft yahei"; font-size:14px; padding:0px 5px 0px 0px; font-weight: bold;}
+.scrollboxarea .pl_text1 h3{ float:left; color:#999; font-family: "microsoft yahei"; font-size:14px;}
+
+.scrollboxarea .pl_text2 {width:90px; position:absolute;top:334px;left:0px;height: 20px;line-height: 20px;padding:3px 0px 0px 135px;}
+.scrollboxarea .pl_text2 h2{ float:left; color:#ffffff; font-family: "microsoft yahei"; font-size:12px;font-weight: bold; background: #d63403;}
+.scrollboxarea .pl_text2 h3{ float:left; color:#ffffff; font-family: "microsoft yahei"; font-size: 10px;background: #d63403;}
+
+
+/*
+.tuanmain{ width:1200px;position:relative; float:left;}
+.recommend{ margin:30px 0 0 0;}
+.recommend .mt{ width:100%; padding-bottom: 5px; overflow: hidden;}
+.recommend .mt h2{ float:left; color:#02b7bb; font-family: "microsoft yahei"; font-size: 24px; padding:0px 5px 0px 0px;}
+.recommend .mt h3{ float:left; color:#999; font-family: "microsoft yahei"; font-size: 12px; margin-top: 12px;}
+.recommend .mc{border-top:#dcdcdc 2px solid;position:relative;}
+.mc .mc-prev{width: 40px; height: 100px; position: absolute; left: -20px; top:100px; z-index: 10; cursor: pointer; display: none;}
+.mc .mc-prev .bg{width: 100%; height: 100%; background: #000; position: absolute; left: 0px; top: 0px; opacity: 0.5; filter: alpha(opacity=50);}
+.mc .mc-prev .txt{width: 100%; font-family: "宋体"; color: #FFF; font-size: 50px; position: absolute; left: 0px; top: 20px; text-align: center;}
+
+.mc .mc-next{width: 40px; height: 100px; position: absolute; right: -20px; top:100px; z-index: 10; cursor: pointer;display: none;}
+.mc .mc-next .bg{width: 100%; height: 100%; background: #000; position: absolute; left: 0px; top: 0px; opacity: 0.5; filter: alpha(opacity=50);}
+.mc .mc-next .txt{width: 100%; font-family: "宋体"; color: #FFF; font-size: 50px; position: absolute; left: 0px; top: 20px; text-align: center;}
+
+
+.scrollbox{ widt:1200px; height:450px; overflow:hidden; }
+.scrollbox li{float:left; width:284px; padding: 4px 4px 10px 4px; border: #f0f0f0 1px solid; margin:8px 8px 0 0;background:#ffffff;}
+.scrollbox li .pic{width:284px; height:284px; overflow:hidden; margin:0 auto 0; background:#ffffff; text-align:center;}
+.scrollbox li .pic a{display:table-cell;vertical-align:middle;width: 284px; height: 284px;}
+.scrollbox li .pic img{width: 284px;}
+.scrollbox li .name{width: 264px; font-size: 16px; height:24px; line-height:24px; padding: 10px 10px 0; overflow:hidden; text-align: center;}
+.scrollbox li .message{color:#999999;margin-top: 5px;width:264px; padding: 0 10px;overflow: hidden;font-size:14px; text-align: center;}
+.scrollbox li .message span{color:#02b7bb;}
+.scrollbox li .priebox{ width:264px; overflow:hidden; padding:5px 10px 0px; text-align: center;}
+.scrollbox li .priebox span.price{ width: 100%; color:#f80; font-family:"microsoft yahei"; height: 40px;overflow: hidden;}
+.scrollbox li .priebox span.price b{ font-size:30px;}
+.scrollbox li .priebox del{ color:#ccc; padding:0px 0px 0px 5px;}
+
+.scrollbox li:hover {background:#02b7bb; border: #02b7bb 1px solid; transition: background-color 0.5s ease 0s, border-color 0.5s ease 0s;}
+.scrollbox li:hover .name a,
+.scrollbox li:hover .priebox span.price,
+.scrollbox li:hover .priebox span.price b,
+.scrollbox li:hover .priebox em,
+.scrollbox li:hover .priebox del,
+.scrollbox li:hover .message span{color:#FFF; text-decoration:none;}
+.scrollbox li:hover .priebox del{text-decoration:line-through;}
+*/
+
+.tuanF-title{border-bottom: #f0f0f0 2px solid;}
+.tuanF-title .F-title{height:36px; width:30%; float:left;}
+.tuanF-title .F-title a{font-family:"Microsoft YaHei"; font-size: 20px; line-height: 36px; color:#666;}
+.tuanF-title .F-title a:hover{text-decoration:none; color:#f80;}
+.tuanF-title .F-title h2{font-family:"Microsoft YaHei"; font-size: 20px; line-height: 36px; color:#02b7bb; float:left;}
+.tuanF-title .F-title h3{font-family:"Microsoft YaHei"; font-size: 12px; margin: 12px 0px 0px 5px; color:#999; float:left;}
+.tuanF-title .F-more{float: right; margin-top: 5px;}
+.tuanF-title .F-more a{font-family:"Microsoft YaHei"; font-size: 14px; line-height: 24px; color:#FFF; background: #02b7bb; float: left; width: 80px; height: 24px; text-align: center;}
+.tuanF-title .F-more a:hover{text-decoration:none; color:#FFF; background:#f80;}
+.tuanF-title .F-more h4{font-family:"Microsoft YaHei"; font-size: 12px; margin-top: 12px; color:#02b7bb;}
+
+.menu-class{height: 40px; text-align: center; font-size: 16px;}
+.menu-class a{display: inline-block; height: 24px; line-height: 24px; padding: 0 10px; margin-top: 8px;}
+.menu-class a:hover{text-decoration:none; color:#FFF; background:#02b7bb;}
+
+.wrappertop{width:1200px; margin:0 auto; /* background:url(../images/ww.png) top left no-repeat;*/ height:40px}
+.wrappertop .area{width:100px; float:left;}
+.wrappertop .area a{ margin:0;}
+.wrappertop .area a:hover{ margin:0; background:transparent;}
+.fixed-top{position: fixed; top: 0px; left: 0px; background: #f0f0f0; width: 100%;
+    -webkit-box-shadow: 0 0 5px #ccc;
+    -moz-box-shadow: 0 0 5px #ccc;
+    -ms-box-shadow: 0 0 5px #ccc;
+    -o-box-shadow: 0 0 5px #ccc;
+    box-shadow: 0 0 5px #ccc;}
+
+.tuan-list{ width:1208px; padding-bottom: 10px; overflow:hidden; }
+.tuan-list li{float:left; width:284px; padding: 4px 4px 10px 4px; border: #FFF 1px solid; margin:8px 8px 0 0;background:#FFF;}
+.tuan-list li:hover {border:1px solid #02b7bb; background:#02b7bb; transition: background-color 0.5s ease 0s, border-color 0.5s ease 0s; }
+.tuan-list li:hover .name p,
+.tuan-list li:hover .priebox span.price,
+.tuan-list li:hover .priebox span.price b,
+.tuan-list li:hover .priebox em,
+.tuan-list li:hover .priebox del,
+.tuan-list li:hover .buy,
+.tuan-list li:hover .buy p{ color:#FFF; text-decoration:none;}
+.tuan-list li:hover .priebox del{text-decoration:line-through;}
+
+.tuan-list li .pic{width:284px; height:284px; overflow:hidden; margin:0 auto 0; background:#ffffff; text-align:center;}
+.tuan-list li .pic a{display:table-cell;vertical-align:middle;width: 284px; height: 284px;}
+.tuan-list li .pic img{width: 284px;}
+
+.tuan-list li .name{width: 264px; font-size: 14px; height:20px; line-height:20px; padding: 0px 10px 0; overflow:hidden; text-align: center;}
+.tuan-list li .name p{overflow:hidden;text-align:center;font:normal 16px/20px Microsoft YaHei;color:#333333;text-overflow: ellipsis;white-space: nowrap;}
+
+.tuan-list li .buy{width: 264px; overflow:hidden; padding:2px 10px 2px; text-align: center;}
+.tuan-list li .buy p{overflow:hidden;text-align:center;font:normal 14px/20px Microsoft YaHei;color:#999999;text-overflow: ellipsis;white-space: nowrap;}
+
+.tuan-list li .bareabox{background:url(../images/wsh_ui_pl.jpg) bottom center no-repeat; height:46px;width: 284px;}
+.tuan-list li .priebox{width:284px;font-weight:bold;color:#ffffff;height:46px;overflow:hidden;position:relative; text-align: center; padding:0px; float: left;}
+.tuan-list li .priebox .price{font-weight:bold;color:#ffffff;height:46px;overflow:hidden;position:relative; text-align: center;width: 205px;float: left; line-height: 46px;}
+.tuan-list li .priebox .price i{font-weight:normal;color:#ffffff;font-size:11px; }
+.tuan-list li .priebox .price em{font-weight:bold;color:#ffffff;font-size:28px;}
+.tuan-list li .priebox .price del{font-weight: normal;color:#ffffff;font-size:12px; padding: 0px 0px 0px 5px;}
+.tuan-list li .bnt{width: 65px;line-height: 46px;height: 46px;color: #f61d4b; font-size: 18px; float: right; right: 3px;}
+.tuan-list li .bnt a{line-height: 46px;height: 46px;color: #f61d4b; font-size: 18px;}
+
+
+
+
+
+
+
+/*================= 团购详情-css =================*/
+.tuan-position{ height:35px; line-height:35px; color:#999; font-family: "宋体";}
+.tuan-position span{ color:#999;}
+
+.col_main{ float:left; width:990px;}
+.col_sub{ float:right; width:200px; background: #FFF;}
+
+
+.tuan_item{width:990px; padding-bottom:25px; background:#fff;}
+.tuan_item h2{padding:25px; font:22px/35px Microsoft YaHei; color:#333;  font-weight:bold; overflow:hidden; }
+.tuan_item h2 a{ color:#333;}
+.tuan_item h2 a:hover{ text-decoration:none;}
+.tuan_item h2 span{color: #FFF; padding: 0 10px; float: left; background: #f80; text-align: center; margin-right: 15px; font-weight: normal;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    border-radius: 3px;}
+
+.tuan_item .pic400{float:left; display:inline; margin:0px 25px; width:400px; height:400px; overflow:hidden;}
+.tuan_item .pic400 a{display:table-cell;vertical-align:middle;width: 400px; height: 400px;}
+.tuan_item .meta{ float:left; width:500px; margin-left: 15px;}
+.meta .buyBox{ background:url(../images/tuan_ui_my.png) no-repeat right 0px; width:100%; height:100px;}
+.meta .buyBox .price{ float:left; padding:15px 0 0 24px; color:#fff; font-size:28px; font-family:Arial;}
+.meta .buyBox .price b{margin-left:5px; font-size:60px; font-weight:normal; font-family:arial;}
+.meta .buyBox .market-price{text-decoration: line-through; color: #ffd0a5; font-size: 14px; float: left; padding: 53px 0 0 15px;}
+.meta .buyBox .disc{font-size: 20px; color: #f80; float: right; background: #fcf0e4; padding: 5px 20px; margin: 30px 20px 0 0;}
+
+.meta .btn{width: 100%; text-align: center;}
+.meta .btn span{display: inline-block; width: 158px; height: 56px; margin: 0 auto; overflow: hidden;}
+.btn_buy,.btn_begin,.btn_end{display:block; background:url(../images/tuan_ui_my.png) no-repeat; width:158px; height:56px; line-height: 56px; text-align: center; font-size: 24px;}
+.btn_buy{background-position:0 -121px; color: #fff;}
+.btn_buy:hover{background-position:-168px -121px; color: #FFF; text-decoration: none;}
+.btn_begin{ background-position:0 -121px; color: #fff;}
+.btn_begin:hover{color: #FFF; text-decoration: none;}
+.btn_end{background-position:0 -188px; color: #ccc;}
+.btn_end:hover{color: #ccc; text-decoration: none;}
+
+.meta .fix{width:100%;}
+
+.buynumber{ padding-top:20px;}
+.buynumber .txt{float: left; margin-left: 75px; font-size: 16px; height: 30px; line-height: 30px;}
+.buynumber .pro_count{ overflow: hidden; height:21px;}
+.buynumber .pro_count .txt{  padding-left: 15px; text-align: right; margin:0; padding-top:3px;}
+.buynumber .reduce,.buynumber .add{float: left; display: block; border: 1px solid #dbdbdb; width: 30px; height: 30px; line-height: 30px; font-size: 14px; color: #666; text-align: center; font-family: arial;}
+.buynumber .reduce:hover,.buynumber .add:hover{ text-decoration:none;}
+.buynumber input{text-align: center; float: left; width: 50px; height: 30px; line-height: 30px; border: #dbdbdb 1px solid; border-left: none; border-right: none; color: #666;}
+.buynumber .jian{float: left; height: 30px; line-height: 30px; font-size: 16px; padding-left: 5px;}
+
+
+.meta .time{ width:100%; padding-top:20px; overflow:hidden; position:relative;}
+.meta .time p{ float:left; margin:2px 6px 6px 75px; font-size:16px;  font-family:Microsoft YaHei;}
+.meta .time .clock{float:left; text-align:center; color:#666; font-size:14px; padding-top:2px;}
+.meta .time .clock span{ color:#02b7bb; font-size:20px; padding:0 5px; font-family:arial;}
+.meta .time .clock b{ color:#333; font-size:14px;}
+
+.tuanNum{ padding:20px 0 24px; text-align:center; position:relative; height: 46px;}
+.tuanNum .p1{color: #02b7bb; font-size: 16px; padding: 12px 0 0 120px; float: left;}
+.tuanNum .p1 b{padding-right:5px; color:#02b7bb; font-size:22px;}
+.tuanNum .p2{color: #666; font-size: 16px; font-weight: bold; font-family: Microsoft YaHei; float: left; padding: 18px 0 0 30px; }
+
+.meta .time em,
+.tuanNum em{ position:absolute; background:url(../images/tuan_ui_my.png) no-repeat;}
+.meta .time em{ background-position:-513px -124px; left:52px; top:25px; width:16px; height:16px;}
+.tuanNum em{ background-position:-483px -149px; width:46px; height:46px; left:52px;}
+
+
+.share{margin: 30px 0 0 0; height: 20px; text-align: center; overflow: hidden;}
+.share .bshare-custom{height: 20px;}
+.share a{ margin-right:5px;}
+.share img{ margin:0 5px -3px 0;}
+
+
+.tuan_detail{ background:#fff; margin-top: 30px;}
+.tuan_detail .mt{width: 100%; background: #f0f0f0; height: 40px; overflow: hidden;}
+.tuan_detail .mt li{width: 150px; height: 40px; line-height: 40px; font-size: 18px; color: #FFF; background: #02b7bb; float: left; text-align: center; overflow: hidden;}
+.tuan_detail .tuanInfo{width:940px; padding:25px; color:#666; text-align: center; overflow: hidden;}
+.tuan_detail .tuanInfo img{max-width: 940px;}
+
+
+
+.otherTuan .title{ background: #efefef; height: 38px; line-height: 38px; padding: 0 10px; font-size: 16px; font-weight: bold;}
+.otherTuan li{ width:180px; margin: 0 10px; border-bottom: #e9e9e9 1px dashed; padding: 15px 0;}
+.otherTuan li h2{color: #666; overflow: hidden; font-size: 12px; height: 32px; padding-top: 10px;}
+.otherTuan li .pic{width: 180px; height: 180px; overflow: hidden;}
+.otherTuan li .pic a{display:table-cell;vertical-align:middle;width: 180px; height: 180px;}
+.otherTuan li .pic img{width: 180px;}
+.otherTuan li .pricebox{width:100%; padding-top: 10px; overflow: hidden;}
+.otherTuan li .price{ color:#f80; font-weight:normal; float: left;}
+.otherTuan li .price b{ font-size:20px;}
+.otherTuan li .marketPrice{float: left; padding: 7px; color: #999; text-decoration: line-through;}
+.otherTuan li .discount{float: right; background: #f80; color: #FFF; padding: 0 5px; height: 16px; line-height: 16px; margin-top: 5px;}
+.otherTuan li .buybox{width:100%; padding-top: 5px; overflow: hidden;}
+.otherTuan li .num{color: #02b7bb; float: left; font-size: 14px; height: 24px; line-height: 24px;}
+.otherTuan li .tobuy{float: right;}
+.otherTuan li .tobuy a{display: block; width: 56px; height: 24px; line-height: 24px; font-family: "Microsoft YaHei"; font-size: 14px; color: #fff; text-align: center; background: #02b7bb;}
+.otherTuan li .tobuy a:hover{background: #00cbcf; text-decoration: none;  }
+
+
+/*大客户*/
+
+/* dt2_nav */
+.dt2_nav {position:fixed;top:100px;left:50%;margin-left:-635px;z-index:9999;width:140px;cursor:pointer;overflow: hidden}
+.dt2_nav a {display:block;position:relative;height:30px;line-height:30px;margin-bottom:2px;background:#fff;padding-right:0px;width:130px;overflow:hidden;color:#333;cursor:pointer;left:-100px;float: left;text-align: center}
+.dt2_nav a:hover {text-decoration:none;color:#02b7bb;}
+.dt2_nav a:hover span {background:#02b7bb}
+.dt2_nav a span {display:block;float:left;width:30px;background:#636871;color:#fff;font-size:16px;text-align:center;margin-left:0px;font-style:normal;float: right;}
+
+.mr12{width: 1212px;}
+.mr12 li{margin-right: 12px;}
+
+
+/*2015.11武商惠改版*/
+.left2{width:594px;float:left;overflow: hidden;margin-right: 12px;}
+.left2 ul{ float:left;overflow: hidden;}
+.left2 .leftpro{ position:relative; float:left; width:100%;}
+.leftpro li{height:300px; position:relative; float:left; width:594px;margin-bottom: 20px;background:url(../images/wsh/leftpro_bg.png) no-repeat right center;}
+.leftpro li a p, .leftpro li a:hover p{color: #fff;font-size: 16px;}
+.leftpro li.pink { background-color: #f6276f}
+.leftpro li.blue { background-color: #1e66ec;margin-bottom: 0px;}
+.leftpro li div.pic{padding:10px; }
+.leftpro li div.name{width: 260px; position: absolute;top:20px; left: 310px;}
+.leftpro li div.name p{width: 260px; height:42px;overflow: hidden;  }
+.leftpro li div.shangjia{width: 250px; white-space: nowrap;overflow: hidden;background-color:#000;filter:alpha(opacity=50);-moz-opacity:0.5; -khtml-opacity: 0.5;opacity: 0.5; font-size:16px;color:#fff;padding:3px;position: absolute;top:68px; left: 310px;}
+.leftpro li div.price{position: absolute;top:100px; left: 310px; font-size:14px; color:#fff;text-decoration: line-through;}
+.leftpro li div.btn{position: absolute;bottom:50px; left: 310px;}
+.leftpro li div.wsh_price{position: absolute;bottom:95px; left: 310px;}
+.leftpro li div.wsh_price p{font:bold 35px '微软雅黑';color: #ffff00}
+
+.right6{width:590px;float:left; overflow: hidden;}
+.right6 ul{ float:left;overflow: hidden;}
+.right6 .rightpro{ position:relative; float:left; /*background:#00b5be; */width:100%;}
+.rightpro li{height:296px;float:left; width:190px;margin:0 12px 20px 0; position: relative; text-align: center;background-color: #fff}
+.rightpro li .pic img{height:190px; width:190px; }
+.rightpro li div.name{width: 180px; margin:0 5px;white-space: nowrap;overflow: hidden;text-overflow:ellipsis;text-align: center;}
+.rightpro li.pink { border-bottom: 4px #f6276f solid}
+.rightpro li.blue {border-bottom: 4px #1e66ec solid;margin-bottom: 0px;}
+.rightpro .btn{width: 120px;height: 16px; color:#Fff;text-align: center;position: absolute;bottom: 0;left: 35px;line-height:19px;background: #f6276f;}
+.rightpro li.blue .btn {background: #1e66ec;}
+.rightpro .wsh_price{ text-align: center; color:red;font-size: 20px;}
+.rightpro .wsh_logo{ text-align: center;margin-top:-10px; }

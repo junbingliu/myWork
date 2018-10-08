@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="merchantOrderExportFieldsMgt" default="all" basedir=".">
+    <property file="../build.properties"></property>
+    <target name="build">
+        <mkdir dir="out"/>
+        <exec executable="java">
+            <arg line="-jar"></arg>
+            <arg path="../lib/appBuilder.jar"/>
+            <arg line="src/"></arg>
+            <arg line="out/merchantOrderExportFieldsMgt.zip"/>
+        </exec>
+    </target>
+
+    <target name="deploy">
+        <exec executable="java">
+            <arg line="-jar "></arg>
+            <arg path="../lib/appDeployer.jar"/>
+            <arg line="${deployUrl}"></arg>
+            <arg line="${deployPass}"></arg>
+            <arg line="out/merchantOrderExportFieldsMgt.zip"/>
+            <arg line="商家订单导出字段管理"/>
+            <arg line="merchantOrderExportFieldsMgt"/>
+        </exec>
+    </target>
+
+    <target name="all" depends="build,deploy">
+    </target>
+</project>

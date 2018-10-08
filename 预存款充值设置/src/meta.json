@@ -1,0 +1,20 @@
+{
+	"libs_namespace": "OnlineRechargeEWallet",
+    "libs": ["services/OnlineRechargeArgsService.jsx"],
+    "obj_prefixes": ["OnlineRechargeEWalletObj"],
+    "list_prefixes": ["OnlineRechargeEWalletList"],
+    "eventHandlers":[
+        {
+            "eventName":"orderPaidAfter",
+            "pageId":"eventHandlers/rechargeEWalletHandler.jsx",
+            "handlerId":"AutoFinishOrderEvent",
+            "description":"订单支付后，充值预存款"
+        },
+        {
+            "eventName":"orderPaidAutoAfter",
+            "pageId":"eventHandlers/rechargeEWalletHandler.jsx",
+            "handlerId":"AutoFinishOrderEvent",
+            "description":"订单自动修改支付状态后，充值预存款"
+        }
+    ]
+}

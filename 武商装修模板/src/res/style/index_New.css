@@ -1,0 +1,312 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* 轮换广告*/
+.slide_banner{ width:100%; height:400px; display:table;}
+.slide_banner .slide_wrap{ height:400px; width:100%; margin: 0 auto; position: relative; overflow:hidden;}
+.slide_banner .slide_adv{width:100%; height:400px;}
+.slide_banner .slide_adv li{ width:100%; height:400px; display:block; background-repeat: no-repeat; background-position: center top; position: absolute; left: 0px; top: 0px;}
+.slide_banner .slide_main{height:400px;}
+.slide_banner .slide_link{width:791px; height:400px; margin-left: 200px; display: inline-block;}
+.slide_banner .slide_link img{
+    -moz-transition: all 10s ease;
+    -webkit-transition: all 10s ease;
+    -o-transition: all 10s ease;
+    transition: all 10s ease;
+    -webkit-transform: scale(1.05);
+    -moz-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    -o-transform: scale(1.05);
+    transform: scale(1.05);
+}
+.slide_banner .slide_link img.scale{
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1);
+}
+
+
+.slide_banner .slide_box{ width:1200px; margin:auto; position:relative; z-index:4;}
+.slide_banner .slide_box .num{ height:20px; position:absolute; right:250px; bottom:15px;}
+.slide_banner .slide_box .num li{ float:left; display:block; background:#00b5be; width:10px; height:10px; -webkit-border-radius:10px; -moz-border-radius: 10px; border-radius: 10px; margin-right:8px; cursor:pointer;bottom:10px;font-family:"microsoft yahei"; font-size:12px; text-align:center; font-weight:bold; vertical-align:middle; line-height:10px; color:#FFF;}
+.slide_banner .slide_box .num li.cur{  background:#f80; color:#FFF; }
+/*end 轮换广告*/
+
+.line-ws{position: relative; height: 0px; z-index: 110;}
+.frstoreF{ position:absolute;top:-50px;*top:-50px; width:208px; padding:0; height:50px;background:url(../images/rukou.png) top center no-repeat; z-index:9;right:0px;}
+
+.frstore{ position:absolute; right:0px; top:0px;*top:0px; width:200px; padding:0 4px; height:200px; background:#fff; overflow: hidden;}
+.frstore ul{ padding-top:4px;}
+.frstore li{ vertical-align:top; padding-left: 8px;padding-top: 7px;}
+.frstore li p{ background:url(../images/header_icon.png) no-repeat -182px -322px;font-size:14px;padding-left:27px; height:29px; line-height:31px;}
+.frstore li:hover p{ color: #1396a0; background-position:-182px -294px; }
+.frstore li:hover p a{ color: #1396a0;}
+
+.frstore li.cur p{color:#1396a0;}
+.frstore li.cur .img{ width:188px; height:92px; border:#f2f1f1 1px solid; margin:0 0 8px 7px; overflow:hidden;display: none;}
+.frstore li .img{display: none;}
+.frstore li.last{ border:0;}
+
+.movie_in {position:absolute;right:0;top:200px;width:208px; background:#fff; height:200px;}
+.movie_in img { width:208px; height:200px;}
+
+/*楼层下的商家推荐*/
+.hotMe{width:200px; height: 135px; overflow: hidden; position: relative; background: url("../images/hotme.jpg") no-repeat #fff;margin:0 5px;}
+.hotMe .prev{width: 13px; height: 23px; background: url("../images/icon_ui_01.png") no-repeat 0px 0px; position: absolute; left: 5px; top: 65px; z-index: 10; cursor: pointer;}
+.hotMe .prev.hover{background: url("../images/icon_ui_01.png") no-repeat 0px -33px;}
+.hotMe .next{width: 13px; height: 23px; background: url("../images/icon_ui_01.png") no-repeat -23px 0px; position: absolute; right: 5px; top: 65px; z-index: 10; cursor: pointer;}
+.hotMe .next.hover{background: url("../images/icon_ui_01.png") no-repeat -23px -33px;}
+.hotMe .pic{width: 100%; height: 135px; overflow: hidden; position: relative;}
+.hotMe .pic ul{position: absolute; left: 0px; top: 0px; width: 200px; height: 135px; }
+.hotMe .pic li{width: 100px; height: 45px; float: left; overflow: hidden;}
+.rtbox {background:#fff;border-bottom: 1px dashed #a2a2a2;border-top: 1px dashed #a2a2a2;height: 34px;width:208px; overflow:hidden; position:relative;}
+.rtbox_titl {font-size: 15px; color: #fff; width: 110px; padding-left: 25px; height: 36px; line-height: 36px;}
+.rtbox_titr {font-size: 11px; color: #fff; width: 50px;  position: absolute; top: 12px; right: 30px; text-align:right;}
+.rtbox i{ background: url("../images/header_icon.png") no-repeat scroll -140px -355px rgba(0, 0, 0, 0);
+height: 14px;width: 8px; display: block; position: absolute;right: 15px; top: 12px;}
+.rtbox_titl a, .rtbox_titr a { color: #1396a0;}
+.rtbox_titl:hover a, .rtbox_titr:hover a {color: #333;}
+
+.hotbrand{width:770px; height: 300px; overflow: hidden; position: relative; background:url("../images/brand_bg.jpg") #fff no-repeat;margin:0 11px; float: left;}
+.hotbrand .prev{width: 13px; height: 23px; background: url("../images/icon_ui_01.png") no-repeat 0px 0px; position: absolute; left: 5px; top: 140px; z-index: 10; cursor: pointer;}
+.hotbrand .prev.hover{background: url("../images/icon_ui_01.png") no-repeat 0px -33px;}
+.hotbrand .next{width: 13px; height: 23px; background: url("../images/icon_ui_01.png") no-repeat -23px 0px; position: absolute; right: 5px; top: 140px; z-index: 10; cursor: pointer;}
+.hotbrand .next.hover{background: url("../images/icon_ui_01.png") no-repeat -23px -33px;}
+.hotbrand .pic{width: 100%; height: 300px; overflow: hidden; position: relative;}
+.hotbrand .pic ul{position: absolute; left: 0px; top: 0px; width: 770px; height: 300px; }
+.hotbrand .pic li{width: 154px; height: 60px; float: left; overflow: hidden; padding:7px 0 8px 0;}
+
+.indexAd-1 {width: 211px; height: 300px; overflow: hidden;}
+.indexAd-1 img{width: 211px; height: 300px; }
+.indexAd-2, .indexAd_3{width: 208px; height: 300px; overflow: hidden;}
+.indexAd-2 img{width: 208px; height: 150px; }
+.indexAd_3 img{width: 208px; height: 300px; }
+.indexAd_4 { width: 200px;height: 300px; overflow: hidden;}
+.indexAd_4 img{ width: 200px;height: 300px;}
+
+.hotCom{width: 240px; height: 300px; background: #FFF; margin-left: 8px; overflow: hidden;}
+.hotCom h2{width: 100%; height: 36px; line-height: 50px; color: #00b5be; font-size: 16px; text-align: center;}
+.hotCom .con{width: 240px; height: 264px; overflow: hidden; position: relative;}
+.hotCom .prev{width: 13px; height: 23px; background: url("../images/icon_ui_01.png") no-repeat 0px 0px; position: absolute; left: 5px; top: 100px; z-index: 10; cursor: pointer;}
+.hotCom .prev.hover{background: url("../images/icon_ui_01.png") no-repeat 0px -33px;}
+.hotCom .next{width: 13px; height: 23px; background: url("../images/icon_ui_01.png") no-repeat -23px 0px; position: absolute; right: 5px; top: 100px; z-index: 10; cursor: pointer;}
+.hotCom .next.hover{background: url("../images/icon_ui_01.png") no-repeat -23px -33px;}
+.hotCom .pic{width: 100%; height: 264px; overflow: hidden; position: relative;}
+.hotCom .pic ul{position: absolute; left: 0px; top: 0px;}
+.hotCom .pic li{width: 240px; height: 264px; float: left; overflow: hidden;}
+
+.hotComTitle { width: 240px; height: 36px; overflow: hidden;}
+.hotComTitle img{ width: 240px; height: 36px;}
+.nextIssueTitle { width: 240px; height: 36px; overflow: hidden;}
+.nextIssueTitle img{ width: 240px; height: 36px;}
+
+.nextIssue{width: 770px; height: 300px; }
+.nextIssue h2{width: 100%; height: 40px; line-height: 50px; color: #00b5be; font-size: 16px; text-align: center;}
+.nextIssue .con{width: 240px; height: 226px; overflow: hidden; position: relative;}
+.nextIssue .prev{width: 13px; height: 23px; background: url("../images/icon_ui_01.png") no-repeat 0px 0px; position: absolute; left: 5px; top: 70px; z-index: 10; cursor: pointer; display: none;}
+.nextIssue .prev.hover{background: url("../images/icon_ui_01.png") no-repeat 0px -33px;}
+.nextIssue .next{width: 13px; height: 23px; background: url("../images/icon_ui_01.png") no-repeat -23px 0px; position: absolute; right: 5px; top: 70px; z-index: 10; cursor: pointer; display: none;}
+.nextIssue .next.hover{background: url("../images/icon_ui_01.png") no-repeat -23px -33px;}
+.nextIssue .pic{width: 100%; height: 226px; overflow: hidden; position: relative;}
+.nextIssue .pic ul{position: absolute; left: 0px; top: 0px;}
+.nextIssue .pic li{width: 240px; height: 226px; float: left; overflow: hidden;}
+
+.nextIssue .time{overflow: hidden; margin-top: 6px; padding:0 40px;background: url("../images/daojishi.png") no-repeat center; height: 28px;float: left;}
+.nextIssue .time .img{width: 112px; height: 28px; line-height: 28px; color: #FFF; font-size: 18px; margin: 0 auto; position: relative;}
+.nextIssue .time .ico{width: 112px; height: 28px; background:url("../images/timer.jpg") center no-repeat; position: absolute;}
+.nextIssue .time .ico2{width: 112px; height: 28px; background:url("../images/timer.png") center no-repeat; position: absolute;}
+.nextIssue .time span{ padding-left: 5px; letter-spacing: 4px; position: absolute; line-height: 28px;}
+.str { background:url("../images/br_line.jpg") repeat-x; width: 100%; margin-top: 25px;margin-bottom: 10px;}
+.str img { margin-top: -10px; }
+
+.nextIssue .wushanghui { width: 100%; height: 40px; overflow: hidden;}
+.nextIssue .wushanghui .timer { float: left; height: 40px; overflow: hidden;}
+.nextIssue .wushanghui .timer img{ height: 40px; }
+.nextIssue .wsh_plist { width: 770px; height: 260px; background: #d1d1d1; overflow: hidden; border-right: 1px solid #b1b1b1;}
+.wsh_plist .wsh_box{ width: 256px; height: 128px;border-right: 1px solid #b1b1b1;border-top: 1px solid #b1b1b1; overflow: hidden; float: left; position: relative; background-color: #fff}
+
+
+.wsh_plist ul {width:120px;height: 120px; display: block;}
+.wsh_plist .pic{width:120px;height:120px;overflow:hidden;margin:4px; float: left;}
+.wsh_plist .pic img{width:120px;height:120px;}
+.wsh_plist .price{color: #dc1e28;font-size:14px; position: absolute;top:55px; left: 135px; font-weight: bold;}
+.wsh_plist .bnt{ position: absolute; z-index:102;right:10px; bottom:15px;height:18px; padding:0 6px;font-size: 12px; text-align: center; line-height: 18px; background-color: #dc1e28;}
+.wsh_plist .bnt a, .wsh_plist .bnt:hover a{color: #fff; display: block;}
+.wsh_plist .sellpoint{height:60px; width:120px; font-size: 14px; overflow: hidden;}
+.wsh_plist .sellpoint h3 {color: #333; font-size: 14px;white-space:nowrap; }
+.wsh_plist .sellpoint p {color: #6a6a6a; font-size: 12px; }
+.wsh_infor { position: absolute; right: 0; top: 15px; width: 120px; overflow: hidden;}
+
+.kc {background-color:#e0e0e0;height: 6px;width: 80px; position: relative;;left: 30px;top:-12px;}
+.kc span, .kc p { float: left;}
+.kc p{background-color:#62c149;height: 6px;width: 50%}
+
+.right_bar { width: 35px; background: #414342; position: fixed;right: 0;top:0; bottom: 0; z-index: 4000;}
+.right_bar li, .right_bar .right_gotop {width: 35px;height: 35px; background: url("../images/right_bar_icon.png") no-repeat 0 0;}
+.right_bar li:hover, .right_bar .right_gotop:hover { background-color: #1396a0; color: #fff;}
+.right_bar li { margin-bottom: 16px; position: relative; cursor: pointer;}
+.right_bar li a { display: block; width: 35px; height: 35px;}
+.right_bar li div { width: 70px;height: 35px; top:0;display: none; position: absolute; right: 60px;background:#444851; color: #fff; text-align: center; line-height: 35px;}
+.right_bar li div:after { position: absolute; content: ""; width: 0; height: 0;border-top:5px solid transparent; border-bottom:5px solid transparent;border-left:5px solid #444851; right: -5px;top:14px; }
+.right_bar .right_center { background-position:-35px 0; }
+.right_bar .right_shopcar { background-position:-70px 0;color: #fff; height: 127px;}
+.right_bar .right_shopcar div { right:70px; bottom: 0;}
+.right_bar .right_shopcar a{ display:block;color: #fff;font-size: 14px; width: 22px;height: 82px;margin-left:6px;padding-top: 35px;padding-bottom:8px;border:1px solid #888; border-left:none; border-right:none; text-align: center; margin-left: 6px; }
+.right_bar .right_shopcar:hover a { color: #fff; border-color: #1396a0}
+.right_bar .right_order { background-position:-105px 0; }
+.right_bar .right_ma { background-position:-140px 0; cursor: auto;}
+.right_bar .right_ma img{ display: none; position: absolute; bottom: 0; right: 35px;}
+.right_bar .right_service { background-position:-175px 0; }
+.right_bar .right_400 { background-position:-245px 0; }
+.right_bar .right_400 div {  width: 150px;}
+.right_bar .right_gotop { background-position:-210px 0; position: absolute; bottom: 0; cursor: pointer;}
+.right_bar .right_gotop div { width: 70px;height: 35px; display: none; position: absolute; right: 70px;background:#444851; color: #fff; text-align: center; line-height: 35px;}
+.right_bar .right_gotop div:after { position: absolute; content: ""; width: 0; height: 0;border-top:5px solid transparent; border-bottom:5px solid transparent;border-left:5px solid #444851; right: -5px;top:14px; }
+.right_shopcar .mini_num {background: #f80;border-radius: 50%;color: #fff;font-size: 12px;height: 18px;line-height: 18px;width: 16px;padding-right:2px;display: block;margin-top:4px; margin-left: 3px;}
+/*楼层*/
+.floor{margin-top: 20px; overflow: hidden;}
+
+.floor .con{width: 1210px; height: 410px; margin-top: 5px; overflow: hidden;}
+.floor .F-sort{width: 200px; height: 410px; background: #FFF; overflow: hidden; font-family:"microsoft yahei";}
+.floor .F-sort .text{width: 100%; height: 245px; overflow: hidden; font-size: 14px;}
+.floor .F-sort .text ul{padding-top: 15px;}
+.floor .F-sort .text li{width: 70px; float: left; height: 30px; line-height: 30px; padding-left: 20px;}
+
+.floor .floor_logo{width:200px; height:165px; background:#FFF;  position: relative; overflow: hidden;}
+.floor .floor_logo .prev{width: 13px; height: 23px; background: url("../images/icon_ui_01.png") no-repeat 0px 0px; position: absolute; left: 5px; top: 80px; z-index: 10; cursor: pointer; display: none;}
+.floor .floor_logo .prev.hover{background: url("../images/icon_ui_01.png") no-repeat 0px -33px;}
+.floor .floor_logo .next{width: 13px; height: 23px; background: url("../images/icon_ui_01.png") no-repeat -23px 0px; position: absolute; right: 5px; top: 80px; z-index: 10; cursor: pointer; display: none;}
+.floor .floor_logo .next.hover{background: url("../images/icon_ui_01.png") no-repeat -23px -33px;}
+.floor .floor_logo .pic{width: 100%; height:165px; overflow: hidden; position: relative;}
+.floor .floor_logo .pic ul{height: 100%; position: absolute; left: 0px; top: 0px; height: 165px;}
+.floor .floor_logo .pic li{width:200px; height:55px; float: left; overflow: hidden;}
+
+.floor .promotions{width: 500px; height: 410px; padding-left: 10px; overflow: hidden;}
+.floor .promotions .up{width: 100%; height: 250px; overflow: hidden; background: #FFF;}
+.floor .promotions .dn{width: 100%; height: 150px; overflow: hidden; margin-top: 10px; background: #FFF;}
+
+.floor .commodity{width: 490px; height: 410px; padding-left: 10px; overflow: hidden;}
+.floor .commodity .pic{width: 235px; padding-right: 10px;}
+.floor .commodity .com{width: 100%; height: 130px; margin-bottom: 10px; background: #FFF; overflow: hidden;}
+.floor .commodity .pic .big{height: 270px;}
+.floor .commodity img{-webkit-transition:-webkit-transform .2s linear;-moz-transition:-moz-transform .2s linear;-o-transition:-o-transform .2s linear;transition:transform .2s linear}
+.floor .commodity img:hover{-webkit-transform:translateX(-5px);-moz-transform:translateX(-5px);-ms-transform:translateX(-5px);-o-transform:translateX(-5px);transform:translateX(-5px)}
+
+.floor .wrapper_f1{background:url(../images/index/f1_t_yl.png) top left repeat-x; height:50px;}
+.floor .wrapper_f2{background:url(../images/index/f4_t_gr.png) top left repeat-x; height:50px;}
+.floor .wrapper_f3{background:url(../images/index/f3_t_pp.jpg) top left repeat-x; height:50px;}
+.floor .wrapper_f4{background:url(../images/index/f6_t_or.png) top left repeat-x; height:50px;}
+.floor .wrapper_f5{background:url(../images/index/f2_t_br.png) top left repeat-x; height:50px;}
+.floor .wrapper_f6{background:url(../images/index/f5_t_bl.png) top left repeat-x; height:50px;}
+.floor .wrapper_f7{background:url(../images/index/f7_t_pk.png) top left repeat-x; height:50px;}
+.floor .title_adv{height:50px;width:140px;overflow:hidden;}
+.floor .brand1, .floor .brand2, .floor .brand3, .floor .brand4, .floor .brand5, .floor .brand6, .floor .brand7{float: left; overflow: hidden; width:1060px; }
+.floor .brand1 ul, .floor .brand2 ul, .floor .brand3 ul, .floor .brand4 ul, .floor .brand5 ul, .floor .brand6 ul, .floor .brand7 ul{float: left; overflow: hidden; }
+.floor .brand1 li, .floor .brand2 li, .floor .brand3 li, .floor .brand4 li, .floor .brand5 li, .floor .brand6 li, .floor .brand7 li{float: left; height:20px; line-height:20px; font-size: 14px;padding:15px 0px 0px 35px; font-family:"microsoft yahei";}
+.floor .brand1 li a:link,.floor .brand1 li a:visited, .floor .brand2 li a:link,.floor .brand2 li a:visited, .floor .brand3 li a:link,.floor .brand3 li a:visited, .floor .brand4 li a:link,.floor .brand4 li a:visited, .floor .brand5 li a:link,.floor .brand5 li a:visited, .floor .brand6 li a:link,.floor .brand6 li a:visited, .floor .brand7 li a:link,.floor .brand7 li a:visited{color: #333333; text-decoration: none;}
+.floor .brand1 li a:hover{color: #f7a20e; text-decoration: none;}
+.floor .brand2 li a:hover{color: #3cb38d; text-decoration: none;}
+.floor .brand3 li a:hover{color: #914bdf; text-decoration: none;}
+.floor .brand4 li a:hover{color: #ff6446; text-decoration: none;}
+.floor .brand5 li a:hover{color: #ef1840; text-decoration: none;}
+.floor .brand6 li a:hover{color: #0095e2; text-decoration: none;}
+.floor .brand7 li a:hover{color: #ff649d; text-decoration: none;}
+
+
+.floor .brand1 span, .floor .brand2 span, .floor .brand3 span, .floor .brand4 span, .floor .brand5 span, .floor .brand6 span, .floor .brand7 span{float: left; font-family:"microsoft yahei"; line-height:20px; margin: 15px 0 0 25px;}
+.floor .brand1 span a{display: block; padding: 0 10px;color: #f7a20e;}
+.floor .brand1 span a:hover{color: #FFF; background: #f7a20e; text-decoration: none;}
+.floor .brand1 .icon{width:8px; float:right; right:0; margin:20px 0px 0px 5px; background: #f7a20e;}
+.floor .brand2 span a{display: block; padding: 0 10px;color: #3cb38d;}
+.floor .brand2 span a:hover{color: #FFF; background: #3cb38d; text-decoration: none;}
+.floor .brand2 .icon{width:8px; float:right; right:0; margin:20px 0px 0px 5px; background: #3cb38d;}
+.floor .brand3 span a{display: block; padding: 0 10px;color: #914bdf;}
+.floor .brand3 span a:hover{color: #FFF; background: #914bdf; text-decoration: none;}
+.floor .brand3 .icon{width:8px; float:right; right:0; margin:20px 0px 0px 5px; background: #914bdf;}
+.floor .brand4 span a{display: block; padding: 0 10px;color: #ff6446;}
+.floor .brand4 span a:hover{color: #FFF; background: #ff6446; text-decoration: none;}
+.floor .brand4 .icon{width:8px; float:right; right:0; margin:20px 0px 0px 5px; background: #ff6446;}
+.floor .brand5 span a{display: block; padding: 0 10px;color: #ef1840;}
+.floor .brand5 span a:hover{color: #FFF; background: #ef1840; text-decoration: none;}
+.floor .brand5 .icon{width:8px; float:right; right:0; margin:20px 0px 0px 5px; background: #ef1840;}
+.floor .brand6 span a{display: block; padding: 0 10px;color: #0095e2;}
+.floor .brand6 span a:hover{color: #FFF; background: #0095e2; text-decoration: none;}
+.floor .brand6 .icon{width:8px; float:right; right:0; margin:20px 0px 0px 5px; background: #0095e2;}
+.floor .brand7 span a{display: block; padding: 0 10px;color: #ff649d;}
+.floor .brand7 span a:hover{color: #FFF; background: #ff649d; text-decoration: none;}
+.floor .brand7 .icon{width:8px; float:right; right:0; margin:20px 0px 0px 5px; background: #ff649d;}
+
+.floor .F-sort .fl a:link,.floor .F-sort a:visited{color: #666; text-decoration: none;}
+.floor .fl a:hover{color: #f7a20e; text-decoration: none;}
+.floor .f1 .cur{color: #f7a20e; text-decoration: none;}
+.floor .f2 a:hover{color: #3cb38d; text-decoration: none;}
+.floor .f2 .cur{color: #3cb38d; text-decoration: none;}
+.floor .f3 a:hover{color: #914bdf; text-decoration: none;}
+.floor .f3 .cur{color: #914bdf; text-decoration: none;}
+.floor .f4 a:hover{color: #ff6446; text-decoration: none;}
+.floor .f4 .cur{color: #ff6446; text-decoration: none;}
+.floor .f5 a:hover{color: #ef1840; text-decoration: none;}
+.floor .f5 .cur{color: #ef1840; text-decoration: none;}
+.floor .f6 a:hover{color: #0095e2; text-decoration: none;}
+.floor .f6 .cur{color: #0095e2; text-decoration: none;}
+.floor .f7 a:hover{color: #ff649d; text-decoration: none;}
+.floor .f7 .cur{color: #ff649d; text-decoration: none;}
+
+.centerAdv{width: 1200px; height:90px; margin-top:20px; overflow:hidden;}
+
+
+
+/*风琴banner*/
+.slider {position: relative; width: 1200px;height:280px; margin-top: 20px; overflow: hidden;}
+.slider .slider-nav {width: 1200px;}
+.slider .nav {position: relative;float: left; height:280px;width: 200px;overflow: hidden;margin-right: 10px;transition: width .3s ease-out;}
+.slider .cur {width: 780px;}
+.slider .nav .type { position: relative; z-index:2;}
+.slider .nav .content {position: absolute; top: 0;right: 0;z-index: 1;}
+.slider .nav img {border: 0;}
+.fq1_adv{height:280px;width:200px;overflow:hidden;}
+.fq2_adv{height:280px;width:580px;overflow:hidden;}
+
+
+
+/*首页右侧栏*/
+.rg-sidebar{width: 40px; height: 100%; position: fixed; right: 0px; top: 0px; background: #333; z-index: 9999;}
+.rg-sidebar .main{width: 100%; position: absolute; left: 0px; top: 0px;}
+.rg-sidebar .title{width: 100%;background: #fc0; padding: 10px 0;}
+.rg-sidebar .title h2{width: 24px; margin: 0 auto; font-size: 20px; color: #FFF; text-align: center; line-height: 22px;}
+.rg-sidebar .main li{position: relative;}
+.rg-sidebar .abb-tt{border-bottom: #464646 1px solid; padding: 10px 0; cursor: pointer;}
+.rg-sidebar .abb-tt h3{color: #FFF; font-size: 14px; text-align: center;}
+.rg-sidebar .abb-tt h3 a:link,.rg-sidebar .abb-tt h3 a:visited{color: #FFF; text-decoration: none;}
+.rg-sidebar .abb-tt h3 a:hover{color: #FFF; text-decoration: none;}
+.rg-sidebar .abb-tt.cur{background: #02b7bb;}
+.rg-sidebar .con{position: absolute; left: -229px; top: 0px; height: 122px; background: #FFF; border: #e4e4e4 1px solid; padding: 10px; border-right: none; display: none; opacity: 0.8;}
+.rg-sidebar .con:after{content: " "; width:0px;height:0px;position: absolute; right: -4px; top: 24px;
+    border-top:4px solid transparent;
+    border-bottom:4px solid transparent;
+    border-left:4px solid #FFF;
+}
+.rg-sidebar .con.bot:after{content: " "; width:0px;height:0px;position: absolute; right: -4px; top: 110px;
+    border-top:4px solid transparent;
+    border-bottom:4px solid transparent;
+    border-left:4px solid #FFF;
+}
+.rg-sidebar .con .img{padding-top: 8px;}
+.rg-sidebar .con h3{background: url(http://img1.wushang.com/img/2013/12/24/203997.png) no-repeat -188px -298px; text-indent: 15px; height: 20px; line-height: 20px;}
+
+
+/*弹出窗*/
+.pop-box{width: 100%; height: 100%; position: fixed; left: 0px; top: 0px; z-index: 1000; overflow: hidden; display: none;}
+.pop-box .bg{width: 100%; height: 100%; position: absolute; left: 0px; top: 0px; z-index: 9999; background: #000; opacity: 0.6; filter: alpha(opacity=60);}
+.pop-box .con{width: 1200px; margin: 0 auto; position: relative; z-index: 10000;}
+.pop-box .con .close{width: 30px; height: 30px; line-height: 26px; background: #01a7ab; color: #FFF; font-size: 24px; text-align: center; position: absolute; right: 5px; top: 5px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;}
+.pop-box .con .close:hover{text-decoration: none; background: #02b7bb;}
+
+

@@ -1,0 +1,1080 @@
+//#import ../header_design.html
+<link href="../res/style/wsfc.css" rel="stylesheet">
+<script src="../res/js/remaintime.js" rel="stylesheet"></script>
+<script src="../res/js/channel.js" rel="stylesheet"></script>
+
+<div class="wsfcbgw">
+
+{{?it.wsfctop_adv&&it.wsfctop_adv.imgUrl}}
+<div class="wsfctop_adv" data-id="wsfctop_adv" data-type="imgLink" imgSize="1440X420" style="background:url({{=it.wsfctop_adv.imgUrl}}) no-repeat center;display: block">
+<a target="_blank" href="{{=it.wsfctop_adv.imgLinkTo}}"></a>
+</div>
+{{??}}
+<div class="wsfctop_adv" data-id="wsfctop_adv" data-type="imgLink" imgSize="1440X420" style="background-image:url(@{res/case/zuhe1440x420.jpg}@); display:block;"><a href="#"></a></div>
+{{?}}
+
+
+{{?it.config&&it.config.levelNum&&it.config.levelNum.value.indexOf("1")>-1}}
+<div class="wsfclfwbox wsfcfloorN">
+<div class="maparea">
+  <div class="parea">
+    <div class="div1">
+		  {{for(var i=1; i<=1; i++){ }}
+          {{var dataId="profloor_tab" + i; var data=it[dataId];if(!data){data = {} }; }}
+          <div class="wslffmap_list" data-type="productGroup" data-id="{{=dataId}}.wslfmap1_productlist" data-spec="150X150">
+    <ul>
+        {{?data.wslfmap1_productlist&&data.wslfmap1_productlist.length>0}}
+        {{~data.wslfmap1_productlist :value:index}}
+        <li>
+              <div class="pic"> <a target="_blank" href="/product.jsp?id={{=value.id}}"> <img src="{{=value.imgUrl}}" alt="{{=value.name}}" title="{{=value.name}}" width="140px" /> </a> </div>
+              <div class="wslffmap_listarea">
+                <div class="title"><a target="_blank" href="/product.jsp?id={{=value.id}}">{{=value.name}}</a></div>
+                <div class="mp">
+                  <h1>&yen</h1>
+                  <h2>{{=value.memberPrice}}</h2>
+                </div>
+                <div class="bnt"> <a target="_blank" href="/product.jsp?id={{=value.id}}"><img src="http://219.140.62.244/img/2014/5/29/jaq-x.png" /></a> </div>
+              </div>
+            </li>
+        {{~}}
+        {{??}}
+        <li>
+		  <div class="pic"><a href="#"><img src="../res/case/180x240x6.jpg"></a></div>
+		  <div class="wslffmap_listarea">
+			  <div class="title"><a href="#">【回家送礼】东阿阿胶清仓促销 养生堂 祛斑焕白套装</a></div>
+			  <div class="price">市场价：&yen;&nbsp;119.00</div>
+			  <div class="mp">促销价：&yen;&nbsp;119.00</div>	
+			  <div class="bnt">
+				<a target="_blank" href="#"><img src="http://219.140.62.244/img/2014/5/29/jaq-x.png"></a>			  </div>
+		  </div>
+        </li>
+        {{?}}
+    </ul>
+  </div>
+          {{ } }}
+	</div>
+	
+	<div class="div2">
+		  {{for(var i=1; i<=1; i++){ }}
+          {{var dataId="profloor_tab" + i; var data=it[dataId];if(!data){data = {} }; }}
+          <div class="wslffmap_list" data-type="productGroup" data-id="{{=dataId}}.wslfmap2_productlist" data-spec="150X150">
+    <ul>
+        {{?data.wslfmap2_productlist&&data.wslfmap2_productlist.length>0}}
+        {{~data.wslfmap2_productlist :value:index}}
+        <li>
+              <div class="pic"> <a target="_blank" href="/product.jsp?id={{=value.id}}"> <img src="{{=value.imgUrl}}" alt="{{=value.name}}" title="{{=value.name}}" width="140px" /> </a> </div>
+              <div class="wslffmap_listarea">
+                <div class="title"><a target="_blank" href="/product.jsp?id={{=value.id}}">{{=value.name}}</a></div>
+                <div class="mp">
+                  <h1>&yen</h1>
+                  <h2>{{=value.memberPrice}}</h2>
+                </div>
+                <div class="bnt"> <a target="_blank" href="/product.jsp?id={{=value.id}}"><img src="http://219.140.62.244/img/2014/5/29/jaq-x.png" /></a> </div>
+              </div>
+            </li>
+        {{~}}
+        {{??}}
+        <li>
+		  <div class="pic"><a href="#"><img src="../res/case/180x240x6.jpg"></a></div>
+		  <div class="wslffmap_listarea">
+			  <div class="title"><a href="#">【回家送礼】东阿阿胶清仓促销 养生堂 祛斑焕白套装</a></div>
+			  <div class="price">市场价：&yen;&nbsp;119.00</div>
+			  <div class="mp">促销价：&yen;&nbsp;119.00</div>	
+			  <div class="bnt">
+				<a target="_blank" href="#"><img src="http://219.140.62.244/img/2014/5/29/jaq-x.png"></a>			  </div>
+		  </div>
+        </li>
+        {{?}}
+    </ul>
+  </div>
+          {{ } }}
+	</div>
+	
+	<div class="div3">
+		  {{for(var i=1; i<=1; i++){ }}
+          {{var dataId="profloor_tab" + i; var data=it[dataId];if(!data){data = {} }; }}
+          <div class="wslffmap_list" data-type="productGroup" data-id="{{=dataId}}.wslfmap3_productlist" data-spec="150X150">
+    <ul>
+        {{?data.wslfmap3_productlist&&data.wslfmap3_productlist.length>0}}
+        {{~data.wslfmap3_productlist :value:index}}
+        <li>
+              <div class="pic"> <a target="_blank" href="/product.jsp?id={{=value.id}}"> <img src="{{=value.imgUrl}}" alt="{{=value.name}}" title="{{=value.name}}" width="140px" /> </a> </div>
+              <div class="wslffmap_listarea">
+                <div class="title"><a target="_blank" href="/product.jsp?id={{=value.id}}">{{=value.name}}</a></div>
+                <div class="mp">
+                  <h1>&yen</h1>
+                  <h2>{{=value.memberPrice}}</h2>
+                </div>
+                <div class="bnt"> <a target="_blank" href="/product.jsp?id={{=value.id}}"><img src="http://219.140.62.244/img/2014/5/29/jaq-x.png" /></a> </div>
+              </div>
+            </li>
+        {{~}}
+        {{??}}
+        <li>
+		  <div class="pic"><a href="#"><img src="../res/case/180x240x6.jpg"></a></div>
+		  <div class="wslffmap_listarea">
+			  <div class="title"><a href="#">【回家送礼】东阿阿胶清仓促销 养生堂 祛斑焕白套装</a></div>
+			  <div class="price">市场价：&yen;&nbsp;119.00</div>
+			  <div class="mp">促销价：&yen;&nbsp;119.00</div>	
+			  <div class="bnt">
+				<a target="_blank" href="#"><img src="http://219.140.62.244/img/2014/5/29/jaq-x.png"></a>			  </div>
+		  </div>
+        </li>
+        {{?}}
+    </ul>
+  </div>
+          {{ } }}
+	</div>
+	
+	<div class="div4">
+		  {{for(var i=1; i<=1; i++){ }}
+          {{var dataId="profloor_tab" + i; var data=it[dataId];if(!data){data = {} }; }}
+          <div class="wslffmap_list" data-type="productGroup" data-id="{{=dataId}}.wslfmap4_productlist" data-spec="150X150">
+    <ul>
+        {{?data.wslfmap4_productlist&&data.wslfmap4_productlist.length>0}}
+        {{~data.wslfmap4_productlist :value:index}}
+        <li>
+              <div class="pic"> <a target="_blank" href="/product.jsp?id={{=value.id}}"> <img src="{{=value.imgUrl}}" alt="{{=value.name}}" title="{{=value.name}}" width="140px" /> </a> </div>
+              <div class="wslffmap_listarea">
+                <div class="title"><a target="_blank" href="/product.jsp?id={{=value.id}}">{{=value.name}}</a></div>
+                <div class="mp">
+                  <h1>&yen</h1>
+                  <h2>{{=value.memberPrice}}</h2>
+                </div>
+                <div class="bnt"> <a target="_blank" href="/product.jsp?id={{=value.id}}"><img src="http://219.140.62.244/img/2014/5/29/jaq-x.png" /></a> </div>
+              </div>
+            </li>
+        {{~}}
+        {{??}}
+        <li>
+		  <div class="pic"><a href="#"><img src="../res/case/180x240x6.jpg"></a></div>
+		  <div class="wslffmap_listarea">
+			  <div class="title"><a href="#">【回家送礼】东阿阿胶清仓促销 养生堂 祛斑焕白套装</a></div>
+			  <div class="price">市场价：&yen;&nbsp;119.00</div>
+			  <div class="mp">促销价：&yen;&nbsp;119.00</div>	
+			  <div class="bnt">
+				<a target="_blank" href="#"><img src="http://219.140.62.244/img/2014/5/29/jaq-x.png"></a>			  </div>
+		  </div>
+        </li>
+        {{?}}
+    </ul>
+  </div>
+          {{ } }}
+	</div>
+	
+	<div class="div5">
+		  {{for(var i=1; i<=1; i++){ }}
+          {{var dataId="profloor_tab" + i; var data=it[dataId];if(!data){data = {} }; }}
+          <div class="wslffmap_list" data-type="productGroup" data-id="{{=dataId}}.wslfmap5_productlist" data-spec="150X150">
+    <ul>
+        {{?data.wslfmap5_productlist&&data.wslfmap5_productlist.length>0}}
+        {{~data.wslfmap5_productlist :value:index}}
+        <li>
+              <div class="pic"> <a target="_blank" href="/product.jsp?id={{=value.id}}"> <img src="{{=value.imgUrl}}" alt="{{=value.name}}" title="{{=value.name}}" width="140px" /> </a> </div>
+              <div class="wslffmap_listarea">
+                <div class="title"><a target="_blank" href="/product.jsp?id={{=value.id}}">{{=value.name}}</a></div>
+                <div class="mp">
+                  <h1>&yen</h1>
+                  <h2>{{=value.memberPrice}}</h2>
+                </div>
+                <div class="bnt"> <a target="_blank" href="/product.jsp?id={{=value.id}}"><img src="http://219.140.62.244/img/2014/5/29/jaq-x.png" /></a> </div>
+              </div>
+            </li>
+        {{~}}
+        {{??}}
+        <li>
+		  <div class="pic"><a href="#"><img src="../res/case/180x240x6.jpg"></a></div>
+		  <div class="wslffmap_listarea">
+			  <div class="title"><a href="#">【回家送礼】东阿阿胶清仓促销 养生堂 祛斑焕白套装</a></div>
+			  <div class="price">市场价：&yen;&nbsp;119.00</div>
+			  <div class="mp">促销价：&yen;&nbsp;119.00</div>	
+			  <div class="bnt">
+				<a target="_blank" href="#"><img src="http://219.140.62.244/img/2014/5/29/jaq-x.png"></a>			  </div>
+		  </div>
+        </li>
+        {{?}}
+    </ul>
+  </div>
+          {{ } }}
+	</div>
+	
+	<div class="div6">
+		  {{for(var i=1; i<=1; i++){ }}
+          {{var dataId="profloor_tab" + i; var data=it[dataId];if(!data){data = {} }; }}
+          <div class="wslffmap_list" data-type="productGroup" data-id="{{=dataId}}.wslfmap6_productlist" data-spec="150X150">
+    <ul>
+        {{?data.wslfmap6_productlist&&data.wslfmap6_productlist.length>0}}
+        {{~data.wslfmap6_productlist :value:index}}
+        <li>
+              <div class="pic"> <a target="_blank" href="/product.jsp?id={{=value.id}}"> <img src="{{=value.imgUrl}}" alt="{{=value.name}}" title="{{=value.name}}" width="140px" /> </a> </div>
+              <div class="wslffmap_listarea">
+                <div class="title"><a target="_blank" href="/product.jsp?id={{=value.id}}">{{=value.name}}</a></div>
+                <div class="mp">
+                  <h1>&yen</h1>
+                  <h2>{{=value.memberPrice}}</h2>
+                </div>
+                <div class="bnt"> <a target="_blank" href="/product.jsp?id={{=value.id}}"><img src="http://219.140.62.244/img/2014/5/29/jaq-x.png" /></a> </div>
+              </div>
+            </li>
+        {{~}}
+        {{??}}
+        <li>
+		  <div class="pic"><a href="#"><img src="../res/case/180x240x6.jpg"></a></div>
+		  <div class="wslffmap_listarea">
+			  <div class="title"><a href="#">【回家送礼】东阿阿胶清仓促销 养生堂 祛斑焕白套装</a></div>
+			  <div class="price">市场价：&yen;&nbsp;119.00</div>
+			  <div class="mp">促销价：&yen;&nbsp;119.00</div>	
+			  <div class="bnt">
+				<a target="_blank" href="#"><img src="http://219.140.62.244/img/2014/5/29/jaq-x.png"></a>			  </div>
+		  </div>
+        </li>
+        {{?}}
+    </ul>
+  </div>
+          {{ } }}
+	</div>
+	
+	<div class="div7">
+		  {{for(var i=1; i<=1; i++){ }}
+          {{var dataId="profloor_tab" + i; var data=it[dataId];if(!data){data = {} }; }}
+          <div class="wslffmap_list" data-type="productGroup" data-id="{{=dataId}}.wslfmap7_productlist" data-spec="150X150">
+    <ul>
+        {{?data.wslfmap7_productlist&&data.wslfmap7_productlist.length>0}}
+        {{~data.wslfmap7_productlist :value:index}}
+        <li>
+              <div class="pic"> <a target="_blank" href="/product.jsp?id={{=value.id}}"> <img src="{{=value.imgUrl}}" alt="{{=value.name}}" title="{{=value.name}}" width="140px" /> </a> </div>
+              <div class="wslffmap_listarea">
+                <div class="title"><a target="_blank" href="/product.jsp?id={{=value.id}}">{{=value.name}}</a></div>
+                <div class="mp">
+                  <h1>&yen</h1>
+                  <h2>{{=value.memberPrice}}</h2>
+                </div>
+                <div class="bnt"> <a target="_blank" href="/product.jsp?id={{=value.id}}"><img src="http://219.140.62.244/img/2014/5/29/jaq-x.png" /></a> </div>
+              </div>
+            </li>
+        {{~}}
+        {{??}}
+        <li>
+		  <div class="pic"><a href="#"><img src="../res/case/180x240x6.jpg"></a></div>
+		  <div class="wslffmap_listarea">
+			  <div class="title"><a href="#">【回家送礼】东阿阿胶清仓促销 养生堂 祛斑焕白套装</a></div>
+			  <div class="price">市场价：&yen;&nbsp;119.00</div>
+			  <div class="mp">促销价：&yen;&nbsp;119.00</div>	
+			  <div class="bnt">
+				<a target="_blank" href="#"><img src="http://219.140.62.244/img/2014/5/29/jaq-x.png"></a>			  </div>
+		  </div>
+        </li>
+        {{?}}
+    </ul>
+  </div>
+          {{ } }}
+	</div>
+	
+	<div class="div8">
+		  {{for(var i=1; i<=1; i++){ }}
+          {{var dataId="profloor_tab" + i; var data=it[dataId];if(!data){data = {} }; }}
+          <div class="wslffmap_list" data-type="productGroup" data-id="{{=dataId}}.wslfmap8_productlist" data-spec="150X150">
+    <ul>
+        {{?data.wslfmap8_productlist&&data.wslfmap8_productlist.length>0}}
+        {{~data.wslfmap8_productlist :value:index}}
+        <li>
+              <div class="pic"> <a target="_blank" href="/product.jsp?id={{=value.id}}"> <img src="{{=value.imgUrl}}" alt="{{=value.name}}" title="{{=value.name}}" width="140px" /> </a> </div>
+              <div class="wslffmap_listarea">
+                <div class="title"><a target="_blank" href="/product.jsp?id={{=value.id}}">{{=value.name}}</a></div>
+                <div class="mp">
+                  <h1>&yen</h1>
+                  <h2>{{=value.memberPrice}}</h2>
+                </div>
+                <div class="bnt"> <a target="_blank" href="/product.jsp?id={{=value.id}}"><img src="http://219.140.62.244/img/2014/5/29/jaq-x.png" /></a> </div>
+              </div>
+            </li>
+        {{~}}
+        {{??}}
+        <li>
+		  <div class="pic"><a href="#"><img src="../res/case/180x240x6.jpg"></a></div>
+		  <div class="wslffmap_listarea">
+			  <div class="title"><a href="#">【回家送礼】东阿阿胶清仓促销 养生堂 祛斑焕白套装</a></div>
+			  <div class="price">市场价：&yen;&nbsp;119.00</div>
+			  <div class="mp">促销价：&yen;&nbsp;119.00</div>	
+			  <div class="bnt">
+				<a target="_blank" href="#"><img src="http://219.140.62.244/img/2014/5/29/jaq-x.png"></a>			  </div>
+		  </div>
+        </li>
+        {{?}}
+    </ul>
+  </div>
+          {{ } }}
+	</div>
+	
+	<div class="div9">
+		  {{for(var i=1; i<=1; i++){ }}
+          {{var dataId="profloor_tab" + i; var data=it[dataId];if(!data){data = {} }; }}
+          <div class="wslffmap_list" data-type="productGroup" data-id="{{=dataId}}.wslfmap9_productlist" data-spec="150X150">
+    <ul>
+        {{?data.wslfmap9_productlist&&data.wslfmap9_productlist.length>0}}
+        {{~data.wslfmap9_productlist :value:index}}
+        <li>
+              <div class="pic"> <a target="_blank" href="/product.jsp?id={{=value.id}}"> <img src="{{=value.imgUrl}}" alt="{{=value.name}}" title="{{=value.name}}" width="140px" /> </a> </div>
+              <div class="wslffmap_listarea">
+                <div class="title"><a target="_blank" href="/product.jsp?id={{=value.id}}">{{=value.name}}</a></div>
+                <div class="mp">
+                  <h1>&yen</h1>
+                  <h2>{{=value.memberPrice}}</h2>
+                </div>
+                <div class="bnt"> <a target="_blank" href="/product.jsp?id={{=value.id}}"><img src="http://219.140.62.244/img/2014/5/29/jaq-x.png" /></a> </div>
+              </div>
+            </li>
+        {{~}}
+        {{??}}
+        <li>
+		  <div class="pic"><a href="#"><img src="../res/case/180x240x6.jpg"></a></div>
+		  <div class="wslffmap_listarea">
+			  <div class="title"><a href="#">【回家送礼】东阿阿胶清仓促销 养生堂 祛斑焕白套装</a></div>
+			  <div class="price">市场价：&yen;&nbsp;119.00</div>
+			  <div class="mp">促销价：&yen;&nbsp;119.00</div>	
+			  <div class="bnt">
+				<a target="_blank" href="#"><img src="http://219.140.62.244/img/2014/5/29/jaq-x.png"></a>			  </div>
+		  </div>
+        </li>
+        {{?}}
+    </ul>
+  </div>
+          {{ } }}
+	</div>
+	
+	<div class="div10">
+		  {{for(var i=1; i<=1; i++){ }}
+          {{var dataId="profloor_tab" + i; var data=it[dataId];if(!data){data = {} }; }}
+          <div class="wslffmap_list" data-type="productGroup" data-id="{{=dataId}}.wslfmap10_productlist" data-spec="150X150">
+    <ul>
+        {{?data.wslfmap10_productlist&&data.wslfmap10_productlist.length>0}}
+        {{~data.wslfmap10_productlist :value:index}}
+        <li>
+              <div class="pic"> <a target="_blank" href="/product.jsp?id={{=value.id}}"> <img src="{{=value.imgUrl}}" alt="{{=value.name}}" title="{{=value.name}}" width="140px" /> </a> </div>
+              <div class="wslffmap_listarea">
+                <div class="title"><a target="_blank" href="/product.jsp?id={{=value.id}}">{{=value.name}}</a></div>
+                <div class="mp">
+                  <h1>&yen</h1>
+                  <h2>{{=value.memberPrice}}</h2>
+                </div>
+                <div class="bnt"> <a target="_blank" href="/product.jsp?id={{=value.id}}"><img src="http://219.140.62.244/img/2014/5/29/jaq-x.png" /></a> </div>
+              </div>
+            </li>
+        {{~}}
+        {{??}}
+        <li>
+		  <div class="pic"><a href="#"><img src="../res/case/180x240x6.jpg"></a></div>
+		  <div class="wslffmap_listarea">
+			  <div class="title"><a href="#">【回家送礼】东阿阿胶清仓促销 养生堂 祛斑焕白套装</a></div>
+			  <div class="price">市场价：&yen;&nbsp;119.00</div>
+			  <div class="mp">促销价：&yen;&nbsp;119.00</div>	
+			  <div class="bnt">
+				<a target="_blank" href="#"><img src="http://219.140.62.244/img/2014/5/29/jaq-x.png"></a>			  </div>
+		  </div>
+        </li>
+        {{?}}
+    </ul>
+  </div>
+          {{ } }}
+	</div>
+	
+	<div class="div11">
+		  {{for(var i=1; i<=1; i++){ }}
+          {{var dataId="profloor_tab" + i; var data=it[dataId];if(!data){data = {} }; }}
+          <div class="wslffmap_list" data-type="productGroup" data-id="{{=dataId}}.wslfmap11_productlist" data-spec="150X150">
+    <ul>
+        {{?data.wslfmap11_productlist&&data.wslfmap11_productlist.length>0}}
+        {{~data.wslfmap11_productlist :value:index}}
+        <li>
+              <div class="pic"> <a target="_blank" href="/product.jsp?id={{=value.id}}"> <img src="{{=value.imgUrl}}" alt="{{=value.name}}" title="{{=value.name}}" width="140px" /> </a> </div>
+              <div class="wslffmap_listarea">
+                <div class="title"><a target="_blank" href="/product.jsp?id={{=value.id}}">{{=value.name}}</a></div>
+                <div class="mp">
+                  <h1>&yen</h1>
+                  <h2>{{=value.memberPrice}}</h2>
+                </div>
+                <div class="bnt"> <a target="_blank" href="/product.jsp?id={{=value.id}}"><img src="http://219.140.62.244/img/2014/5/29/jaq-x.png" /></a> </div>
+              </div>
+            </li>
+        {{~}}
+        {{??}}
+        <li>
+		  <div class="pic"><a href="#"><img src="../res/case/180x240x6.jpg"></a></div>
+		  <div class="wslffmap_listarea">
+			  <div class="title"><a href="#">【回家送礼】东阿阿胶清仓促销 养生堂 祛斑焕白套装</a></div>
+			  <div class="price">市场价：&yen;&nbsp;119.00</div>
+			  <div class="mp">促销价：&yen;&nbsp;119.00</div>	
+			  <div class="bnt">
+				<a target="_blank" href="#"><img src="http://219.140.62.244/img/2014/5/29/jaq-x.png"></a>			  </div>
+		  </div>
+        </li>
+        {{?}}
+    </ul>
+  </div>
+          {{ } }}
+	</div>
+	
+  </div>
+  <div class="iconarea">
+    <div class="icon1"><span  class="span1"><font>恩施</font></span></div>
+	<div class="icon2"><span  class="span2"><font>十堰</font></span></div>
+	<div class="icon3"><span  class="span3"><font>宜昌</font></span></div>
+	<div class="icon4"><span  class="span4"><font>襄阳</font></span></div>
+	<div class="icon5"><span  class="span5"><font>荆州</font></span></div>
+	<div class="icon6"><span  class="span6"><font>孝感</font></span></div>
+	<div class="icon7"><span  class="span7"><font>武汉</font></span></div>
+	<div class="icon8"><span  class="span8"><font>鄂州</font></span></div>
+	<div class="icon9"><span  class="span9"><font>咸宁</font></span></div>
+	<div class="icon10"><span  class="span10"><font>黄冈</font></span></div>
+	<div class="icon11"><span  class="span11"><font>黄石</font></span></div>
+  </div>
+</div>
+</div>
+{{?}}
+
+
+
+
+{{?it.config&&it.config.levelNum&&it.config.levelNum.value.indexOf("2")>-1}}
+<div class="wsfcwbox wsfcfloorN">
+
+  <div class="wsfcf_adv" data-type="imgLink" data-id="wsfclff2_adv"  imgSize="990X68">
+    {{?it.wsfclff2_adv && it.wsfclff2_adv.imgUrl }}
+    <a target="_blank" href="{{=it.wsfclff2_adv.imgLinkTo}}">
+        <img src="{{=it.wsfclff2_adv.imgUrl}}"  width="990" height="68"/>
+    </a>
+    {{??}}
+    <img src="../res/case/1210x90.jpg" width="990" height="68" />
+    {{?}}
+  </div>
+  
+  
+  {{for(var i=1; i<=1; i++){ }}
+  {{var dataId="profloor_tab" + i; var data=it[dataId];if(!data){data = {} }; }}
+  <div class="wsfcf_listDIY" data-type="productGroup" data-id="{{=dataId}}.wsfclff2_productlist" data-spec="238X238">
+    <ul>
+        {{?data.wsfclff2_productlist&&data.wsfclff2_productlist.length>0}}
+        {{~data.wsfclff2_productlist :value:index}}
+        <li>
+		  <div class="wsfcf_listDIYTarea">
+            <div class="pic">
+                <a target="_blank" href="/product.jsp?id={{=value.id}}">
+                    <img src="{{=value.imgUrl}}" alt="{{=value.name}}" title="{{=value.name}}" width="238px">
+                </a>
+            </div>
+			<div class="title"><a target="_blank" href="/product.jsp?id={{=value.id}}">{{=value.name}}</a></div>
+		  </div>
+			<div class="wsfcf_listDIYBarea">
+			  <div class="mp">
+			    <div class="mpL"><h1>仅售:&yen</h1><h2>{{=value.memberPrice}}</h2></div>
+				<div class="mpR"><del>&yen{{=value.marketPrice}}</del></div>
+			  </div>
+			  <div class="bnt">
+				<a target="_blank" href="/product.jsp?id={{=value.id}}"><img src="http://219.140.62.244/img/2014/5/29/jaq-x.png"></a>
+			  </div>
+			</div>
+        </li>
+        {{~}}
+        {{??}}
+		<li>
+		  <div class="wsfcf_listDIYTarea">
+            <div class="pic"><a href="#"><img src="../res/case/180x240x6.jpg"></a></div>
+			<div class="title"><a href="#">【回家送礼】东阿阿胶清仓促销 养生堂 祛斑焕白套装</a></div>
+		  </div>
+			<div class="wsfcf_listDIYBarea">
+			  <div class="mp"><h1>仅售:&yen;</h1><h2>&nbsp;119.00</h2></div>
+			  <div class="bnt">
+				<a target="_blank" href="#"><img src="http://219.140.62.244/img/2014/5/29/jaq-x.png"></a>
+			  </div>
+			</div>
+        </li>
+        <li>
+		  <div class="wsfcf_listDIYTarea">
+            <div class="pic"><a href="#"><img src="../res/case/180x240x6.jpg"></a></div>
+			<div class="title"><a href="#">【回家送礼】东阿阿胶清仓促销 养生堂 祛斑焕白套装</a></div>
+		  </div>
+			<div class="wsfcf_listDIYBarea">
+			  <div class="mp"><h1>仅售:&yen;</h1><h2>&nbsp;119.00</h2></div>
+			  <div class="bnt">
+				<a target="_blank" href="#"><img src="http://219.140.62.244/img/2014/5/29/jaq-x.png"></a>
+			  </div>
+			</div>
+        </li>
+        {{?}}
+    </ul>
+  </div>
+  {{ } }}
+  
+</div>
+{{?}}
+
+
+{{?it.config&&it.config.levelNum&&it.config.levelNum.value.indexOf("3")>-1}}
+<div class="wsfcwbox wsfcfloorN">
+
+  <div class="wsfcf_adv" data-type="imgLink" data-id="wsfclff3_adv"  imgSize="990X68">
+    {{?it.wsfclff3_adv && it.wsfclff3_adv.imgUrl }}
+    <a target="_blank" href="{{=it.wsfclff3_adv.imgLinkTo}}">
+        <img src="{{=it.wsfclff3_adv.imgUrl}}"  width="990" height="68"/>
+    </a>
+    {{??}}
+    <img src="../res/case/1210x90.jpg" width="990" height="68" />
+    {{?}}
+  </div>
+  
+  
+  {{for(var i=1; i<=1; i++){ }}
+  {{var dataId="profloor_tab" + i; var data=it[dataId];if(!data){data = {} }; }}
+  <div class="wsfcf_listDIY" data-type="productGroup" data-id="{{=dataId}}.wsfclff3_productlist" data-spec="238X238">
+    <ul>
+        {{?data.wsfclff3_productlist&&data.wsfclff3_productlist.length>0}}
+        {{~data.wsfclff3_productlist :value:index}}
+        <li>
+		  <div class="wsfcf_listDIYTarea">
+            <div class="pic">
+                <a target="_blank" href="/product.jsp?id={{=value.id}}">
+                    <img src="{{=value.imgUrl}}" alt="{{=value.name}}" title="{{=value.name}}" width="238px">
+                </a>
+            </div>
+			<div class="title"><a target="_blank" href="/product.jsp?id={{=value.id}}">{{=value.name}}</a></div>
+		  </div>
+			<div class="wsfcf_listDIYBarea">
+			  <div class="mp">
+			    <div class="mpL"><h1>仅售:&yen</h1><h2>{{=value.memberPrice}}</h2></div>
+				<div class="mpR"><del>&yen{{=value.marketPrice}}</del></div>
+			  </div>
+			  <div class="bnt">
+				<a target="_blank" href="/product.jsp?id={{=value.id}}"><img src="http://219.140.62.244/img/2014/5/29/jaq-x.png"></a>
+			  </div>
+			</div>
+        </li>
+        {{~}}
+        {{??}}
+		<li>
+		  <div class="wsfcf_listDIYTarea">
+            <div class="pic"><a href="#"><img src="../res/case/180x240x6.jpg"></a></div>
+			<div class="title"><a href="#">【回家送礼】东阿阿胶清仓促销 养生堂 祛斑焕白套装</a></div>
+		  </div>
+			<div class="wsfcf_listDIYBarea">
+			  <div class="mp"><h1>仅售:&yen;</h1><h2>&nbsp;119.00</h2></div>
+			  <div class="bnt">
+				<a target="_blank" href="#"><img src="http://219.140.62.244/img/2014/5/29/jaq-x.png"></a>
+			  </div>
+			</div>
+        </li>
+        <li>
+		  <div class="wsfcf_listDIYTarea">
+            <div class="pic"><a href="#"><img src="../res/case/180x240x6.jpg"></a></div>
+			<div class="title"><a href="#">【回家送礼】东阿阿胶清仓促销 养生堂 祛斑焕白套装</a></div>
+		  </div>
+			<div class="wsfcf_listDIYBarea">
+			  <div class="mp"><h1>仅售:&yen;</h1><h2>&nbsp;119.00</h2></div>
+			  <div class="bnt">
+				<a target="_blank" href="#"><img src="http://219.140.62.244/img/2014/5/29/jaq-x.png"></a>
+			  </div>
+			</div>
+        </li>
+        {{?}}
+    </ul>
+  </div>
+  {{ } }}
+  
+</div>
+{{?}}
+
+
+{{?it.config&&it.config.levelNum&&it.config.levelNum.value.indexOf("4")>-1}}
+<div class="wsfcwbox wsfcfloorN">
+
+  <div class="wsfcf_adv" data-type="imgLink" data-id="wsfclff4_adv"  imgSize="990X68">
+    {{?it.wsfclff4_adv && it.wsfclff4_adv.imgUrl }}
+    <a target="_blank" href="{{=it.wsfclff4_adv.imgLinkTo}}">
+        <img src="{{=it.wsfclff4_adv.imgUrl}}"  width="990" height="68"/>
+    </a>
+    {{??}}
+    <img src="../res/case/1210x90.jpg" width="990" height="68" />
+    {{?}}
+  </div>
+  
+  
+  {{for(var i=1; i<=1; i++){ }}
+  {{var dataId="profloor_tab" + i; var data=it[dataId];if(!data){data = {} }; }}
+  <div class="wsfcf_listDIY" data-type="productGroup" data-id="{{=dataId}}.wsfclff4_productlist" data-spec="238X238">
+    <ul>
+        {{?data.wsfclff4_productlist&&data.wsfclff4_productlist.length>0}}
+        {{~data.wsfclff4_productlist :value:index}}
+        <li>
+		  <div class="wsfcf_listDIYTarea">
+            <div class="pic">
+                <a target="_blank" href="/product.jsp?id={{=value.id}}">
+                    <img src="{{=value.imgUrl}}" alt="{{=value.name}}" title="{{=value.name}}" width="238px">
+                </a>
+            </div>
+			<div class="title"><a target="_blank" href="/product.jsp?id={{=value.id}}">{{=value.name}}</a></div>
+		  </div>
+			<div class="wsfcf_listDIYBarea">
+			  <div class="mp">
+			    <div class="mpL"><h1>仅售:&yen</h1><h2>{{=value.memberPrice}}</h2></div>
+				<div class="mpR"><del>&yen{{=value.marketPrice}}</del></div>
+			  </div>
+			  <div class="bnt">
+				<a target="_blank" href="/product.jsp?id={{=value.id}}"><img src="http://219.140.62.244/img/2014/5/29/jaq-x.png"></a>
+			  </div>
+			</div>
+        </li>
+        {{~}}
+        {{??}}
+		<li>
+		  <div class="wsfcf_listDIYTarea">
+            <div class="pic"><a href="#"><img src="../res/case/180x240x6.jpg"></a></div>
+			<div class="title"><a href="#">【回家送礼】东阿阿胶清仓促销 养生堂 祛斑焕白套装</a></div>
+		  </div>
+			<div class="wsfcf_listDIYBarea">
+			  <div class="mp"><h1>仅售:&yen;</h1><h2>&nbsp;119.00</h2></div>
+			  <div class="bnt">
+				<a target="_blank" href="#"><img src="http://219.140.62.244/img/2014/5/29/jaq-x.png"></a>
+			  </div>
+			</div>
+        </li>
+        <li>
+		  <div class="wsfcf_listDIYTarea">
+            <div class="pic"><a href="#"><img src="../res/case/180x240x6.jpg"></a></div>
+			<div class="title"><a href="#">【回家送礼】东阿阿胶清仓促销 养生堂 祛斑焕白套装</a></div>
+		  </div>
+			<div class="wsfcf_listDIYBarea">
+			  <div class="mp"><h1>仅售:&yen;</h1><h2>&nbsp;119.00</h2></div>
+			  <div class="bnt">
+				<a target="_blank" href="#"><img src="http://219.140.62.244/img/2014/5/29/jaq-x.png"></a>
+			  </div>
+			</div>
+        </li>
+        {{?}}
+    </ul>
+  </div>
+  {{ } }}
+  
+</div>
+{{?}}
+
+
+{{?it.config&&it.config.levelNum&&it.config.levelNum.value.indexOf("5")>-1}}
+<div class="wsfcwbox wsfcfloorN">
+
+  <div class="wsfcf_adv" data-type="imgLink" data-id="wsfclff5_adv"  imgSize="990X68">
+    {{?it.wsfclff5_adv && it.wsfclff5_adv.imgUrl }}
+    <a target="_blank" href="{{=it.wsfclff5_adv.imgLinkTo}}">
+        <img src="{{=it.wsfclff5_adv.imgUrl}}"  width="990" height="68"/>
+    </a>
+    {{??}}
+    <img src="../res/case/1210x90.jpg" width="990" height="68" />
+    {{?}}
+  </div>
+  
+  
+  {{for(var i=1; i<=1; i++){ }}
+  {{var dataId="profloor_tab" + i; var data=it[dataId];if(!data){data = {} }; }}
+  <div class="wsfcf_listDIY" data-type="productGroup" data-id="{{=dataId}}.wsfclff5_productlist" data-spec="238X238">
+    <ul>
+        {{?data.wsfclff5_productlist&&data.wsfclff5_productlist.length>0}}
+        {{~data.wsfclff5_productlist :value:index}}
+        <li>
+		  <div class="wsfcf_listDIYTarea">
+            <div class="pic">
+                <a target="_blank" href="/product.jsp?id={{=value.id}}">
+                    <img src="{{=value.imgUrl}}" alt="{{=value.name}}" title="{{=value.name}}" width="238px">
+                </a>
+            </div>
+			<div class="title"><a target="_blank" href="/product.jsp?id={{=value.id}}">{{=value.name}}</a></div>
+		  </div>
+			<div class="wsfcf_listDIYBarea">
+			  <div class="mp">
+			    <div class="mpL"><h1>仅售:&yen</h1><h2>{{=value.memberPrice}}</h2></div>
+				<div class="mpR"><del>&yen{{=value.marketPrice}}</del></div>
+			  </div>
+			  <div class="bnt">
+				<a target="_blank" href="/product.jsp?id={{=value.id}}"><img src="http://219.140.62.244/img/2014/5/29/jaq-x.png"></a>
+			  </div>
+			</div>
+        </li>
+        {{~}}
+        {{??}}
+		<li>
+		  <div class="wsfcf_listDIYTarea">
+            <div class="pic"><a href="#"><img src="../res/case/180x240x6.jpg"></a></div>
+			<div class="title"><a href="#">【回家送礼】东阿阿胶清仓促销 养生堂 祛斑焕白套装</a></div>
+		  </div>
+			<div class="wsfcf_listDIYBarea">
+			  <div class="mp"><h1>仅售:&yen;</h1><h2>&nbsp;119.00</h2></div>
+			  <div class="bnt">
+				<a target="_blank" href="#"><img src="http://219.140.62.244/img/2014/5/29/jaq-x.png"></a>
+			  </div>
+			</div>
+        </li>
+        <li>
+		  <div class="wsfcf_listDIYTarea">
+            <div class="pic"><a href="#"><img src="../res/case/180x240x6.jpg"></a></div>
+			<div class="title"><a href="#">【回家送礼】东阿阿胶清仓促销 养生堂 祛斑焕白套装</a></div>
+		  </div>
+			<div class="wsfcf_listDIYBarea">
+			  <div class="mp"><h1>仅售:&yen;</h1><h2>&nbsp;119.00</h2></div>
+			  <div class="bnt">
+				<a target="_blank" href="#"><img src="http://219.140.62.244/img/2014/5/29/jaq-x.png"></a>
+			  </div>
+			</div>
+        </li>
+        {{?}}
+    </ul>
+  </div>
+  {{ } }}
+  
+</div>
+{{?}}
+
+{{?it.config&&it.config.levelNum&&it.config.levelNum.value.indexOf("6")>-1}}
+<div class="wsfcwbox wsfcfloorN">
+
+  <div class="wsfcf_adv" data-type="imgLink" data-id="wsfclff6_adv"  imgSize="990X68">
+    {{?it.wsfclff6_adv && it.wsfclff6_adv.imgUrl }}
+    <a target="_blank" href="{{=it.wsfclff6_adv.imgLinkTo}}">
+        <img src="{{=it.wsfclff6_adv.imgUrl}}"  width="990" height="68"/>
+    </a>
+    {{??}}
+    <img src="../res/case/1210x90.jpg" width="990" height="68" />
+    {{?}}
+  </div>
+  
+  
+  {{for(var i=1; i<=1; i++){ }}
+  {{var dataId="profloor_tab" + i; var data=it[dataId];if(!data){data = {} }; }}
+  <div class="wsfcf_listDIY" data-type="productGroup" data-id="{{=dataId}}.wsfclff6_productlist" data-spec="238X238">
+    <ul>
+        {{?data.wsfclff6_productlist&&data.wsfclff6_productlist.length>0}}
+        {{~data.wsfclff6_productlist :value:index}}
+        <li>
+		  <div class="wsfcf_listDIYTarea">
+            <div class="pic">
+                <a target="_blank" href="/product.jsp?id={{=value.id}}">
+                    <img src="{{=value.imgUrl}}" alt="{{=value.name}}" title="{{=value.name}}" width="238px">
+                </a>
+            </div>
+			<div class="title"><a target="_blank" href="/product.jsp?id={{=value.id}}">{{=value.name}}</a></div>
+		  </div>
+			<div class="wsfcf_listDIYBarea">
+			  <div class="mp">
+			    <div class="mpL"><h1>仅售:&yen</h1><h2>{{=value.memberPrice}}</h2></div>
+				<div class="mpR"><del>&yen{{=value.marketPrice}}</del></div>
+			  </div>
+			  <div class="bnt">
+				<a target="_blank" href="/product.jsp?id={{=value.id}}"><img src="http://219.140.62.244/img/2014/5/29/jaq-x.png"></a>
+			  </div>
+			</div>
+        </li>
+        {{~}}
+        {{??}}
+		<li>
+		  <div class="wsfcf_listDIYTarea">
+            <div class="pic"><a href="#"><img src="../res/case/180x240x6.jpg"></a></div>
+			<div class="title"><a href="#">【回家送礼】东阿阿胶清仓促销 养生堂 祛斑焕白套装</a></div>
+		  </div>
+			<div class="wsfcf_listDIYBarea">
+			  <div class="mp"><h1>仅售:&yen;</h1><h2>&nbsp;119.00</h2></div>
+			  <div class="bnt">
+				<a target="_blank" href="#"><img src="http://219.140.62.244/img/2014/5/29/jaq-x.png"></a>
+			  </div>
+			</div>
+        </li>
+        <li>
+		  <div class="wsfcf_listDIYTarea">
+            <div class="pic"><a href="#"><img src="../res/case/180x240x6.jpg"></a></div>
+			<div class="title"><a href="#">【回家送礼】东阿阿胶清仓促销 养生堂 祛斑焕白套装</a></div>
+		  </div>
+			<div class="wsfcf_listDIYBarea">
+			  <div class="mp"><h1>仅售:&yen;</h1><h2>&nbsp;119.00</h2></div>
+			  <div class="bnt">
+				<a target="_blank" href="#"><img src="http://219.140.62.244/img/2014/5/29/jaq-x.png"></a>
+			  </div>
+			</div>
+        </li>
+        {{?}}
+    </ul>
+  </div>
+  {{ } }}
+  
+</div>
+{{?}}
+
+{{?it.config&&it.config.levelNum&&it.config.levelNum.value.indexOf("7")>-1}}
+<div class="wsfcwbox wsfcfloorN">
+
+  <div class="wsfcf_adv" data-type="imgLink" data-id="wsfclff7_adv"  imgSize="990X68">
+    {{?it.wsfclff7_adv && it.wsfclff7_adv.imgUrl }}
+    <a target="_blank" href="{{=it.wsfclff7_adv.imgLinkTo}}">
+        <img src="{{=it.wsfclff7_adv.imgUrl}}"  width="990" height="68"/>
+    </a>
+    {{??}}
+    <img src="../res/case/1210x90.jpg" width="990" height="68" />
+    {{?}}
+  </div>
+  
+  
+  {{for(var i=1; i<=1; i++){ }}
+  {{var dataId="profloor_tab" + i; var data=it[dataId];if(!data){data = {} }; }}
+  <div class="wsfcf_listDIY" data-type="productGroup" data-id="{{=dataId}}.wsfclff7_productlist" data-spec="238X238">
+    <ul>
+        {{?data.wsfclff7_productlist&&data.wsfclff7_productlist.length>0}}
+        {{~data.wsfclff7_productlist :value:index}}
+        <li>
+		  <div class="wsfcf_listDIYTarea">
+            <div class="pic">
+                <a target="_blank" href="/product.jsp?id={{=value.id}}">
+                    <img src="{{=value.imgUrl}}" alt="{{=value.name}}" title="{{=value.name}}" width="238px">
+                </a>
+            </div>
+			<div class="title"><a target="_blank" href="/product.jsp?id={{=value.id}}">{{=value.name}}</a></div>
+		  </div>
+			<div class="wsfcf_listDIYBarea">
+			  <div class="mp">
+			    <div class="mpL"><h1>仅售:&yen</h1><h2>{{=value.memberPrice}}</h2></div>
+				<div class="mpR"><del>&yen{{=value.marketPrice}}</del></div>
+			  </div>
+			  <div class="bnt">
+				<a target="_blank" href="/product.jsp?id={{=value.id}}"><img src="http://219.140.62.244/img/2014/5/29/jaq-x.png"></a>
+			  </div>
+			</div>
+        </li>
+        {{~}}
+        {{??}}
+		<li>
+		  <div class="wsfcf_listDIYTarea">
+            <div class="pic"><a href="#"><img src="../res/case/180x240x6.jpg"></a></div>
+			<div class="title"><a href="#">【回家送礼】东阿阿胶清仓促销 养生堂 祛斑焕白套装</a></div>
+		  </div>
+			<div class="wsfcf_listDIYBarea">
+			  <div class="mp"><h1>仅售:&yen;</h1><h2>&nbsp;119.00</h2></div>
+			  <div class="bnt">
+				<a target="_blank" href="#"><img src="http://219.140.62.244/img/2014/5/29/jaq-x.png"></a>
+			  </div>
+			</div>
+        </li>
+        <li>
+		  <div class="wsfcf_listDIYTarea">
+            <div class="pic"><a href="#"><img src="../res/case/180x240x6.jpg"></a></div>
+			<div class="title"><a href="#">【回家送礼】东阿阿胶清仓促销 养生堂 祛斑焕白套装</a></div>
+		  </div>
+			<div class="wsfcf_listDIYBarea">
+			  <div class="mp"><h1>仅售:&yen;</h1><h2>&nbsp;119.00</h2></div>
+			  <div class="bnt">
+				<a target="_blank" href="#"><img src="http://219.140.62.244/img/2014/5/29/jaq-x.png"></a>
+			  </div>
+			</div>
+        </li>
+        {{?}}
+    </ul>
+  </div>
+  {{ } }}
+  
+</div>
+{{?}}
+
+
+{{?it.config&&it.config.levelNum&&it.config.levelNum.value.indexOf("8")>-1}}
+<div class="wsfcwbox wsfcfloorN">
+
+  <div class="wsfcf_adv" data-type="imgLink" data-id="wsfclff7_adv"  imgSize="990X68">
+    {{?it.wsfclff7_adv && it.wsfclff7_adv.imgUrl }}
+    <a target="_blank" href="{{=it.wsfclff7_adv.imgLinkTo}}">
+        <img src="{{=it.wsfclff7_adv.imgUrl}}"  width="990" height="68"/>
+    </a>
+    {{??}}
+    <img src="../res/case/1210x90.jpg" width="990" height="68" />
+    {{?}}
+  </div>
+  
+  
+  {{for(var i=1; i<=1; i++){ }}
+  {{var dataId="profloor_tab" + i; var data=it[dataId];if(!data){data = {} }; }}
+  <div class="wsfcf_listDIY" data-type="productGroup" data-id="{{=dataId}}.wsfclff7_productlist" data-spec="238X238">
+    <ul>
+        {{?data.wsfclff7_productlist&&data.wsfclff7_productlist.length>0}}
+        {{~data.wsfclff7_productlist :value:index}}
+        <li>
+		  <div class="wsfcf_listDIYTarea">
+            <div class="pic">
+                <a target="_blank" href="/product.jsp?id={{=value.id}}">
+                    <img src="{{=value.imgUrl}}" alt="{{=value.name}}" title="{{=value.name}}" width="238px">
+                </a>
+            </div>
+			<div class="title"><a target="_blank" href="/product.jsp?id={{=value.id}}">{{=value.name}}</a></div>
+		  </div>
+			<div class="wsfcf_listDIYBarea">
+			  <div class="mp">
+			    <div class="mpL"><h1>仅售:&yen</h1><h2>{{=value.memberPrice}}</h2></div>
+				<div class="mpR"><del>&yen{{=value.marketPrice}}</del></div>
+			  </div>
+			  <div class="bnt">
+				<a target="_blank" href="/product.jsp?id={{=value.id}}"><img src="http://219.140.62.244/img/2014/5/29/jaq-x.png"></a>
+			  </div>
+			</div>
+        </li>
+        {{~}}
+        {{??}}
+		<li>
+		  <div class="wsfcf_listDIYTarea">
+            <div class="pic"><a href="#"><img src="../res/case/180x240x6.jpg"></a></div>
+			<div class="title"><a href="#">【回家送礼】东阿阿胶清仓促销 养生堂 祛斑焕白套装</a></div>
+		  </div>
+			<div class="wsfcf_listDIYBarea">
+			  <div class="mp"><h1>仅售:&yen;</h1><h2>&nbsp;119.00</h2></div>
+			  <div class="bnt">
+				<a target="_blank" href="#"><img src="http://219.140.62.244/img/2014/5/29/jaq-x.png"></a>
+			  </div>
+			</div>
+        </li>
+        <li>
+		  <div class="wsfcf_listDIYTarea">
+            <div class="pic"><a href="#"><img src="../res/case/180x240x6.jpg"></a></div>
+			<div class="title"><a href="#">【回家送礼】东阿阿胶清仓促销 养生堂 祛斑焕白套装</a></div>
+		  </div>
+			<div class="wsfcf_listDIYBarea">
+			  <div class="mp"><h1>仅售:&yen;</h1><h2>&nbsp;119.00</h2></div>
+			  <div class="bnt">
+				<a target="_blank" href="#"><img src="http://219.140.62.244/img/2014/5/29/jaq-x.png"></a>
+			  </div>
+			</div>
+        </li>
+        {{?}}
+    </ul>
+  </div>
+  {{ } }}
+  
+</div>
+{{?}}
+
+
+
+<!--
+<div class="wsfcb_adv" data-type="imgLink" data-id="wsfcb_adv"  imgSize="990X273">
+    {{?it.wsfcb_adv && it.wsfcb_adv.imgUrl }}
+    <a target="_blank" href="{{=it.wsfcb_adv.imgLinkTo}}">
+        <img src="{{=it.wsfcb_adv.imgUrl}}"  width="990" height="273"/>
+    </a>
+    {{??}}
+    <img src="../res/case/1210x90.jpg" width="990" height="273" />
+    {{?}}
+</div>
+-->
+
+</div>
+
+
+<script type="text/javascript">
+	init_gourment();
+	$(".icon1").mouseover(function() {      
+		hideDiv_gourment();
+		changeFontColor_gourment();
+		$(".icon1 font").attr('color', 'red');
+		$(".div1").show();
+	}); 
+	$(".icon2").mouseover(function() {      
+		hideDiv_gourment();
+		changeFontColor_gourment();
+		$(".icon2 font").attr('color', 'red');
+		$(".div2").show();
+	});
+	$(".icon3").mouseover(function() {      
+		hideDiv_gourment();
+		changeFontColor_gourment();
+		$(".icon3 font").attr('color', 'red');
+		$(".div3").show();
+	});
+	$(".icon4").mouseover(function() {      
+		hideDiv_gourment();
+		changeFontColor_gourment();
+		$(".icon4 font").attr('color', 'red');
+		$(".div4").show();
+	});
+	$(".icon5").mouseover(function() {      
+		hideDiv_gourment();
+		changeFontColor_gourment();
+		$(".icon5 font").attr('color', 'red');
+		$(".div5").show();
+	});
+	$(".icon6").mouseover(function() {      
+		hideDiv_gourment();
+		changeFontColor_gourment();
+		$(".icon6 font").attr('color', 'red');
+		$(".div6").show();
+	});
+	$(".icon7").mouseover(function() {      
+		hideDiv_gourment();
+		changeFontColor_gourment();
+		$(".icon7 font").attr('color', 'red');
+		$(".div7").show();
+	});
+	$(".icon8").mouseover(function() {      
+		hideDiv_gourment();
+		changeFontColor_gourment();
+		$(".icon8 font").attr('color', 'red');
+		$(".div8").show();
+	});
+	$(".icon9").mouseover(function() {      
+		hideDiv_gourment();
+		changeFontColor_gourment();
+		$(".icon9 font").attr('color', 'red');
+		$(".div9").show();
+	});
+	$(".icon10").mouseover(function() {      
+		hideDiv_gourment();
+		changeFontColor_gourment();
+		$(".icon10 font").attr('color', 'red');
+		$(".div10").show();
+	});
+	$(".icon11").mouseover(function() {      
+		hideDiv_gourment();
+		changeFontColor_gourment();
+		$(".icon11 font").attr('color', 'red');
+		$(".div11").show();
+	});
+
+
+function init_gourment(){
+	hideDiv_gourment();
+	$(".div1").show();
+	$(".icon1 font").attr('color', 'red');
+}
+
+function hideDiv_gourment(){
+	$(".div1").hide();
+	$(".div2").hide();
+	$(".div3").hide();
+	$(".div4").hide();
+	$(".div5").hide();
+	$(".div6").hide();
+	$(".div7").hide();
+	$(".div8").hide();
+	$(".div9").hide();
+	$(".div10").hide();
+	$(".div11").hide();
+}
+
+function changeFontColor_gourment(){
+	$(".icon1 font").attr('color', 'black');
+	$(".icon2 font").attr('color', 'black');
+	$(".icon3 font").attr('color', 'black');
+	$(".icon4 font").attr('color', 'black');
+	$(".icon5 font").attr('color', 'black');
+	$(".icon6 font").attr('color', 'black');
+	$(".icon7 font").attr('color', 'black');
+	$(".icon8 font").attr('color', 'black');
+	$(".icon9 font").attr('color', 'black');
+	$(".icon10 font").attr('color', 'black');
+	$(".icon11 font").attr('color', 'black');
+}
+</script>
+
+<!--end 主体-->
+{{?it.productionMode}}
+{{=$.importUrl("/defaultFooter.html?m=head_merchant&productionMode=true")}}
+{{??}}
+{{=$.importUrl("/defaultFooter.html?m=head_merchant&productionMode=false")}}
+{{?}}

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="../bootstrap/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="/resources/bootstrap3.3.4/css/bootstrap.min.css" >
+    <script src="/resources/jquery-1.10.2.min.js"></script>
+    <script src="/resources/bootbox.min.js"></script>
+    <script src="/resources/bootstrap3.3.4/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/resources/pagination/IsoneAjaxPagination-1.10.js"></script>
+    <script>
+        var merchantId='{{=it.merchantId}}'
+    </script>
+    <script type="text/javascript" src="../js/RecordList.js"></script>
+</head>
+<body>
+
+{{=$.inc("pages/include_nav.jsx")}}
+
+<div class="container-fluid">
+    <div >
+        <div class="row" style="margin-bottom: 10px;">
+            <div class="col-xs-1" style="width: 80px;padding-top: 5px;">
+                <span>关键字</span>
+            </div>
+            <div class="col-xs-3">
+                <input type="text" class="form-control" id="keyword" placeholder="公司名称/手机号码">
+            </div>
+            <div class="col-xs-2">
+                <input type="hidden" value="{{=it.merchantId}}" name="merchantId" id="merchantId">
+                <button type="button" class="btn btn-default" id="search">搜 索</button>
+            </div>
+            <div class="col-xs-2">
+                <button type="button" class="btn btn-default add_record" id="addObj">添加</button>
+            </div>
+        </div>
+        <div class="row" style="margin-bottom: 10px;">
+            <button type="button" class="btn btn-default " id="deleteChecked">删除</button>
+        <div>
+    </div>
+    <div>
+        <!--异步加载数据列表部分-->
+        <div class="row-fluid">
+            <div id="record_list" class="record_list span12">
+            </div>
+        </div>
+
+        <!--分页部分-->
+        <div class="row-fluid">
+            <div style="margin-top: 5px;padding-top: 10px; border-top: 1px solid #DDDDDD;text-align: left;">
+                <div class="pagination" style="margin: 0; ">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="add_recordModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 class="modal-title">添加数据</h3>
+            </div>
+            <div class="modal-body" >
+                <div>
+                    <form class="form-horizontal" name="addRecord_form">
+                        <div class="form-group">
+                            <label for="addRecord_form_title" class="col-sm-2 control-label">标题</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="addRecord_form_title" name="title" placeholder="标题">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="addRecord_form_content" class="col-sm-2 control-label">内容</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="addRecord_form_content" name="content" placeholder="内容">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="addRecord_form_contact" class="col-sm-2 control-label">联系电话</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="addRecord_form_contact" name="contact" placeholder="联系电话">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal">取消</button>
+                <button class="btn btn-primary" id="add_record">提交</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" id="doUpdateStateModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">修改</h4>
+            </div>
+            <div class="modal-body" id="doUpdateStateModalDiv">
+                <div>
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label for="addRecord_form_title" class="col-sm-2 control-label">标题</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="doUpdateRecord_form_title" name="title">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="addRecord_form_content" class="col-sm-2 control-label">内容</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="doUpdateRecord_form_content" name="content" >
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="addRecord_form_contact" class="col-sm-2 control-label">联系电话</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="doUpdateRecord_form_contact" name="contact" >
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">状态</label>
+
+                            <div class="col-sm-3">
+                                <select class="form-control" id="recordState">
+                                    <option value="0">已提交</option>
+                                    <option value="1">已处理</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-4 col-sm-8" style="margin-left: 240px;">
+                                <button type="button" class="btn btn-primary" style="width:90px;" id="updateStateBtn">确 定</button>
+                                <button type="button" class="btn btn-default" style="width:90px;" id="cancelStateBtn">取 消</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

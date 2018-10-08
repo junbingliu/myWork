@@ -1,0 +1,92 @@
+
+//#import ../headerTuan_design.html
+<link href="../res/style/floor.css" rel="stylesheet">
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=NgtKgNFscUon4kYEbcGrs3Y2"></script>
+<script src="../res/js/map.js" rel="stylesheet"></script>
+
+<div class="floorWrap">
+    <div class="floorCon clearfix">
+        <div class="f_list">
+            <div class="flLine"></div>
+            <div class="list">
+                <ul id="buildingList">
+
+                </ul>
+            </div>
+        </div>
+        <div class="f_map">
+            <div class="sideFor">
+                <div class="numbox" style="cursor: pointer">
+
+                </div>
+                <div class="sideArrow"><a href="#"></a></div>
+            </div>
+            <img width="920px" height="548px" src="" />
+        </div>
+    </div>
+
+    <div class="flooradv ">
+        <ul data-type="imgLinkList" data-id="flooradv" data-spec="220X110">
+            {{?it.flooradv&&it.flooradv.length>0}}
+            {{~it.flooradv:value:index}}
+            {{?index<5}}
+            <li><a href="{{=value.linkTo}}"><img src="{{=value.imgUrl}}"/></a> </li>
+            {{??}}
+            {{?}}
+            {{~}}
+            {{??}}
+            <li><a href="#"><img src="../res/case/220x110.jpg" /></a></li>
+            <li><a href="#"><img src="../res/case/220x110_2.jpg" /></a></li>
+            <li><a href="#"><img src="../res/case/220x110_3.jpg" /></a></li>
+            <li><a href="#"><img src="../res/case/220x110_4.jpg" /></a></li>
+            <li><a href="#"><img src="../res/case/220x110_5.jpg" /></a></li>
+            {{?}}
+
+        </ul>
+    </div>
+
+    <div class="store clearfix">
+        <div class="stInfo">
+            <div class="tabs">
+                <a href="#" class="cur">品牌故事</a>
+            </div>
+            <div class="tabsCon">
+                <div class="stAll" style="display:block;">
+                    <ul></ul>
+                </div>
+
+                <div class="brandInfo" style="display:none;">
+                    <div class="b_logo"><img src="../case/logo280x140.png" width="280" height="140" /></div>
+                    <div class="b_summary">
+                        <h2>MAC</h2>
+                        <p>商铺位置：1楼1F02</p>
+                        <p>官网：http://www.maccosmetics.com.cn/</p>
+                    </div>
+                    <div class="desc">
+                        <p>M.A.C意为艺术彩妆，作为一个专业彩妆品牌，M.A.C于1984年由一名彩妆师与发型师创立于加拿大多伦多，创立初衷是为了迎合专业人士的需求。经过近30年的品牌发展，M.A.C赢得了全世界彩妆师的青睐，为包括纽约、伦敦、巴黎和米兰时装周在内的300多个秀场后台提供专业的彩妆产品。目前，M.A.C覆盖了世界范围内的73个国家。</p>
+                        <br />
+                        <p>M.A.C stands for Make Up Art Cosmetics – we are a make up brand, created by a make up artist and hair stylist from Toronto, Canada in 1984 to meet the special needs of industry professionals. For almost 30 years, MAC has won the heart of all professional makeup artists around the world.  M.A.C products are trusted to be used at over 300 fashion shows’ backstage including those at New York, London, Paris and Milan.  M.A.C is now distributed in 73 countries.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="stMap">
+            <div class="stImg"><img src="" width="800" height="733" /></div>
+            <div id="allmap" style="width: 800px;height: 733px;display: none;overflow: hidden;margin:0;"></div>
+            <div class="tool">
+
+                <div class="page" style="cursor: pointer">
+
+                </div>
+                <input type="hidden" id="current" name="current" value="1">
+            </div>
+        </div>
+    </div>
+
+</div>
+{{?it.productionMode}}
+{{=$.importUrl("/defaultFooter.html?m=head_merchant&productionMode=true")}}
+{{??}}
+{{=$.importUrl("/defaultFooter.html?m=head_merchant&productionMode=false")}}
+{{?}}

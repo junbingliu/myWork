@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="../bootstrap/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" type="text/css" href="/resources/bootstrap3.3.4/css/bootstrap.css" rel="stylesheet">
+    <script type="text/javascript" src="/resources/jquery-1.10.2.min.js"></script>
+    <script src="/resources/bootbox.min.js"></script>
+    <script type="text/javascript" src="/resources/bootstrap3.3.4/js/bootstrap.js"></script>
+    <script type="text/javascript" src="/resources/plugin/layer-v1.7.1/layer.min.js"></script>
+    <link href="/resources/icheck/skins/square/blue.css" rel="stylesheet">
+    <script src="/resources/icheck/icheck.js"></script>
+    <script>
+        var merchantId = '{{=it.merchantId}}';
+        var type='{{=it.type}}';
+        var gradeId='{{=it.gradeId}}';
+        var columnId='{{=it.columnId}}';
+    </script>
+    <script type="text/javascript" src="../js/orederInfoFields.js"></script>
+</head>
+<body>
+
+{{=$.inc("pages/include_nav.jsx")}}
+
+
+<div class="container-fluid" style="margin-top: 10px;margin-left:10px">
+
+    <div class="alert alert-info">
+        <div class="row ">
+            <div class="col-xs-2" style="padding-top: 5px;text-align: right;">
+                <span>商家分类ID:</span>
+            </div>
+            <div class="col-xs-3">
+                <p class="form-control-static">{{=it.columnId}}</p>
+                <!--<input type="text" class="form-control" placeholder="{{=it.columnId}}" readonly>-->
+            </div>
+            <div class="col-xs-2" style="padding-top: 5px;text-align: right;">
+                <span>商家等级ID:</span>
+            </div>
+            <div class="col-xs-3">
+                <p class="form-control-static">{{=it.gradeId}}</p>
+                <!--<input type="text" class="form-control" placeholder="{{=it.gradeId}}" readonly>-->
+            </div>
+
+        </div>
+    </div>
+
+    <div >
+        <ul class="nav nav-tabs anchor" style="margin-bottom: 30px;margin-top:20px">
+            <li role="presentation" id="anchor_orderInfo"><a href="getOrderInfo.jsx?type=order_all&gradeId={{=it.gradeId}}&columnId={{=it.columnId}}&m={{=it.merchantId}}">导出订单信息字段</a></li>
+            <li role="presentation" id="anchor_orderBaseInfo"><a href="getOrderInfo.jsx?type=order_baseInfo&gradeId={{=it.gradeId}}&columnId={{=it.columnId}}&m={{=it.merchantId}}">导出订单基本信息字段</a></li>
+            <li role="presentation" id="anchor_orderGoodsInfo"><a href="getOrderInfo.jsx?type=order_item&gradeId={{=it.gradeId}}&columnId={{=it.columnId}}&m={{=it.merchantId}}">导出订单商品信息字段</a></li>
+        </ul>
+    </div>
+
+    <div class="panel panel-default" >
+        <table class="table table-striped table-bordered table-hover table-condensed" id="recordList">
+            <thead>
+            <tr>
+                <!--<th width="60px;"><input type="checkbox" id="selectAll"><label for="selectAll">全选</label></th>-->
+                <th style="width: 50px;text-align: center;">序号</th>
+                <th width="160px">ID</th>
+                <th width="160px">名称</th>
+                <th width="120px">宽度(只支持数字)</th>
+                <th width="120px">排序(只支持数字)</th>
+                <th style="width: 160px;padding-left: 20px"><input type="checkbox" id="selectAll_isChecked"><label for="selectAll_isChecked">是否默认选中</label></th>
+                <th style="width: 120px;padding-left: 20px"><input type="checkbox" id="selectAll_isEnabled"><label for="selectAll_isEnabled">是否显示</label></th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            {{~it.orderInfoFieldsList:value:index}}
+            <tr>
+                <!--<td><input type="checkbox" name="select" data-a="{{=value.id}}"></td>-->
+                <td name="r_index" style="text-align: center;">{{=index+1}}</td>
+                <td name="recordList_id">{{=value.id}}</td>
+                <td name="recordList_name">{{=value.name}}</td>
+                <td><input type="text" class="form-control" name="recordList_columnWidth" value="{{=value.columnWidth}}"></td>
+                <td><input type="text" class="form-control" name="recordList_sortNum" value="{{=value.index}}"></td>
+                <td style="text-align: center;">
+                    {{? value.isChecked=="true" }}
+                    <input type="checkbox" name="recordList_isChecked" checked>
+                    {{?? }}
+                    <input type="checkbox" name="recordList_isChecked">
+                    {{?}}
+                </td>
+                <td style="text-align: center;">
+                    {{? value.isShow=="true" }}
+                    <input type="checkbox" name="recordList_isShow" checked>
+                    {{?? }}
+                    <input type="checkbox" name="recordList_isShow">
+                    {{?}}
+                </td>
+                <td></td>
+            </tr>
+            {{~}}
+            </tbody>
+        </table>
+    </div>
+
+    <div>
+        <div class="row" style="margin-bottom: 10px;">
+            <div class="col-xs-5">
+                <input type="hidden" value="{{=it.merchantId}}" name="merchantId" id="merchantId">
+                <button type="button" class="btn btn-default btn-primary btn-lg" id="save">保存</button>
+                <a class="btn btn-default btn-lg" href="jExportList.jsx?m={{=it.merchantId}}">返回</a>
+                <!--<button type="button" class="btn btn-default btn-lg" id="add">添加</button>-->
+                <!--<button type="button" class="btn btn-default btn-lg" id="deleteChecked">删除</button>-->
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div id="add_field" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 class="modal-title">添加数据</h3>
+            </div>
+            <div class="modal-body" >
+                <div>
+                    <form class="form-horizontal" name="fieldsList_form">
+                        <div class="form-group">
+                            <label for="id" class="col-sm-2 control-label">ID</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="id" placeholder="ID">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="name" class="col-sm-2 control-label">名称</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="name" placeholder="名称">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="columnWidth" class="col-sm-2 control-label">宽度</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="columnWidth" placeholder="宽度">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="sortNum" class="col-sm-2 control-label">排序</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="sortNum" placeholder="排序">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="isChecked" class="col-sm-2 control-label">是否默认选中</label>
+                            <div class="col-sm-10">
+                                <input type="checkbox" id="isChecked">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="isShow" class="col-sm-2 control-label">是否生效</label>
+                            <div class="col-sm-10">
+                                <input type="checkbox" id="isShow">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal">取消</button>
+                <button class="btn btn-primary" id="submit">提交</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

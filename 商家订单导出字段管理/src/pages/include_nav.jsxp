@@ -1,0 +1,58 @@
+<nav class="navbar navbar-default" id="navbar">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">订单导出字段管理</a>
+        </div>
+
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li data-a="jExportList.jsx;getOrderInfo.jsx"><a href="jExportList.jsx?m={{=it.merchantId}}">列出</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- /.container-fluid -->
+</nav>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var currentUrl = window.location.pathname;
+        $('#navbar').find('li').each(function (item) {
+            var $this = $(this);
+            var href = $this.attr('data-a');
+            var type = $this.attr('data-b');
+            $this.removeClass("active");
+            var matches = href.split(";");
+            for(var i = 0;i<matches.length;i++){
+                if (currentUrl.indexOf(matches[i]) > 0) {
+                    if (type) {
+                        var curType = getQueryString("t");
+                        if (type == curType) {
+                            $this.addClass("active");
+                        }
+                    } else {
+                        $this.addClass("active");
+                    }
+                    break;
+                }
+            }
+        });
+
+    });
+
+    function getQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) {
+            return decodeURI(r[2]);
+        }
+        return null;
+    }
+</script>

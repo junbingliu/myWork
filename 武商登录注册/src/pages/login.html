@@ -1,0 +1,282 @@
+<title><%if(config && config.title && config.title.value !=""){%><%=config.title.value%><%}else{%>用户登录 - <%=webName%><%}%></title>
+
+<%if(productionMode){%>
+<%=#importUrl("/defaultHeader.html")%>
+<script src="/resources/jquery-1.10.2.min.js" type="text/javascript"></script>
+
+<script src="/resources/jquery.form.js" type="text/javascript"></script>
+<script src="/resources/jquery.validate.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="/resources/encrypt/rollups/aes.js"></script>
+<script type="text/javascript" src="/resources/encrypt/aesencrypt.js"></script>
+<script type="text/javascript" src="/resources/encrypt/components/pad-iso10126-min.js"></script>
+<script type="text/javascript">var appId="<%=appId%>",returnUrl="<%=returnUrl %>", msgInterval = "<%=intervalTime%>",iI="<%=iv %>",webUrl="<%=webUrl %>",acV="<%=img_access_token %>",normalWebSite="<%=normalWebSite %>",kkV="<%=key %>";</script>
+<script src="../res/js/jquery.qrcode-0.12.0.min.js" type="text/javascript"></script>
+<script src="/resources/plugin/JigsawValidateUtil/JigsawValidateUtil.js" type="text/javascript"></script>
+<script src="../res/js/login.js" type="text/javascript"></script>
+<%}%>
+<link href="../res/style/login.css" rel="stylesheet" />
+<link href="/resources/plugin/JigsawValidateUtil/JigsawValidateUtil.css" rel="stylesheet" />
+
+
+<input type="hidden" id="scanCode" />
+
+<div class="login-wrap" style="background: #F6F6F6;">
+    <div class="inner">
+        <div class="login-adv">
+            <a href="javascript:void(0);">
+                <%if(advImg && advImg.imgUrl){%>
+                    <a href="<%=advImg.imgLinkTo %>" target="<%=advImg.openInNewPage %>">
+                        <img data-id="advImg" data-type="imgLink" imgSize="525X370" src="<%=advImg.imgUrl %>" />
+                    </a>
+                <%} else{%>
+                    <img data-id="advImg" data-type="imgLink" imgSize="525X370" src="../res/case/525x370.png" />
+                <%}%>
+            </a>
+        </div>
+        <div class="login-form">
+            <div class="hd">
+                <div class="login-switch" id="_loginWay">
+                    <i class="ico-qrcode" id="_QR"></i>
+                    <i class="ico-static" id="_PC"></i>
+                </div>
+
+                <div class="login-tip">
+                    <div class="poptip">
+                        <div class="poptip-arrow">
+                            <em></em>
+                            <span></span>
+                        </div>
+                        <div class="poptip-content">
+                            <i class="ico-safety"></i><span id="_loginTip">扫码登录更安全</span></div>
+                    </div>
+                </div>
+                <div class="login-title" id="PCForm">
+                    <ul>
+                        <li class="first" ><a href="javascript:void(0);"  id="account" class="active">账号登录</a></li>
+                        <li class="last" ><a href="javascript:void(0);" id="sms" class="">短信验证码登录</a></li>
+                    </ul>
+                </div>
+            </div>
+
+
+            <div class="bd">
+                <div class="_loginForm" id="_PCForm">
+                <!--密码登录-->
+
+                <div class="static-form account"  style="display: block;">
+
+                    <form id="loginForm" action="javascript:void(0);"  autocomplete="off" method="post" autocomplete="off">
+
+                        <!--错误提示-->
+                        <div id="wrongTips" class="login-msg error" style="margin-top: 10px;display: none;">
+                            <i class="ico-tips"></i>
+                            <p class="error"></p>
+                        </div>
+                        <!--end 错误提示-->
+                        <div class="field" id="margin-top">
+                            <label><i class="ico-user"></i></label>
+                            <input type="text" name="phone" style="display: none" disabled="false">
+                            <input type="text" id="phone" name="phone" autocomplete="off" class="login-put" placeholder="手机号/会员名/邮箱">
+                        </div>
+                        <div class="field">
+                            <label><i class="ico-pwd"></i></label>
+                            <input type="password" id="password"autocomplete="off" name="password" class="login-put" placeholder="密码">
+                        </div>
+                        <div class="login-links">
+                            <a href="/login/lost_password.jsp" class="forget-pwd">忘记密码</a>
+                            <a href="/login/register.jsp" class="register fr">免费注册>></a>
+                        </div>
+                        <div class="submit">
+                            <button type="submit" class="btn-submit">登&nbsp;录</button>
+                        </div>
+                        <input type="hidden" name="returnUrl" value="<%=returnUrl%>"/>
+                        <input type="hidden" name="appId" value="<%=appId%>"/>
+                    </form>
+                    <div class="corp-login">
+                        <dl>
+                            <dt>使用合作网站帐号登录武商网：</dt>
+                            <dd class="play_icon">
+                                <!--
+                                <a  href="#" target="_parent" title="QQ"  class="qq"></a>
+                                <a  href="#" target="_parent" title="支付宝"  class="alipay"></a>
+                                <a  href="#" target="_parent" title="新浪微博"  class="sina"></a>
+                                <a  href="#" target="_parent" title="百度"  class="baidu"></a>
+                                <a  href="#" target="_parent" title="网易"  class="netease"></a>
+                                <a  href="#" target="_parent" title="人人"  class="renren"></a>
+                                <a  href="#" target="_parent" title="奇虎"  class="qihoo"></a>
+                                <a  href="#" target="_parent" title="开心"  class="kaixin"></a>
+                                <a  href="#" target="_parent" title="银联"  class="unionpay"></a>
+                                <a  href="#" target="_parent" title="得意"  class="deyi"></a>
+                                -->
+                                <%if(qqAppEnable=='true'){%>
+                                    <a  href="/openlogin/is1qq/loginAction.jsp?returnUrl=<%=returnUrl%>" target="_parent" title="QQ"  class="qq"></a>
+                                <%}%>
+                                <%if(alipayAppEnable=='true'){%>
+                                    <a  href="/openlogin/is1alipay/loginAction.jsp?returnUrl=<%=returnUrl%>" target="_parent" title="支付宝"  class="alipay"></a>
+                                <%}%>
+                                <%if(sinaAppEnable=='true'){%>
+                                    <a  href="/openlogin/is1sina/loginAction.jsp?returnUrl=<%=returnUrl%>" target="_parent" title="新浪微博"  class="sina"></a>
+                                <%}%>
+                                <%if(baiduAppEnable=='true'){%>
+                                    <a  href="/openlogin/is1baidu/loginAction.jsp?returnUrl=<%=returnUrl%>" target="_parent" title="百度"  class="baidu"></a>
+                                <%}%>
+                                <%if(t163AppEnable=='true'){%>
+                                    <a  href="/openlogin/is1t163/loginAction.jsp?returnUrl=<%=returnUrl%>" target="_parent" title="网易"  class="netease"></a>
+                                <%}%>
+                                <%if(renrenAppEnable=='true'){%>
+                                    <a  href="/openlogin/is1renren/loginAction.jsp?returnUrl=<%=returnUrl%>" target="_parent" title="人人"  class="renren"></a>
+                                <%}%>
+                                <%if(deyiAppEnable=='true'){%>
+                                    <a  href="/openlogin/is1deyi/loginAction.jsp?returnUrl=<%=returnUrl%>" target="_parent" title="得意"  class="deyi"></a>
+                                <%}%>
+                                <%if(weixinAppEnable=='true'){%>
+                                    <a  href="/wechatInterface/handler/pcQrLogin.jsx?returnUrl=<%=returnUrl%>"  title="微信" class="weixin"></a>
+                                <%}%>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+                <!--end 密码登录-->
+
+                <!--短信验证码登录-->
+                <div class="static-form sms" style="display: none;">
+                    <form id="loginForm2" action="javascript:void(0);" method="post" autocomplete="off">
+                    <!--错误提示-->
+                    <div class="login-msg error" id="wrongTips2" style="margin-top: 10px;display: none;">
+                        <i class="ico-tips"></i>
+                        <p class="error">您输入的账号或密码有误</p>
+                    </div>
+                    <!--end 错误提示-->
+                    <div class="field" id="margin-top2">
+                        <label><i class="ico-phone"></i></label>
+                        <input type="text" name="phone2" style="display: none" disabled="false">
+                        <input type="text" id="phone2" name="phone2" autocomplete="off" class="login-put" placeholder="手机号">
+                    </div>
+                    <div class="field">
+                        <label><i class="ico-pwd"></i></label>
+                        <input type="text"  id="mobileValidateCode" autocomplete="off" name="mobileValidateCode" class="login-put" placeholder="验证码">
+                        <span class="verifyCode"><a href="javascript:void(0);"  id="sendCode" >获取验证码</a> </span>
+                    </div>
+                    <div class="login-links">
+                        <a href="/login/lost_password.js" class="forget-pwd">忘记密码</a>
+                        <a href="/login/register.jsp" class="register fr">免费注册>></a>
+                    </div>
+                    <div class="submit">
+                        <button type="submit" class="btn-submit">登&nbsp;录</button>
+                    </div>
+                        <input type="hidden" name="returnUrl" value="<%=returnUrl%>"/>
+                    </form>
+                    <div class="corp-login">
+                        <dl>
+                            <dt>使用合作网站帐号登录武商网：</dt>
+                            <dd class="play_icon">
+                                <%if(qqAppEnable=='true'){%>
+                                <a  href="/openlogin/is1qq/loginAction.jsp?returnUrl=<%=returnUrl%>" target="_parent" title="QQ"  class="qq"></a>
+                                <%}%>
+                                <%if(alipayAppEnable=='true'){%>
+                                <a  href="/openlogin/is1alipay/loginAction.jsp?returnUrl=<%=returnUrl%>" target="_parent" title="支付宝"  class="alipay"></a>
+                                <%}%>
+                                <%if(sinaAppEnable=='true'){%>
+                                <a  href="/openlogin/is1sina/loginAction.jsp?returnUrl=<%=returnUrl%>" target="_parent" title="新浪微博"  class="sina"></a>
+                                <%}%>
+                                <%if(baiduAppEnable=='true'){%>
+                                <a  href="/openlogin/is1baidu/loginAction.jsp?returnUrl=<%=returnUrl%>" target="_parent" title="百度"  class="baidu"></a>
+                                <%}%>
+                                <%if(t163AppEnable=='true'){%>
+                                <a  href="/openlogin/is1t163/loginAction.jsp?returnUrl=<%=returnUrl%>" target="_parent" title="网易"  class="netease"></a>
+                                <%}%>
+                                <%if(renrenAppEnable=='true'){%>
+                                <a  href="/openlogin/is1renren/loginAction.jsp?returnUrl=<%=returnUrl%>" target="_parent" title="人人"  class="renren"></a>
+                                <%}%>
+                                <%if(deyiAppEnable=='true'){%>
+                                <a  href="/openlogin/is1deyi/loginAction.jsp?returnUrl=<%=returnUrl%>" target="_parent" title="得意"  class="deyi"></a>
+                                <%}%>
+                                <%if(weixinAppEnable=='true'){%>
+                                <a  href="/wechatInterface/handler/pcQrLogin.jsx?returnUrl=<%=returnUrl%>"  title="微信" class="weixin"></a>
+                                <%}%>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+                <!--end 短信验证码登录-->
+                </div>
+                <!--扫码登录-->
+                <div class="qrcode-form _loginForm" id="_QRForm" style="display: none;">
+                    <div class="login-title">手机扫码,安全登录</div>
+                    <div class="qrcode-main">
+                        <div class="qrcode-box">
+                            <div class="msg-err qrcode-img-failure">
+                                <h6>二维码已失效</h6>
+                                <a href="javascript:void(0);" id="_refreshScanCode" class="refresh">请点击刷新</a>
+                            </div>
+
+                            <div class="qrcode-img">
+                                <img src="../res/case/qrcode.png"  />
+                            </div>
+                        </div>
+                        <div class="qrcode-desc">
+                            <i class="ico-saoma"></i>
+                            <div class="txt">
+                                <p>打开<a href="javascript:;">手机武商</a></p>
+                                <p class="mt5">扫一扫登录</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--end 扫码登录-->
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--微信扫码登录层-->
+<div id="scanCodeView" style="display: none;z-index: 9999;">
+    <div class="TB_overlayBG"></div>
+    <div class="qrcodeLayer">
+        <div id="closeScanCodeView" class="closed"><a href=""></a></div>
+        <div class="mc">
+            <div class="tit">微信登录</div>
+            <div class="qrcode">
+                <div class="" id="codeView">
+                    <img src="../res/case/qrcode.png"/>
+                </div>
+                <div class="wx-qrcode-img-failure" id="weixinRefreshScanCode" >
+                    <div class="text">二维码已失效</div>
+                    <a href="javascript:void(0);" class="refresh">请点击刷新</a>
+                </div>
+            </div>
+            <div class="txt">请使用微信扫描二维码登录</div>
+        </div>
+    </div>
+</div>
+<!-- end 微信扫码登录层-->
+<!--提示-->
+<div id="msgPanel" style="display: none">
+<div class="TB_overlayBG" style="z-index: 9999;"></div>
+<div class="TB_window" style="top: 35%;">
+    <!--提示-->
+    <div class="msgPanel shanchu">
+        <div class="hd">提示</div>
+        <div class="bd">
+
+            <div class="schu_con">
+                <i class="sc_icon"></i>
+
+                <div class="txt">设置登录密码，下次可直接登录。</div>
+            </div>
+
+            <div class="btnBox">
+                <a  href="javascript:void(0);" class="odgray_btn" id="odgray_btn">暂不设置</a>
+                <a  href="/ucenter/pwd_change.html" onclick="saveSign()"  class="od_btn ml10">马上设置</a>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+<!--end 提示-->
+
+<%if(productionMode){%>
+<%=#importUrl("/defaultFooter.html")%>
+<%}%>
+

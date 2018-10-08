@@ -1,0 +1,389 @@
+//#import header_design_index.html
+<link href="../res/style/index_design_v2.css" rel="stylesheet">
+{{? it.config && it.config.icon.value}}
+{{var icon=it.config.icon.value;}}
+{{?}}
+<div class="wrapper">
+    <div class="sub-warp line-ws">
+        <div class="frstoreF"></div>
+        <div data-type="textLinkList" data-id="mall_List" class="frstore" >
+            <ul class="slideContent">
+                {{?it.mall_List&&it.mall_List.length>0}}
+                {{~it.mall_List:value:index}}
+                <li><p><a target="_blank" href="{{=value.linkTo}}">{{=value.content}}</a></p>
+                </li>
+                {{~}}
+                {{??}}
+                <li>
+                    <p><a target="_blank" href="#">武汉国际广场购物中心</a></p>
+                </li>
+                {{?}}
+            </ul>
+        </div>
+        <div data-id="movie_in" data-type="imgLink" imgSize="208X200" class="movie_in">
+            {{?it.movie_in && it.movie_in.imgUrl}}
+            <a href="{{=it.movie_in.imgLinkTo}}" target="_blank" ><img src="{{=it.movie_in.imgUrl}}" alt="{{=it.movie_in.description}}" /></a>
+            {{??}}
+            <a href="javascript:void(0);" target="_blank"><img src="../res/images/adv.gif" width="208" height="200"/></a>
+            {{?}}
+        </div>
+        <!--end右边内容-->
+    </div>
+</div>
+<div class="wrapper bg-1 pad-bt20">
+<div class="slide_banner">
+    <div class="slide_wrap" data-type="imgLinkList" data-id="indexBanner" imgSize="792x400">
+        <ul class="slide_adv">
+            {{?it.indexBanner&&it.indexBanner.length>0}}
+            {{~it.indexBanner:value:index}}
+            {{?index==0}}
+            <li style="background-color: {{=value.description}}; display:block;">
+                {{??}}
+            <li style="background-color: {{=value.description}}; display:none;">
+                {{?}}
+                <div class="wbox slide_main" >
+                    <a target="_blank" href="{{=value.linkTo}}" class="slide_link">
+                        <img src="{{=value.imgUrl}}" alt="{{=value.description}}" width="792" height="400">
+                    </a>
+                </div>
+            </li>
+            {{~}}
+            {{??}}
+            <li style="background-image:url(../res/images/adv.gif);">
+                <div class="wbox slide_main" >
+                    <a target="_blank" href="#" class="slide_link"></a>
+                </div>
+            </li>
+            {{?}}
+        </ul>
+    </div>
+    <div class="slide_box">
+        <div class="num">
+            <ul>
+                {{?it.indexBanner&&it.indexBanner.length>0}}
+                {{~it.indexBanner:value:index}}
+                {{?index==0}}
+                <li class="cur">
+                    {{??}}
+                <li>
+                    {{?}}
+                </li>
+                {{~}}
+                {{?}}
+            </ul>
+        </div>
+        <div class="banner_prev" > < </div>
+        <div class="banner_next" > > </div>
+    </div>
+</div>
+
+{{?it.config&&it.config.levelNum&&it.config.levelNum.value.indexOf("D")>-1}}
+<div class="maparea">
+    <div class="wbox" >
+        <div class="map1920" data-id="DC" data-type="htmlSource">
+            {{?it.DC}}
+                {{=it.DC}}
+            {{??}}
+                <img src="http://219.140.62.244/img/2015/11/22/830005.jpg" width="1920" height="500"/>
+            {{?}}
+        </div>
+    </div>
+</div>
+{{?}}
+
+{{?it.config&&it.config.levelNum&&it.config.levelNum.value.indexOf("K")>-1}}
+    {{?it.kbg && it.kbg.imgUrl }}
+        <div class="wrapper" data-id="kbg" data-type="imgLink" imgSize="1920" data-height="10" style="background-image: url({{=it.kbg.imgUrl}});background-position: {{=it.kbg.description}}; background-repeat: {{=it.kbg.imgLinkTo}}">
+    {{??}}
+        <div class="wrapper" data-id="kbg" data-type="imgLink" imgSize="1920" data-height="10">
+    {{?}}
+        <div class="wbox">
+        <ul class="P1200img" data-type="imgLinkList" data-id="Kimg" imgSize="请在描述填写高度">
+            {{?it.Kimg && it.Kimg.length>0}}
+            {{~it.Kimg:value:index}}
+            <li style="height:{{=(value.description?value.description : 20)}}px"><a href="{{=value.linkTo}}" target="_blank"><img class="lazy" data-original="{{=value.imgUrl}}" height={{=(value.description?value.description : 20)}} /></a></li>
+            {{~}}
+            {{??}}
+            <li><a href="javascript:void(0);"><img src="../res/images/adv.gif" /></a></li>
+            {{?}}
+        </ul>
+        </div>
+        <div class="wbox">
+        <ul data-type="productGroup" data-id="PRO_kj" class="pro" data-spec="130X130" >
+            {{?it.PRO_kj&&it.PRO_kj.length>0}}
+            {{~it.PRO_kj:value:index}}
+            <li><a target="_blank" href="/product.jsp?id={{=value.id}}">
+                <div class="pic"><img class="lazy" data-original="{{=value.imgUrl}}" alt="{{=value.name}}" title="{{=value.name}}" width="130" height="130" /></div>
+                <div class="title"><p>{{=value.name}}</p></div>
+                <div class="price"><i>&yen</i><em>{{=value.memberPrice}}</em></div>
+                </a>
+            </li>
+            {{~}}
+            {{??}}
+            <li><a target="_blank" href="/product.jsp?id=p_660001"><div class="pic"><img src="http://219.140.62.244/img/2016/6/3/1490056_400X400.jpg" alt="La Prairie 莱珀妮 亮颜修护抗皱精华 快速起效除皱精华液" title="La Prairie 莱珀妮 亮颜修护抗皱精华 快速起效除皱精华液"></div><div class="title"><p>La Prairie 莱珀妮 亮颜修护抗皱精华 快速起效除皱精华液</p></div><div class="price"><em>¥2600.00</em></div></a></li>
+            {{?}}
+        </ul>
+    </div>
+    </div>
+{{?}}
+
+{{?it.config&&it.config.levelNum&&it.config.levelNum.value.indexOf("W")>-1}}
+            <div class="wbox">
+                <ul class="P1200img" data-type="imgLinkList" data-id="WSHimg" imgSize="请在描述填写高度" >
+                    {{?it.WSHimg && it.WSHimg.length>0}}
+                    {{~it.WSHimg:value:index}}
+                    <li style="height:{{=(value.description?value.description : 20)}}px"><a href="{{=value.linkTo}}" target="_blank"><img class="lazy" data-original="{{=value.imgUrl}}" height={{=(value.description?value.description : 20)}} /></a></li>
+                    {{~}}
+                    {{??}}
+                    <li><a href="javascript:void(0);"><img src="../res/images/adv.gif" /></a></li>
+                    {{?}}
+                </ul>
+            </div>
+            <div class="wbox wsh_p" >
+                <ul data-type="productGroup" data-id="wsh" data-spec="170X170" class="pro wsh_plist" >
+                    {{?it.wsh && it.wsh.length>0}}
+                    {{~it.wsh :value:index}}
+                    <li>
+                        <a target="_blank" href="/product.jsp?id={{=value.id}}">
+                            <div class="pic"><img class="lazy" data-original="{{=value.imgUrl}}" alt="{{=value.name}}" width="170" height="170" /></div>
+                            <div class="title"><p>{{=value.name}}</p></div>
+                            <div class="price">
+                                <i>&yen</i><em>{{=value.memberPrice}}</em><img data-original="../res/images/index_xsq.png" class="icon lazy" width="55" height="20" />
+                            </div>
+                        </a>
+                    </li>
+                    {{~}}
+                    {{??}}
+                    <li><a target="_blank" href="/product.jsp?id=p_130001"><div class="pic"><div class="icon"><img src="../res/images/c10.png" width="30" height="45" /></div><img src="http://219.140.62.244/img/2015/5/13/350194_120X120.jpg" alt="Midea/美的 电烤箱T3-L322B 家用多功能上下管独立控温烤叉炉灯"></div><div class="title"><p>Midea/美的 电烤箱T3-L322B 家用多功能上下管独立控温烤叉炉灯</p></div><div class="price">¥&nbsp;300.00</div><div class="bnt">立即抢</div></a></li>
+                    {{?}}
+                </ul>
+            </div>
+{{?}}
+
+
+{{?it.config&&it.config.levelNum&&it.config.levelNum.value.indexOf("P")>-1}}
+<div class="wbox">
+    <div class="wbox">
+        <ul class="P1200img channel_img" data-type="imgLinkList" data-id="Pimg" imgSize="总宽1200,请在描述填写高度">
+            {{?it.Pimg && it.Pimg.length>0}}
+            {{~it.Pimg:value:index}}
+            <li><a href="{{=value.linkTo}}" target="_blank"><img src="{{=value.imgUrl}}" height="{{=value.description}}" /></a></li>
+            {{~}}
+            {{??}}
+            <li><a href="javascript:void(0);"><img src="http://219.140.62.244/img/2016/8/2/15701484085273676851265.jpg" /></a></li>
+            {{?}}
+        </ul>
+    </div>
+</div>
+{{?}}
+
+<div class="wbox P1200img" data-type="imgLinkList" data-id="TOPAdv" imgSize="总宽1200,请在描述填写高度或hidden">
+    {{?it.TOPAdv && it.TOPAdv.length>0}}
+    {{~it.TOPAdv:value:index}}
+    {{? value.description!='hidden'}}
+    <a href="{{=value.linkTo}}" target="_blank" style="margin-top:10px;"><img class="lazy" data-original="{{=value.imgUrl}}" height="{{=value.description}}" width="1200"  /></a>
+    {{??}}
+    <a href="{{=value.linkTo}}" target="_blank" style="margin-top:10px;"><img src="{{=value.imgUrl}}" height="{{=value.description}}" style="display: none" /></a>
+    {{?}}
+    {{~}}
+    {{??}}
+    <div style="padding:5px 0">
+        <img width="1200" height="80" src="../res/images/adv.gif" style="display:none;" />
+    </div>
+    {{?}}
+</div>
+
+{{var floorNum = it.config.levelNum.value.split(",");}}
+{{ for(var i = 0; i <= floorNum.length -1; i++){ }}
+{{? parseInt(floorNum[i]) != 0 && floorNum[i] != 'D' && floorNum[i] != 'W'&& floorNum[i] != 'K'&& floorNum[i] != 'P' }}
+<div class="wbox floor">
+    <div class="wrapper_f">
+        {{ var f_titleid = "f" + floorNum[i] + "_title";var f_title = it[f_titleid];if(!f_title){ f_title = {} };}}
+        <div class="title_adv fl" data-type="imgLink" data-id="{{=f_titleid}}" imgSize="140*50">
+            {{?f_title && f_title.imgUrl }}
+            <a href="{{=f_title.imgLinkTo}}" target="_blank" ><img height="50" src="{{=f_title.imgUrl}}" alt="{{=f_title.description}}" /></a>
+            {{??}}
+            <img src="http://219.140.62.244/img/2016/8/3/15701525251771584173373.jpg" />
+            {{?}}
+        </div>
+        {{ var brandid = "brand" + floorNum[i];var brand = it[brandid];if(!brand){ brand = {} };}}
+        <div class="{{=brandid}} fl clearfix">
+            {{ var joinChannel_id = "joinChannel_" + floorNum[i]+"F";var joinChannelId = it[joinChannel_id];if(!joinChannelId){ joinChannelId = {} };}}
+    			<span data-id="{{=joinChannel_id}}" data-type="textLink">
+                    {{?joinChannelId && joinChannelId.linkTo}}
+                    <a href="{{=joinChannelId.linkTo}}" target="_blank">{{=joinChannelId.content}}</a>
+                    {{??}}
+                    <a href="javascript:void(0);">More</a>
+                    {{?}}
+                </span>
+            {{ var brand_id = "brand_" + floorNum[i]+"F";var brandId = it[brand_id];if(!brandId){ brandId = {} };}}
+            <ul data-id="{{=brand_id}}" data-type="textLinkList">
+                {{?brandId && brandId.length > 0}}
+                {{~brandId:value:index}}
+                <li><a href="{{=value.linkTo}}" target="_blank">{{=value.content}}</a></li>
+                {{~}}
+                {{??}}
+                <li><a href="javascript:void(0);">周大福</a></li>
+                {{?}}
+            </ul>
+            {{ var tabs_tid = "tabs_t" + floorNum[i]+"F";var tabs_tId = it[tabs_tid];}}
+            <div class="tit" data-type="tabs" data-id="{{=tabs_tid}}">
+                {{?tabs_tId}}
+                {{=tabs_tId}}
+                {{??}}
+                <ul class="tab">
+                    <li class="cur" tab-target="{{=(tabs_tid)+'t1'}}">111</li>
+                    <li tab-target="{{=(tabs_tid)+'t2'}}">222</li>
+                </ul>
+                {{?}}
+            </div>
+        </div>
+    </div>
+
+    <div class="wrapper con">
+        {{ var fid = "f" + floorNum[i];var ff = it[fid];if(!ff){ ff = {} };}}
+        <div class="F-sort fl {{=fid}}">
+            {{ var sortPic_id = "sortPic_" + floorNum[i]+"F";var sortPicId = it[sortPic_id];if(!sortPicId){ sortPicId = {} };}}
+            <div class="floor_logo slide_wrap" data-id="{{=sortPic_id}}" data-type="imgLinkList" data-width="200" data-height="238">
+                <ul>
+                        {{?sortPicId && sortPicId.length > 0}}
+                        {{~sortPicId:value:index}}
+                        <li>
+                            <a href="{{=value.linkTo}}" target="_blank"><img class="lazy" data-original="{{=value.imgUrl}}" alt="{{=value.description}}" width="200" height="238"/></a>
+                        </li>
+                        {{~}}
+                        {{??}}
+                        <li><a href="javascript:void(0);"><img src="http://219.140.62.244/img/2016/8/2/15701434504352250997598.jpg" width="200" height="240"/></a></li>
+                        {{?}}
+                </ul>
+            </div>
+
+            <div class="floor_text">
+                {{ var sortTex_id = "sortTex_" + floorNum[i]+"F";var sortTexId = it[sortTex_id];if(!sortTexId){ sortTexId = {} };}}
+                    <ul data-id="{{=sortTex_id}}"  data-type="textLinkList" data-width="200" data-height="230">
+                        {{?sortTexId && sortTexId.length > 0}}
+                        {{~sortTexId:value:index}}
+                        {{?value.openInNewPage=="_self"}}
+                        <li><a href="{{=value.linkTo}}" target="_blank"  class="cur">{{=value.content}}</a></li>
+                        {{??}}
+                        <li><a href="{{=value.linkTo}}" target="_blank">{{=value.content}}</a></li>
+                        {{?}}
+                        {{~}}
+                        {{??}}
+                        <li><a href="javascript:void(0);">新窗口</a></li>
+                        <li><a href="javascript:void(0);">打开</a></li>
+                        <li><a href="javascript:void(0);">设置为</a></li>
+                        <li><a href="javascript:void(0);">否</a></li>
+                        <li><a href="javascript:void(0);">关键词</a></li>
+                        <li><a href="javascript:void(0);">就显示</a></li>
+                        <li><a href="javascript:void(0);">高亮</a></li>
+                        {{?}}
+                    </ul>
+            </div>
+        </div>
+        <div class="main_col">
+        {{ for(var n = 1; n < 5; n++){ }}
+        {{ var tabs_ttid = "tabs_t" + floorNum[i]+"Ft"+ n ;var tabs_ttId = it[tabs_ttid];}}
+        {{? n==1}}
+        <div id="{{=tabs_ttid}}" class="main_col">
+            <div class="promotions fl">
+                {{ var promotions_id = "promotions_" + floorNum[i]+"F";var promotionsId = it[promotions_id];if(!promotionsId){ promotionsId = {} };}}
+                <ul data-id="{{=promotions_id}}" data-type="imgLinkList" imgSize="753*475">
+                    {{?promotionsId && promotionsId.length >0 }}
+                    {{~promotionsId:value:index}}
+                   <li><a href="{{=value.linkTo}}" target="_blank"><img class="lazy" data-original="{{=value.imgUrl}}" alt="{{=value.description}}" width="251" height="237" /></a></li>
+                    {{~}}
+                    {{??}}
+                   <li><a href="javascript:void(0);"><img src="../res/images/adv.gif" /></a></li>
+                    {{?}}
+                </ul>
+            </div>
+            <div class="commodity fl">
+                    {{ var commodity_id = "commodity_" + floorNum[i]+"F";var commodityId = it[commodity_id];if(!commodityId){ commodityId = {} };}}
+                    <ul data-id="{{=commodity_id}}" data-type="imgLinkList" imgSize="247*475">
+                        {{?commodityId && commodityId.length > 0}}
+                        {{~commodityId:value:index}}
+                        <li><a href="{{=value.linkTo}}" target="_blank"><img src="{{=value.imgUrl}}"  alt="{{=value.description}}" /></a></li>
+                        {{~}}
+                        {{??}}
+                        <li><a href="javascript:void(0);"><img src="../res/images/adv.gif" /></a></li>
+                        {{?}}
+                    </ul>
+            </div>
+        </div>
+        {{??}}
+        <div id="{{=tabs_ttid}}" class="main_col">
+            <ul data-type="productGroup" data-id="{{=tabs_ttid}}" data-spec="140X140">
+                {{? tabs_ttId && tabs_ttId.length > 0}}
+                {{~ tabs_ttId:value:index}}
+                <li>
+                    <div class="pic"><a target="_blank" href="/product.jsp?id={{=value.id}}"><img class="lazy" data-original="{{=value.imgUrl}}" alt="{{=value.name}}" title="{{=value.name}}" width="140" height="140"></a>
+                        <div class="icon"><img src="{{=icon}}" width="60"/></div>
+                    </div>
+                    <div class="title"> <a target="_blank" href="/product.jsp?id={{=value.id}}"><p>{{=value.name}}</p></a></div>
+                    <div class="price"><i>&yen;</i><em>{{=value.memberPrice}}</em></div>
+                </li>
+                {{~}}
+                {{??}}
+                <li><div class="pic"><a target="_blank" href="/product.jsp?id=p_660001"><img src="http://219.140.62.244/img/2016/6/3/1490056_140X140.jpg" alt="La Prairie 莱珀妮 亮颜修护抗皱精华 快速起效除皱精华液" title="La Prairie 莱珀妮 亮颜修护抗皱精华 快速起效除皱精华液" width="140" height="140"></a><div class="icon"><img src="http://www.wushang.com/img/2015/img/yy/20151228LOGO.png" width="60"></div></div><div class="title"> <a target="_blank" href="/product.jsp?id=p_660001"><p>La Prairie 莱珀妮 亮颜修护抗皱精华 快速起效除皱精华液</p></a></div><div class="price"><i>¥</i><em>2600.00</em></div></li>
+                {{?}}
+            </ul>
+        </div>
+        {{?}}
+        {{ } }}
+        </div>
+    </div>
+
+    {{ var centerAdvid = "centerAdv" + floorNum[i];var centerAdv = it[centerAdvid];if(!centerAdv){ centerAdv = {} };}}
+    <div class="wbox P1200img" data-type="imgLinkList" data-id="{{=centerAdvid}}" imgSize="总宽度1200高度不限,n张图,请在描述填写高度或hidden">
+        {{? centerAdv && centerAdv.length > 0}}
+        {{~ centerAdv:value:index}}
+        {{? value.description!='hidden'}}
+        <a href="{{=value.linkTo}}" target="_blank" style="margin-top:10px;"><img class="lazy" data-original="{{=value.imgUrl}}" height="{{=value.description}}" width="1200" /></a>
+        {{??}}
+        <a href="{{=value.linkTo}}" target="_blank" style="margin-top:10px;"><img src="{{=value.imgUrl}}" height="{{=value.description}}" style="display: none" /></a>
+        {{?}}
+        {{~}}
+        {{??}}
+        <div style="padding:5px 0"> <img width="1200" height="80" src="../res/images/adv.gif" style="display:none;" /> </div>
+        {{?}}
+    </div>
+
+</div>
+{{?}}
+{{ } }}
+
+</div>
+</div>
+<div id="elevator" class="elevator" data-id="elevator" data-type="textLinkList">
+    <ul>
+        {{? it.elevator && it.elevator.length > 0}}
+        {{~ it.elevator:value:index}}
+        <li ><a href="javascript:;" class="etitle"><i class="{{=value.linkTo}}"></i><div>{{=value.content}}</div></a></li>
+        {{~}}
+        {{??}}
+        <li ><a href="javascript:;" class="etitle"><i class="icon1"></i><div>内容填写</div></a></li>
+        <li ><a href="javascript:;" class="etitle"><i class="icon2"></i><div>楼层标题</div></a></li>
+        <li ><a href="javascript:;" class="etitle"><i class="icon3"></i><div>，</div></a></li>
+        <li ><a href="javascript:;" class="etitle"><i class="icon4"></i><div>链接填写</div></a></li>
+        <li ><a href="javascript:;" class="etitle"><i class="icon5"></i><div>楼层样式</div></a></li>
+        <li ><a href="javascript:;" class="etitle">icon1-7</a></li>
+        {{?}}
+    </ul>
+</div>
+<div class="insight_log" style="display: none" pageName="首页" userId="{{=it.userId}}" m="{{=it._m_}}" templateId="{{=it._pageId_}}" appId="{{=it._appId_}}" ></div>
+{{?it.productionMode}}
+{{=$.importUrl("/defaultFooter.html?m=head_merchant&productionMode=true")}}
+<script src="../res/js/jquery.lazyload.min.js" type="text/javascript"></script>
+<script type="text/javascript" charset="utf-8">
+    $(function() {
+        $("img.lazy").lazyload({threshold : 300,effect : "fadeIn",placeholder:"http://219.140.62.244/img/2016/12/20/20200651441551709875359.png"});
+    });
+</script>
+{{??}}
+{{=$.importUrl("/defaultFooter.html?m=head_merchant&productionMode=false")}}
+{{?}}
+<script src="../res/js/index_design_v2.js" type="text/javascript"></script>
+
+</body>
+</html>

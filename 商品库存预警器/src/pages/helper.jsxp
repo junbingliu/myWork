@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="../bootstrap/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="/resources/bootstrap3.3.5/css/bootstrap.min.css" >
+    <link href="../style/app.css" rel="stylesheet">
+    <!--<script type="text/javascript" src="/resources/jquery-1.7.2.min.js"></script>-->
+    <!--<script src="/resources/bootstrap3.3.4/js/bootstrap.min.js"></script>-->
+    <script src="/resources/jquery-1.10.2.min.js"></script>
+    <script src="/resources/bootstrap3.3.5/js/bootstrap.min.js"></script>
+    <script>
+        var merchantId = "{{=it.merchantId}}";
+    </script>
+</head>
+<body>
+{{=$.inc("pages/include_nav.jsx")}}
+
+<div class="container-fluid">
+    <div class="">
+        <div class="jumbotron">
+            <h3 style="line-height: 40px;">
+            说明：<br>
+            1、从商品的库存变动到小于等于0时开始计算，3天后如果库存还是小于等于0，则自动下架。<br>
+            2、这里说的库存是指商品得总库存，也就是当商品存在多个SKU时，总库存就等于所有SKU的库存之和。
+            </h3>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,581 @@
+//#import header_kjg_design.html
+
+<link href="../res/style/kjg2016.css" rel="stylesheet">
+<script src="../res/js/index_New.js" type="text/javascript"></script>
+<script src="../res/js/3x.js" type="text/javascript"></script>
+{{? it.config && it.config.mainBg.value}}
+{{ var mainBg = it.config.mainBg.value; }}
+{{?}}
+<!--
+<div class="wrapper">
+    <div class="sub-warp line-ws">
+        <ul data-id="movie_in" data-type="imgLinkList" imgSize="200X225" class="movie_in">
+            {{?it.movie_in && it.movie_in.length>0}}
+            {{~it.movie_in:value:index}}
+            <li><a href="{{=value.linkTo}}" target="_blank" ><img src="{{=value.imgUrl}}" alt="{{=value.description}}" /></a></li>
+            {{~}}
+            {{??}}
+            <li><a href="#" target="_blank"><img src="http://219.140.62.244/img/2016/6/28/1510146.jpg" width="200" height="225"/></a></li>
+            <li><a href="#" target="_blank"><img src="http://219.140.62.244/img/2016/6/28/1510146.jpg" width="200" height="225"/></a></li>
+            {{?}}
+        </ul>
+    </div>
+</div>
+-->
+<div style="background: {{=mainBg}}" class="wrapper">
+<div class="wrapper">
+    <div class="sub-warp line-ws">
+        <div class="movie_in movie_in_PL">
+            <ul data-type="productGroup" data-id="movie_in" class="fl">
+                {{?it.movie_in && it.movie_in.length>0}}
+                {{~it.movie_in :value:index}}
+                <li class="recommendd">
+                    <a target="_blank" href="/product.jsp?id={{=value.id}}">
+                        <div class="pic"><img src="{{=value.imgUrl}}" alt="{{=value.name}}" title="{{=value.name}}" />
+                            <!--<div class="icon"><img src="http://img1.wushang.com/img/2016/6/24/11713863.png" width="60"/></div>-->
+                        </div>
+                        <div class="title"><p>{{=value.name}}</p></div>
+                        <div class="price">
+                            <span style="font-size: 12px;">跨境价:</span>
+                            <div class="p_area">
+                                {{var memberPricee=""+ value.memberPrice;var mpp=memberPricee.split(".");var mpp1=mpp[0];var mpp2=mpp[1];}}
+                                <span class="mark">&yen; </span><span class="num">{{=mpp1}}</span><span class="down">.{{=mpp2}}</span>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                {{~}}
+                {{??}}
+                <ul>
+                    <li class="recommend"><a target="_blank" href="/product.jsp?id=p_580014"><div class="pic"><img src="http://219.140.62.244/img/2016/4/6/1300107.jpg" alt="雪肌精化妆水" title="雪肌精化妆水"></div><div class="title">雪肌精化妆水</div><div class="price">¥1200.00</div></a></li>
+                </ul>
+                {{?}}
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="wrapper mb55">
+    <!--  轮换广告-->
+    <div class="slide_banner">
+        <div class="slide_wrap" data-type="imgLinkList" data-id="indexBanner" imgSize="1920x450">
+        <ul class="slide_adv">
+            {{?it.indexBanner&&it.indexBanner.length>0}}
+            {{~it.indexBanner:value:index}}
+            {{?it.indexBanner.length<2}}
+            <li style="background-color: {{=value.description}}; display:block;">
+                <div class="wbox slide_main" >
+                    <a target="_blank" href="{{=value.linkTo}}" class="slide_link_bg">
+                        <img src="{{=value.imgUrl}}" alt="{{=value.description}}" width="1920" height="450">
+                    </a>
+                </div>
+            </li>
+            {{?? it.indexBanner.length>1}}
+                {{?index==0}}
+                <li style="background-color: {{=value.description}}; display:block;">
+                {{??}}
+                <li style="background-color: {{=value.description}}; display:none;">
+                {{?}}
+                <div class="wbox slide_main" >
+                    <a target="_blank" href="{{=value.linkTo}}" class="slide_link">
+                        <img src="{{=value.imgUrl}}" alt="{{=value.description}}" width="1920" height="450">
+                    </a>
+                </div>
+            </li>
+            {{?}}
+            {{~}}
+            {{??}}
+            <li style="background-image:url(../res/case/adv1440x420.jpg);">
+                <div class="wbox slide_main" >
+                    <a target="_blank" href="#" class="slide_link"></a>
+                </div>
+            </li>
+            {{?}}
+        </ul>
+        </div>
+        <div class="slide_box">
+        <!--轮换圆点-->
+        <div class="num">
+            <ul>
+                {{?it.indexBanner&&it.indexBanner.length>0}}
+                {{~it.indexBanner:value:index}}
+                {{?it.indexBanner.length<2}}
+                <li class="cur" style="display:none">
+                {{?? it.indexBanner.length>1 && index==0}}
+                <li class="cur">
+                {{??}}
+                <li>
+                {{?}}
+                </li>
+                {{~}}
+                {{?}}
+
+            </ul>
+        </div>
+        <!--end 轮换圆点-->
+    </div>
+    </div>
+    <!-- end 轮换广告-->
+    {{?it.config&&it.config.levelNum&&it.config.levelNum.value.indexOf("JX")>-1}}
+    <div class="wbox">
+        <ul class="P1200img" data-type="imgLinkList" data-id="jx_Pimg" imgSize="楼层JX，1200*40">
+            {{?it.jx_Pimg && it.jx_Pimg.length>0}}
+            {{~it.jx_Pimg:value:index}}
+            <li><img src="{{=value.imgUrl}}"/></li>
+            {{~}}
+            {{??}}
+            <li><img src="http://219.140.62.244/img/2016/6/28/1510144.png" width="1200" height="40"/></li>
+            {{?}}
+        </ul>
+    </div>
+    <div class="wbox mb55">
+        <ul data-type="productGroup" data-id="jx_prolist" class="top10">
+            {{?it.jx_prolist&&it.jx_prolist.length>0}}
+            {{~it.jx_prolist:value:index}}
+            {{?index<3}}
+            <li class="number{{=index+1}}">
+                <a target="_blank" href="/product.jsp?id={{=value.id}}">
+                    <div class="pic"><img src="{{=value.imgUrl}}" alt="{{=value.name}}" title="{{=value.name}}"></div>
+                    <div class="title"><p>{{=value.name}}</p></div>
+                    <div class="point"><p>{{=value.sellingPoint}}</p></div>
+                    <div class="price"><span>&yen;&nbsp;</span>{{=value.memberPrice}}</div>
+                    <div class="btn">去看看</div>
+                </a>
+                {{??index==it.jx_prolist.length-1}}
+            <li class="last"><a target="_blank" href="/product.jsp?id={{=value.id}}">
+                <div class="pic"><img src="{{=value.imgUrl}}" alt="{{=value.name}}" title="{{=value.name}}"></div>
+                <div class="title"><p>{{=value.name}}</p></div>
+                <div class="price"><span>&yen;&nbsp;</span>{{=value.memberPrice}}</div></a>
+                {{??}}
+            <li><a target="_blank" href="/product.jsp?id={{=value.id}}">
+                <div class="pic"><img src="{{=value.imgUrl}}" alt="{{=value.name}}" title="{{=value.name}}"></div>
+                <div class="title"><p>{{=value.name}}</p></div>
+                <div class="price"><span>&yen;&nbsp;</span>{{=value.memberPrice}}</div></a>
+                {{?}}
+            </li>
+            {{~}}
+            {{??}}
+            <li>
+                <div class="pic"><a href="#"><img src="../res/images/adv.gif"></a></div>
+                <div class="title"><a href="#">【回家送礼】东阿阿胶清仓促销 养生堂 祛斑焕白套装</a></div>
+                <div class="price">&yen;119.00</div>
+            </li>
+            {{?}}
+        </ul>
+    </div>
+    {{?}}
+
+    {{?it.config&&it.config.levelNum&&it.config.levelNum.value.indexOf("GJ")>-1}}
+    <div class="wbox mb55">
+        <ul class="P1200img mr12" data-type="imgLinkList" data-id="GJ_Pimg" imgSize="楼层GJ,总和1200即可，标题高40">
+            {{?it.GJ_Pimg && it.GJ_Pimg.length>0}}
+            {{~it.GJ_Pimg:value:index}}
+            <li>{{?value.linkTo==""}}<img src="{{=value.imgUrl}}"/>{{??}}<a href="{{=value.linkTo}}" target="_blank"><img src="{{=value.imgUrl}}"/></a>{{?}}</li>
+            {{~}}
+            {{??}}
+            <li><img src="http://219.140.62.244/img/2016/6/28/1510147.png" width="1200" height="40"/></li>
+            {{?}}
+        </ul>
+    </div>
+    {{?}}
+
+
+    {{?it.config&&it.config.levelNum&&it.config.levelNum.value.indexOf("Z")>-1}}
+    <div class="wbox mb55">
+        <ul class="P1200img mr12" data-type="imgLinkList" data-id="Z_Pimg" imgSize="楼层Z,总和1200即可，标题高40">
+            {{?it.Z_Pimg && it.Z_Pimg.length>0}}
+            {{~it.Z_Pimg:value:index}}
+            <li>{{?value.linkTo==""}}<img src="{{=value.imgUrl}}"/>{{??}}<a href="{{=value.linkTo}}" target="_blank"><img src="{{=value.imgUrl}}"/></a>{{?}}</li>
+            {{~}}
+            {{??}}
+            <li><img src="http://219.140.62.244/img/2016/6/28/1510147.png" width="1200" height="40"/></li>
+            {{?}}
+        </ul>
+    </div>
+    {{?}}
+
+    {{?it.config&&it.config.levelNum&&it.config.levelNum.value.indexOf("Q")>-1}}
+    <div class="wbox">
+        <ul class="P1200img" data-type="imgLinkList" data-id="Q_Pimg" imgSize="楼层Q，1200*40">
+            {{?it.Q_Pimg && it.Q_Pimg.length>0}}
+            {{~it.Q_Pimg:value:index}}
+            <li><img src="{{=value.imgUrl}}"/></li>
+            {{~}}
+            {{??}}
+            <li><img src="http://219.140.62.244/img/2016/6/28/1510144.png" width="1200" height="40"/></li>
+            {{?}}
+        </ul>
+    </div>
+    <div class="wbox">
+        <div style="width: 1212px">
+        {{? it.half_box1 && it.half_box1.imgUrl}}
+        <div class="half_box" data-id="half_box1" data-type="imgLink" imgSize="594*270" style="background-image: url('{{=it.half_box1.imgUrl}}')" data-height="20" data-width="594">
+        <a href="{{=it.half_box1.imgLinkTo}}" target="_blank"></a>
+        {{??}}
+        <div class="half_box" data-id="half_box1" data-type="imgLink" imgSize="594*270"  data-height="20" data-width="594" style="background-image: url('http://219.140.62.244/img/2016/11/2/18000190125813944154519.jpg')">
+            <a href="#"></a>
+            {{?}}
+            <ul data-type="productGroup" data-id="Q1_prolist" class="Q_prolist" data-height="100" data-width="550">
+            {{?it.Q1_prolist&&it.Q1_prolist.length>0}}
+            {{~it.Q1_prolist:value:index}}
+            <li>
+                <a target="_blank" href="/product.jsp?id={{=value.id}}">
+                <div class="pic"><img src="{{=value.imgUrl}}" alt="{{=value.name}}" title="{{=value.name}}"></div>
+                <div class="title"><p>{{=value.name}}</p></div>
+                <div class="price"><span>&yen;&nbsp;</span>{{=value.memberPrice}}</div>
+                </a>
+            </li>
+            {{~}}
+            {{??}}
+                <li><a target="_blank" href="/product.jsp?id=p_700005"><div class="pic"><img src="http://219.140.62.244/img/2016/8/16/15707520213434927573944.jpg" alt="爱玛莎 正品TPE初学者瑜伽垫6MM加长加厚加宽环保无味防滑 瑜伽健身垫  【粉色】" title="爱玛莎 正品TPE初学者瑜伽垫6MM加长加厚加宽环保无味防滑 瑜伽健身垫  【粉色】"></div><div class="title"><p>爱玛莎 正品TPE初学者瑜伽垫6MM加长加厚加宽环保无味防滑 瑜伽健身垫  【粉色】</p></div><div class="price"><span>¥&nbsp;</span>88.00</div></a></li>
+                <li><a target="_blank" href="/product.jsp?id=p_700005"><div class="pic"><img src="http://219.140.62.244/img/2016/8/16/15707520213434927573944.jpg" alt="爱玛莎 正品TPE初学者瑜伽垫6MM加长加厚加宽环保无味防滑 瑜伽健身垫  【粉色】" title="爱玛莎 正品TPE初学者瑜伽垫6MM加长加厚加宽环保无味防滑 瑜伽健身垫  【粉色】"></div><div class="title"><p>爱玛莎 正品TPE初学者瑜伽垫6MM加长加厚加宽环保无味防滑 瑜伽健身垫  【粉色】</p></div><div class="price"><span>¥&nbsp;</span>88.00</div></a></li>
+                <li><a target="_blank" href="/product.jsp?id=p_700005"><div class="pic"><img src="http://219.140.62.244/img/2016/8/16/15707520213434927573944.jpg" alt="爱玛莎 正品TPE初学者瑜伽垫6MM加长加厚加宽环保无味防滑 瑜伽健身垫  【粉色】" title="爱玛莎 正品TPE初学者瑜伽垫6MM加长加厚加宽环保无味防滑 瑜伽健身垫  【粉色】"></div><div class="title"><p>爱玛莎 正品TPE初学者瑜伽垫6MM加长加厚加宽环保无味防滑 瑜伽健身垫  【粉色】</p></div><div class="price"><span>¥&nbsp;</span>88.00</div></a></li>
+            {{?}}
+             </ul>
+        </div>
+        {{? it.half_box2 && it.half_box2.imgUrl}}
+        <div class="half_box" data-id="half_box2" data-type="imgLink" imgSize="594*270" style="background-image: url('{{=it.half_box2.imgUrl}}')"  data-height="20" data-width="594">
+        <a href="{{=it.half_box2.imgLinkTo}}"></a>
+        {{??}}
+        <div class="half_box" data-id="half_box2" data-type="imgLink" imgSize="594*270"  data-height="20" data-width="594" style="background-image: url('http://219.140.62.244/img/2016/11/2/18000190125813944154519.jpg')">
+            <a href="#"></a>
+            {{?}}
+            <ul data-type="productGroup" data-id="Q2_prolist" class="Q_prolist" data-height="100" data-width="500" >
+                {{?it.Q2_prolist&&it.Q2_prolist.length>0}}
+                {{~it.Q2_prolist:value:index}}
+                <li>
+                    <a target="_blank" href="/product.jsp?id={{=value.id}}">
+                        <div class="pic"><img src="{{=value.imgUrl}}" alt="{{=value.name}}" title="{{=value.name}}"></div>
+                        <div class="title"><p>{{=value.name}}</p></div>
+                        <div class="price"><span>&yen;&nbsp;</span>{{=value.memberPrice}}</div>
+                    </a>
+                </li>
+                {{~}}
+                {{??}}
+                <li><a target="_blank" href="/product.jsp?id=p_700005"><div class="pic"><img src="http://219.140.62.244/img/2016/8/16/15707520213434927573944.jpg" alt="爱玛莎 正品TPE初学者瑜伽垫6MM加长加厚加宽环保无味防滑 瑜伽健身垫  【粉色】" title="爱玛莎 正品TPE初学者瑜伽垫6MM加长加厚加宽环保无味防滑 瑜伽健身垫  【粉色】"></div><div class="title"><p>爱玛莎 正品TPE初学者瑜伽垫6MM加长加厚加宽环保无味防滑 瑜伽健身垫  【粉色】</p></div><div class="price"><span>¥&nbsp;</span>88.00</div></a></li>
+                <li><a target="_blank" href="/product.jsp?id=p_700005"><div class="pic"><img src="http://219.140.62.244/img/2016/8/16/15707520213434927573944.jpg" alt="爱玛莎 正品TPE初学者瑜伽垫6MM加长加厚加宽环保无味防滑 瑜伽健身垫  【粉色】" title="爱玛莎 正品TPE初学者瑜伽垫6MM加长加厚加宽环保无味防滑 瑜伽健身垫  【粉色】"></div><div class="title"><p>爱玛莎 正品TPE初学者瑜伽垫6MM加长加厚加宽环保无味防滑 瑜伽健身垫  【粉色】</p></div><div class="price"><span>¥&nbsp;</span>88.00</div></a></li>
+                <li><a target="_blank" href="/product.jsp?id=p_700005"><div class="pic"><img src="http://219.140.62.244/img/2016/8/16/15707520213434927573944.jpg" alt="爱玛莎 正品TPE初学者瑜伽垫6MM加长加厚加宽环保无味防滑 瑜伽健身垫  【粉色】" title="爱玛莎 正品TPE初学者瑜伽垫6MM加长加厚加宽环保无味防滑 瑜伽健身垫  【粉色】"></div><div class="title"><p>爱玛莎 正品TPE初学者瑜伽垫6MM加长加厚加宽环保无味防滑 瑜伽健身垫  【粉色】</p></div><div class="price"><span>¥&nbsp;</span>88.00</div></a></li>
+                {{?}}
+            </ul>
+        </div>
+        </div>
+    </div>
+    {{?}}
+</div>
+
+<!--楼层循环-->
+{{var floorNum = it.config.levelNum.value.split(",");}}
+{{ for(var i = 0; i <= floorNum.length -1; i++){ }}
+{{? parseInt(floorNum[i]) != 0 && floorNum[i] != 'JX' && floorNum[i] != 'GJ'&& floorNum[i] != 'XH'&& floorNum[i] != 'Z'&& floorNum[i] != 'Q'&& floorNum[i] != 'l'}}
+<div class="wbox mb55" id="item{{=floorNum[i]}}">
+{{ var f_titleid = "f" + floorNum[i] + "_title";var f_title = it[f_titleid];if(!f_title){ f_title = {} };}}
+    <div class="floor_title" data-type="imgLink" data-id="{{=f_titleid}}" imgSize="1200X40">
+        {{?f_title && f_title.imgUrl }}
+        <a href="{{=f_title.imgLinkTo}}" target="_blank" ><img height="40" src="{{=f_title.imgUrl}}" alt="{{=f_title.description}}" /></a>
+        {{??}}
+        <img src="http://219.140.62.244/img/2016/6/28/1510153.jpg" height="40"/>
+        {{?}}
+    </div>
+
+    {{ var fid = "f" + floorNum[i];var ff = it[fid];if(!ff){ ff = {} };}}
+    {{? ff && ff.imgUrl}}
+    <div class="floor_image {{=fid}}" data-height="50" data-type="imgLink" imgSize="300*480" data-id="{{=fid}}" style="background: url({{=ff.imgUrl}}) no-repeat top center">
+        <a href="{{=ff.imgLinkTo}}" style="width: 100%; height: 250px; display: block" target="_blank"></a>
+        {{??}}
+    <div class="floor_image {{=fid}}" data-height="50" data-type="imgLink" imgSize="300*480" data-id="{{=fid}}" style="background: url('http://219.140.62.244/img/2016/11/3/18100026581727518604744.jpg') no-repeat top center">
+        <a href="{{=ff.imgLinkTo}}" style="width: 100%; height: 250px; display: block" target="_blank"></a>
+        {{?}}
+            {{ var sort_id = "sort_" + floorNum[i]+"F";var sortId = it[sort_id];if(!sortId){ sortId = {} };}}
+            <div class="text" data-id="{{=sort_id}}" data-type="textLinkList">
+                <h4>————<span>最热HOT</span>————</h4>
+            <ul>
+                {{?sortId && sortId.length > 0}}
+                {{~sortId:value:index}}
+                {{?value.openInNewPage=="_self"}}
+                <li><a href="{{=value.linkTo}}" target="_blank" style="color: #66cc33">{{=value.content}}</a></li>
+                {{??}}
+                <li><a href="{{=value.linkTo}}" target="_blank">{{=value.content}}</a></li>
+                {{?}}
+                {{~}}
+                {{??}}
+                <li><a href="javascript:void(0);">项链</a></li>
+                <li><a href="javascript:void(0);">手链</a></li>
+                <li><a href="javascript:void(0);">戒指</a></li>
+                <li><a href="javascript:void(0);">耳饰</a></li>
+                <li><a href="javascript:void(0);">发饰</a></li>
+                <li><a href="javascript:void(0);">定价黄金</a></li>
+                <li><a href="javascript:void(0);">计价黄金</a></li>
+                {{?}}
+            </ul>
+            </div>
+    </div>
+
+    {{ var floor_proid = "floor_pro" + floorNum[i];var floor_pro= it[floor_proid];}}
+    {{ var floor_iconid = "floor_icon" + floorNum[i];var floor_icon= it[floor_iconid];}}
+    <div id="{{=floor_proid}}" class="floor_pro" >
+        <ul data-type="productGroup" data-id="{{=floor_proid}}" class="fl" data-height="100">
+            {{?floor_pro&&floor_pro.length>0}}
+            {{~floor_pro:value:index}}
+            <li>
+                <a target="_blank" href="/product.jsp?id={{=value.id}}">
+                <div class="pic"><img src="{{=value.imgUrl}}" alt="{{=value.name}}" title="{{=value.name}}" />
+                    <div class="icon" data-id="{{=floor_iconid}}" data-type="imgLink">
+                        {{?floor_icon && floor_icon.imgUrl}}
+                        <img src="{{=floor_icon.imgUrl}}" width="80"/>
+                        {{??}}
+                        <img src="http://img1.wushang.com/img/2016/6/24/11713863.png" width="80"/>
+                        {{?}}
+                    </div>
+                </div>
+                <div class="title">{{=value.name}}</div>
+                <div class="price">{{=value.memberPrice}}</div>
+                </a>
+            </li>
+            {{~}}
+            {{??}}
+               <li class=""><a target="_blank" href="/product.jsp?id=p_650004"><div class="pic"><img src="http://219.140.62.244/img/2016/4/6/1300107.jpg" alt="化妆水测试" title="化妆水测试"></div><div class="title">化妆水测试</div><div class="point"></div><div class="price">¥200.00</div></a></li>
+                <li class=""><a target="_blank" href="/product.jsp?id=p_650001"><div class="pic"><img src="http://219.140.62.244/img/2016/5/13/1440001.jpg" alt="牙线测试" title="牙线测试"></div><div class="title">牙线测试</div><div class="point"></div><div class="price">¥9.00</div></a></li>
+                <li class=""><a target="_blank" href="/product.jsp?id=p_640011"><div class="pic"><img src="http://219.140.62.244/img/2016/5/13/1420201.jpg" alt="牙膏测试" title="牙膏测试"></div><div class="title">牙膏测试</div><div class="point"></div><div class="price">¥12.00</div></a></li>
+                <li class=""><a target="_blank" href="/product.jsp?id=p_660001"><div class="pic"><img src="http://219.140.62.244/img/2016/6/3/1490056.jpg" alt="La Prairie 莱珀妮 亮颜修护抗皱精华 快速起效除皱精华液" title="La Prairie 莱珀妮 亮颜修护抗皱精华 快速起效除皱精华液"></div><div class="title">La Prairie 莱珀妮 亮颜修护抗皱精华 快速起效除皱精华液</div><div class="point"></div><div class="price">¥2600.00</div></a></li>
+                <li class=""><a target="_blank" href="/product.jsp?id=p_650004"><div class="pic"><img src="http://219.140.62.244/img/2016/4/6/1300107.jpg" alt="化妆水测试" title="化妆水测试"></div><div class="title">化妆水测试</div><div class="point"></div><div class="price">¥200.00</div></a></li>
+                <li class=""><a target="_blank" href="/product.jsp?id=p_650001"><div class="pic"><img src="http://219.140.62.244/img/2016/5/13/1440001.jpg" alt="牙线测试" title="牙线测试"></div><div class="title">牙线测试</div><div class="point"></div><div class="price">¥9.00</div></a></li>
+                <li class=""><a target="_blank" href="/product.jsp?id=p_640011"><div class="pic"><img src="http://219.140.62.244/img/2016/5/13/1420201.jpg" alt="牙膏测试" title="牙膏测试"></div><div class="title">牙膏测试</div><div class="point"></div><div class="price">¥12.00</div></a></li>
+                <li class=""><a target="_blank" href="/product.jsp?id=p_660001"><div class="pic"><img src="http://219.140.62.244/img/2016/6/3/1490056.jpg" alt="La Prairie 莱珀妮 亮颜修护抗皱精华 快速起效除皱精华液" title="La Prairie 莱珀妮 亮颜修护抗皱精华 快速起效除皱精华液"></div><div class="title">La Prairie 莱珀妮 亮颜修护抗皱精华 快速起效除皱精华液</div><div class="point"></div><div class="price">¥2600.00</div></a></li>
+            {{?}}
+        </ul>
+    </div>
+
+    {{ var floor_logoid = "floor_logo" + floorNum[i];var floor_logo = it[floor_logoid];if(!floor_logo){ floor_logo = {} };}}
+    <div class=" floor_logo">
+        <div class=" floor_logo_title"><img width="176" src="http://219.140.62.244/img/2016/11/3/18200097574570443616282.jpg"  /></div>
+        <div class="slide_wrap">
+        <ul class=" floor_logoes " data-type="imgLinkList" data-id="{{=floor_logoid}}" imgSize="176*80" style="width:{{=176*Math.ceil((index+1)/5)}}px;">
+            {{?floor_logo&&floor_logo.length>0}}
+            {{~floor_logo:value:index}}
+            {{?(index+1)%5==1 && index!=floor_logo.length-1}}
+            <li>
+            <a href="{{=value.linkTo}}" target="_blank" ><img src="{{=value.imgUrl}}"  alt="{{=value.description}}" /><p>{{=value.description}}</p></a>
+            {{??(index+1)%5==1 && index==floor_logo.length-1}}
+            <li>
+                <a href="{{=value.linkTo}}" target="_blank" ><img src="{{=value.imgUrl}}"  alt="{{=value.description}}" /><p>{{=value.description}}</p></a>
+            </li>
+            {{??(index+1)%5==0}}
+            <a href="{{=value.linkTo}}" target="_blank" ><img src="{{=value.imgUrl}}"  alt="{{=value.description}}" /><p>{{=value.description}}</p></a>
+            </li>
+            {{??(index+1)%5!=0 && index==floor_logo.length-1 && (index+1)%5!=1}}
+                <a href="{{=value.linkTo}}" target="_blank" ><img src="{{=value.imgUrl}}"  alt="{{=value.description}}" /><p>{{=value.description}}</p></a>
+            </li>
+            {{??}}
+            <a href="{{=value.linkTo}}" target="_blank" ><img src="{{=value.imgUrl}}"  alt="{{=value.description}}" /><p>{{=value.description}}</p></a>
+            {{?}}
+            {{~}}
+            {{??}}
+            <li>
+            <a href="#" target="_blank" ><img width="176" src="http://219.140.62.244/img/2016/11/3/18200486816875357859611.jpg"  /></a>
+            <a href="#" target="_blank" ><img width="176" src="http://219.140.62.244/img/2016/11/3/18200486816875357859611.jpg"  /></a>
+            <a href="#" target="_blank" ><img width="176" src="http://219.140.62.244/img/2016/11/3/18200486816875357859611.jpg"  /></a>
+            <a href="#" target="_blank" ><img width="176" src="http://219.140.62.244/img/2016/11/3/18200486816875357859611.jpg"  /></a>
+            <a href="#" target="_blank" ><img width="176" src="http://219.140.62.244/img/2016/11/3/18200486816875357859611.jpg"  /></a>
+            </li>
+            {{?}}
+        </ul>
+        </div>
+        <div class="slide_box">
+        <div class="num">
+            <ul>
+                {{?floor_logo&&floor_logo.length>0}}
+                {{~floor_logo:value:index}}
+                {{?floor_logo.length<5 || floor_logo.length==5 }}
+                {{??floor_logo.length%5==0}}
+                    {{?index==4}}
+                    <li class="cur"></li>
+                    {{??(index+1)%5==0}}
+                    <li></li>
+                    {{?}}
+                {{??}}
+                    {{?index==4}}
+                    <li class="cur"></li>
+                    {{??(index+1)%5==0}}
+                    <li></li>
+                    {{??(index+1)==floor_logo.length}}
+                    <li></li>
+                    {{??}}
+                    {{?}}
+                {{?}}
+                {{~}}
+                {{?}}
+            </ul>
+        </div>
+    </div>
+    </div>
+
+    {{ var floor_bid = "floor_b" + floorNum[i];var floor_b= it[floor_bid];}}
+    <div class="wbox floor_b">
+        <ul data-type="productGroup" data-id="{{=floor_bid}}" class="wbox floor_b">
+            {{?floor_b && floor_b.length>0}}
+            {{~floor_b:value:index}}
+            <li>
+                <a target="_blank" href="/product.jsp?id={{=value.id}}">
+                    <div class="pic"><img src="{{=value.imgUrl}}" alt="{{=value.name}}" title="{{=value.name}}"></div>
+                    <div class="title"><p>{{=value.name}}</p></div>
+                    <div class="point"><p>{{=value.sellingPoint}}</p></div>
+                    <div class="btn">去看看</div>
+                </a>
+            </li>
+            {{~}}
+            {{??}}
+           <img src="http://img1.wushang.com/img/2014/6/9/1050003.gif" height="10"/>
+             {{?}}
+        </ul>
+    </div>
+</div>
+{{?}}
+{{ } }}
+<!--end 楼层循环-->
+
+{{?it.config&&it.config.levelNum&&it.config.levelNum.value.indexOf("XH")>-1}}
+    <div class="wrapper bgxh">
+    <div class="wbox">
+        <ul class="P1200img mb55" data-type="imgLinkList" data-id="XH_Pimg" imgSize="1200*40">
+            {{?it.XH_Pimg && it.XH_Pimg.length>0}}
+            {{~it.XH_Pimg:value:index}}
+            <li><img src="{{=value.imgUrl}}"/></li>
+            {{~}}
+            {{??}}
+            <li><img src="http://219.140.62.244/img/2016/11/3/18200068965435322009266.jpg" width="1200" height="40"/></li>
+            {{?}}
+        </ul>
+
+         <ul data-type="productGroup" data-id="xh_prolist" class="pro232" data-height="200">
+                {{?it.xh_prolist&&it.xh_prolist.length>0}}
+                {{~it.xh_prolist:value:index}}
+                <li>
+                    <a target="_blank" href="/product.jsp?id={{=value.id}}">
+                    <div class="pic"><img src="{{=value.imgUrl}}" alt="{{=value.name}}" title="{{=value.name}}">
+                        <!--<div class="icon"><img src="http://img1.wushang.com/img/2016/6/24/11713863.png" width="80"/></div>-->
+                    </div>
+                    <div class="title">{{=value.name}}</div>
+                    <div class="price"><span>&yen;&nbsp;</span>{{=value.memberPrice}}</div>
+                    </a>
+                </li>
+                {{~}}
+                {{??}}
+             <li><a target="_blank" href="/product.jsp?id=p_660001"><div class="pic"><img src="http://219.140.62.244/img/2016/6/3/1490056_200X200.jpg" alt="La Prairie 莱珀妮 亮颜修护抗皱精华 快速起效除皱精华液" title="La Prairie 莱珀妮 亮颜修护抗皱精华 快速起效除皱精华液"></div><div class="title">La Prairie 莱珀妮 亮颜修护抗皱精华 快速起效除皱精华液</div><div class="price"><span>¥&nbsp;</span>2600.00</div></a></li>
+             <li><a target="_blank" href="/product.jsp?id=p_660001"><div class="pic"><img src="http://219.140.62.244/img/2016/6/3/1490056_200X200.jpg" alt="La Prairie 莱珀妮 亮颜修护抗皱精华 快速起效除皱精华液" title="La Prairie 莱珀妮 亮颜修护抗皱精华 快速起效除皱精华液"></div><div class="title">La Prairie 莱珀妮 亮颜修护抗皱精华 快速起效除皱精华液</div><div class="price"><span>¥&nbsp;</span>2600.00</div></a></li>
+             <li><a target="_blank" href="/product.jsp?id=p_660001"><div class="pic"><img src="http://219.140.62.244/img/2016/6/3/1490056_200X200.jpg" alt="La Prairie 莱珀妮 亮颜修护抗皱精华 快速起效除皱精华液" title="La Prairie 莱珀妮 亮颜修护抗皱精华 快速起效除皱精华液"></div><div class="title">La Prairie 莱珀妮 亮颜修护抗皱精华 快速起效除皱精华液</div><div class="price"><span>¥&nbsp;</span>2600.00</div></a></li>
+             <li><a target="_blank" href="/product.jsp?id=p_660001"><div class="pic"><img src="http://219.140.62.244/img/2016/6/3/1490056_200X200.jpg" alt="La Prairie 莱珀妮 亮颜修护抗皱精华 快速起效除皱精华液" title="La Prairie 莱珀妮 亮颜修护抗皱精华 快速起效除皱精华液"></div><div class="title">La Prairie 莱珀妮 亮颜修护抗皱精华 快速起效除皱精华液</div><div class="price"><span>¥&nbsp;</span>2600.00</div></a></li>
+             <li><a target="_blank" href="/product.jsp?id=p_660001"><div class="pic"><img src="http://219.140.62.244/img/2016/6/3/1490056_200X200.jpg" alt="La Prairie 莱珀妮 亮颜修护抗皱精华 快速起效除皱精华液" title="La Prairie 莱珀妮 亮颜修护抗皱精华 快速起效除皱精华液"></div><div class="title">La Prairie 莱珀妮 亮颜修护抗皱精华 快速起效除皱精华液</div><div class="price"><span>¥&nbsp;</span>2600.00</div></a></li>
+                {{?}}
+            </ul>
+    </div>
+    </div>
+    {{?}}
+</div>
+</div>
+
+</div>
+{{?it.config&&it.config.levelNum&&it.config.levelNum.value.indexOf("L")>-1}}
+{{?it.slide_bg && it.slide_bg.description}}
+<div class="f-nav-lf" data-id="slide_bg" data-type="imgLink" data-height="100" style="background: {{=it.slide_bg.description}}" imgSize="伸缩导航L,背景宽度200,背景代码直接填描述，不选图">
+{{??}}
+<div class="f-nav-lf" data-id="slide_bg" data-type="imgLink" data-height="100" imgSize="伸缩导航L,背景宽度200,背景代码直接填描述，不选图">
+    {{?}}
+    <div class="img_list110" data-id="img_list110" data-type="imgLinkList" imgSize="宽度110,图片宽度随机,链接填top则为返回顶部,本页跳转窗口打开选否">
+        <ul>
+            {{?it.img_list110 && it.img_list110.length > 0}}
+            {{~it.img_list110:value:index}}
+            {{?value.openInNewPage=="_blank" }}
+            {{?value.linkTo=="top"}}
+            <li>
+                <a href="javascript:void(0)" class="top-btn"><img src="{{=value.imgUrl}}"></a>
+            </li>
+            {{??}}
+            <li>
+                <a href="{{=value.linkTo}}" target="_blank"><img src="{{=value.imgUrl}}" /></a>
+            </li>
+            {{?}}
+            {{??}}
+            <li>
+                <a href="{{=value.linkTo}}"><img src="{{=value.imgUrl}}" /></a>
+            </li>
+            {{?}}
+            {{~}}
+            {{??}}
+            <li>
+                <img src="http://219.140.62.244/img/2015/12/15/1060146.png" />
+            </li>
+            <li>
+                <a href="javascript:void(0)"><img src="http://219.140.62.244/img/2015/12/15/1060147.png"></a>
+            </li>
+            {{?}}
+        </ul>
+    </div>
+
+</div>
+{{?}}
+
+{{?it.config&&it.config.levelNum&&it.config.levelNum.value.indexOf("l")>-1}}
+<div data-type="textLinkList" data-id="animNav1" class="dt2_nav">
+{{?it.animNav1&&it.animNav1.length>0}}
+{{~it.animNav1:value:index}}
+<a href="{{=value.linkTo}}"><span>{{=index+1}}F</span>{{=value.content}}</a>
+{{~}}
+{{??}}
+<a href="#item1" style="left: -100px;"><span>1F</span>item1</a>
+<a href="#item2" style="left: -100px;"><span>2F</span>item2</a>
+<a href="#item3" style="left: -100px;"><span>3F</span>item3</a>
+{{?}}
+<a id="backToTop" style="text-align: right;width: 126px;padding-right: 4px">Top</a>
+</div>
+{{?}}
+
+<script type="text/javascript">
+    var btb=$(".dt2_nav");
+    var tempS;
+    $(".dt2_nav").hover(function(){
+        var thisObj = $(this);
+        tempS = setTimeout(function(){
+            thisObj.find("a").each(function(i){
+                var tA=$(this);
+                setTimeout(function(){
+                    tA.animate({left:"0"},300);
+                },50*i);
+            });
+        },200);
+    },function(){
+        if(tempS){
+            clearTimeout(tempS);
+        }
+        $(this).find("a").each(function(i){
+            var tA=$(this);
+            setTimeout(function(){
+                tA.animate({left:"-100"},300,function(){
+                });
+            },50*i);
+        });
+    });
+    $(document).ready(function(){
+        $(".dt2_nav").hide();
+        $(".f-nav-lf").addClass("f_in");
+        $(window).scroll(function(){
+            var scrollTop = $(this).scrollTop();
+            if(scrollTop > 380){
+                $(".dt2_nav").show();
+                $(".f-nav-lf").removeClass("f_in");
+            }else{
+                $(".dt2_nav").hide();
+                $(".f-nav-lf").addClass("f_in");
+            }
+        });
+        $("#backToTop").click(function(){
+            $('html, body').animate({scrollTop:0}, 'slow');
+        });
+    });
+</script>
+{{?it.productionMode}}
+{{=$.importUrl("/kjgFooter.html?m=head_merchant&productionMode=true")}}
+{{??}}
+{{=$.importUrl("/kjgFooter.html?m=head_merchant&productionMode=false")}}
+{{?}}
+</body>
+</html>

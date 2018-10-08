@@ -1,0 +1,80 @@
+//#import header_design.html
+<link href="../res/style/error.css" rel="stylesheet">
+<script src="../res/js/remaintime.js" rel="stylesheet"></script>
+
+
+<div class="wbox_error">
+	<div class="error_top">
+		<div class="left" data-type="imgLink" data-id="top_left">
+    		{{?it.top_left && it.top_left.imgUrl }}
+    		<a target="_blank" href="{{=it.top_left.imgLinkTo}}"><img src="{{=it.top_left.imgUrl}}" /></a>
+    		{{??}}
+    		<img src="../res/images/adv.gif" width="185" height="300" />
+    		{{?}}
+		</div>
+		<div class="right">
+			<div class="textstyle" data-id="top_right" data-type="htmlSource">
+            	{{?it.top_right}}
+                {{=it.top_right}}
+                {{??}}
+                <h2>很抱歉，您查看的页面找不到了！</h2>
+				<h3>您可以：</h3>
+				<h4>1.检查刚才的输入</h4>
+				<h4>2.去其它地方逛逛：<a href="htt://www.wushang.com">武商网首页</a>|<a href="htt://www.wushang.com">929</a>|<a href="htt://www.wushang.com">品牌街</a></h4>
+                {{?}}
+        	</div>
+		</div>
+	</div>
+	
+	<div class="error_cbanner" data-type="imgLink" data-id="center_adv" >
+    	{{?it.center_adv && it.center_adv.imgUrl }}
+    	<a target="_blank" href="{{=it.center_adv.imgLinkTo}}"><img src="{{=it.center_adv.imgUrl}}"  width="990" height="90"/></a>
+    	{{??}}
+    	<img src="../res/images/adv.gif" width="990" height="90" />
+    	{{?}}
+	</div>
+	
+	{{for(var i=1; i<=1; i++){ }}
+	{{var dataId="profloor_tab" + i; var data=it[dataId];if(!data){data = {} }; }}
+	<div class="wbox_error floor">
+		<div class="floor_list" data-type="productGroup" data-id="{{=dataId}}.fpl" data-spec="180X180">
+    		<ul>
+        	{{?data.fpl&&data.fpl.length>0}}
+        	{{~data.fpl :value:index}}
+        	<li>
+            	<div class="pic"><a target="_blank" href="/product.jsp?id={{=value.id}}"><img src="{{=value.imgUrl}}" alt="{{=value.name}}" title="{{=value.name}}" width="180px" height="180px"></a>
+            	</div>
+            	<div class="title"><a target="_blank" href="/product.jsp?id={{=value.id}}">{{=value.name}}</a></div>
+            	<div class="price">{{=value.memberPriceString}}</div>
+        	</li>
+        	{{~}}
+        	{{??}}
+        	<li>
+            	<div class="pic"><a href="#"><img src="../res/case/140x140x6.jpg"></a></div>
+            	<div class="title"><a href="#">【回家送礼】东阿阿胶清仓促销 养生堂 祛斑焕白套装</a></div>
+            	<div class="price">&yen;&nbsp;119.00</div>
+        	</li>
+        	{{?}}
+    		</ul>
+		</div>
+	</div>
+	{{ } }}
+	
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<!--end 主体-->
+{{?it.productionMode}}
+{{=$.importUrl("/defaultFooter.html?m=head_merchant&productionMode=true")}}
+{{??}}
+{{=$.importUrl("/defaultFooter.html?m=head_merchant&productionMode=false")}}
+{{?}}

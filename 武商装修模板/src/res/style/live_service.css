@@ -1,0 +1,149 @@
+@charset "utf-8";
+/* CSS Document */
+.pl10{padding:0px 0px 0px 10px;}
+.pt10{padding:10px 0px 0px 0px;}
+.pt30{padding:30px 0px 0px 0px;}
+i{ height: 2px; width: 100%; background-color: #E91E63; display: block;}
+
+/*menu*/
+.mallCategory{ float:left; width:200px; height:400px; position:relative; z-index:900;}
+.mallSort{ float:left; width:200px; height:400px; position: relative;}
+.sort-m{ width:200px;height:400px; position: absolute; left: 0px; top: 0px; overflow: hidden;}
+.sort{ width:200px; height:398px; border-top:0;background: #ef1841; position:absolute; left:0; top:0px; z-index:100;}
+.sort .item{ width:100%; cursor:pointer;background:#ef1841; position: relative;padding: 0 0 7px;}
+.sort .item.bg{background: #db143a;}
+.sort .item h3{ padding:0px 0 0 15px; color:#FFF; height:30px; line-height: 30px; font-size: 14px; overflow: hidden;}
+.sort .item h3 a{ color:#FFF;background:transparent;}
+.sort .item p{font-size: 12px; /*height: 20px;*/ line-height: 20px; font-family: "\5b8b\4f53"; margin-left: -10px; padding-left: 15px;}
+.sort .item p a{color: #ff9eb1; text-decoration: none; padding-left: 10px; white-space:nowrap;display: -webkit-inline-box;}
+.sort .item i{position: absolute; right: 10px; top: 9px; width: 8px; height: 14px;overflow: hidden; font-family: "\5b8b\4f53"; font-size: 14px; font-weight: bold; background: none; color: #FFF; display: block;}
+.sort .item.itemCur{background: #FFF; position: relative; z-index: 10; width: 197px; margin-left: 3px;}
+.sort .item.itemCur h3{ padding:0px 0 0 12px;}
+.sort .item.itemCur h3 a{color: #ef1841;}
+.sort .item.itemCur h3 a:hover{ text-decoration:none; color:#ef1841;}
+.sort .item.itemCur p a{color: #ff9eb1;}
+.sort .item.itemCur p a:hover{ text-decoration:none; color:#ff9eb1;}
+.sort .item.itemCur i{color: #FFF;}
+.sort-two{width:120px; height: 400px; position: absolute; left: 200px; top: 0px; display: none;}
+.sortLayer{width:100%; height: 100%; position:absolute; left:-10px; top:0px; overflow:hidden; padding-top:5px;}
+.itemCon{width:110px; position:relative; margin:0 10px; overflow:hidden; z-index: 10;}
+.itemBg{width:100%; height: 100%; background:#FFF; position:absolute; left:0px;top:0px; opacity: 0.93; filter: alpha(opacity=93); z-index: 9;}
+.itemCon.last{ border-bottom:0;}
+.sortLayer .subMain{ float:left; display:inline; width:110px; overflow:hidden;}
+.sortLayer .subMain dl{border-bottom: #eeecec 1px dashed; overflow:hidden;}
+.sortLayer .subMain dl dt{width: 86px; float: left; height: 24px; line-height: 24px; padding:5px 0 10px 5px;color: #fff; font-size: 14px; white-space: nowrap; overflow: hidden;}
+.sortLayer .subMain dl dt a{color:#333; font-weight: normal;}
+.sortLayer .subMain dl dt a:hover{color:#ef1841; text-decoration: none;}
+.sortLayer .subMain dl dd{width: 100px; float: left; overflow:hidden; padding-left: 5px}
+.sortLayer .subMain dl dd a{float: left; display: inline-block; height: 24px; line-height: 24px;width:50px;color: #666; white-space: nowrap; font-family: "宋体";}
+.sortLayer .subMain dl dd a:hover{color:#ef1841; text-decoration: none;}
+
+
+
+/*banner*/
+.banner{width:750px;height:400px;position:relative;z-index:2;margin:0 10px 0 10px; float: left;}
+.banner .pic{height:400px;overflow:hidden;}
+.banner .pic li{width:100%;overflow:hidden;height:400px;display:block;vertical-align:top;}
+.banner .box{width:750px;margin:0 auto;overflow:hidden;}
+.banner .large{float:left;display:inline-block;width:750px;height:400px;overflow:hidden;}
+.banner .thumbs{float:right;width:220px;height:360px;overflow:hidden;margin-top:10px;}
+.banner .thumbs a{float:left;}
+.banner .thumbs img{vertical-align:top;}
+.banner .num{width:100%;height:1px;line-height:1;position:absolute;left:0;}
+.banner .num p{width:750px;margin:0 auto;height:5px;line-height:5;position:relative;z-index:0;}
+.banner .num span{right:60px;position:absolute;height:14px;top:-24px;}
+.banner .num b{float:left;display:inline-block;width:14px;height:14px;overflow:hidden;background:url(../images/index_icon2.png) no-repeat 0 0;margin-left:8px;}
+.banner .num b.cur{background:url(../images/index_icon1.png) no-repeat 0 0;}
+
+/*banner mini right*/
+.banner_mini { width: 230px; height: 400px; overflow: hidden; float: left;}
+.banner_mini a{ display: block; border: 0 none;}
+
+/* 宽度限制模块 */
+.wbox{width:1200px; margin:0 auto;clear:both;}
+.wbox:after { content:"."; display:block; height:0; clear:both; visibility:hidden; }
+.wbox { display:inline-block; }/* Hides from IE-mac \*/
+* html .wbox { zoom:1; }
+.wbox { display:block; }/* End hide from IE-mac */
+.floor{margin-top:20px; margin-bottom:20px;background:#fff; }
+
+.recommend{float:left;width:940px;height:620px; position: relative;border-top:2px #E91E63 solid; }
+.recommend .area_L{float: left; height: 620px;background:#fff1e4;border-right: 2px solid #f2d1c0;}
+.recommend .area_L .area_T{height: 400px;padding-top:20px;}
+.recommend .area_L .area_T .tit{width: 152px; position: absolute; left: 0; top: 0; }
+.recommend .area_L .area_T .tab{overflow: hidden;width: 160px;}
+.recommend .area_L .area_T .tab li{width:160px;height:46px;line-height:46px;margin:5px 0;text-align:center;font-size:14px;cursor:pointer;background:url(../images/motherBaby/recommend-huangjing.png) right bottom no-repeat;}
+.recommend .area_L .area_T .tab li.cur{ z-index:2; color:#fff;background-position: right top;}
+.recommend .area_L .area_B{height: 200px;}
+.recommend .area_L .area_B .recommend_banner { width: 152px; height:200px; overflow: hidden;}
+.recommend .area_L .area_B .recommend_banner img{ width: 152px; height:200px; }
+
+.recommend_list{ width:1208px; padding-bottom: 10px; overflow:hidden; }
+.recommend_list li{float:left; width:284px; padding: 4px 4px 10px 4px; border: #FFF 1px solid; margin:8px 8px 0 0;background:#FFF;}
+.recommend_list li:hover {border:1px solid #02b7bb; background:#02b7bb; transition: background-color 0.5s ease 0s, border-color 0.5s ease 0s; }
+.recommend_list li:hover .name a,
+.recommend_list li:hover .priebox span.price,
+.recommend_list li:hover .priebox span.price b,
+.recommend_list li:hover .priebox em,
+.recommend_list li:hover .priebox del,
+.recommend_list li:hover .buy,
+.recommend_list li:hover .sellN,
+.recommend_list li:hover .sellP,
+.recommend_list li:hover .buy em{ color:#FFF; text-decoration:none;}
+.recommend_list li:hover .priebox del{text-decoration:line-through;}
+.text {
+    overflow: hidden;width: 270px;}
+.recommend_list li .pic{width:284px; height:284px; overflow:hidden; margin:0 auto 0; background:#ffffff; text-align:center;}
+.recommend_list li .pic a{display:table-cell;vertical-align:middle;width: 284px; height: 284px;}
+.recommend_list li .pic img{width: 284px;}
+.recommend_list li .name{width: 264px; font-size: 14px; height:48px; line-height:24px; padding: 10px 10px 0; overflow:hidden;}
+.recommend_list li .name a{font:normal 16px/20px Microsoft YaHei; color:#333333; }
+.recommend_list li .priebox{width: 160px; overflow:hidden; padding-left:10px;
+    float: left; }
+.recommend_list li .priebox span.price{ color:#E91E63; font-family:"microsoft yahei";}
+.recommend_list li .priebox span.price b{ font-size:30px;color:#E91E63; }
+.recommend_list li .priebox .disc{ margin:3px 0 0 5px; line-height:18px; color:#f80;}
+.recommend_list li .priebox em{ color:#ffffff; font-size: 14px; margin-left:20px; font-weight:bold; background:#ff8800;}
+.recommend_list li .priebox del{ color:#ccc;}
+.recommend_list li .buy{width: 264px; overflow:hidden; padding:2px 10px 2px; text-align: center; color: #02b7bb; font-size: 14px;}
+.recommend_list li .buy em{color: #ccc; padding-right: 20px;}
+.sellP { height: 32px; width:264px;padding:0 10px;
+    overflow: hidden;}
+.sellN { width: 80px; padding-right:10px; line-height: 40px;
+    float: right;text-align: right;}
+.floor_text { width: 1200px; overflow: hidden; height: 34px;background-color: #fd4b27;margin-bottom: 10px;}
+.floor_text { width: 1200px; overflow: hidden; height: 34px;background-color: #fd4b27}
+.f_title { vertical-align: bottom;padding:0 10px; line-height: 34px;}
+.f_title h3 {line-height: 34px; font-size: 14px; color: #fff}
+.floor_text h2 { font-size: 18px; color: #fff;}
+.f_brand { margin-top: 10px;}
+.f_brand ul, .f_brand ul li, .f_brand span a, .f_brand span { float: left;height: 20px; line-height: 30px; display: block;}
+.f_brand span a{background:url(../images/motherBaby/icon.jpg) 42px -1px no-repeat #fff; width: 50px; height: 20px; line-height:14px;display: block;padding-left: 15px;}
+.f_brand ul li { padding: 0 10px; border-right:1px #e5e5e5 solid; line-height: 15px; height: 15px; display:block;font-size: 12px;color: #666666}
+.f_prolist{width:920px;text-align:center;overflow:hidden;font-family:"microsoft yahei","黑体"; font-size:14px; font-weight:normal; color:#333333;}
+.f_prolist li{float:left;width:230px;display:inline-block;height: 300px;
+    -webkit-transition: all 0.2s linear 0s;
+    -moz-transition: all 0.2s linear 0s;
+    -ms-transition: all 0.2s linear 0s;
+    -o-transition: all 0.2s linear 0s;
+    transition: all 0.2s linear 0s;}
+.f_prolist li:hover{background-color: #02b7bb}
+.f_prolist li:hover .price h2, .f_prolist li:hover .price h2 span{color: #fff}
+.f_prolist li:hover .title{color: #fff}
+.f_prolist .pic{ width:220px;height:220px;overflow:hidden;margin:5px }
+.f_prolist .pic img{ width:220px;height:220px }
+.f_prolist .price{font-weight:bold;color:#333333;font-size:24px; float:left; width:220px; }
+.f_prolist .price h2{font-weight:bold;color:#FD4B27; width:220px; overflow: hidden; white-space: nowrap; text-overflow:ellipsis; font-size: 22px;}
+.f_prolist .price h2 span{font-weight:normal;color:#969393;font-size:10px; text-decoration: line-through;padding-left: 5px;}
+.f_prolist .title{height:38px; width:220px;overflow:hidden;padding:0 5px;}
+
+.adv_imgL_D {height: 40px; overflow: hidden;margin-top: 20px;}
+.adv_imgL_D img{height: 40px; width: 1200px;}
+.w260 { width: 270px;overflow: hidden;float: left;margin-right: 10px;height: 600px; position: relative}
+.textbox { position: relative}
+.w260 .text ul li { display: block; margin: 10px; position: relative}
+.w260 .text ul li a {color: #02b7bb; font-size: 18px;vertical-align: top}
+.w260 .text ul li a img {margin-right:10px; vertical-align: top}
+.w260 .text ul li .texts { position: absolute; left: 60px; top: 30px; overflow: hidden; width: 200px; height: 22px;}
+.w260 .text ul li .texts a {color: #333; font-size: 14px; margin-right:10px;}
+.wsfc_adv_shareL { position: absolute; bottom:0;left: 0}

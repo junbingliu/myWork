@@ -1,0 +1,607 @@
+@charset "utf-8";
+/* 登录页 */
+
+.login-wrap{
+    width: 100%;
+    font-family: "microsoft yahei";
+}
+.login-wrap .inner{
+    position: relative;
+    width: 1200px;
+    margin: 0 auto;
+    min-height: 600px;
+    overflow: hidden;
+}
+.login-adv{
+    margin: 100px 0 0 120px;
+}
+.login-form{
+    position: absolute;
+    right: 100px;
+    top: 90px;
+    width: 350px;
+    height: 410px;
+    background: #fff;
+}
+.login-switch{
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+}
+.login-switch .ico-qrcode,
+.login-switch .ico-static{
+    display: inline-block;
+    background:url(../images/switch_qrcode.png) no-repeat 0 0;
+    width: 35px;
+    height: 35px;
+}
+.login-switch .ico-static{
+    background:url(../images/switch_pc.png) no-repeat 0 0;
+    display: none;
+}
+.login-switch.active .ico-qrcode{
+    display: none;
+}
+
+.login-switch.active .ico-static{
+    display: block;
+}
+
+
+.login-tip {
+    position: absolute;
+    top: 10px;
+    right: 58px;
+}
+.login-tip .poptip {
+    border: 1px solid #f3d995;
+    height: 16px;
+    line-height: 16px;
+    padding: 5px 20px 5px 15px;
+    background: #fefcee;
+    position: relative;
+}
+.poptip-arrow {
+    top: 8px;
+    right: 0;
+    position: absolute;
+    z-index: 10;
+}
+.poptip-arrow em, .poptip-arrow span {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-color: rgba(255,255,255,0);
+    border-color: transparent \0;
+    _border-color: tomato;
+    _filter: chroma(color=tomato);
+    border-style: solid;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+}
+.poptip-arrow em {
+    top: 0;
+    left: 1px;
+    border-left-color: #f3d995;
+    border-width: 6px 0 6px 6px;
+}
+.poptip-arrow span {
+    border-left-color: #fefcee;
+    border-width: 6px 0 6px 6px;
+}
+.poptip .poptip-content {
+    color: #df9c1f;
+    font-size: 12px;
+    font-weight: 400;
+}
+.poptip .poptip-content .ico-safety {
+    display: inline-block;
+    background:url(../images/login_ic.png) no-repeat -30px -30px;
+    width: 14px;
+    height: 14px;
+    margin: 0 8px -3px 0;
+}
+
+.static-form{
+    position: relative;
+}
+.static-form .login-msg {
+    /*position: absolute;*/
+    top: 0;
+    left: 0;
+    line-height: 16px;
+    padding: 6px 10px;
+    overflow: hidden;
+    width: 278px;
+    background: #fef2f2;
+}
+.login-msg.error {
+    border-color: #ffb4a8;
+    background-color: #fef2f2;
+    color: #f33;
+    font-size: 14px;
+}
+.login-msg .ico-tips {
+    padding-right: 10px;
+    float: left;
+    display: inline-block;
+    background:url(../images/login_ic.png) no-repeat 0 -30px;
+    width: 16px;
+    height: 16px;
+}
+.login-msg p {
+    float: left;
+    white-space: normal;
+    word-wrap: break-word;
+    width: 240px;
+}
+.login-form .bd{
+    padding: 0px 26px 20px;
+}
+.login-title{
+    font-size: 16px;
+    height: 18px;
+    line-height: 18px;
+    margin: 42px 25px 0;
+    padding: 8px 0 2px;
+}
+.login-title li{
+    float: left;
+    display: inline-block;
+    border-right: 1px solid #dedddd;
+}
+.login-title a{
+    color: #333;
+    padding: 0 30px;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.login-title li.last{
+    border-right: 0;
+}
+.login-title li.last a{
+    padding-right: 0;
+}
+.login-title a:hover,.login-title a.active{
+    color: #049ca2;
+    font-size: 16px;
+    font-weight: bold;
+}
+.verifyCode{
+    position: absolute;
+    right: 1px;
+    top: 3px;
+    font-size: 14px;
+    color: #999;
+}
+.verifyCode a{
+    color: #999;
+    background: #f2f2f2;
+    display: block;
+    height: 36px;
+    line-height: 36px;
+    padding: 0 5px 0 8px;
+    text-decoration: none;
+}
+.static-form .field{
+    margin-top: 25px;
+    position: relative;
+}
+.static-form .field label{
+    display: block;
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
+    color: #fff;
+    background: #f2f2f2;
+    /*border: #fff 2px solid;*/
+    text-align: center;
+    position: absolute;
+    left: 3px;
+    top: 3px;
+    outline: 0;
+}
+.static-form .field .ico-user,
+.static-form .field .ico-pwd,
+.static-form .field .ico-phone{
+    display: inline-block;
+    background:url(../images/login_ic.png) no-repeat 0 0;
+    width: 22px;
+    height: 22px;
+    margin-top: 8px;
+}
+
+.static-form .field .ico-pwd{
+    background-position: -30px 0;
+}
+.static-form .field .ico-phone{
+    background-position: 0px -60px;
+    height: 26px;
+    margin-top: 6px;
+}
+.static-form .field .ph-label{
+    position: absolute;
+    line-height: 42px;
+    height: 42px;
+    color: #cfcfda;
+    opacity: 1;
+    transition: all .2s ease-out;
+    -webkit-transition: all .2s ease-in;
+    -moz-transition: all .2s ease-out;
+    left: 50px;
+    top: 0;
+    font-size: 14px;
+}
+.static-form .login-put{
+    width: 300px;
+    font-size: 14px;
+    line-height: 42px;
+    height: 42px;
+    padding: 11px 8px 11px 50px;
+    border: 1px solid #e6e6e6;
+    font-family: "microsoft yahei";
+}
+.static-form .login-put:focus{
+    outline: none;
+    border: #bdbdbd 1px solid;
+}
+
+.static-form .submit {
+}
+
+.static-form .submit button{
+    width: 300px;
+    height: 42px;
+    border: 0;
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: middle;
+    line-height: 42px;
+    font-size: 18px;
+    color: #fff;
+    background: #f33;
+    cursor: pointer;
+    zoom: 1;
+    font-family: "microsoft yahei";
+}
+.static-form .submit button:hover{
+    background: #f85050;
+}
+.static-form .login-links {
+    height: 35px;
+    line-height: 35px;
+    margin: 10px 0;
+    font-size: 12px;
+}
+.static-form .login-links .forget-pwd{
+    color: #999;
+}
+.static-form .login-links .register{
+    color: #f33;
+}
+
+
+.qrcode-form{
+
+}
+.qrcode-main {
+    position: relative;
+    margin-top: 24px;
+    height: 140px;
+}
+.qrcode-img{
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+}
+.qrcode-main .msg-err {
+    width: 200px;
+    height: 200px;
+    background: rgba(255,255,255,.9);
+    position: absolute;
+    left: 49px;
+    top: 0;
+    z-index: 9999;
+}
+.qrcode-main .msg-err h6 {
+    color: #3c3c3c;
+    margin-top: 65px;
+    margin-bottom: 8px;
+    text-align: center;
+}
+.qrcode-main .msg-err .refresh {
+    width: 100px;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    margin: 0 auto;
+    background: #f33;
+    display: block;
+    color: #fff;
+    border-radius: 3px;
+    text-decoration: none;
+}
+
+.qrcode-desc {
+    overflow: hidden;
+    width: 188px;
+    margin: 24px auto 0;
+    color: #999;
+}
+.qrcode-desc .ico-saoma {
+    float: left;
+    color: #f40;
+    line-height: 36px;
+    margin:2px 10px 0 30px;
+    display: inline-block;
+    background: url(../images/login_ic.png) no-repeat -60px 0;
+    width: 34px;
+    height: 34px;
+}
+.qrcode-desc .txt{
+    float: left;
+}
+.qrcode-desc .txt a{
+    color: #f33;
+}
+
+
+/*合作网站账号登录*/
+.corp-login {
+    overflow: hidden;
+    clear: both;
+    margin-top: 38px;
+}
+.corp-login dt{
+    height: 18px;
+    color: #a5a5a5;
+    overflow: hidden;
+}
+.corp-login dd a{
+    float:left;
+    width:22px;
+    height:22px;
+    margin:6px 6px 0 0;
+    background: url(../images/login_icon.png) 0 0 no-repeat;
+    white-space: nowrap;
+    cursor:pointer;
+}
+.corp-login dd a.alipay{
+    background-position:-28px 0;
+}
+.corp-login dd a.sina{
+    background-position:-56px 0;
+}
+.corp-login dd a.renren{
+    background-position: -140px 0;
+}
+.corp-login dd a.netease{
+    background-position:-112px 0;
+}
+.corp-login dd a.kaixin{
+    background-position:-196px 0;
+}
+.corp-login dd a.baidu{
+    background-position: -84px 0;
+}
+.corp-login dd a.qihoo{
+    background-position:-168px 0;
+}
+.corp-login dd a.unionpay{
+    background-position:-224px 0;
+}
+
+.corp-login dd a.deyi{
+    background-position:-252px 0;
+}
+.corp-login dd a.weixin{
+    background-position:-280px 0;
+}
+.corp-login dd a.qq:hover{
+    background-position:0 -24px;
+}
+.corp-login dd a.alipay:hover{
+    background-position:-28px -24px;
+}
+.corp-login dd a.sina:hover{
+    background-position:-56px -24px;
+}
+.corp-login dd a.renren:hover{
+    background-position:-140px -24px;
+}
+.corp-login dd a.netease:hover{
+    background-position:-112px -24px;
+}
+.corp-login dd a.kaixin:hover{
+    background-position: -196px -24px;
+}
+.corp-login dd a.baidu:hover{
+    background-position:-84px -24px;
+}
+.corp-login dd a.qihoo:hover{
+    background-position: -168px -24px;
+}
+.corp-login dd a.unionpay:hover{
+    background-position:-224px -24px;
+}
+.corp-login dd a.deyi:hover{
+    background-position:-252px -24px;
+}
+.corp-login dd a.weixin:hover{
+    background-position:-280px -24px;
+}
+/*end 合作网站账号登录*/
+
+
+/* 微信扫码登录*/
+.TB_overlayBG { background:rgba(0,0,0,0.5)!important;  background:#000;  filter:alpha(opacity=50); position: fixed; z-index:99; top: 0px; height:100%; width:100%;}
+.TB_window{ position: fixed;  left:0%;  top:0%;  width:100%;  z-index:10000; }
+
+.qrcodeLayer{
+    border-radius: 10px;
+    width:400px;
+    background:#fff;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    z-index: 10000;
+    margin-left: -200px;
+    margin-top: -208px;
+    padding: 40px 0 60px;
+}
+
+.qrcodeLayer .closed {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    display: inline-block;
+    height: 16px;
+    background: url(../images/closed.png) no-repeat 0 0;
+    width: 24px;
+    height: 24px;
+    overflow: hidden;
+    cursor: pointer;
+}
+.qrcodeLayer .tit{
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+}
+.qrcodeLayer .qrcode{
+    width: 200px;
+    height: 200px;
+    margin: 30px auto 20px;
+    padding: 10px;
+    border: #ccc 1px solid;
+    position: relative;
+}
+
+.qrcodeLayer .txt{
+    font-size: 14px;
+    text-align: center;
+    color: #666;
+}
+
+.qrcodeLayer .msg-err {
+    width: 220px;
+    height: 220px;
+    background: rgba(255,255,255,.9);
+    position: absolute;
+    left: 0px;
+    top: 0;
+    z-index: 9999;
+}
+.qrcodeLayer .msg-err h6 {
+    color: #3c3c3c;
+    margin-top: 78px;
+    margin-bottom: 8px;
+    text-align: center;
+    font-size: 14px;
+}
+.qrcodeLayer .msg-err .refresh {
+    width: 100px;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    margin: 0 auto;
+    background: #f33;
+    display: block;
+    color: #fff;
+    border-radius: 3px;
+    text-decoration: none;
+}
+
+/* 微信扫码登录*/
+
+
+/*设置密码提示框*/
+.msgPanel {
+    width: 470px;
+    background-color: #fff;
+    border: 1px solid #dfdfdf;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, .08);
+    z-index: 1000;
+    margin: 0 auto;
+}
+.msgPanel .hd {
+    background: #f3f3f3;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 15px;
+    font: 14px/40px microsoft yahei;
+    position: relative;
+}
+.msgPanel .hd .close {
+    background: url(../images/shopcart_ui.png) no-repeat -190px -120px;
+    width: 14px;
+    height: 14px;
+    position: absolute;
+    right: 12px;
+    top: 12px;
+    cursor: pointer;
+}
+.msgPanel .bd {
+    padding: 0px 12px 54px;
+}
+.shanchu .schu_con {
+    margin: 30px 70px 20px;
+    padding: 0 0 0 65px;
+    position: relative;
+
+}
+.shanchu .schu_con .sc_icon {
+    position: absolute;
+    left: 0px;
+    top: 5px;
+    background:url(../images/shopcart_ui.png) no-repeat -65px -210px;
+    width: 48px;
+    height: 42px;
+
+}
+.shanchu .schu_con .txt {
+    font-size: 16px;
+    color: #666;vertical-align: middle;
+    padding-top: 15px;
+}
+.msgPanel .bd .btnBox {
+    text-align: center;
+}
+.od_btn, .odgray_btn {
+    display: inline-block;
+    background-color: #e60000;
+    padding: 0 25px;
+    border-radius: 3px;
+    height: 32px;
+    font: 12px/32px microsoft yahei;
+    color: #fff;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.5s ease 0s;
+}
+.odgray_btn:hover{
+    border: 1px solid #e60000;
+    color: #e60000;
+}
+.msgPanel .bd .btnBox .od_btn:hover{
+    background: #e64c4c;
+    color: #fff;
+}
+.odgray_btn {
+    background-color: #f4f4f4;
+    padding: 0 15px;
+    border: #e1e1e1 1px solid;
+    height: 28px;
+    line-height: 28px;
+    color: #333;
+}
+.msgPanel .bd .btnBox .od_btn {
+    height: 30px;
+    line-height: 30px;
+    padding: 0 15px;
+}
+/*end 设置密码提示框*/

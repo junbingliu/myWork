@@ -1,0 +1,15 @@
+{
+    "libs_namespace": "wsBigMemberInterface",
+    "libs": ["services/WSMemberService.jsx","services/AppArgumentService.jsx","services/WSBindService.jsx"],
+    "obj_prefixes": ["wsBigMemberInterfaceObj"],
+    "list_prefixes": ["wsBigMemberInterfaceList"],
+    "eventHandlers":[
+        {
+            "eventName":"orderAddBefore",
+            "pageId":"eventHandlers/ReduceIntegralBeforeAdd.jsx",
+            "handlerId":"wsBigMemberInterface_OnOrderAddBefore",
+            "throwException":"true",
+            "description":"下单前，扣减大会员系统积分，只有扣减成功才能下单"
+        }
+    ]
+}

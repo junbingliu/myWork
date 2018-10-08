@@ -1,0 +1,150 @@
+<%if(isWrap){%>
+<!DOCTYPE html>
+<!--[if lte IE 7 ]> <html class="lte_ie7 lte_ie8" lang="zh-CN"> <![endif]-->
+<!--[if lte IE 8 ]> <html class="lte_ie8" lang="zh-CN"> <![endif]-->
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <link href="@{res/style/header.css}@" type="text/css" rel="stylesheet" media="all">
+</head>
+<body>
+<%}%>
+
+
+
+<!--页尾-->
+<div class="footer">
+    <%if(footer && footer.serviceImg && footer.serviceImg.imgUrl){%>
+    <div class="service wbox" data-type="image" data-id="footer:serviceImg" imgSize="865X163" style="background-image: url(<%=footer.serviceImg.imgUrl%>);"></div>
+    <%}else{%>
+    <div class="service wbox" data-type="image" data-id="footer:serviceImg" imgSize="865X163"></div>
+    <%}%>
+
+    <div class="helper wbox clearfix">
+        <div class="h-item">
+            <div class="icon" data-type="image" data-id="footer:helpLogo1" imgSize="48X48">
+                <i <%if(footer && footer.helpLogo1 && footer.helpLogo1.imgUrl){%>style="background-image:url(<%=footer.helpLogo1.imgUrl%>);"<%}%> ></i>
+            </div>
+            <div class="h-nav">
+                <h4 data-type="text" data-id="footer:helpTitle1"><%=footer && footer.helpTitle1 ? footer.helpTitle1 : '购物指南'%></h4>
+                <ul data-type="textLinkList" data-id="footer:helpList1">
+                    <%if(footer && footer.helpList1 && footer.helpList1.length > 0){%>
+                        <%for(var i=0;i< footer.helpList1.length;i++){%>
+                        <%var helpObj = footer.helpList1[i];%>
+                        <li><a href="<%=helpObj.linkTo%>" target="<%=helpObj.openInNewPage%>"><%=helpObj.content%></a></li>
+                        <%}%>
+                    <%}else{%>
+                        <li><a href="#">保障范围</a></li>
+                        <li><a href="#">退货退款流程</a></li>
+                        <li><a href="#">服务中心</a></li>
+                        <li><a href="#">更多特色服务</a></li>
+                    <%}%>
+                </ul>
+            </div>
+        </div>
+        <div class="h-item">
+            <div class="icon" data-type="image" data-id="footer:helpLogo2" imgSize="48X48">
+                <%if(footer && footer.helpLogo2 && footer.helpLogo2.imgUrl){%>
+                    <i style="background-image:url(<%=footer.helpLogo2.imgUrl%>);"></i>
+                <%}else{%>
+                    <i class="pay"></i>
+                <%}%>
+            </div>
+            <div class="h-nav">
+                <h4 data-type="text" data-id="footer:helpTitle2"><%=footer && footer.helpTitle2 ? footer.helpTitle2 : '支付帮助'%></h4>
+                <ul data-type="textLinkList" data-id="footer:helpList2">
+                    <%if(footer && footer.helpList2 && footer.helpList2.length > 0){%>
+                        <%for(var i=0;i< footer.helpList2.length;i++){%>
+                        <%var helpObj = footer.helpList2[i];%>
+                        <li><a href="<%=helpObj.linkTo%>" target="<%=helpObj.openInNewPage%>"><%=helpObj.content%></a></li>
+                        <%}%>
+                    <%}else{%>
+                        <li><a href="#">新手专区</a></li>
+                        <li><a href="#">消费警示</a></li>
+                        <li><a href="#">交易安全</a></li>
+                        <li><a href="#">24小时在线帮助</a></li>
+                    <%}%>
+                </ul>
+            </div>
+        </div>
+        <div class="h-item">
+            <div class="icon" data-type="image" data-id="footer:helpLogo3" imgSize="48X48">
+                <%if(footer && footer.helpLogo3 && footer.helpLogo3.imgUrl){%>
+                <i style="background-image:url(<%=footer.helpLogo3.imgUrl%>);"></i>
+                <%}else{%>
+                <i class="distribution"></i>
+                <%}%>
+            </div>
+            <div class="h-nav">
+                <h4 data-type="text" data-id="footer:helpTitle3"><%=footer && footer.helpTitle3 ? footer.helpTitle3 : '物流配送'%></h4>
+                <ul data-type="textLinkList" data-id="footer:helpList3">
+                    <%if(footer && footer.helpList3 && footer.helpList3.length > 0){%>
+                        <%for(var i=0;i< footer.helpList3.length;i++){%>
+                        <%var helpObj = footer.helpList3[i];%>
+                        <li><a href="<%=helpObj.linkTo%>" target="<%=helpObj.openInNewPage%>"><%=helpObj.content%></a></li>
+                        <%}%>
+                    <%}else{%>
+                        <li><a href="#">保障范围</a></li>
+                        <li><a href="#">退货退款流程</a></li>
+                        <li><a href="#">服务中心</a></li>
+                        <li><a href="#">更多特色服务</a></li>
+                    <%}%>
+                </ul>
+            </div>
+        </div>
+        <div class="h-item last">
+            <div class="icon" data-type="image" data-id="footer:helpLogo4" imgSize="48X48">
+                <%if(footer && footer.helpLogo4 && footer.helpLogo4.imgUrl){%>
+                <i style="background-image:url(<%=footer.helpLogo4.imgUrl%>);"></i>
+                <%}else{%>
+                <i class="after-sale"></i>
+                <%}%>
+            </div>
+            <div class="h-nav">
+                <h4 data-type="text" data-id="footer:helpTitle4"><%=footer && footer.helpTitle4 ? footer.helpTitle4 : '售后服务'%></h4>
+                <ul data-type="textLinkList" data-id="footer:helpList4">
+                    <%if(footer && footer.helpList4 && footer.helpList4.length > 0){%>
+                        <%for(var i=0;i< footer.helpList4.length;i++){%>
+                        <%var helpObj = footer.helpList4[i];%>
+                        <li><a href="<%=helpObj.linkTo%>" target="<%=helpObj.openInNewPage%>"><%=helpObj.content%></a></li>
+                        <%}%>
+                    <%}else{%>
+                        <li><a href="#">保障范围</a></li>
+                        <li><a href="#">退货退款流程</a></li>
+                        <li><a href="#">服务中心</a></li>
+                        <li><a href="#">更多特色服务</a></li>
+                    <%}%>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="copyright" data-type="htmlSource" data-id="footer:copyRights">
+        <%if(footer && footer.copyRights){%>
+        <%=#footer.copyRights%>
+        <%}else{%>
+        招商自贸网上商城 All Rights Reserved 2015 本站网络实名： 招商自贸商城<br/>ICP证:  粤ICP备15101583号 <br/>技术支持：<a href="#">广州市信景技术有限公司</a>
+        <%}%>
+    </div>
+    <div class="footer_info wbox">
+        <div class="menu" data-type="textLinkList" data-id="footer:bottomLink">
+            <%if(footer && footer.bottomLink && footer.bottomLink.length > 0){%>
+                <%for(var i=0;i< footer.bottomLink.length;i++){%>
+                <a href="<%=footer.bottomLink[i].linkTo%>" target="<%=footer.bottomLink[i].openInNewPage%>"><%=footer.bottomLink[i].content%></a><%if(i< footer.bottomLink.length-1){%>|<%}%>
+                <%}%>
+            <%}else{%>
+                <a href="#">关于我们</a>|
+                <a href="#">加入我们</a>|
+                <a href="#">联系我们</a>|
+                <a href="#">使用帮助</a>|
+                <a href="#">隐私声明</a>
+            <%}%>
+        </div>
+    </div>
+</div>
+<!--end 页尾-->
+
+
+<%if(isWrap){%>
+</body>
+</html>
+<%}%>

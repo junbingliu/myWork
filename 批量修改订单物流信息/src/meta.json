@@ -1,0 +1,6 @@
+{
+    "libs_namespace": "batchUpdateOrderLogistics",
+    "libs": [],
+    "obj_prefixes": ["batchUpdateOrderLogisticsObj"],
+    "list_prefixes": ["batchUpdateOrderLogisticsList"]
+}

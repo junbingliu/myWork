@@ -1,0 +1,6 @@
+{
+    "libs_namespace": "platformFeedbackServer",
+    "libs": ["services/PlatformFeedbackService.jsx","services/PlatformFeedbackQuery.jsx"],
+    "obj_prefixes": ["platformFeedbackServerObj"],
+    "list_prefixes": ["platformFeedbackServerList"]
+}

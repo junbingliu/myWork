@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="../bootstrap/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="/resources/bootstrap3.3.4/css/bootstrap.min.css" >
+    <script src="/resources/jquery-1.10.2.min.js"></script>
+    <script src="/resources/bootstrap3.3.4/js/bootstrap.min.js"></script>
+    <script src="/resources/bootbox.min.js"></script>
+    <script type="text/javascript" src="/resources/pagination/IsoneAjaxPagination-1.10.js"></script>
+    <script>
+        var merchantId='{{=it.merchantId}}'
+    </script>
+    <script type="text/javascript" src="../js/jExportList.js"></script>
+</head>
+<body>
+
+{{=$.inc("pages/include_nav.jsx")}}
+
+<div class="container-fluid">
+    <div>
+
+        <div class="row" style="margin-bottom: 20px">
+            <div class="col-xs-3">
+                <button type="button" class="btn btn-default btn-primary" id="addObj">添加</button>
+            </div>
+        </div>
+
+        <!--异步加载数据列表部分-->
+        <div class="row-fluid">
+            <div id="record_list" class="record_list span12">
+            </div>
+        </div>
+
+
+
+        <!--分页部分-->
+        <div class="row-fluid">
+            <div style="margin-top: 5px;padding-top: 10px; border-top: 1px solid #DDDDDD;text-align: left;">
+                <div class="pagination" style="margin: 0; ">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="add_recordModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 class="modal-title">添加数据</h3>
+            </div>
+            <div class="modal-body" >
+                <div>
+                    <form class="form-horizontal" name="OTORelation_form">
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">商家分类ID</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="columnId">
+                                <span class="help-block">商家主分类ID为：col_merchant_sort</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">商家等级ID</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="gradeId">
+                                <span class="help-block">免费商家ID为：col_merGrade_100</span>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal">取消</button>
+                <button class="btn btn-primary" id="add_record">提交</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

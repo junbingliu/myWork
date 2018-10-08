@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="weixinTemplate" default="all" basedir="">
+    <property file="../build.properties"></property>
+    <target name="build" depends="init,copy,doImport,closure,buildZip"></target>
+    <target name="build-debug" depends="init,copy,doImport,rename,buildZip"></target>
+
+    <target name="rename" depends="doImport">
+
+    </target>
+
+    <target name="closure" depends="doImport">
+
+    </target>
+
+    <target name="doImport" >
+        <exec executable="java">
+            <arg line="-jar "></arg>
+            <arg path="../lib/importer.jar"/>
+            <arg line="-in"></arg>
+            <arg line="src/pages/index_design.html"/>
+            <arg line="-out"></arg>
+            <arg line="build/pages/index_design.html"/>
+            <arg line="-libs"/>
+            <arg line="."/>
+        </exec>
+
+    </target>
+
+    <target name="clean">
+        <delete includeemptydirs="true" quiet="true" failonerror="false">
+            <fileset dir="build" includes="**/*"/>
+        </delete>
+    </target>
+
+    <target name="copy">
+        <copy todir="build" overwrite="true">
+            <fileset dir="src">
+                <include name="**/*.*"/>
+            </fileset>
+        </copy>
+
+    </target>
+
+
+    <target name="buildZip">
+        <mkdir dir="out"></mkdir>
+        <exec executable="java">
+            <arg line="-jar "></arg>
+            <arg path="../lib/appBuilder.jar"/>
+            <arg line="build"></arg>
+            <arg line="out/weixinTemplate.zip"/>
+        </exec>
+    </target>
+
+    <target name="deploy">
+        <exec executable="java">
+            <arg line="-jar "></arg>
+            <arg path="../lib/appDeployer.jar"/>
+            <arg line="${deployUrl}"></arg>
+            <arg line="${deployPass}"></arg>
+
+            <arg line="out/weixinTemplate.zip"/>
+            <arg line="微信"/>
+            <arg line="weixinTemplate"/>
+        </exec>
+    </target>
+
+    <target name="all" depends="build,deploy">
+    </target>
+
+    <target name="all-debug" depends="build-debug,deploy"></target>
+
+    <target name="init">
+        <mkdir dir="build/client"></mkdir>
+        <mkdir dir="out"></mkdir>
+    </target>
+
+</project>

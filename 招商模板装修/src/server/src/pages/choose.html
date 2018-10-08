@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+
+    <title>单品选购（小图）</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<link href="../res/style/style.css" rel="stylesheet">
+
+<body class="bd_bg">
+<div class="newHead-bar">
+    <header class="new_head">
+        <div class="new_fl"><a href="#" class="s_back"><span>返回</span></a></div>
+        <div class="new_midKey">
+            <h2 class="midKey">单品选购</h2>
+        </div>
+        <div class="new_fr"></div>
+    </header>
+</div>
+
+<section class="row-top">
+
+    <div class="single-slide">
+        <div class="rimg">
+
+            <div class="pic" data-type="imgLinkList" data-id="bigAdvTab" imgSize="600x400">
+                <%if(bigAdvTab && bigAdvTab.length>0){%>
+                <%if(!productionMode){%>
+                    <a href="<%=bigAdvTab[0].linkTo%>" target="<%=bigAdvTab[0].openInNewPage%>">
+                        <img src="<%=bigAdvTab[0].imgUrl%>" class="half_img" width="640" height="400">
+                    </a>
+                <%}else{%>
+                <%for(var i=0;i< bigAdvTab.length;i++){
+                var value = bigAdvTab[i];%>
+                <a target="<%=value.openInNewPage%>" href="<%=value.linkTo%>" title="<%=value.description%>"><img src="<%=value.imgUrl%>" class="half_img"></a>
+                <%}%>
+                <%}%>
+                <%}else{%>
+                <a href="#"><img src="../res/case/combin600x400.jpg" class="half_img"></a>
+                <%}%>
+            </div>
+
+        </div>
+        <div class="rstate tbl_type">
+            <%if(bigAdvTab && bigAdvTab.length>0){
+            for(var i=0;i< bigAdvTab.length;i++){
+            var value = bigAdvTab[i];
+            if(i==0){%>
+            <span class="cur"></span>
+            <%}else{%>
+            <span></span>
+            <%}}}else{%>
+            <span></span>
+            <span></span>
+            <span class="cur"></span>
+            <span></span>
+            <span></span>
+            <%}%>
+        </div>
+    </div>
+
+    <div class="single-tabs">
+        <ul data-type="textLinkList" data-id="scareBuyTabs">
+            <li>
+                <span >点击此处，编辑下面分类</span>
+            </li>
+        </ul>
+    </div>
+
+    <div class="single-tabs">
+        <ul data-type="tabs">
+            <%if(scareBuyTabs&&scareBuyTabs.length>0){%>
+            <%for(var i=0;i< scareBuyTabs.length;i++){%>
+            <%if(i==0){%>
+            <li class="cur" tab-target="ToSnapUp<%=i+1%>">
+                <span ><%=scareBuyTabs[i].content%></span>
+            </li>
+            <%}else{%>
+            <li tab-target="ToSnapUp<%=i+1%>">
+                <span ><%=scareBuyTabs[i].content%></span>
+            </li>
+            <%}%>
+            <%}%>
+            <%}else{%>
+            <li class="cur" tab-target="ToSnapUp1">
+                <span>全&nbsp;&nbsp;部</span>
+            </li>
+            <li tab-target="ToSnapUp2">
+                <span>家&nbsp;&nbsp;具</span>
+            </li>
+            <li tab-target="ToSnapUp3">
+                <span>家&nbsp;&nbsp;纺</span>
+            </li>
+            <li tab-target="ToSnapUp4">
+                <span>家&nbsp;&nbsp;电</span>
+            </li>
+            <li tab-target="ToSnapUp5">
+                <span>家居套餐</span>
+            </li>
+            <%}%>
+        </ul>
+    </div>
+
+
+    <%for(var t=1; t<=(scareBuyTabs&&scareBuyTabs.length||5); t++){
+    var dataIdOne=commend?commend["singlePros" + t]:null;
+    var dataTabs=dataIdOne;%>
+    <div class="single-pro" id="ToSnapUp<%=t%>" data-type="productGroup" data-id="commend.singlePros<%=t%>" data-spec="310x310" data-height="100%">
+        <%if(dataTabs && dataTabs.length>0){
+        for(var y=0;y< dataTabs.length;y++){
+        var value = dataTabs[y];
+        if((y+1)%2==1){%>
+        <div class="item fl">
+            <a href="#/productDetailPage/<%=id%>" target="_blank">
+                <div class="pic"><img src="<%=value.imgUrl%>" class="half_img"></div>
+
+                <div class="name"><%=value.name%></div>
+
+                <div class="disc">
+                    <span class="fl price"><%=value.memberPriceString%></span>
+                </div>
+            </a>
+        </div>
+        <%}else{%>
+        <div class="item fr">
+            <a href="#/productDetailPage/<%=id%>" target="_blank">
+                <div class="pic"><img src="<%=value.imgUrl%>" class="half_img"></div>
+
+                <div class="name"><%=value.name%></div>
+
+                <div class="disc">
+                    <span class="fl price"><%=value.memberPriceString%></span>
+                </div>
+            </a>
+        </div>
+        <%}}}else{%>
+        <div class="item fl">
+            <a href="#">
+                <div class="pic"><img src="../res/case/310x310.jpg" class="half_img"></div>
+
+                <div class="name">简约小户型布艺沙发</div>
+
+                <div class="disc">
+                    <span class="fl price">&yen;5179.00</span>
+                </div>
+            </a>
+        </div>
+        <div class="item fr">
+            <a href="#">
+                <div class="pic"><img src="../res/case/310x310.jpg" class="half_img"></div>
+
+                <div class="name">简约小户型布艺沙发</div>
+
+                <div class="disc">
+                    <span class="fl price">&yen;5179.00</span>
+                </div>
+            </a>
+        </div>
+        <div class="item fl">
+            <a href="#">
+                <div class="pic"><img src="../res/case/310x310.jpg" class="half_img"></div>
+
+                <div class="name">简约小户型布艺沙发</div>
+
+                <div class="disc">
+                    <span class="fl price">&yen;5179.00</span>
+                </div>
+            </a>
+        </div>
+        <div class="item fr">
+            <a href="#">
+                <div class="pic"><img src="../res/case/310x310.jpg" class="half_img"></div>
+
+                <div class="name">简约小户型布艺沙发</div>
+
+                <div class="disc">
+                    <span class="fl price">&yen;5179.00</span>
+                </div>
+            </a>
+        </div>
+        <%}%>
+    </div>
+    <%}%>
+
+</section>
+
+
+</body>
+</html>

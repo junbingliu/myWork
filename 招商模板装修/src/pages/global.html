@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<!--[if lte IE 7 ]> <html class="lte_ie7 lte_ie8" lang="zh-CN"> <![endif]-->
+<!--[if lte IE 8 ]> <html class="lte_ie8" lang="zh-CN"> <![endif]-->
+<html>
+<head lang="en">
+    <title><%if(config && config.title && config.title.value){%><%=config.title.value%><%}else{%>全球馆 - <%=webName%><%}%></title>
+    <meta name="description" content="<%if(config && config.description){%><%=config.description.value%><%}%>"/>
+    <meta name="keywords" content="<%if(config && config.keywords){%><%=config.keywords.value%><%}%>"/>
+    <meta http-equiv="X-UA-Compatible" content="edge" />
+    <meta name="renderer" content="webkit"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <meta charset="UTF-8">
+    <%if(!productionMode){%>
+    <style>.recommend .r-list{display: inline-block;}</style>
+    <%}%>
+    <link rel="icon" type="image/x-icon" href="/upload/zhaoshang.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="/upload/zhaoshang.ico">
+    <link rel="Bookmark" type="image/x-icon" href="/upload/zhaoshang.ico">
+
+</head>
+<body>
+
+<%=#importUrl("/header.html?onlyShowTopNav=true")%>
+<link href="@{res/style/g_pavilion.css}@" type="text/css" rel="stylesheet">
+
+<!--全球馆banner-->
+<div class="globalBanner" data-type="image" data-id="topBanner" imgSize="1920X464" mask-type="2">
+    <%if(topBanner && topBanner.imgUrl){%>
+    <img src="<%=topBanner.imgUrl%>" alt="">
+    <%}else{%>
+    <img src="@{res/images/global_banner.jpg}@" alt="">
+    <%}%>
+</div>
+<!--全球馆banner-->
+
+<!--国家馆-->
+<div class="country wbox">
+    <div class="searchCty"><div class="searchBox"><a href="#" class="search-btn"><i></i></a><input type="text" class="searchVal"></div></div>
+    <ul class="country-list clearfix" data-type="imgLinkList" data-id="countryList" imgSize="196X299" mask-type="2">
+        <%if(countryList && countryList.length > 0){%>
+            <%for(var i=0;i< countryList.length;i++){%>
+            <%var countryItem = countryList[i],countryItemLink = countryItem.linkTo || "javascript:;",countryItemTarget = countryItem.linkTo ? countryItem.openInNewPage : '';%>
+            <li class="item" <%if(i>10  && countryList.length > 12){%>style="display:none;"<%}%>>
+      <%if(!countryItem.linkTo){%>
+        <div class="mask"><span>敬请期待</span></div>
+        <%}%>
+        <a href="<%=countryItemLink%>" target="<%=countryItemTarget%>">
+                    <%if(countryItem.imgUrl){%>
+                    <img src="<%=countryItem.imgUrl%>" width="196px" height="299px">
+                    <%}else{%>
+                    <img src="@{res/case/ct1.png}@">
+                    <%}%>
+                </a>
+            </li>
+            <%}%>
+            <%if(countryList.length > 12){%>
+            <li class="more"><a href="javascript:;"><i></i></a></li>
+            <%}%>
+
+        <%}else{%>
+            <li><a href="#"><img src="@{res/case/ct1.png}@"></a></li>
+            <li><a href="#"><img src="@{res/case/ct2.png}@"></a></li>
+            <li><a href="#"><img src="@{res/case/ct3.png}@"></a></li>
+            <li><a href="#"><img src="@{res/case/ct4.png}@"></a></li>
+            <li><a href="#"><img src="@{res/case/ct5.png}@"></a></li>
+            <li><a href="#"><img src="@{res/case/ct6.png}@"></a></li>
+            <li><a href="#"><img src="@{res/case/ct7.png}@"></a></li>
+            <li><a href="#"><img src="@{res/case/ct8.png}@"></a></li>
+            <li><a href="#"><img src="@{res/case/ct9.png}@"></a></li>
+            <li><a href="#"><img src="@{res/case/ct10.png}@"></a></li>
+            <li><a href="#"><img src="@{res/case/ct6.png}@"></a></li>
+            <li class="more"><a href="#"><i></i></a></li>
+        <%}%>
+    </ul>
+</div>
+<!--end 国家馆-->
+
+<!-- 全球大牌 -->
+<div class="recommend wbox">
+    <div class="title"><img src="@{res/images/global_title.png}@" height="25" width="230" alt=""></div>
+    <ul class="r-list" data-type="textLinkList" data-id="globalBrands" data-make-id="true" mask-type="2">
+        <%if(globalBrands && globalBrands.length > 0){%>
+            <%for(var i=0;i < globalBrands.length;i++){%>
+                <%var brandItem = globalBrands[i];%>
+                <%var dataMap = brandMap ? brandMap[brandItem.recordId] : {};%>
+                <li>
+                    <a href="<%=brandItem.linkTo%>" target="<%=brandItem.openInNewPage%>">
+                        <div class="r-banner" data-type="image" data-id="brandMap.<%=brandItem.recordId%>.banner" imgSize="590X217">
+                            <%if(dataMap && dataMap.banner && dataMap.banner.imgUrl){%>
+                            <img src="<%=dataMap.banner.imgUrl%>" alt="">
+                            <%}else{%>
+                            <img src="@{res/case/aeon.jpg}@" alt="">
+                            <%}%>
+                        </div>
+                        <div class="r-logo" data-type="image" data-id="brandMap.<%=brandItem.recordId%>.logo" imgSize="143X143">
+                            <%if(dataMap && dataMap.logo && dataMap.logo.imgUrl){%>
+                            <img src="<%=dataMap.logo.imgUrl%>" alt="">
+                            <%}else{%>
+                            <img src="@{res/case/aeon_logo.png}@" alt="">
+                            <%}%>
+                        </div>
+                        <div class="r-box">
+                            <div class="r-icon" data-type="image" data-id="brandMap.<%=brandItem.recordId%>.icon" imgSize="60X60">
+                                <%if(dataMap && dataMap.icon && dataMap.icon.imgUrl){%>
+                                <img src="<%=dataMap.icon.imgUrl%>" alt="">
+                                <%}else{%>
+                                <img src="@{res/case/country60x60_1.png}@" alt="">
+                                <%}%>
+                            </div>
+                            <div class="r-details">
+                                <div class="r-name" data-type="text" data-id="brandMap.<%=brandItem.recordId%>.title"><%= dataMap && dataMap.title ? dataMap.title : 'AEON'%></div>
+                                <div class="r-intro" data-type="text" data-id="brandMap.<%=brandItem.recordId%>.desc"><%= dataMap && dataMap.desc ? dataMap.desc : '日本零售业位居榜首秉承“顾客至上”基本理念'%></div>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+            <%}%>
+        <%}else{%>
+        <li>
+            <a href="#">
+                <div class="r-banner"><img src="@{res/case/aeon.jpg}@" alt=""></div>
+                <div class="r-logo"><img src="@{res/case/aeon_logo.png}@" alt=""></div>
+                <div class="r-box">
+                    <div class="r-icon"><img src="@{res/case/country60x60_1.png}@" alt=""></div>
+                    <div class="r-details">
+                        <div class="r-name">AEON</div>
+                        <div class="r-intro">日本零售业位居榜首秉承“顾客至上”基本理念</div>
+                    </div>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <div class="r-banner"><img src="@{res/case/unimat.jpg}@" alt=""></div>
+                <div class="r-logo"><img src="@{res/case/unimat_logo.png}@" alt=""></div>
+                <div class="r-box">
+                    <div class="r-icon"><img src="@{res/case/country60x60_2.png}@" alt=""></div>
+                    <div class="r-details">
+                        <div class="r-name">UNIMATRIKEN</div>
+                        <div class="r-intro">UNIMATRIKEN日本中高端保健品品牌 健康生活全家一起分享</div>
+                    </div>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <div class="r-banner"><img src="@{res/case/aeon.jpg}@" alt=""></div>
+                <div class="r-logo"><img src="@{res/case/aeon_logo.png}@" alt=""></div>
+                <div class="r-box">
+                    <div class="r-icon"><img src="@{res/case/country60x60_1.png}@" alt=""></div>
+                    <div class="r-details">
+                        <div class="r-name">AEON</div>
+                        <div class="r-intro">日本零售业位居榜首秉承“顾客至上”基本理念</div>
+                    </div>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <div class="r-banner"><img src="@{res/case/unimat.jpg}@" alt=""></div>
+                <div class="r-logo"><img src="@{res/case/unimat_logo.png}@" alt=""></div>
+                <div class="r-box">
+                    <div class="r-icon"><img src="@{res/case/country60x60_2.png}@" alt=""></div>
+                    <div class="r-details">
+                        <div class="r-name">UNIMATRIKEN</div>
+                        <div class="r-intro">UNIMATRIKEN日本中高端保健品品牌 健康生活全家一起分享</div>
+                    </div>
+                </div>
+            </a>
+        </li>
+        <%}%>
+    </ul>
+</div>
+
+<%if(productionMode){%>
+<script src="@{res/js/jquery-1.12.1.min.js}@"></script>
+<script src="@{res/js/jquery.lazyloaded.js}@" type="text/javascript"></script>
+<script type="text/javascript">
+    $(function(){
+        $(".country-list .more").on("click",function(){
+            $(".country-list li.item").show();
+        });
+    });
+</script>
+<%}%>
+
+</body>
+</html>

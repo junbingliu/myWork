@@ -1,0 +1,250 @@
+//#import ../header_design.html
+<link href="../res/style/channel/b2b.css" rel="stylesheet">
+<div class="wrapper">
+    <div class="slide_wrap" style="position: relative">
+        <div class="banner">
+            <ul class="pic" id="slide_adv">
+                {{for(var i=1; i<=5; i++){ }}
+                {{var dataId="bigAdvTab" + i; var data=it[dataId];if(!data){data = {} }; }}
+                {{?data.recommendImg && data.recommendImg.imgUrl}}
+                <li id="{{=dataId}}" style="background:url({{=data.recommendImg.imgUrl}}) no-repeat center 0;display: none">
+                    <div class="box">
+                        <a class="large" href="{{=data.recommendImg.imgLinkTo}}" data-type="imgLink" data-id="{{=dataId}}.recommendImg" data-height="200" imgSize="1200x400"></a>
+                    </div>
+                </li>
+                {{??}}
+                <li id="{{=dataId}}" style="background:url(../res/case/jqqd.jpg) no-repeat center 0;display: none">
+                    <div class="box">
+                        <a class="large" href="#" data-type="imgLink" data-id="{{=dataId}}.recommendImg" data-height="200" imgSize="1200x400"></a>
+                    </div>
+                </li>
+                {{?}}
+                {{ } }}
+            </ul>
+            <div class="num">
+                <p data-type="tabs" data-id="bigAdvTab" >
+                    {{?it.bigAdvTab}}
+                    {{=it.bigAdvTab}}
+                    {{??}}
+                    <span>
+                        <b class="cur" tab-target="bigAdvTab1"></b>
+                        <b tab-target="bigAdvTab2"></b>
+                        <b tab-target="bigAdvTab3"></b>
+                        <b tab-target="bigAdvTab4"></b>
+                        <b tab-target="bigAdvTab5"></b>
+                    </span>
+                    {{?}}
+                </p>
+            </div>
+        </div>
+        <!--<div class="banner_mini" data-type="textLinkList" data-id="banner_mini" data-height="400">-->
+            <!--<h3>欢迎来到企业采购频道！</h3>-->
+            <!--<ul>-->
+                <!--{{?it.banner_mini&&it.banner_mini.length>0}}-->
+                <!--{{~it.banner_mini:value:index}}-->
+                <!--{{?index>1}}-->
+                <!--<li><p>{{=value.content}}</p></li>-->
+                <!--{{??}}-->
+                <!--<li><a href="{{=value.linkTo}}" target="_blank"><span>{{=value.content}}</span></a></li>-->
+                <!--{{?}}-->
+                <!--{{~}}-->
+                <!--{{??}}-->
+                <!--<li><a href="#"><span>登录企业账户</span></a></li>-->
+                <!--<li><a href="#"><span>企业用户注册</span></a></li>-->
+                <!--<li><p>企业热线：027-8888888</p></li>-->
+                <!--{{?}}-->
+            <!--</ul>-->
+        <!--</div>-->
+    </div>
+    {{?it.config&&it.config.levelNum&&it.config.levelNum.value.indexOf("A")>-1}}
+    <div class="sub-warp">
+        <div class="exclusive-t" data-type="imgLink" data-id="exclusiveT"  imgSize="1200X">
+            {{?it.exclusiveT && it.exclusiveT.imgUrl}}
+            <h1><img src="{{=it.exclusiveT.imgUrl}}" alt="{{=it.exclusiveT.description}}"></h1>
+            {{??}}
+            <h1><img src="http://img1.wushang.com/img/2016/5/3/11235241.jpg" alt=""></h1>
+            {{?}}
+        </div>
+        <div class="exclusive-c" data-type="imgLinkList" data-id="exclusiveC" data-height="236" imgSize="236X">
+            <ul>
+                {{?it.exclusiveC && it.exclusiveC.length > 0}}
+                {{~it.exclusiveC:value:index}}
+                <li>
+                    <a href="{{=value.linkTo}}" target="_blank"><img src="{{=value.imgUrl}}" alt="{{=value.description}}" width="236" /><div class="infor">{{=value.description}}</div></a></li>
+                </li>
+                {{~}}
+                {{??}}
+                <li>
+                    <a href="javascript:void(0)"><img src="http://pic1.secoo.com/push/15/5/a2d1ac8614944d8ab6ac6cc161cbdaa6.jpg" alt=""></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)"><img src="http://pic1.secoo.com/push/15/5/080e4c31672944e3adcd388e92221169.jpg" alt=""></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)"><img src="http://pic1.secoo.com/push/15/5/1dca79585560434dbc300f472812bc5f.jpg" alt=""></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)"><img src="http://pic1.secoo.com/push/15/6/b2fd71dabfb8457489792f8b75d7a4c2.jpg" alt=""></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)"><img src="http://pic1.secoo.com/push/15/5/a1f27fd478c741a39892000781b6b9d9.jpg" alt=""></a>
+                </li>
+                {{?}}
+            </ul>
+        </div>
+    </div>
+    {{?}}
+
+    {{?it.config&&it.config.levelNum&&it.config.levelNum.value.indexOf("B")>-1}}
+    <div class="sub-warp">
+        <div class="exclusive-t" data-type="imgLink" data-id="exclusive"  imgSize="1200X">
+            {{?it.exclusive && it.exclusive.imgUrl}}
+            <h1><img src="{{=it.exclusive.imgUrl}}" alt="{{=it.exclusive.description}}"></h1>
+            {{??}}
+            <h1><img src="http://img1.wushang.com/img/2016/5/3/11235241.jpg" alt=""></h1>
+            {{?}}
+        </div>
+    </div>
+    {{?}}
+
+    {{var floorNum = it.config.levelNum.value.split(",");}}
+    {{ for(var i = 0; i <= floorNum.length -1; i++){ }}
+    {{? parseInt(floorNum[i]) != 0 }}
+    <div class="sub-warp floor">
+        <div class="top">
+            {{ var floor_title_id = "floor_title_" + (i + 1);
+               var floor_title = it[floor_title_id];
+               ;
+            }}
+            <div class="title" data-type="textLink" data-id="{{=floor_title_id}}">
+                {{?floor_title}}
+                <h1>{{=floor_title.content}}</h1>
+                {{??}}
+                <h1>面部护理</h1>
+                {{?}}
+            </div>
+            <div class="con-lf bg{{=i+1}}">
+                {{ var floor_tabs_id = "floor_tabs_" + (i + 1);
+                var floor_tabs = it[floor_tabs_id];
+                }}
+                <div class="tabs bg-img{{=i+1}}" id="tab" data-type="tabs" data-id="{{=floor_tabs_id}}">
+                    {{?floor_tabs}}
+                    {{=floor_tabs}}
+                    {{??}}
+                    <ul>
+                        <li class="cur" tab-target="floor_{{=i+1}}_product_1"><span>卸妆</span></li>
+                        <li tab-target="floor_{{=i+1}}_product_2"><span>卸妆</span></li>
+                        <li tab-target="floor_{{=i+1}}_product_3"><span>卸妆</span></li>
+                        <li tab-target="floor_{{=i+1}}_product_4"><span>卸妆</span></li>
+                        <li tab-target="floor_{{=i+1}}_product_5"><span>卸妆</span></li>
+                        <li tab-target="floor_{{=i+1}}_product_6"><span>卸妆</span></li>
+                        <li tab-target="floor_{{=i+1}}_product_7"><span>卸妆</span></li>
+                        <li tab-target="floor_{{=i+1}}_product_8"><span>卸妆</span></li>
+                    </ul>
+                    {{?}}
+                </div>
+            </div>
+
+        </div>
+        <div class="content">
+
+            <div class="con-cn">
+                {{ for(var n = 1; n <= 8; n++){ }}
+                {{ var floor_product_id = "floor_" + (i+1) + "_product_" + n;
+                var floor_product = it[floor_product_id];
+                }}
+                <div class="product" id="{{=floor_product_id}}" data-type="productGroup" data-id="{{=floor_product_id}}" data-spec="270X270" data-height="200">
+                    <ul>
+                        {{?floor_product && floor_product.length > 0}}
+                        {{~floor_product:value:index}}
+                        <li>
+                            <div class="pic">
+                                <a href="/product.jsp?id={{=value.id}}" target="_blank"><img src="{{=value.imgUrl}}"></a>
+                            </div>
+                            <div class="title">
+                                <p><a href="/product.jsp?id={{=value.id}}" target="_blank">{{=value.name}}</a></p>
+                            </div>
+                            <div class="price">合约采购价:
+                                {{var pprice="floor_" + (i+1) + "_product_" + n + "p"+index; var pp=it[pprice];}}
+                                <span data-id="{{=pprice}}" data-type="textLink">
+                                    {{?pp && pp.content}}
+                                    {{=pp.content}}
+                                    {{??}}
+                                    <em>¥</em>3000.00/每箱
+                                    {{?}}
+                                </span>
+                            </div>
+                        </li>
+                        {{~}}
+                        {{??}}
+                        <li>
+                            <div class="pic">
+                                <a href="javascript:void(0);"><img src="http://image3.suning.cn/b2c/catentries/000000000128840928_1_200x200.jpg"></a>
+                            </div>
+                            <div class="title">
+                                <p><a href="javascript:void(0);">MSQ/魅丝蔻 8支竹炭纤维化妆套刷 初学便携化妆刷套装 白色羊年升级版人造纤维</a></p>
+                            </div>
+                            <div class="price">
+                                <span><em>¥</em>68.00</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="pic">
+                                <a href="javascript:void(0);"><img src="http://image3.suning.cn/b2c/catentries/000000000128840928_1_200x200.jpg"></a>
+                            </div>
+                            <div class="title">
+                                <p><a href="javascript:void(0);">MSQ/魅丝蔻 8支竹炭纤维化妆套刷 初学便携化妆刷套装 白色羊年升级版人造纤维</a></p>
+                            </div>
+                            <div class="price">
+                                <span><em>¥</em>68.00</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="pic">
+                                <a href="javascript:void(0);"><img src="http://image3.suning.cn/b2c/catentries/000000000128840928_1_200x200.jpg"></a>
+                            </div>
+                            <div class="title">
+                                <p><a href="javascript:void(0);">MSQ/魅丝蔻 8支竹炭纤维化妆套刷 初学便携化妆刷套装 白色羊年升级版人造纤维</a></p>
+                            </div>
+                            <div class="price">
+                                <span><em>¥</em>68.00</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="pic">
+                                <a href="javascript:void(0);"><img src="http://image3.suning.cn/b2c/catentries/000000000128840928_1_200x200.jpg"></a>
+                            </div>
+                            <div class="title">
+                                <p><a href="javascript:void(0);">MSQ/魅丝蔻 8支竹炭纤维化妆套刷 初学便携化妆刷套装 白色羊年升级版人造纤维</a></p>
+                            </div>
+                            <div class="price">
+                                <span><em>¥</em>68.00</span>
+                            </div>
+                        </li>
+
+                        {{?}}
+                    </ul>
+                </div>
+                {{ } }}
+            </div>
+
+        </div>
+    </div>
+    {{?}}
+    {{ } }}
+</div>
+
+
+
+<!--end page-->
+{{?it.productionMode}}
+{{=$.importUrl("/defaultFooter.html?m=head_merchant&productionMode=true")}}
+{{??}}
+{{=$.importUrl("/defaultFooter.html?m=head_merchant&productionMode=false")}}
+{{?}}
+  
+
+
+
+
+

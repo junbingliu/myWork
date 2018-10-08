@@ -1,0 +1,87 @@
+//#import ../header_design.html
+<link href="../res/style/channel/b2b.css" rel="stylesheet">
+<div class="wrapper">
+    <div class="banner_app">
+    <ul class="pic" id="slide_adv">
+        {{for(var i=1; i<=5; i++){ }}
+        {{var dataId="bigAdvTab" + i; var data=it[dataId];if(!data){data = {} }; }}
+        {{?data.recommendImg && data.recommendImg.imgUrl}}
+        <li id="{{=dataId}}" style="background:url({{=data.recommendImg.imgUrl}}) no-repeat center 0;display: none">
+            <div class="box">
+                <a class="large" href="{{=data.recommendImg.imgLinkTo}}" data-type="imgLink" data-id="{{=dataId}}.recommendImg" data-height="200" imgSize="1920x510"></a>
+            </div>
+        </li>
+        {{??}}
+        <li id="{{=dataId}}" style="background:url(../res/case/jqqd.jpg) no-repeat center 0;display: none">
+            <div class="box">
+                <a class="large" href="#" data-type="imgLink" data-id="{{=dataId}}.recommendImg" data-height="200" imgSize="1920x510"></a>
+            </div>
+        </li>
+        {{?}}
+        {{ } }}
+    </ul>
+    <div class="num">
+        <p data-type="tabs" data-id="bigAdvTab" >
+            {{?it.bigAdvTab}}
+            {{=it.bigAdvTab}}
+            {{??}}
+            <span>
+                <b class="cur" tab-target="bigAdvTab1"></b>
+                <b tab-target="bigAdvTab2"></b>
+            </span>
+            {{?}}
+        </p>
+    </div>
+    </div>
+</div>
+
+{{?it.config&&it.config.levelNum&&it.config.levelNum.value.indexOf("A")>-1}}
+<div style="width: 100%;overflow: hidden">
+    <div class="sub-warp">
+    <div class="imgADDA" data-type="imgLinkList" data-id="imgADDA" data-height="200" imgSize="1920X">
+        <ul>
+            {{?it.imgADDA && it.imgADDA.length > 0}}
+            {{~it.imgADDA:value:index}}
+            <li>
+                <img src="{{=value.imgUrl}}" alt="{{=value.description}}" width="1920" /></li>
+            </li>
+            {{~}}
+            {{??}}
+            <li>
+                <a href="javascript:void(0)"><img src="http://pic1.secoo.com/push/15/5/a2d1ac8614944d8ab6ac6cc161cbdaa6.jpg" alt=""></a>
+            </li>
+            <li>
+                <a href="javascript:void(0)"><img src="http://pic1.secoo.com/push/15/5/080e4c31672944e3adcd388e92221169.jpg" alt=""></a>
+            </li>
+            <li>
+                <a href="javascript:void(0)"><img src="http://pic1.secoo.com/push/15/5/1dca79585560434dbc300f472812bc5f.jpg" alt=""></a>
+            </li>
+            <li>
+                <a href="javascript:void(0)"><img src="http://pic1.secoo.com/push/15/6/b2fd71dabfb8457489792f8b75d7a4c2.jpg" alt=""></a>
+            </li>
+            <li>
+                <a href="javascript:void(0)"><img src="http://pic1.secoo.com/push/15/5/a1f27fd478c741a39892000781b6b9d9.jpg" alt=""></a>
+            </li>
+            {{?}}
+        </ul>
+    </div>
+    </div>
+</div>
+{{?}}
+
+
+
+
+
+<!--end page-->
+{{?it.productionMode}}
+{{=$.importUrl("/defaultFooter.html?m=head_merchant&productionMode=true")}}
+{{??}}
+{{=$.importUrl("/defaultFooter.html?m=head_merchant&productionMode=false")}}
+{{?}}
+  
+
+
+
+
+

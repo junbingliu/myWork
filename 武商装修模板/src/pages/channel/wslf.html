@@ -1,0 +1,1727 @@
+//#import ../header_secondary_page.html
+
+
+<link href="../res/style/wslf.css" rel="stylesheet">
+
+
+<i></i>
+
+
+<div class="wbox">
+<div class="mallCategory" categoryShow="{{=it.config&&it.config.showCategory&&it.config.showCategory.value||'F'}}">
+    <div class="mallSort" data-type='fcat' dataId="sortLayer_channel">
+        <!--所有商品分类-->
+        {{? it.sortLayer_channel}}
+        <div class="sort-m">
+            <div class="sort" style="display:{{?it.config&&it.config.showCategory&&it.config.showCategory.value=='F'}}none{{??}}block{{?}};">
+                {{~it.sortLayer_channel.children:value:index}}
+                {{?index<7}}
+                <div class="item">
+                    <h3><a target="_blank" href="{{=value.url}}">{{=value.name}}</a></h3><i></i>
+                    {{var dataId="hf" + index; var data=it[dataId]; }}
+                    <p data-type="textLinkList" data-id="{{=dataId}}">
+                        {{?data && data.length>0}}
+                        {{~data:valuehf:indexhf}}
+                        <a target="_blank" href="{{=valuehf.linkTo}}">{{=valuehf.content}}</a>
+                        {{~}}
+                        {{??}}
+                        <a target="_blank">hf</a>
+                        {{?}}                            </p>
+                </div>
+                {{?}}
+                {{~}}                    </div>
+            <div class="sort-two">
+                <!--第二层商品分类层-->
+                {{~it.sortLayer_channel.children:value:index}}
+                {{?value!=null}}
+                {{?value.children && value.children.length>0}}
+                <div class="sortLayer" style="display:none; opacity: 0.8;">
+                    <div class="itemBg"></div>
+                    {{~value.children:level2:index2}}
+                    <div class="itemCon">
+                        <div class="subMain">
+                            <dl>
+                                <dt><a target="_blank" href="{{=level2.url}}">{{=level2.name}}</a></dt>
+                                <dd>
+                                    {{~level2.children:level3:index3}}
+                                    <a target="_blank" href="{{=level3.url}}">{{=level3.name}}</a>
+                                    {{~}}<!--level3-->
+                                </dd>
+                            </dl>
+                        </div>
+                    </div>
+                    {{~}}                        </div>
+                {{?}}
+                {{?}}
+                {{~}}
+                <!--end 第二层商品分类层-->
+            </div>
+        </div>
+        {{??}}
+        <!--end 所有商品分类-->
+        <!--所有商品分类-->
+        <div class="sort" style="display:{{?it.config&&it.config.showCategory&&it.config.showCategory.value=='F'}}none{{??}}block{{?}};" data-type='fcat' dataId="header:cat_nav">
+
+            <div class="item">
+                <h3><a href="#">进口食品</a><s></s></h3>
+            </div>
+            <div class="item">
+                <h3><a href="#">食品饮料生鲜</a><s></s></h3>
+                <div class="sortLayer" style=" display:none; ">
+                    <div class="itemCon">
+                        <div class="subMain">
+                            <dl>
+                                <dt><a href="#">食品</a></dt>
+                                <dd>
+                                    <a href="#">粮油</a>
+                                    <a href="#">厨房调味</a>
+                                    <a href="#">冲调品</a>
+                                    <a href="#">果汁饮料</a>
+                                    <a href="#">酒类 </a>
+                                    <a href="#">奶制品 </a>
+                                    <a href="#">母婴产品 </a>
+                                    <a href="#">休闲食品 </a>
+                                    <a href="#">饼干蛋糕 </a>
+                                    <a href="#">早餐产品 </a>
+                                    <a href="#">方便食品 </a>
+                                    <a href="#">茶品 </a>
+                                    <a href="#">进口食品 </a>                                        </dd>
+                            </dl>
+                        </div>
+                    </div>
+
+                    <div class="itemCon">
+                        <div class="subMain">
+                            <dl>
+                                <dt><a href="#">日用百货</a></dt>
+                                <dd>
+                                    <a href="#">粮油</a>
+                                    <a href="#">厨房调味</a>
+                                    <a href="#">冲调品</a>
+                                    <a href="#">果汁饮料</a>
+                                    <a href="#">酒类 </a>
+                                    <a href="#">奶制品 </a>
+                                    <a href="#">母婴产品 </a>
+                                    <a href="#">休闲食品 </a>
+                                    <a href="#">饼干蛋糕 </a>
+                                    <a href="#">早餐产品 </a>
+                                    <a href="#">方便食品 </a>
+                                    <a href="#">茶品 </a>
+                                    <a href="#">进口食品 </a>                                        </dd>
+                            </dl>
+                        </div>
+                    </div>
+
+                    <div class="itemCon">
+                        <div class="subMain">
+                            <dl>
+                                <dt><a href="#">生鲜蔬果</a></dt>
+                                <dd>
+                                    <a href="#">粮油</a>
+                                    <a href="#">厨房调味</a>
+                                    <a href="#">冲调品</a>
+                                    <a href="#">果汁饮料</a>
+                                    <a href="#">酒类 </a>
+                                    <a href="#">奶制品 </a>
+                                    <a href="#">母婴产品 </a>
+                                    <a href="#">休闲食品 </a>
+                                    <a href="#">饼干蛋糕 </a>
+                                    <a href="#">早餐产品 </a>
+                                    <a href="#">方便食品 </a>
+                                    <a href="#">茶品 </a>
+                                    <a href="#">进口食品 </a>                                        </dd>
+                            </dl>
+                        </div>
+                    </div>
+
+                    <div class="itemCon last">
+                        <div class="subMain">
+                            <dl>
+                                <dt><a href="#">宠物食品、用品</a></dt>
+                                <dd>
+                                    <a href="#">粮油</a>
+                                    <a href="#">厨房调味</a>
+                                    <a href="#">冲调品</a>
+                                    <a href="#">果汁饮料</a>
+                                    <a href="#">酒类 </a>
+                                    <a href="#">奶制品 </a>
+                                    <a href="#">母婴产品 </a>                                        </dd>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--end 所有商品分类层-->
+            <div class="item">
+                <h3><a href="#">家居厨卫</a><s></s></h3>
+            </div>
+            <div class="item">
+                <h3><a href="#">国际精品</a><s></s></h3>
+            </div>
+            <div class="item">
+                <h3><a href="#">美容美妆</a><s></s></h3>
+            </div>
+            <div class="item">
+                <h3><a href="#">黄金珠宝</a><s></s></h3>
+            </div>
+            <div class="item">
+                <h3><a href="#">母婴童品</a><s></s></h3>
+            </div>
+            <div class="item">
+                <h3><a href="#">滋补保健</a><s></s></h3>
+            </div>
+            <div class="item">
+                <h3><a href="#">箱包鞋靴</a><s></s></h3>
+            </div>
+            <div class="item">
+                <h3><a href="#">男装女装</a><s></s></h3>
+            </div>
+            <div class="item">
+                <h3><a href="#">内衣配饰</a><s></s></h3>
+            </div>
+            <div class="item">
+                <h3><a href="#">运动户外</a><s></s></h3>
+            </div>
+            <div class="item last">
+                <h3><a href="#">餐饮娱乐</a><s></s></h3>
+            </div>
+        </div>
+        {{?}}
+        <!--end 所有商品分类-->
+    </div>
+</div>
+<!--
+<div class="nav1" data-type="textLinkList" data-id="wslfnav_text">
+    <ul>
+        {{?it.wslfnav_text && it.wslfnav_text.length>0}}
+        {{~it.wslfnav_text:value:index}}
+        <li><a arget="_blank" href="{{=value.linkTo}}">{{=value.content}}</a></li>
+        {{~}}
+        {{??}}
+        <li><a href="#" class="cur">首页</a></li>
+        <li><a href="#">定制推荐</a></li>
+        <li><a href="#">线上导购</a></li>
+        <li><a href="#">团购专区</a></li>
+        <li><a href="#">限时尊抢</a></li>
+        <li><a href="#">新品首发</a></li>
+        <li><a href="#">预售专区</a></li>
+        {{?}}
+    </ul>
+</div>
+-->
+</div>
+
+
+
+
+
+
+
+<div class="banner">
+<ul class="pic" id="slide_adv">
+    {{for(var i=1; i<=5; i++){ }}
+    {{var dataId="bigAdvTab" + i; var data=it[dataId];if(!data){data = {} }; }}
+    {{?data.recommendImg && data.recommendImg.imgUrl}}
+    <li id="{{=dataId}}" style="background:url({{=data.recommendImg.imgUrl}}) no-repeat center 0;display: none">
+        <div class="box">
+            <a class="large" href="{{=data.recommendImg.imgLinkTo}}" data-type="imgLink" data-id="{{=dataId}}.recommendImg" data-height="420" imgSize="1440x420"></a>
+            <p class="thumbs">
+                {{?data.recommendSmallImg && data.recommendSmallImg.imgUrl}}
+                <a target="_blank" href="{{=data.recommendSmallImg.imgLinkTo}}"><img data-type="imgLink" data-id="{{=dataId}}.recommendSmallImg" imgSize="220X380"  src="{{=data.recommendSmallImg.imgUrl}}" width="220px" height="380px" /></a>
+                {{??}}
+                <a target="_blank" href="#"><img data-type="imgLink" data-id="{{=dataId}}.recommendSmallImg" imgSize="220X380"  src="../res/case/220x380.jpg" width="220px" height="380px"/></a>
+                {{?}}            
+			</p>
+        </div>
+    </li>
+    {{??}}
+    <li id="{{=dataId}}" style="background:url(../res/case/1600x380.jpg) no-repeat center 0;display: none">
+        <div class="box">
+            <a class="large" href="#" data-type="imgLink" data-id="{{=dataId}}.recommendImg" data-height="340" imgSize="1440x420"></a>
+            <p class="thumbs">
+                {{?data.recommendSmallImg && data.recommendSmallImg.imgUrl}}
+                <a target="_blank" href="{{=data.recommendSmallImg.imgLinkTo}}"><img data-type="imgLink" data-id="{{=dataId}}.recommendSmallImg" imgSize="220X380"  src="{{=data.recommendSmallImg.imgUrl}}" width="220px" height="380px" /></a>
+                {{??}}
+                <a target="_blank" href="#"><img data-type="imgLink" data-id="{{=dataId}}.recommendSmallImg" imgSize="220X380"  src="../res/case/220x380.jpg" width="220px" height="380px"/></a>
+                {{?}}            
+			</p>
+        </div>
+    </li>
+    {{?}}
+    {{ } }}
+</ul>
+<div class="num">
+    <p data-type="tabs" data-id="bigAdvTab">
+        {{?it.bigAdvTab}}
+        {{=it.bigAdvTab}}
+        {{??}}
+          <span>
+              <b class="cur" tab-target="bigAdvTab1"></b>
+              <b tab-target="bigAdvTab2"></b>
+              <b tab-target="bigAdvTab3"></b>
+              <b tab-target="bigAdvTab4"></b>
+              <b tab-target="bigAdvTab5"></b>          
+		  </span>
+        {{?}}    
+		</p>
+</div>
+</div>
+
+
+
+{{?it.config&&it.config.levelNum&&it.config.levelNum.value.indexOf("1")>-1}}
+<div class="wslfwbox floor">
+  <div class="f1advarea_adv pl10" data-type="imgLink" data-id="f1adv_1" imgSize="190X365">
+  {{?it.f1adv_1 &&it.f1adv_1.imgUrl}}
+   <a href="{{=it.f1adv_1.imgLinkTo}}"><img src="{{=it.f1adv_1.imgUrl}}" alt="{{=it.f1adv_1.description}}" title="{{=it.f1adv_1.description}}" width="190" height="365" /></a>
+  {{??}}
+  <a href=""><img src="../res/images/adv.gif" width="190" height="365" /></a>
+  {{?}}
+  </div>
+  
+  <div class="w265area pl10">
+    <div class="f1advarea_adv" data-type="imgLink" data-id="f1adv_2T" imgSize="265X168">
+    {{?it.f1adv_2T &&it.f1adv_2T.imgUrl}}
+    <a href="{{=it.f1adv_2T.imgLinkTo}}"><img src="{{=it.f1adv_2T.imgUrl}}" alt="{{=it.f1adv_2T.description}}" title="{{=it.f1adv_2T.description}}" width="265" height="168" /></a>
+    {{??}}
+     <a href=""><img src="../res/images/adv.gif" width="265" height="168" /></a>
+    {{?}}
+    </div>
+	<div class="f1advarea_adv pt10" data-type="imgLink" data-id="f1adv_2B" imgSize="265X188">
+    {{?it.f1adv_2B &&it.f1adv_2B.imgUrl}}
+    <a href="{{=it.f1adv_2B.imgLinkTo}}"><img src="{{=it.f1adv_2B.imgUrl}}" alt="{{=it.f1adv_2B.description}}" title="{{=it.f1adv_2B.description}}" width="265" height="188" /></a>
+    {{??}}
+     <a href=""><img src="../res/images/adv.gif" width="265" height="188" /></a>
+    {{?}}
+    </div>
+  </div>
+  
+  <div class="f1advarea_adv pl10" data-type="imgLink" data-id="f1adv_3" imgSize="190X365">
+  {{?it.f1adv_3 &&it.f1adv_3.imgUrl}}
+   <a href="{{=it.f1adv_3.imgLinkTo}}"><img src="{{=it.f1adv_3.imgUrl}}" alt="{{=it.f1adv_3.description}}" title="{{=it.f1adv_3.description}}" width="190" height="365" /></a>
+  {{??}}
+  <a href=""><img src="../res/images/adv.gif" width="190" height="365" /></a>
+  {{?}}
+  </div>
+  
+  <div class="w240area pl10">
+    <div class="f1advarea_adv" data-type="imgLink" data-id="f1adv_4T" imgSize="240X168">
+    {{?it.f1adv_4T &&it.f1adv_4T.imgUrl}}
+    <a href="{{=it.f1adv_4T.imgLinkTo}}"><img src="{{=it.f1adv_4T.imgUrl}}" alt="{{=it.f1adv_4T.description}}" title="{{=it.f1adv_4T.description}}" width="240" height="168" /></a>
+    {{??}}
+     <a href=""><img src="../res/images/adv.gif" width="240" height="168" /></a>
+    {{?}}
+    </div>
+	<div class="f1advarea_adv pt10" data-type="imgLink" data-id="f1adv_4B" imgSize="240X188">
+    {{?it.f1adv_4B &&it.f1adv_4B.imgUrl}}
+    <a href="{{=it.f1adv_4B.imgLinkTo}}"><img src="{{=it.f1adv_4B.imgUrl}}" alt="{{=it.f1adv_4B.description}}" title="{{=it.f1adv_4B.description}}" width="240" height="188" /></a>
+    {{??}}
+     <a href=""><img src="../res/images/adv.gif" width="240" height="188" /></a>
+    {{?}}
+    </div>
+  </div>
+  
+  <div class="w248area pl10">
+    <div class="f1advarea_adv" data-type="imgLink" data-id="f1adv_5T" imgSize="248X168">
+    {{?it.f1adv_5T &&it.f1adv_5T.imgUrl}}
+    <a href="{{=it.f1adv_5T.imgLinkTo}}"><img src="{{=it.f1adv_5T.imgUrl}}" alt="{{=it.f1adv_5T.description}}" title="{{=it.f1adv_5T.description}}" width="248" height="168" /></a>
+    {{??}}
+     <a href=""><img src="../res/images/adv.gif" width="248" height="168" /></a>
+    {{?}}
+    </div>
+	<div class="f1advarea_adv pt10" data-type="imgLink" data-id="f1adv_5B" imgSize="248X188">
+    {{?it.f1adv_5B &&it.f1adv_5B.imgUrl}}
+    <a href="{{=it.f1adv_5B.imgLinkTo}}"><img src="{{=it.f1adv_5B.imgUrl}}" alt="{{=it.f1adv_5B.description}}" title="{{=it.f1adv_5B.description}}" width="248" height="188" /></a>
+    {{??}}<a href=""><img src="../res/images/adv.gif" width="248" height="188" /></a>{{?}}    </div>
+  </div>
+  
+</div>
+{{?}}
+
+{{?it.config&&it.config.levelNum&&it.config.levelNum.value.indexOf("2")>-1}}
+<div class="wslfwbox floor">
+
+  <div class="w1200text">
+	  <p data-type="textLinkList" data-id="F2Ftext">
+        {{?it.F2Ftext&&it.F2Ftext.length>0}}
+        {{~it.F2Ftext:value:index}}
+        {{=value.content}}
+        {{~}}
+        {{??}}
+        二级分类
+        {{?}}
+      </p>
+    </div>
+
+
+  <div class="w280area">
+  
+    <div class="w144">
+        {{for(var i=1; i<=3; i++){ }}
+        {{var dataId="w144" + i; var data=it[dataId];if(!data){data = {} }; }}
+        <h2 class="t{{=i}}" data-type="textLinkList" data-id="{{=dataId}}.F2L">
+        {{?data.F2L && data.F2L.length>0&&data.F2L.length<=1}}
+        {{~data.F2L:value:index}}
+        <a target="_blank" href="{{=value.linkTo}}">{{=value.content}}</a>
+        {{~}}
+        {{??}}
+        {{?i==1}}
+        <a>食品大类</a>
+        {{??i==2}}
+        <a>日用百货</a>
+        {{??}}
+        <a>办公用品</a>
+        {{?}}
+        {{?}}
+        </h2>
+        {{ } }}
+    </div>
+	
+	<div class="w131">
+        {{for(var i=1; i<=3; i++){ }}
+        {{var dataId="w131" + i; var data=it[dataId];if(!data){data = {} }; }}
+        <h3 class="t{{=i}}" data-type="textLinkList" data-id="{{=dataId}}.F2R">
+        {{?data.F2R && data.F2R.length>0&&data.F2R.length<=1}}
+        {{~data.F2R:value:index}}
+        <a target="_blank" href="{{=value.linkTo}}">{{=value.content}}</a>
+        {{~}}
+        {{??}}
+        {{?i==1}}
+        <a>食品大类</a>
+        {{??i==2}}
+        <a>日用百货</a>
+        {{??}}
+        <a>办公用品</a>
+        {{?}}
+        {{?}}
+        </h3>
+        {{ } }}
+    </div>
+	
+	<div class="w280">
+	  <h4 data-type="textLinkList" data-id="F2B">
+        {{?it.F2B&&it.F2B.length>0}}
+        {{~it.F2B:value:index}}
+        <a target="_blank" href="{{=value.linkTo}}">{{=value.content}}</a>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        {{~}}
+        {{??}}
+        <a href="#">二级分类</a>
+        {{?}}
+      </h4>
+    </div>
+	
+  </div>
+
+  {{for(var i=1; i<=1; i++){ }}
+  {{var dataId="profloor_tab" + i; var data=it[dataId];if(!data){data = {} }; }}
+  <div class="wslff2_list" data-type="productGroup" data-id="{{=dataId}}.wslff2_productlist" data-spec="140X140">
+    <ul>
+        {{?data.wslff2_productlist&&data.wslff2_productlist.length>0}}
+        {{~data.wslff2_productlist :value:index}}
+        <li>
+		  <div class="wsfcf_listDIYTarea">
+            <div class="pic">
+                <a target="_blank" href="/product.jsp?id={{=value.id}}">
+                    <img src="{{=value.imgUrl}}" alt="{{=value.name}}" title="{{=value.name}}" width="140px">
+                </a>
+            </div>
+			<div class="mp">&yen{{=value.memberPrice}}</div>
+		  </div>
+        </li>
+        {{~}}
+        {{??}}
+		<li>
+		  <div class="wsfcf_listDIYTarea">
+            <div class="pic"><a href="#"><img src="../res/case/180x240x6.jpg"></a></div>
+			<div class="title"><a href="#">【回家送礼】东阿阿胶清仓促销 养生堂 祛斑焕白套装</a></div>
+		  </div>
+			<div class="wsfcf_listDIYBarea">
+			  <div class="mp"><h1>仅售:&yen;</h1><h2>&nbsp;119.00</h2></div>
+			</div>
+        </li>
+
+        {{?}}
+    </ul>
+  </div>
+  {{ } }}
+  
+  <div class="w400area">
+    <div class="f2advarea_adv" data-type="imgLink" data-id="f2adv_T" imgSize="400X226">
+    {{?it.f2adv_T &&it.f2adv_T.imgUrl}}
+    <a href="{{=it.f2adv_T.imgLinkTo}}"><img src="{{=it.f2adv_T.imgUrl}}" alt="{{=it.f2adv_T.description}}" title="{{=it.f2adv_T.description}}" width="400" height="226" /></a>
+    {{??}}
+     <a href=""><img src="../res/images/adv.gif" width="400" height="226" /></a>
+    {{?}}
+    </div>
+	<div class="f2advarea_adv pt10" data-type="imgLink" data-id="f2adv_B" imgSize="400X225">
+    {{?it.f2adv_B &&it.f2adv_B.imgUrl}}
+    <a href="{{=it.f2adv_B.imgLinkTo}}"><img src="{{=it.f2adv_B.imgUrl}}" alt="{{=it.f2adv_B.description}}" title="{{=it.f2adv_B.description}}" width="400" height="225" /></a>
+    {{??}}
+     <a href=""><img src="../res/images/adv.gif" width="400" height="225" /></a>
+    {{?}}
+    </div>
+  </div>
+    
+</div>
+{{?}}
+
+{{?it.config&&it.config.levelNum&&it.config.levelNum.value.indexOf("3")>-1}}
+<div class="wslfwbox floor">
+
+   <div class="w870">
+  
+    <div class="w870text">
+	  <p data-type="textLinkList" data-id="F3FtextL">
+        {{?it.F3FtextL&&it.F3FtextL.length>0}}
+        {{~it.F3FtextL:value:index}}
+        {{=value.content}}
+        {{~}}
+        {{??}}
+        二级分类
+        {{?}}
+      </p>
+    </div>
+	
+	<div class="f3adv w256">
+	  <div class="f3advarea_adv" data-type="imgLink" data-id="f3adv_T1" imgSize="256X411">
+      {{?it.f3adv_T1 &&it.f3adv_T1.imgUrl}}
+      <a href="{{=it.f3adv_T1.imgLinkTo}}"><img src="{{=it.f3adv_T1.imgUrl}}" alt="{{=it.f3adv_T1.description}}" title="{{=it.f3adv_T1.description}}" width="256" height="411" /></a>
+     {{??}}
+     <a href=""><img src="../res/images/adv.gif" width="256" height="411" /></a>
+     {{?}}
+     </div>
+      
+	 <div class="f3advarea_adv" data-type="imgLink" data-id="f3adv_B1" imgSize="256X58">
+     {{?it.f3adv_B1 &&it.f3adv_B1.imgUrl}}
+     <a href="{{=it.f3adv_B1.imgLinkTo}}"><img src="{{=it.f3adv_B1.imgUrl}}" alt="{{=it.f3adv_B1.description}}" title="{{=it.f3adv_B1.description}}" width="256" height="58" /></a>
+     {{??}}
+     <a href=""><img src="../res/images/adv.gif" width="256" height="58" /></a>
+     {{?}}
+     </div>
+   </div>
+   
+    <div class="f3adv w206">
+	  <div class="f3advarea_adv" data-type="imgLink" data-id="f3adv_T2" imgSize="206X411">
+      {{?it.f3adv_T2 &&it.f3adv_T2.imgUrl}}
+      <a href="{{=it.f3adv_T2.imgLinkTo}}"><img src="{{=it.f3adv_T2.imgUrl}}" alt="{{=it.f3adv_T2.description}}" title="{{=it.f3adv_T2.description}}" width="206" height="411" /></a>
+     {{??}}
+     <a href=""><img src="../res/images/adv.gif" width="206" height="411" /></a>
+     {{?}}
+     </div>
+      
+	 <div class="f3advarea_adv" data-type="imgLink" data-id="f3adv_B2" imgSize="206X58">
+     {{?it.f3adv_B2 &&it.f3adv_B2.imgUrl}}
+     <a href="{{=it.f3adv_B2.imgLinkTo}}"><img src="{{=it.f3adv_B2.imgUrl}}" alt="{{=it.f3adv_B2.description}}" title="{{=it.f3adv_B2.description}}" width="206" height="58" /></a>
+     {{??}}
+     <a href=""><img src="../res/images/adv.gif" width="206" height="58" /></a>
+     {{?}}
+     </div>
+   </div>
+   
+    <div class="f3adv w203">
+	  <div class="f3advarea_adv" data-type="imgLink" data-id="f3adv_T3" imgSize="203X411">
+      {{?it.f3adv_T3 &&it.f3adv_T3.imgUrl}}
+      <a href="{{=it.f3adv_T3.imgLinkTo}}"><img src="{{=it.f3adv_T3.imgUrl}}" alt="{{=it.f3adv_T3.description}}" title="{{=it.f3adv_T3.description}}" width="203" height="411" /></a>
+     {{??}}
+     <a href=""><img src="../res/images/adv.gif" width="203" height="411" /></a>
+     {{?}}
+     </div>
+      
+	 <div class="f3advarea_adv" data-type="imgLink" data-id="f3adv_B3" imgSize="203X58">
+     {{?it.f3adv_B3 &&it.f3adv_B3.imgUrl}}
+     <a href="{{=it.f3adv_B3.imgLinkTo}}"><img src="{{=it.f3adv_B3.imgUrl}}" alt="{{=it.f3adv_B3.description}}" title="{{=it.f3adv_B3.description}}" width="203" height="58" /></a>
+     {{??}}
+     <a href=""><img src="../res/images/adv.gif" width="203" height="58" /></a>
+     {{?}}
+     </div>
+   </div>
+   
+    <div class="f3adv w205">
+	  <div class="f3advarea_adv" data-type="imgLink" data-id="f3adv_T4" imgSize="205X411">
+      {{?it.f3adv_T4 &&it.f3adv_T4.imgUrl}}
+      <a href="{{=it.f3adv_T4.imgLinkTo}}"><img src="{{=it.f3adv_T4.imgUrl}}" alt="{{=it.f3adv_T4.description}}" title="{{=it.f3adv_T4.description}}" width="205" height="411" /></a>
+     {{??}}
+     <a href=""><img src="../res/images/adv.gif" width="205" height="411" /></a>
+     {{?}}
+     </div>
+      
+	 <div class="f3advarea_adv" data-type="imgLink" data-id="f3adv_B4" imgSize="205X58">
+     {{?it.f3adv_B4 &&it.f3adv_B4.imgUrl}}
+     <a href="{{=it.f3adv_B4.imgLinkTo}}"><img src="{{=it.f3adv_B4.imgUrl}}" alt="{{=it.f3adv_B4.description}}" title="{{=it.f3adv_B4.description}}" width="205" height="58" /></a>
+     {{??}}
+     <a href=""><img src="../res/images/adv.gif" width="205" height="58" /></a>
+     {{?}}
+     </div>
+   </div>
+   
+   </div>
+   
+   
+   <div class="w330">
+  
+    <div class="w330text">
+	  <p data-type="textLinkList" data-id="F3FtextR">
+        {{?it.F3FtextR&&it.F3FtextL.length>0}}
+        {{~it.F3FtextR:value:index}}
+        {{=value.content}}
+        {{~}}
+        {{??}}
+        二级分类
+        {{?}}
+      </p>
+    </div>
+	
+	<div class="f3adv">
+	  <div class="f3advarea_adv" data-type="imgLink" data-id="f3adv_T5" imgSize="330X411">
+      {{?it.f3adv_T5 &&it.f3adv_T5.imgUrl}}
+      <a href="{{=it.f3adv_T5.imgLinkTo}}"><img src="{{=it.f3adv_T5.imgUrl}}" alt="{{=it.f3adv_T5.description}}" title="{{=it.f3adv_T5.description}}" width="330" height="411" /></a>
+     {{??}}
+     <a href=""><img src="../res/images/adv.gif" width="330" height="411" /></a>
+     {{?}}
+     </div>
+      
+	 <div class="f3advarea_adv" data-type="imgLink" data-id="f3adv_B5" imgSize="330X58">
+     {{?it.f3adv_B5 &&it.f3adv_B5.imgUrl}}
+     <a href="{{=it.f3adv_B5.imgLinkTo}}"><img src="{{=it.f3adv_B5.imgUrl}}" alt="{{=it.f3adv_B5.description}}" title="{{=it.f3adv_B5.description}}" width="330" height="58" /></a>
+     {{??}}
+     <a href=""><img src="../res/images/adv.gif" width="330" height="58" /></a>
+     {{?}}
+     </div>
+   </div>
+   
+   </div>
+  
+</div>
+{{?}}
+
+
+{{?it.config&&it.config.levelNum&&it.config.levelNum.value.indexOf("4")>-1}}
+<div class="wslfwbox floor">
+  
+  <div class="wslf_ftbg">
+    <p data-type="textLinkList" data-id="F4Ftext">
+        {{?it.F4Ftext&&it.F4Ftext.length>0}}
+        {{~it.F4Ftext:value:index}}
+        {{=value.content}}
+        {{~}}
+        {{??}}
+        二级分类
+        {{?}}      
+	</p>
+	
+	<h3 data-type="textLinkList" data-id="F4Ftextlink">
+            {{?it.F4Ftextlink&&it.F4Ftextlink.length>0}}
+            {{~it.F4Ftextlink:value:index}}
+            <a target="_blank" href="{{=value.linkTo}}">{{=value.content}}</a>
+            {{~}}
+            {{??}}
+            <a href="#">二级分类</a>
+            <a href="#">二级分类</a>
+            <a href="#">二级分类</a>
+            <a href="#">二级分类</a>
+            <a href="#">二级分类</a>
+            <a href="#">二级分类</a>
+            <a href="#">二级分类</a>
+            {{?}}
+    </h3>
+  </div>
+  
+  <div class="wslff4bg">
+    
+	<div class="fadv_L" data-type="imgLink" data-id="f4advL" imgSize="264X492">
+    {{?it.f4advL &&it.f4advL.imgUrl}}
+    <a href="{{=it.f4advL.imgLinkTo}}"><img src="{{=it.f4advL.imgUrl}}" alt="{{=it.f4advL.description}}" title="{{=it.f4advL.description}}" width="264" height="492" /></a>
+    {{??}}
+    <a href=""><img src="../res/images/adv.gif" width="264" height="492" /></a>
+    {{?}}
+    </div>
+	
+	<div class="wslfpaarea">
+	
+	  {{for(var i=1; i<=1; i++){ }}
+      {{var dataId="profloor_tab" + i; var data=it[dataId];if(!data){data = {} }; }}
+      <div class="wslff4_list" data-type="productGroup" data-id="{{=dataId}}.wslff4_productlist" data-spec="140X140">
+        <ul>
+        {{?data.wslff4_productlist&&data.wslff4_productlist.length>0}}
+        {{~data.wslff4_productlist :value:index}}
+        <li>
+            <div class="pic">
+                <a target="_blank" href="/product.jsp?id={{=value.id}}">
+                    <img src="{{=value.imgUrl}}" alt="{{=value.name}}" title="{{=value.name}}" width="140px">
+                </a>
+            </div>
+			<div class="wslff4_listsbarea">
+			  <div class="title"><a target="_blank" href="/product.jsp?id={{=value.id}}">{{=value.name}}</a></div>
+			  <div class="mp"><h1>&yen</h1><h2>{{=value.memberPrice}}</h2></div>
+			  <div class="bnt">
+				<a target="_blank" href="/product.jsp?id={{=value.id}}"><img src="../res/images/x.gif" width="30" height="30"></a>
+			  </div>
+			</div>
+        </li>
+        {{~}}
+        {{??}}
+        <li>
+		  <div class="pic"><a href="#"><img src="../res/case/180x240x6.jpg"></a></div>
+		  <div class="wslff4_listsbarea">
+			  <div class="title"><a href="#">【回家送礼】东阿阿胶清仓促销 养生堂 祛斑焕白套装</a></div>
+			  <div class="price">市场价：&yen;&nbsp;119.00</div>
+			  <div class="mp">促销价：&yen;&nbsp;119.00</div>	
+			  <div class="bnt">
+				<a target="_blank" href="#"><img src="../res/images/x.gif" width="30" height="30"></a>
+			  </div>
+		  </div>
+        </li>
+        {{?}}
+        </ul>
+      </div>
+      {{ } }}
+	  
+	  <div class="w201">
+      <div class="f4advarea_adv" data-type="imgLink" data-id="f4adv_T" imgSize="201X223">
+      {{?it.f4adv_T &&it.f4adv_T.imgUrl}}
+      <a href="{{=it.f4adv_T.imgLinkTo}}"><img src="{{=it.f4adv_T.imgUrl}}" alt="{{=it.f4adv_T.description}}" title="{{=it.f4adv_T.description}}" width="201" height="223" /></a>
+      {{??}}
+      <a href=""><img src="../res/images/adv.gif" width="201" height="223" /></a>
+      {{?}}
+      </div>
+	  <div class="f4advarea_adv pt10" data-type="imgLink" data-id="f4adv_B" imgSize="201X223">
+      {{?it.f4adv_B &&it.f4adv_B.imgUrl}}
+      <a href="{{=it.f4adv_B.imgLinkTo}}"><img src="{{=it.f4adv_B.imgUrl}}" alt="{{=it.f4adv_B.description}}" title="{{=it.f4adv_B.description}}" width="201" height="223" /></a>
+      {{??}}
+	  <a href=""><img src="../res/images/adv.gif" width="201" height="223" /></a>
+	  {{?}}    
+      </div>
+    </div>
+	  
+	</div>
+    
+  </div>
+  
+</div>
+{{?}}
+
+
+{{?it.config&&it.config.levelNum&&it.config.levelNum.value.indexOf("5")>-1}}
+<div class="wslfwbox floor">
+  
+  <div class="wslf_ftbg">
+    <p data-type="textLinkList" data-id="F5Ftext">
+        {{?it.F5Ftext&&it.F5Ftext.length>0}}
+        {{~it.F5Ftext:value:index}}
+        {{=value.content}}
+        {{~}}
+        {{??}}
+        二级分类
+        {{?}}      
+	</p>
+	
+	<h3 data-type="textLinkList" data-id="F5Ftextlink">
+            {{?it.F5Ftextlink&&it.F5Ftextlink.length>0}}
+            {{~it.F5Ftextlink:value:index}}
+            <a target="_blank" href="{{=value.linkTo}}">{{=value.content}}</a>
+            {{~}}
+            {{??}}
+            <a href="#">二级分类</a>
+            <a href="#">二级分类</a>
+            <a href="#">二级分类</a>
+            <a href="#">二级分类</a>
+            <a href="#">二级分类</a>
+            <a href="#">二级分类</a>
+            <a href="#">二级分类</a>
+            {{?}}
+    </h3>
+  </div>
+  
+  <div class="wslff5bg">
+    
+	<div class="fadv_L" data-type="imgLink" data-id="f5advL" imgSize="264X492">
+    {{?it.f5advL &&it.f5advL.imgUrl}}
+    <a href="{{=it.f5advL.imgLinkTo}}"><img src="{{=it.f5advL.imgUrl}}" alt="{{=it.f5advL.description}}" title="{{=it.f5advL.description}}" width="264" height="492" /></a>
+    {{??}}
+    <a href=""><img src="../res/images/adv.gif" width="264" height="492" /></a>
+    {{?}}
+    </div>
+	
+	<div class="wslfpaarea">
+	
+	  {{for(var i=1; i<=1; i++){ }}
+      {{var dataId="profloor_tab" + i; var data=it[dataId];if(!data){data = {} }; }}
+      <div class="wslff5_list" data-type="productGroup" data-id="{{=dataId}}.wslff5_productlist" data-spec="140X140">
+        <ul>
+        {{?data.wslff5_productlist&&data.wslff5_productlist.length>0}}
+        {{~data.wslff5_productlist :value:index}}
+        <li>
+            <div class="pic">
+                <a target="_blank" href="/product.jsp?id={{=value.id}}">
+                    <img src="{{=value.imgUrl}}" alt="{{=value.name}}" title="{{=value.name}}" width="140px">
+                </a>
+            </div>
+			<div class="wslff5_listsbarea">
+			  <div class="title"><a target="_blank" href="/product.jsp?id={{=value.id}}">{{=value.name}}</a></div>
+			  <div class="mp"><h1>&yen</h1><h2>{{=value.memberPrice}}</h2></div>
+			  <div class="bnt">
+				<a target="_blank" href="/product.jsp?id={{=value.id}}"><img src="../res/images/x.gif" width="30" height="30"></a>
+			  </div>
+			</div>
+        </li>
+        {{~}}
+        {{??}}
+        <li>
+		  <div class="pic"><a href="#"><img src="../res/case/180x240x6.jpg"></a></div>
+		  <div class="wslff5_listsbarea">
+			  <div class="title"><a href="#">【回家送礼】东阿阿胶清仓促销 养生堂 祛斑焕白套装</a></div>
+			  <div class="price">市场价：&yen;&nbsp;119.00</div>
+			  <div class="mp">促销价：&yen;&nbsp;119.00</div>	
+			  <div class="bnt">
+				<a target="_blank" href="#"><img src="../res/images/x.gif" width="30" height="30"></a>
+			  </div>
+		  </div>
+        </li>
+        {{?}}
+        </ul>
+      </div>
+      {{ } }}
+	  
+	  <div class="w201">
+      <div class="fadv_L" data-type="imgLink" data-id="f5adv_T" imgSize="201X223">
+      {{?it.f5adv_T &&it.f5adv_T.imgUrl}}
+      <a href="{{=it.f5adv_T.imgLinkTo}}"><img src="{{=it.f5adv_T.imgUrl}}" alt="{{=it.f5adv_T.description}}" title="{{=it.f5adv_T.description}}" width="201" height="223" /></a>
+      {{??}}
+      <a href=""><img src="../res/images/adv.gif" width="201" height="223" /></a>
+      {{?}}
+      </div>
+	  <div class="fadv_L pt10" data-type="imgLink" data-id="f5adv_B" imgSize="201X223">
+      {{?it.f5adv_B &&it.f5adv_B.imgUrl}}
+      <a href="{{=it.f5adv_B.imgLinkTo}}"><img src="{{=it.f5adv_B.imgUrl}}" alt="{{=it.f5adv_B.description}}" title="{{=it.f5adv_B.description}}" width="201" height="223" /></a>
+      {{??}}
+	  <a href=""><img src="../res/images/adv.gif" width="201" height="223" /></a>
+	  {{?}}    
+      </div>
+    </div>
+	  
+	</div>
+    
+  </div>
+  
+</div>
+{{?}}
+
+
+{{?it.config&&it.config.levelNum&&it.config.levelNum.value.indexOf("6")>-1}}
+<div class="wslfwbox floor">
+  
+  <div class="wslf_ftbg">
+    <p data-type="textLinkList" data-id="F6Ftext">
+        {{?it.F6Ftext&&it.F6Ftext.length>0}}
+        {{~it.F6Ftext:value:index}}
+        {{=value.content}}
+        {{~}}
+        {{??}}
+        二级分类
+        {{?}}      
+	</p>
+	
+	<h3 data-type="textLinkList" data-id="F6Ftextlink">
+            {{?it.F6Ftextlink&&it.F6Ftextlink.length>0}}
+            {{~it.F6Ftextlink:value:index}}
+            <a target="_blank" href="{{=value.linkTo}}">{{=value.content}}</a>
+            {{~}}
+            {{??}}
+            <a href="#">二级分类</a>
+            <a href="#">二级分类</a>
+            <a href="#">二级分类</a>
+            <a href="#">二级分类</a>
+            <a href="#">二级分类</a>
+            <a href="#">二级分类</a>
+            <a href="#">二级分类</a>
+            {{?}}
+    </h3>
+  </div>
+  
+  <div class="wslff6bg">
+    
+	<div class="fadv_L" data-type="imgLink" data-id="f6advL" imgSize="264X492">
+    {{?it.f6advL &&it.f6advL.imgUrl}}
+    <a href="{{=it.f6advL.imgLinkTo}}"><img src="{{=it.f6advL.imgUrl}}" alt="{{=it.f6advL.description}}" title="{{=it.f6advL.description}}" width="264" height="492" /></a>
+    {{??}}
+    <a href=""><img src="../res/images/adv.gif" width="264" height="492" /></a>
+    {{?}}
+    </div>
+	
+    <div class="wslfpaarea"> {{for(var i=1; i<=1; i++){ }}
+      {{var dataId="profloor_tab" + i; var data=it[dataId];if(!data){data = {} }; }}
+      <div class="wslff6_list" data-type="productGroup" data-id="{{=dataId}}.wslff6_productlist" data-spec="140X140">
+          <ul>
+            {{?data.wslff6_productlist&&data.wslff6_productlist.length>0}}
+            {{~data.wslff6_productlist :value:index}}
+            <li>
+              <div class="pic"> <a target="_blank" href="/product.jsp?id={{=value.id}}"> <img src="{{=value.imgUrl}}" alt="{{=value.name}}" title="{{=value.name}}" width="140px" /> </a> </div>
+              <div class="wslff6_listsbarea">
+                <div class="title"><a target="_blank" href="/product.jsp?id={{=value.id}}">{{=value.name}}</a></div>
+                <div class="mp">
+                  <h1>&yen</h1>
+                  <h2>{{=value.memberPrice}}</h2>
+                </div>
+                <div class="bnt"> <a target="_blank" href="/product.jsp?id={{=value.id}}"><img src="../res/images/x.gif" width="30" height="30"></a> </div>
+              </div>
+            </li>
+            {{~}}
+            {{??}}
+            <li>
+              <div class="pic"><a href="#"><img src="../res/case/180x240x6.jpg" /></a></div>
+              <div class="wslff6_listsbarea">
+                <div class="title"><a href="#">【回家送礼】东阿阿胶清仓促销 养生堂 祛斑焕白套装</a></div>
+                <div class="price">市场价：&yen;&nbsp;119.00</div>
+                <div class="mp">促销价：&yen;&nbsp;119.00</div>
+                <div class="bnt"> <a target="_blank" href="#"><img src="../res/images/x.gif" width="30" height="30"></a> </div>
+              </div>
+            </li>
+            {{?}}
+          </ul>
+      </div>
+      {{ } }}
+      <div class="w201">
+          <div class="fadv_L" data-type="imgLink" data-id="f6adv_T" imgsize="201X223"> {{?it.f6adv_T &&it.f6adv_T.imgUrl}} <a href="{{=it.f6adv_T.imgLinkTo}}"><img src="{{=it.f6adv_T.imgUrl}}" alt="{{=it.f6adv_T.description}}" title="{{=it.f6adv_T.description}}" width="201" height="223" /></a> {{??}} <a href=""><img src="../res/images/adv.gif" width="201" height="223" /></a> {{?}} </div>
+        <div class="fadv_L pt10" data-type="imgLink" data-id="f6adv_B" imgsize="201X223"> {{?it.f6adv_B &&it.f6adv_B.imgUrl}} <a href="{{=it.f6adv_B.imgLinkTo}}"><img src="{{=it.f6adv_B.imgUrl}}" alt="{{=it.f6adv_B.description}}" title="{{=it.f6adv_B.description}}" width="201" height="223" /></a> {{??}} <a href=""><img src="../res/images/adv.gif" width="201" height="223" /></a> {{?}} </div>
+      </div>
+    </div>
+  </div>
+</div>
+{{?}}
+
+
+{{?it.config&&it.config.levelNum&&it.config.levelNum.value.indexOf("7")>-1}}
+<div class="wslfwbox floor">
+  
+  <div class="wslf_ftbg">
+    <p data-type="textLinkList" data-id="F7Ftext">
+        {{?it.F7Ftext&&it.F7Ftext.length>0}}
+        {{~it.F7Ftext:value:index}}
+        {{=value.content}}
+        {{~}}
+        {{??}}
+        二级分类
+        {{?}}      
+	</p>
+	
+	<h3 data-type="textLinkList" data-id="F7Ftextlink">
+            {{?it.F7Ftextlink&&it.F7Ftextlink.length>0}}
+            {{~it.F7Ftextlink:value:index}}
+            <a target="_blank" href="{{=value.linkTo}}">{{=value.content}}</a>
+            {{~}}
+            {{??}}
+            <a href="#">二级分类</a>
+            <a href="#">二级分类</a>
+            <a href="#">二级分类</a>
+            <a href="#">二级分类</a>
+            <a href="#">二级分类</a>
+            <a href="#">二级分类</a>
+            <a href="#">二级分类</a>
+            {{?}}
+    </h3>
+  </div>
+  
+  <div class="wslff7bg">
+    
+	<div class="fadv_L" data-type="imgLink" data-id="f7advL" imgSize="264X492">
+    {{?it.f7advL &&it.f7advL.imgUrl}}
+    <a href="{{=it.f7advL.imgLinkTo}}"><img src="{{=it.f7advL.imgUrl}}" alt="{{=it.f7advL.description}}" title="{{=it.f7advL.description}}" width="264" height="492" /></a>
+    {{??}}
+    <a href=""><img src="../res/images/adv.gif" width="264" height="492" /></a>
+    {{?}}
+    </div>
+	
+    <div class="wslfpaarea">
+	  {{for(var i=1; i<=1; i++){ }}
+      {{var dataId="profloor_tab" + i; var data=it[dataId];if(!data){data = {} }; }}
+      <div class="wslff7_list" data-type="productGroup" data-id="{{=dataId}}.wslff7_productlist" data-spec="140X140">
+          <ul>
+            {{?data.wslff7_productlist&&data.wslff7_productlist.length>0}}
+            {{~data.wslff7_productlist :value:index}}
+            <li>
+              <div class="pic"> <a target="_blank" href="/product.jsp?id={{=value.id}}"> <img src="{{=value.imgUrl}}" alt="{{=value.name}}" title="{{=value.name}}" width="140px" /> </a> </div>
+              <div class="wslff7_listsbarea">
+                <div class="title"><a target="_blank" href="/product.jsp?id={{=value.id}}">{{=value.name}}</a></div>
+                <div class="mp">
+                  <h1>&yen</h1>
+                  <h2>{{=value.memberPrice}}</h2>
+                </div>
+                <div class="bnt"> <a target="_blank" href="/product.jsp?id={{=value.id}}"><img src="../res/images/x.gif" width="30" height="30"></a> </div>
+              </div>
+            </li>
+            {{~}}
+            {{??}}
+            <li>
+              <div class="pic"><a href="#"><img src="../res/case/180x240x6.jpg" /></a></div>
+              <div class="wslff7_listsbarea">
+                <div class="title"><a href="#">【回家送礼】东阿阿胶清仓促销 养生堂 祛斑焕白套装</a></div>
+                <div class="price">市场价：&yen;&nbsp;119.00</div>
+                <div class="mp">促销价：&yen;&nbsp;119.00</div>
+                <div class="bnt"> <a target="_blank" href="#"><img src="../res/images/x.gif" width="30" height="30"></a> </div>
+              </div>
+            </li>
+            {{?}}
+          </ul>
+      </div>
+      {{ } }}
+      <div class="w201">
+          <div class="fadv_L" data-type="imgLink" data-id="f7adv_T" imgsize="201X223"> 
+		  {{?it.f7adv_T &&it.f7adv_T.imgUrl}} 
+		  <a href="{{=it.f7adv_T.imgLinkTo}}"><img src="{{=it.f7adv_T.imgUrl}}" alt="{{=it.f7adv_T.description}}" title="{{=it.f7adv_T.description}}" width="201" height="223" /></a> 
+		  {{??}} 
+		  <a href=""><img src="../res/images/adv.gif" width="201" height="223" /></a> {{?}} </div>
+        <div class="fadv_L pt10" data-type="imgLink" data-id="f7adv_B" imgsize="201X223"> 
+		{{?it.f7adv_B &&it.f7adv_B.imgUrl}} 
+		<a href="{{=it.f7adv_B.imgLinkTo}}"><img src="{{=it.f7adv_B.imgUrl}}" alt="{{=it.f7adv_B.description}}" title="{{=it.f7adv_B.description}}" width="201" height="223" /></a> 
+		{{??}} 
+		<a href=""><img src="../res/images/adv.gif" width="201" height="223" /></a> {{?}} </div>
+      </div>
+    </div>
+  </div>
+  
+</div>
+{{?}}
+
+
+{{?it.config&&it.config.levelNum&&it.config.levelNum.value.indexOf("8")>-1}}
+<div class="wslfwbox floor">
+<div class="maparea">
+  <div class="parea">
+    <div class="div1">
+		  {{for(var i=1; i<=1; i++){ }}
+          {{var dataId="profloor_tab" + i; var data=it[dataId];if(!data){data = {} }; }}
+          <div class="wslffmap_list" data-type="productGroup" data-id="{{=dataId}}.wslfmap1_productlist" data-spec="150X150">
+    <ul>
+        {{?data.wslfmap1_productlist&&data.wslfmap1_productlist.length>0}}
+        {{~data.wslfmap1_productlist :value:index}}
+        <li>
+              <div class="pic"> <a target="_blank" href="/product.jsp?id={{=value.id}}"> <img src="{{=value.imgUrl}}" alt="{{=value.name}}" title="{{=value.name}}" width="140px" /> </a> </div>
+              <div class="wslffmap_listarea">
+                <div class="title"><a target="_blank" href="/product.jsp?id={{=value.id}}">{{=value.name}}</a></div>
+                <div class="mp">
+                  <h1>&yen</h1>
+                  <h2>{{=value.memberPrice}}</h2>
+                </div>
+                <div class="bnt"> <a target="_blank" href="/product.jsp?id={{=value.id}}"><img src="../res/images/x.gif" width="50" height="22"></a> </div>
+              </div>
+            </li>
+        {{~}}
+        {{??}}
+        <li>
+		  <div class="pic"><a href="#"><img src="../res/case/180x240x6.jpg"></a></div>
+		  <div class="wslffmap_listarea">
+			  <div class="title"><a href="#">【回家送礼】东阿阿胶清仓促销 养生堂 祛斑焕白套装</a></div>
+			  <div class="price">市场价：&yen;&nbsp;119.00</div>
+			  <div class="mp">促销价：&yen;&nbsp;119.00</div>	
+			  <div class="bnt">
+				<a target="_blank" href="#"><img src="../res/images/x.gif" width="50" height="22"></a>			  </div>
+		  </div>
+        </li>
+        {{?}}
+    </ul>
+  </div>
+          {{ } }}
+	</div>
+	
+	<div class="div2">
+		  {{for(var i=1; i<=1; i++){ }}
+          {{var dataId="profloor_tab" + i; var data=it[dataId];if(!data){data = {} }; }}
+          <div class="wslffmap_list" data-type="productGroup" data-id="{{=dataId}}.wslfmap2_productlist" data-spec="150X150">
+    <ul>
+        {{?data.wslfmap2_productlist&&data.wslfmap2_productlist.length>0}}
+        {{~data.wslfmap2_productlist :value:index}}
+        <li>
+              <div class="pic"> <a target="_blank" href="/product.jsp?id={{=value.id}}"> <img src="{{=value.imgUrl}}" alt="{{=value.name}}" title="{{=value.name}}" width="140px" /> </a> </div>
+              <div class="wslffmap_listarea">
+                <div class="title"><a target="_blank" href="/product.jsp?id={{=value.id}}">{{=value.name}}</a></div>
+                <div class="mp">
+                  <h1>&yen</h1>
+                  <h2>{{=value.memberPrice}}</h2>
+                </div>
+                <div class="bnt"> <a target="_blank" href="/product.jsp?id={{=value.id}}"><img src="../res/images/x.gif" width="50" height="22"></a> </div>
+              </div>
+            </li>
+        {{~}}
+        {{??}}
+        <li>
+		  <div class="pic"><a href="#"><img src="../res/case/180x240x6.jpg"></a></div>
+		  <div class="wslffmap_listarea">
+			  <div class="title"><a href="#">【回家送礼】东阿阿胶清仓促销 养生堂 祛斑焕白套装</a></div>
+			  <div class="price">市场价：&yen;&nbsp;119.00</div>
+			  <div class="mp">促销价：&yen;&nbsp;119.00</div>	
+			  <div class="bnt">
+				<a target="_blank" href="#"><img src="../res/images/x.gif" width="50" height="22"></a>			  </div>
+		  </div>
+        </li>
+        {{?}}
+    </ul>
+  </div>
+          {{ } }}
+	</div>
+	
+	<div class="div3">
+		  {{for(var i=1; i<=1; i++){ }}
+          {{var dataId="profloor_tab" + i; var data=it[dataId];if(!data){data = {} }; }}
+          <div class="wslffmap_list" data-type="productGroup" data-id="{{=dataId}}.wslfmap3_productlist" data-spec="150X150">
+    <ul>
+        {{?data.wslfmap3_productlist&&data.wslfmap3_productlist.length>0}}
+        {{~data.wslfmap3_productlist :value:index}}
+        <li>
+              <div class="pic"> <a target="_blank" href="/product.jsp?id={{=value.id}}"> <img src="{{=value.imgUrl}}" alt="{{=value.name}}" title="{{=value.name}}" width="140px" /> </a> </div>
+              <div class="wslffmap_listarea">
+                <div class="title"><a target="_blank" href="/product.jsp?id={{=value.id}}">{{=value.name}}</a></div>
+                <div class="mp">
+                  <h1>&yen</h1>
+                  <h2>{{=value.memberPrice}}</h2>
+                </div>
+                <div class="bnt"> <a target="_blank" href="/product.jsp?id={{=value.id}}"><img src="../res/images/x.gif" width="50" height="22"></a> </div>
+              </div>
+            </li>
+        {{~}}
+        {{??}}
+        <li>
+		  <div class="pic"><a href="#"><img src="../res/case/180x240x6.jpg"></a></div>
+		  <div class="wslffmap_listarea">
+			  <div class="title"><a href="#">【回家送礼】东阿阿胶清仓促销 养生堂 祛斑焕白套装</a></div>
+			  <div class="price">市场价：&yen;&nbsp;119.00</div>
+			  <div class="mp">促销价：&yen;&nbsp;119.00</div>	
+			  <div class="bnt">
+				<a target="_blank" href="#"><img src="../res/images/x.gif" width="50" height="22"></a>			  </div>
+		  </div>
+        </li>
+        {{?}}
+    </ul>
+  </div>
+          {{ } }}
+	</div>
+	
+	<div class="div4">
+		  {{for(var i=1; i<=1; i++){ }}
+          {{var dataId="profloor_tab" + i; var data=it[dataId];if(!data){data = {} }; }}
+          <div class="wslffmap_list" data-type="productGroup" data-id="{{=dataId}}.wslfmap4_productlist" data-spec="150X150">
+    <ul>
+        {{?data.wslfmap4_productlist&&data.wslfmap4_productlist.length>0}}
+        {{~data.wslfmap4_productlist :value:index}}
+        <li>
+              <div class="pic"> <a target="_blank" href="/product.jsp?id={{=value.id}}"> <img src="{{=value.imgUrl}}" alt="{{=value.name}}" title="{{=value.name}}" width="140px" /> </a> </div>
+              <div class="wslffmap_listarea">
+                <div class="title"><a target="_blank" href="/product.jsp?id={{=value.id}}">{{=value.name}}</a></div>
+                <div class="mp">
+                  <h1>&yen</h1>
+                  <h2>{{=value.memberPrice}}</h2>
+                </div>
+                <div class="bnt"> <a target="_blank" href="/product.jsp?id={{=value.id}}"><img src="../res/images/x.gif" width="50" height="22"></a> </div>
+              </div>
+            </li>
+        {{~}}
+        {{??}}
+        <li>
+		  <div class="pic"><a href="#"><img src="../res/case/180x240x6.jpg"></a></div>
+		  <div class="wslffmap_listarea">
+			  <div class="title"><a href="#">【回家送礼】东阿阿胶清仓促销 养生堂 祛斑焕白套装</a></div>
+			  <div class="price">市场价：&yen;&nbsp;119.00</div>
+			  <div class="mp">促销价：&yen;&nbsp;119.00</div>	
+			  <div class="bnt">
+				<a target="_blank" href="#"><img src="../res/images/x.gif" width="50" height="22"></a>			  </div>
+		  </div>
+        </li>
+        {{?}}
+    </ul>
+  </div>
+          {{ } }}
+	</div>
+	
+	<div class="div5">
+		  {{for(var i=1; i<=1; i++){ }}
+          {{var dataId="profloor_tab" + i; var data=it[dataId];if(!data){data = {} }; }}
+          <div class="wslffmap_list" data-type="productGroup" data-id="{{=dataId}}.wslfmap5_productlist" data-spec="150X150">
+    <ul>
+        {{?data.wslfmap5_productlist&&data.wslfmap5_productlist.length>0}}
+        {{~data.wslfmap5_productlist :value:index}}
+        <li>
+              <div class="pic"> <a target="_blank" href="/product.jsp?id={{=value.id}}"> <img src="{{=value.imgUrl}}" alt="{{=value.name}}" title="{{=value.name}}" width="140px" /> </a> </div>
+              <div class="wslffmap_listarea">
+                <div class="title"><a target="_blank" href="/product.jsp?id={{=value.id}}">{{=value.name}}</a></div>
+                <div class="mp">
+                  <h1>&yen</h1>
+                  <h2>{{=value.memberPrice}}</h2>
+                </div>
+                <div class="bnt"> <a target="_blank" href="/product.jsp?id={{=value.id}}"><img src="../res/images/x.gif" width="50" height="22"></a> </div>
+              </div>
+            </li>
+        {{~}}
+        {{??}}
+        <li>
+		  <div class="pic"><a href="#"><img src="../res/case/180x240x6.jpg"></a></div>
+		  <div class="wslffmap_listarea">
+			  <div class="title"><a href="#">【回家送礼】东阿阿胶清仓促销 养生堂 祛斑焕白套装</a></div>
+			  <div class="price">市场价：&yen;&nbsp;119.00</div>
+			  <div class="mp">促销价：&yen;&nbsp;119.00</div>	
+			  <div class="bnt">
+				<a target="_blank" href="#"><img src="../res/images/x.gif" width="50" height="22"></a>			  </div>
+		  </div>
+        </li>
+        {{?}}
+    </ul>
+  </div>
+          {{ } }}
+	</div>
+	
+	<div class="div6">
+		  {{for(var i=1; i<=1; i++){ }}
+          {{var dataId="profloor_tab" + i; var data=it[dataId];if(!data){data = {} }; }}
+          <div class="wslffmap_list" data-type="productGroup" data-id="{{=dataId}}.wslfmap6_productlist" data-spec="150X150">
+    <ul>
+        {{?data.wslfmap6_productlist&&data.wslfmap6_productlist.length>0}}
+        {{~data.wslfmap6_productlist :value:index}}
+        <li>
+              <div class="pic"> <a target="_blank" href="/product.jsp?id={{=value.id}}"> <img src="{{=value.imgUrl}}" alt="{{=value.name}}" title="{{=value.name}}" width="140px" /> </a> </div>
+              <div class="wslffmap_listarea">
+                <div class="title"><a target="_blank" href="/product.jsp?id={{=value.id}}">{{=value.name}}</a></div>
+                <div class="mp">
+                  <h1>&yen</h1>
+                  <h2>{{=value.memberPrice}}</h2>
+                </div>
+                <div class="bnt"> <a target="_blank" href="/product.jsp?id={{=value.id}}"><img src="../res/images/x.gif" width="50" height="22"></a> </div>
+              </div>
+            </li>
+        {{~}}
+        {{??}}
+        <li>
+		  <div class="pic"><a href="#"><img src="../res/case/180x240x6.jpg"></a></div>
+		  <div class="wslffmap_listarea">
+			  <div class="title"><a href="#">【回家送礼】东阿阿胶清仓促销 养生堂 祛斑焕白套装</a></div>
+			  <div class="price">市场价：&yen;&nbsp;119.00</div>
+			  <div class="mp">促销价：&yen;&nbsp;119.00</div>	
+			  <div class="bnt">
+				<a target="_blank" href="#"><img src="../res/images/x.gif" width="50" height="22"></a>			  </div>
+		  </div>
+        </li>
+        {{?}}
+    </ul>
+  </div>
+          {{ } }}
+	</div>
+	
+	<div class="div7">
+		  {{for(var i=1; i<=1; i++){ }}
+          {{var dataId="profloor_tab" + i; var data=it[dataId];if(!data){data = {} }; }}
+          <div class="wslffmap_list" data-type="productGroup" data-id="{{=dataId}}.wslfmap7_productlist" data-spec="150X150">
+    <ul>
+        {{?data.wslfmap7_productlist&&data.wslfmap7_productlist.length>0}}
+        {{~data.wslfmap7_productlist :value:index}}
+        <li>
+              <div class="pic"> <a target="_blank" href="/product.jsp?id={{=value.id}}"> <img src="{{=value.imgUrl}}" alt="{{=value.name}}" title="{{=value.name}}" width="140px" /> </a> </div>
+              <div class="wslffmap_listarea">
+                <div class="title"><a target="_blank" href="/product.jsp?id={{=value.id}}">{{=value.name}}</a></div>
+                <div class="mp">
+                  <h1>&yen</h1>
+                  <h2>{{=value.memberPrice}}</h2>
+                </div>
+                <div class="bnt"> <a target="_blank" href="/product.jsp?id={{=value.id}}"><img src="../res/images/x.gif" width="50" height="22"></a> </div>
+              </div>
+            </li>
+        {{~}}
+        {{??}}
+        <li>
+		  <div class="pic"><a href="#"><img src="../res/case/180x240x6.jpg"></a></div>
+		  <div class="wslffmap_listarea">
+			  <div class="title"><a href="#">【回家送礼】东阿阿胶清仓促销 养生堂 祛斑焕白套装</a></div>
+			  <div class="price">市场价：&yen;&nbsp;119.00</div>
+			  <div class="mp">促销价：&yen;&nbsp;119.00</div>	
+			  <div class="bnt">
+				<a target="_blank" href="#"><img src="../res/images/x.gif" width="50" height="22"></a>			  </div>
+		  </div>
+        </li>
+        {{?}}
+    </ul>
+  </div>
+          {{ } }}
+	</div>
+	
+	<div class="div8">
+		  {{for(var i=1; i<=1; i++){ }}
+          {{var dataId="profloor_tab" + i; var data=it[dataId];if(!data){data = {} }; }}
+          <div class="wslffmap_list" data-type="productGroup" data-id="{{=dataId}}.wslfmap8_productlist" data-spec="150X150">
+    <ul>
+        {{?data.wslfmap8_productlist&&data.wslfmap8_productlist.length>0}}
+        {{~data.wslfmap8_productlist :value:index}}
+        <li>
+              <div class="pic"> <a target="_blank" href="/product.jsp?id={{=value.id}}"> <img src="{{=value.imgUrl}}" alt="{{=value.name}}" title="{{=value.name}}" width="140px" /> </a> </div>
+              <div class="wslffmap_listarea">
+                <div class="title"><a target="_blank" href="/product.jsp?id={{=value.id}}">{{=value.name}}</a></div>
+                <div class="mp">
+                  <h1>&yen</h1>
+                  <h2>{{=value.memberPrice}}</h2>
+                </div>
+                <div class="bnt"> <a target="_blank" href="/product.jsp?id={{=value.id}}"><img src="../res/images/x.gif" width="50" height="22"></a> </div>
+              </div>
+            </li>
+        {{~}}
+        {{??}}
+        <li>
+		  <div class="pic"><a href="#"><img src="../res/case/180x240x6.jpg"></a></div>
+		  <div class="wslffmap_listarea">
+			  <div class="title"><a href="#">【回家送礼】东阿阿胶清仓促销 养生堂 祛斑焕白套装</a></div>
+			  <div class="price">市场价：&yen;&nbsp;119.00</div>
+			  <div class="mp">促销价：&yen;&nbsp;119.00</div>	
+			  <div class="bnt">
+				<a target="_blank" href="#"><img src="../res/images/x.gif" width="50" height="22"></a>			  </div>
+		  </div>
+        </li>
+        {{?}}
+    </ul>
+  </div>
+          {{ } }}
+	</div>
+	
+	<div class="div9">
+		  {{for(var i=1; i<=1; i++){ }}
+          {{var dataId="profloor_tab" + i; var data=it[dataId];if(!data){data = {} }; }}
+          <div class="wslffmap_list" data-type="productGroup" data-id="{{=dataId}}.wslfmap9_productlist" data-spec="150X150">
+    <ul>
+        {{?data.wslfmap9_productlist&&data.wslfmap9_productlist.length>0}}
+        {{~data.wslfmap9_productlist :value:index}}
+        <li>
+              <div class="pic"> <a target="_blank" href="/product.jsp?id={{=value.id}}"> <img src="{{=value.imgUrl}}" alt="{{=value.name}}" title="{{=value.name}}" width="140px" /> </a> </div>
+              <div class="wslffmap_listarea">
+                <div class="title"><a target="_blank" href="/product.jsp?id={{=value.id}}">{{=value.name}}</a></div>
+                <div class="mp">
+                  <h1>&yen</h1>
+                  <h2>{{=value.memberPrice}}</h2>
+                </div>
+                <div class="bnt"> <a target="_blank" href="/product.jsp?id={{=value.id}}"><img src="../res/images/x.gif" width="50" height="22"></a> </div>
+              </div>
+            </li>
+        {{~}}
+        {{??}}
+        <li>
+		  <div class="pic"><a href="#"><img src="../res/case/180x240x6.jpg"></a></div>
+		  <div class="wslffmap_listarea">
+			  <div class="title"><a href="#">【回家送礼】东阿阿胶清仓促销 养生堂 祛斑焕白套装</a></div>
+			  <div class="price">市场价：&yen;&nbsp;119.00</div>
+			  <div class="mp">促销价：&yen;&nbsp;119.00</div>	
+			  <div class="bnt">
+				<a target="_blank" href="#"><img src="../res/images/x.gif" width="50" height="22"></a>			  </div>
+		  </div>
+        </li>
+        {{?}}
+    </ul>
+  </div>
+          {{ } }}
+	</div>
+	
+	<div class="div10">
+		  {{for(var i=1; i<=1; i++){ }}
+          {{var dataId="profloor_tab" + i; var data=it[dataId];if(!data){data = {} }; }}
+          <div class="wslffmap_list" data-type="productGroup" data-id="{{=dataId}}.wslfmap10_productlist" data-spec="150X150">
+    <ul>
+        {{?data.wslfmap10_productlist&&data.wslfmap10_productlist.length>0}}
+        {{~data.wslfmap10_productlist :value:index}}
+        <li>
+              <div class="pic"> <a target="_blank" href="/product.jsp?id={{=value.id}}"> <img src="{{=value.imgUrl}}" alt="{{=value.name}}" title="{{=value.name}}" width="140px" /> </a> </div>
+              <div class="wslffmap_listarea">
+                <div class="title"><a target="_blank" href="/product.jsp?id={{=value.id}}">{{=value.name}}</a></div>
+                <div class="mp">
+                  <h1>&yen</h1>
+                  <h2>{{=value.memberPrice}}</h2>
+                </div>
+                <div class="bnt"> <a target="_blank" href="/product.jsp?id={{=value.id}}"><img src="../res/images/x.gif" width="50" height="22"></a> </div>
+              </div>
+            </li>
+        {{~}}
+        {{??}}
+        <li>
+		  <div class="pic"><a href="#"><img src="../res/case/180x240x6.jpg"></a></div>
+		  <div class="wslffmap_listarea">
+			  <div class="title"><a href="#">【回家送礼】东阿阿胶清仓促销 养生堂 祛斑焕白套装</a></div>
+			  <div class="price">市场价：&yen;&nbsp;119.00</div>
+			  <div class="mp">促销价：&yen;&nbsp;119.00</div>	
+			  <div class="bnt">
+				<a target="_blank" href="#"><img src="../res/images/x.gif" width="50" height="22"></a>			  </div>
+		  </div>
+        </li>
+        {{?}}
+    </ul>
+  </div>
+          {{ } }}
+	</div>
+	
+	<div class="div11">
+		  {{for(var i=1; i<=1; i++){ }}
+          {{var dataId="profloor_tab" + i; var data=it[dataId];if(!data){data = {} }; }}
+          <div class="wslffmap_list" data-type="productGroup" data-id="{{=dataId}}.wslfmap11_productlist" data-spec="150X150">
+    <ul>
+        {{?data.wslfmap11_productlist&&data.wslfmap11_productlist.length>0}}
+        {{~data.wslfmap11_productlist :value:index}}
+        <li>
+              <div class="pic"> <a target="_blank" href="/product.jsp?id={{=value.id}}"> <img src="{{=value.imgUrl}}" alt="{{=value.name}}" title="{{=value.name}}" width="140px" /> </a> </div>
+              <div class="wslffmap_listarea">
+                <div class="title"><a target="_blank" href="/product.jsp?id={{=value.id}}">{{=value.name}}</a></div>
+                <div class="mp">
+                  <h1>&yen</h1>
+                  <h2>{{=value.memberPrice}}</h2>
+                </div>
+                <div class="bnt"> <a target="_blank" href="/product.jsp?id={{=value.id}}"><img src="../res/images/x.gif" width="50" height="22"></a> </div>
+              </div>
+            </li>
+        {{~}}
+        {{??}}
+        <li>
+		  <div class="pic"><a href="#"><img src="../res/case/180x240x6.jpg"></a></div>
+		  <div class="wslffmap_listarea">
+			  <div class="title"><a href="#">【回家送礼】东阿阿胶清仓促销 养生堂 祛斑焕白套装</a></div>
+			  <div class="price">市场价：&yen;&nbsp;119.00</div>
+			  <div class="mp">促销价：&yen;&nbsp;119.00</div>	
+			  <div class="bnt">
+				<a target="_blank" href="#"><img src="../res/images/x.gif" width="50" height="22"></a>			  </div>
+		  </div>
+        </li>
+        {{?}}
+    </ul>
+  </div>
+          {{ } }}
+	</div>
+	
+  </div>
+  <div class="iconarea">
+    <div class="icon1"><span  class="span1"><font>恩施</font></span></div>
+	<div class="icon2"><span  class="span2"><font>十堰</font></span></div>
+	<div class="icon3"><span  class="span3"><font>宜昌</font></span></div>
+	<div class="icon4"><span  class="span4"><font>襄阳</font></span></div>
+	<div class="icon5"><span  class="span5"><font>荆州</font></span></div>
+	<div class="icon6"><span  class="span6"><font>孝感</font></span></div>
+	<div class="icon7"><span  class="span7"><font>武汉</font></span></div>
+	<div class="icon8"><span  class="span8"><font>鄂州</font></span></div>
+	<div class="icon9"><span  class="span9"><font>咸宁</font></span></div>
+	<div class="icon10"><span  class="span10"><font>黄冈</font></span></div>
+	<div class="icon11"><span  class="span11"><font>黄石</font></span></div>
+  </div>
+</div>
+</div>
+{{?}}
+
+
+{{?it.config&&it.config.levelNum&&it.config.levelNum.value.indexOf("9")>-1}}
+<div class="wslfwbox floor">
+  
+  <div class="wslf_ftbg">
+    <p data-type="textLinkList" data-id="F4Ftext">
+        {{?it.F4Ftext&&it.F4Ftext.length>0}}
+        {{~it.F4Ftext:value:index}}
+        {{=value.content}}
+        {{~}}
+        {{??}}
+        二级分类
+        {{?}}      
+	</p>
+	
+	<h3 data-type="textLinkList" data-id="F4Ftextlink">
+            {{?it.F4Ftextlink&&it.F4Ftextlink.length>0}}
+            {{~it.F4Ftextlink:value:index}}
+            <a target="_blank" href="{{=value.linkTo}}">{{=value.content}}</a>
+            {{~}}
+            {{??}}
+            <a href="#">二级分类</a>
+            <a href="#">二级分类</a>
+            <a href="#">二级分类</a>
+            <a href="#">二级分类</a>
+            <a href="#">二级分类</a>
+            <a href="#">二级分类</a>
+            <a href="#">二级分类</a>
+            {{?}}
+    </h3>
+  </div>
+  
+  <div class="wslff4bg">
+    
+	<div class="f4advarea" data-type="imgLink" data-id="f4advL" imgSize="264X492">
+    {{?it.f4advL &&it.f4advL.imgUrl}}
+    <a href="{{=it.f4advL.imgLinkTo}}"><img src="{{=it.f4advL.imgUrl}}" alt="{{=it.f4advL.description}}" title="{{=it.f4advL.description}}" width="264" height="492" /></a>
+    {{??}}
+    <a href=""><img src="../res/case/ad210x280_4.jpg" width="264" height="492" /></a>
+    {{?}}
+    </div>
+	
+	<div class="wslfpaarea">
+	
+	  {{for(var i=1; i<=1; i++){ }}
+      {{var dataId="profloor_tab" + i; var data=it[dataId];if(!data){data = {} }; }}
+      <div class="wslff4_list" data-type="productGroup" data-id="{{=dataId}}.wslff4_productlist" data-spec="140X140">
+        <ul>
+        {{?data.wslff4_productlist&&data.wslff4_productlist.length>0}}
+        {{~data.wslff4_productlist :value:index}}
+        <li>
+            <div class="pic">
+                <a target="_blank" href="/product.jsp?id={{=value.id}}">
+                    <img src="{{=value.imgUrl}}" alt="{{=value.name}}" title="{{=value.name}}" width="140px">
+                </a>
+            </div>
+			<div class="wslff4_listsbarea">
+			  <div class="title"><a target="_blank" href="/product.jsp?id={{=value.id}}">{{=value.name}}</a></div>
+			  <div class="mp"><h1>&yen</h1><h2>{{=value.memberPrice}}</h2></div>
+			  <div class="bnt">
+				<a target="_blank" href="/product.jsp?id={{=value.id}}"><img src="../res/images/x.gif" width="30" height="30"></a>
+			  </div>
+			</div>
+        </li>
+        {{~}}
+        {{??}}
+        <li>
+		  <div class="pic"><a href="#"><img src="../res/case/180x240x6.jpg"></a></div>
+		  <div class="wslff4_listsbarea">
+			  <div class="title"><a href="#">【回家送礼】东阿阿胶清仓促销 养生堂 祛斑焕白套装</a></div>
+			  <div class="price">市场价：&yen;&nbsp;119.00</div>
+			  <div class="mp">促销价：&yen;&nbsp;119.00</div>	
+			  <div class="bnt">
+				<a target="_blank" href="#"><img src="../res/images/x.gif" width="30" height="30"></a>
+			  </div>
+		  </div>
+        </li>
+        {{?}}
+        </ul>
+      </div>
+      {{ } }}
+	  
+	  <div class="w201">
+      <div class="f4advarea_adv" data-type="imgLink" data-id="f4adv_T" imgSize="201X223">
+      {{?it.f4adv_T &&it.f4adv_T.imgUrl}}
+      <a href="{{=it.f4adv_T.imgLinkTo}}"><img src="{{=it.f4adv_T.imgUrl}}" alt="{{=it.f4adv_T.description}}" title="{{=it.f4adv_T.description}}" width="201" height="223" /></a>
+      {{??}}
+      <a href=""><img src="../res/case/ad210x280_4.jpg" width="201" height="223" /></a>
+      {{?}}
+      </div>
+	  <div class="f4advarea_adv pt10" data-type="imgLink" data-id="f4adv_B" imgSize="201X223">
+      {{?it.f4adv_B &&it.f4adv_B.imgUrl}}
+      <a href="{{=it.f4adv_B.imgLinkTo}}"><img src="{{=it.f4adv_B.imgUrl}}" alt="{{=it.f4adv_B.description}}" title="{{=it.f4adv_B.description}}" width="201" height="223" /></a>
+      {{??}}
+	  <a href=""><img src="../res/case/ad210x280_4.jpg" width="201" height="223" /></a>
+	  {{?}}    
+      </div>
+    </div>
+	  
+	</div>
+    
+  </div>
+  
+</div>
+{{?}}
+
+{{?it.config&&it.config.levelNum&&it.config.levelNum.value.indexOf("10")>-1}}
+<div class="wslfwbox floor">
+  
+  <div class="wslf_ftbg">
+    <p data-type="textLinkList" data-id="F4Ftext">
+        {{?it.F4Ftext&&it.F4Ftext.length>0}}
+        {{~it.F4Ftext:value:index}}
+        {{=value.content}}
+        {{~}}
+        {{??}}
+        二级分类
+        {{?}}      
+	</p>
+	
+	<h3 data-type="textLinkList" data-id="F4Ftextlink">
+            {{?it.F4Ftextlink&&it.F4Ftextlink.length>0}}
+            {{~it.F4Ftextlink:value:index}}
+            <a target="_blank" href="{{=value.linkTo}}">{{=value.content}}</a>
+            {{~}}
+            {{??}}
+            <a href="#">二级分类</a>
+            <a href="#">二级分类</a>
+            <a href="#">二级分类</a>
+            <a href="#">二级分类</a>
+            <a href="#">二级分类</a>
+            <a href="#">二级分类</a>
+            <a href="#">二级分类</a>
+            {{?}}
+    </h3>
+  </div>
+  
+  <div class="wslff4bg">
+    
+	<div class="f4advarea" data-type="imgLink" data-id="f4advL" imgSize="264X492">
+    {{?it.f4advL &&it.f4advL.imgUrl}}
+    <a href="{{=it.f4advL.imgLinkTo}}"><img src="{{=it.f4advL.imgUrl}}" alt="{{=it.f4advL.description}}" title="{{=it.f4advL.description}}" width="264" height="492" /></a>
+    {{??}}
+    <a href=""><img src="../res/case/ad210x280_4.jpg" width="264" height="492" /></a>
+    {{?}}
+    </div>
+	
+	<div class="wslfpaarea">
+	
+	  {{for(var i=1; i<=1; i++){ }}
+      {{var dataId="profloor_tab" + i; var data=it[dataId];if(!data){data = {} }; }}
+      <div class="wslff4_list" data-type="productGroup" data-id="{{=dataId}}.wslff4_productlist" data-spec="140X140">
+        <ul>
+        {{?data.wslff4_productlist&&data.wslff4_productlist.length>0}}
+        {{~data.wslff4_productlist :value:index}}
+        <li>
+            <div class="pic">
+                <a target="_blank" href="/product.jsp?id={{=value.id}}">
+                    <img src="{{=value.imgUrl}}" alt="{{=value.name}}" title="{{=value.name}}" width="140px">
+                </a>
+            </div>
+			<div class="wslff4_listsbarea">
+			  <div class="title"><a target="_blank" href="/product.jsp?id={{=value.id}}">{{=value.name}}</a></div>
+			  <div class="mp"><h1>&yen</h1><h2>{{=value.memberPrice}}</h2></div>
+			  <div class="bnt">
+				<a target="_blank" href="/product.jsp?id={{=value.id}}"><img src="../res/images/x.gif" width="30" height="30"></a>
+			  </div>
+			</div>
+        </li>
+        {{~}}
+        {{??}}
+        <li>
+		  <div class="pic"><a href="#"><img src="../res/case/180x240x6.jpg"></a></div>
+		  <div class="wslff4_listsbarea">
+			  <div class="title"><a href="#">【回家送礼】东阿阿胶清仓促销 养生堂 祛斑焕白套装</a></div>
+			  <div class="price">市场价：&yen;&nbsp;119.00</div>
+			  <div class="mp">促销价：&yen;&nbsp;119.00</div>	
+			  <div class="bnt">
+				<a target="_blank" href="#"><img src="../res/images/x.gif" width="30" height="30"></a>
+			  </div>
+		  </div>
+        </li>
+        {{?}}
+        </ul>
+      </div>
+      {{ } }}
+	  
+	  <div class="w201">
+      <div class="f4advarea_adv" data-type="imgLink" data-id="f4adv_T" imgSize="201X223">
+      {{?it.f4adv_T &&it.f4adv_T.imgUrl}}
+      <a href="{{=it.f4adv_T.imgLinkTo}}"><img src="{{=it.f4adv_T.imgUrl}}" alt="{{=it.f4adv_T.description}}" title="{{=it.f4adv_T.description}}" width="201" height="223" /></a>
+      {{??}}
+      <a href=""><img src="../res/case/ad210x280_4.jpg" width="201" height="223" /></a>
+      {{?}}
+      </div>
+	  <div class="f4advarea_adv pt10" data-type="imgLink" data-id="f4adv_B" imgSize="201X223">
+      {{?it.f4adv_B &&it.f4adv_B.imgUrl}}
+      <a href="{{=it.f4adv_B.imgLinkTo}}"><img src="{{=it.f4adv_B.imgUrl}}" alt="{{=it.f4adv_B.description}}" title="{{=it.f4adv_B.description}}" width="201" height="223" /></a>
+      {{??}}
+	  <a href=""><img src="../res/case/ad210x280_4.jpg" width="201" height="223" /></a>
+	  {{?}}    
+      </div>
+    </div>
+	  
+	</div>
+    
+  </div>
+  
+</div>
+{{?}}
+
+
+
+<script type="text/javascript">
+	init_gourment();
+	$(".icon1").mouseover(function() {      
+		hideDiv_gourment();
+		changeFontColor_gourment();
+		$(".icon1 font").attr('color', 'red');
+		$(".div1").show();
+	}); 
+	$(".icon2").mouseover(function() {      
+		hideDiv_gourment();
+		changeFontColor_gourment();
+		$(".icon2 font").attr('color', 'red');
+		$(".div2").show();
+	});
+	$(".icon3").mouseover(function() {      
+		hideDiv_gourment();
+		changeFontColor_gourment();
+		$(".icon3 font").attr('color', 'red');
+		$(".div3").show();
+	});
+	$(".icon4").mouseover(function() {      
+		hideDiv_gourment();
+		changeFontColor_gourment();
+		$(".icon4 font").attr('color', 'red');
+		$(".div4").show();
+	});
+	$(".icon5").mouseover(function() {      
+		hideDiv_gourment();
+		changeFontColor_gourment();
+		$(".icon5 font").attr('color', 'red');
+		$(".div5").show();
+	});
+	$(".icon6").mouseover(function() {      
+		hideDiv_gourment();
+		changeFontColor_gourment();
+		$(".icon6 font").attr('color', 'red');
+		$(".div6").show();
+	});
+	$(".icon7").mouseover(function() {      
+		hideDiv_gourment();
+		changeFontColor_gourment();
+		$(".icon7 font").attr('color', 'red');
+		$(".div7").show();
+	});
+	$(".icon8").mouseover(function() {      
+		hideDiv_gourment();
+		changeFontColor_gourment();
+		$(".icon8 font").attr('color', 'red');
+		$(".div8").show();
+	});
+	$(".icon9").mouseover(function() {      
+		hideDiv_gourment();
+		changeFontColor_gourment();
+		$(".icon9 font").attr('color', 'red');
+		$(".div9").show();
+	});
+	$(".icon10").mouseover(function() {      
+		hideDiv_gourment();
+		changeFontColor_gourment();
+		$(".icon10 font").attr('color', 'red');
+		$(".div10").show();
+	});
+	$(".icon11").mouseover(function() {      
+		hideDiv_gourment();
+		changeFontColor_gourment();
+		$(".icon11 font").attr('color', 'red');
+		$(".div11").show();
+	});
+
+
+function init_gourment(){
+	hideDiv_gourment();
+	$(".div1").show();
+	$(".icon1 font").attr('color', 'red');
+}
+
+function hideDiv_gourment(){
+	$(".div1").hide();
+	$(".div2").hide();
+	$(".div3").hide();
+	$(".div4").hide();
+	$(".div5").hide();
+	$(".div6").hide();
+	$(".div7").hide();
+	$(".div8").hide();
+	$(".div9").hide();
+	$(".div10").hide();
+	$(".div11").hide();
+}
+
+function changeFontColor_gourment(){
+	$(".icon1 font").attr('color', 'black');
+	$(".icon2 font").attr('color', 'black');
+	$(".icon3 font").attr('color', 'black');
+	$(".icon4 font").attr('color', 'black');
+	$(".icon5 font").attr('color', 'black');
+	$(".icon6 font").attr('color', 'black');
+	$(".icon7 font").attr('color', 'black');
+	$(".icon8 font").attr('color', 'black');
+	$(".icon9 font").attr('color', 'black');
+	$(".icon10 font").attr('color', 'black');
+	$(".icon11 font").attr('color', 'black');
+}
+</script>
+<!--end page-->
+{{?it.productionMode}}
+{{=$.importUrl("/defaultFooter.html?m=head_merchant&productionMode=true")}}
+{{??}}
+{{=$.importUrl("/defaultFooter.html?m=head_merchant&productionMode=false")}}
+{{?}}

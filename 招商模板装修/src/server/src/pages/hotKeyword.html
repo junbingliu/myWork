@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link href="../res/style/style.css" rel="stylesheet"/>
+</head>
+<section class="sea_main">
+    <div class="hot_search" >
+        <div class="tit"><i class="ic1"></i>默认关键字搜索</div>
+        <p class="tbl_type" data-type="textLink" data-id="defaultKeyword">
+            <%if(defaultKeyword&&defaultKeyword.content){%>
+            <span><a href="<%=defaultKeyword.linkTo%>"><%=defaultKeyword.content%></a></span>
+            <%}else{%>
+            <span><a href="#">保健器械</a></span>
+            <%}%>
+        </p>
+    </div>
+
+    <div class="hot_search" >
+        <div class="tit"><i class="ic1"></i>热门搜索</div>
+        <p class="tbl_type" data-type="textLinkList" data-id="hotKeyword">
+            <%if(hotKeyword&&hotKeyword.length>0){%>
+            <%for(var i =0;i< hotKeyword.length;i++){%>
+            <%var keyword = hotKeyword[i]%>
+            <span><a href="<%=keyword.linkTo%>"><%=keyword.content%></a></span>
+            <%}%>
+            <%}else{%>
+            <span><a href="#">保健器械</a></span>
+            <span><a href="#">自行车</a></span>
+            <span><a href="#">保健服装</a></span>
+            <span><a href="#">运动健身</a></span>
+            <span><a href="#">健康睡眠床</a></span>
+            <span><a href="#">清洁用品</a></span>
+            <span><a href="#">牙刷</a></span>
+            <span><a href="#">有机谷物</a></span>
+            <span><a href="#">营养保健品</a></span>
+            <%}%>
+        </p>
+    </div>
+</section>
+</html>

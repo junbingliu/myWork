@@ -1,0 +1,372 @@
+{{?it.productionMode}}
+{{=$.importUrl("/header_kjg_design.html?m=head_merchant&config="+JSON.stringify(it.config)+"")}}
+{{??}}
+{{=$.importUrl("/header_kjg_design.html?m=head_merchant")}}
+{{?}}
+
+
+
+<link href="../res/style/categories/channelmall_national.css" rel="stylesheet">
+
+<script src="../res/js/adv_imglistH.js"></script>
+
+
+
+{{? it.config && it.config.mainBg.value}}
+{{ var mainBg = it.config.mainBg.value; }}
+<div style="background: {{=mainBg}};display:table; min-width:1200px; width:100%;" id="content">
+
+
+<div class="wsfctop_adv banner" data-type="imgLinkList" data-id="adv_imgL_banner" imgSize="1920X描述里面填每张图片的高" data-height="300">
+    <ul>
+        {{?it.adv_imgL_banner && it.adv_imgL_banner.length > 0}}
+        {{~it.adv_imgL_banner:value:index}}
+        <li style="height:{{=value.description}};">
+            <a href="{{=value.linkTo}}" target="{{=value.openInNewPage}}" style="background:url({{=value.imgUrl}}) no-repeat center;display: block;height:{{=value.description}};"></a>
+        </li>
+        {{~}}
+        {{??}}
+        <li style="background-image:url(@{res/images/adv.gif}@); display:block;height:420px;">
+            <a href="#"></a>
+        </li>
+        {{?}}
+    </ul>
+</div>
+
+
+
+{{?it.config&&it.config.levelNum&&it.config.levelNum.value.indexOf("L")>-1}}
+<div class="wswbox1200 item" id="itemL">
+
+    <div class="wsfc_adv_shareL" data-type="imgLink" data-id="adv_L" imgSize="1200X">
+        {{?it.adv_L && it.adv_L.imgUrl }}
+        <a target="{{=value.openInNewPage}}" href="{{=it.adv_L.imgLinkTo}}">
+            <img src="{{=it.adv_L.imgUrl}}"  alt="{{=it.adv_L.description}}" title="{{=it.adv_L.description}}" width="1200"/>
+        </a>
+        {{??}}
+        <img src="../res/images/adv.gif" width="1000" height="50" />
+        {{?}}
+    </div>
+
+    <div id="photo-list" class="wsfc_adv_shareL" data-type="imgLinkList" data-id="adv_imgL_L" imgSize="150X70" data-height="100">
+        <ul id="scroll">
+            {{?it.adv_imgL_L && it.adv_imgL_L.length > 0}}
+            {{~it.adv_imgL_L:value:index}}
+            <li>
+                <a href="{{=value.linkTo}}" target="_blank">
+                    <img src="{{=value.imgUrl}}"/>
+                </a>
+            </li>
+            {{~}}
+            {{??}}
+            <li><a href="#"><img src="../res/images/adv.gif" width="163" height="128"/></a></li>
+            {{?}}
+        </ul>
+    </div>
+</div>
+{{?}}
+
+{{?it.config&&it.config.levelNum&&it.config.levelNum.value.indexOf("O")>-1}}
+<div class="wswbox1200 item" id="itemO">
+    <div class="wsfc_adv_shareL imgADD M15" data-type="imgLinkList" data-id="adv_O" imgSize="1200宽,logo,160,间距13">
+        <ul>
+        {{?it.adv_O && it.adv_O.length > 0}}
+        {{~it.adv_O:value:index}}
+            <li>
+                <a href="{{=value.linkTo}}" target="_blank"><img src="{{=value.imgUrl}}"/></a>
+            </li>
+        {{~}}
+        {{??}}
+        <img src="../res/images/adv.gif" width="1000" height="50" />
+        {{?}}
+        </ul>
+    </div>
+</div>
+{{?}}
+
+
+{{?it.config&&it.config.levelNum&&it.config.levelNum.value.indexOf("J")>-1}}
+<div class="wswbox1200 item" id="itemJ">
+    <div class="wsfc_adv_shareL" data-type="imgLink" data-id="adv_J" imgSize="1200X">
+        {{?it.adv_J && it.adv_J.imgUrl }}
+        <a target="{{=it.adv_J.openInNewPage}}" href="{{=it.adv_J.imgLinkTo}}">
+            <img src="{{=it.adv_J.imgUrl}}"  alt="{{=it.adv_J.description}}" title="{{=it.adv_J.description}}" width="1200"/>
+        </a>
+        {{??}}
+        <img src="../res/images/adv.gif" width="1000" height="50" />
+        {{?}}
+    </div>
+
+    {{? it.config && it.config.plicon2.value}}
+    {{ var plicon2 = it.config.plicon2.value; }}
+    <div class="pb10">
+        <div class="wsfc_pl_592389" data-type="productGroup" data-id="pl_J" data-spec="320X320">
+            <ul>
+                {{?it.pl_J && it.pl_J.length>0}}
+                {{~it.pl_J :value:index}}
+                {{?(index+1)%2==0}}
+                <li class="last">
+                    {{??}}
+                <li>
+                    {{?}}
+                    <i class="rank{{=index+1}}"></i>
+                    <div class="pic">
+                        <a target="_blank" href="/product.jsp?id={{=value.id}}"><img src="{{=value.imgUrl}}" alt="{{=value.name}}" title="{{=value.name}}" width="320px" height="320px"></a>
+                        <div class="icon_2"><img src="{{=plicon2}}" width="100"/></div>
+                    </div>
+                    <div class="title"><p>{{=value.name}}</p></div>
+                    <div class="sellingPoint"><p>{{=value.sellingPoint}}</P></div>
+                    <div class="mp">
+                        <p>&yen</p><em>{{=value.memberPrice}}</em>
+                    </div>
+                    <div class="bnt">
+                        <div class="area"><a target="_blank" href="/product.jsp?id={{=value.id}}">立即查看</a></div>
+                    </div>
+                </li>
+                {{~}}
+                {{??}}
+                <li>
+                    <div class="pic"><a href="#"><img src="../res/case/140x140x6.jpg"></a></div>
+                    <div class="title"><a href="#">【回家送礼】东阿阿胶清仓促销 养生堂 祛斑焕白套装</a></div>
+                    <div class="price">&yen;&nbsp;119.00</div>
+                    <div class="discount">&yen;&nbsp;119.00</div>
+                </li>
+                {{?}}
+            </ul>
+        </div>
+    </div>
+    {{?}}
+
+</div>
+{{?}}
+
+{{?it.config&&it.config.levelNum&&it.config.levelNum.value.indexOf("X")>-1}}
+<div class="wswbox1200 item" id="itemX">
+    <div class="wsfc_adv_shareL" data-type="imgLink" data-id="adv_X" imgSize="1200X">
+        {{?it.adv_X && it.adv_X.imgUrl }}
+        <a target="{{=it.adv_X.openInNewPage}}" href="{{=it.adv_X.imgLinkTo}}">
+            <img src="{{=it.adv_X.imgUrl}}"  alt="{{=it.adv_X.description}}" title="{{=it.adv_X.description}}" width="1200"/>
+        </a>
+        {{??}}
+        <img src="../res/images/adv.gif" width="1200" height="50" />
+        {{?}}
+    </div>
+
+    {{? it.config && it.config.plicon2.value}}
+    {{ var plicon2 = it.config.plicon2.value; }}
+    <div class="pb10">
+        <div class="wsfc_pl_390230" data-type="productGroup" data-id="pl_X" data-spec="320X320">
+            <ul>
+                {{?it.pl_X && it.pl_X.length>0}}
+                {{~it.pl_X :value:index}}
+                <li>
+                    <i class="rank{{=index+1}}"></i>
+                    <div class="pic">
+                        <a target="_blank" href="/product.jsp?id={{=value.id}}"><img src="{{=value.imgUrl}}" alt="{{=value.name}}" title="{{=value.name}}" width="210" height="210"></a>
+                        <div class="icon_2"><img src="{{=plicon2}}" width="100"/></div>
+                    </div>
+                    <div class="title"><p>{{=value.name}}</p></div>
+                    <div class="sellingPoint"><p>{{=value.sellingPoint}}</P></div>
+                    <div class="mp">
+                        <p>&yen</p><em>{{=value.memberPrice}}</em>
+                    </div>
+                    <div class="bnt">
+                        <div class="area"><a target="_blank" href="/product.jsp?id={{=value.id}}">立即查看</a></div>
+                    </div>
+                </li>
+                {{~}}
+                {{??}}
+                <li>
+                    <div class="pic"><a href="#"><img src="../res/case/140x140x6.jpg"></a></div>
+                    <div class="title"><a href="#">【回家送礼】东阿阿胶清仓促销 养生堂 祛斑焕白套装</a></div>
+                    <div class="price">&yen;&nbsp;119.00</div>
+                    <div class="discount">&yen;&nbsp;119.00</div>
+                </li>
+                {{?}}
+            </ul>
+        </div>
+    </div>
+    {{?}}
+
+</div>
+{{?}}
+
+
+
+{{for(var i = 1; i <= 9; i++){}}
+{{?it.config&&it.config.levelNum&&it.config.levelNum.value.indexOf(''+i)>-1}}
+<div class="wswbox1200 item" id="item{{=i}}">
+
+    {{var F_titleId="F_title"+i; var F_title=it[F_titleId];if(!F_title){F_title = {} }; }}
+    <div class="wsfc_adv_shareL" data-type="imgLink" data-id="{{=F_titleId}}" imgSize="1200X">
+        {{?F_title && F_title.imgUrl }}
+        <a target="{{=F_title.openInNewPage}}" href="{{=F_title.imgLinkTo}}">
+            <img src="{{=F_title.imgUrl}}"  alt="{{=F_title.description}}" title="{{=F_title.description}}" width="1200"/>
+        </a>
+        {{??}}
+        <img src="../res/images/adv.gif" width="1200" height="70" />
+        {{?}}
+    </div>
+
+    {{? it.config && it.config.plicon.value}}
+    {{ var plicon = it.config.plicon.value; }}
+    <div class="pb10">
+        {{var dataId="F_B"+i; var data=it[dataId];if(!data){data = {} }; }}
+        <div class="wsfc_pl_288382" data-type="productGroup" data-id="{{=dataId}}" data-spec="286X286">
+            <ul>
+                {{?data&&data.length>0}}
+                {{~data:value:index}}
+                {{?(index+1)%4==0}}
+                <li class="last">
+                    {{??}}
+                <li>
+                    {{?}}
+                    <div class="pic">
+                        <a target="_blank" href="/product.jsp?id={{=value.id}}" class="pl"><img src="{{=value.imgUrl}}" alt="{{=value.name}}" title="{{=value.name}}" width="286px" height="286px"></a>
+                        <div class="icon_2"><img src="{{=plicon}}" width="80"/></div>
+                    </div>
+                    <div class="title"><p>{{=value.name}}</p></div>
+                    <div class="pricebox">
+                        <div class="mp"><i>&yen</i><em>{{=value.memberPrice}}</em></div>
+                        <div class="bnt"><a target="_blank" href="/product.jsp?id={{=value.id}}">立即查看</a></div>
+                    </div>
+                </li>
+                {{~}}
+                {{??}}
+                <li>
+                    <div class="pic"><a href="#"><img src="../res/case/140x140x6.jpg"></a></div>
+                    <div class="title"><a href="#">【回家送礼】东阿阿胶清仓促销 养生堂 祛斑焕白套装</a></div>
+                    <div class="price">&yen;&nbsp;119.00</div>
+                    <div class="discount">&yen;&nbsp;119.00</div>
+                </li>
+                {{?}}
+            </ul>
+        </div>
+    </div>
+    {{?}}
+
+
+
+</div>
+{{?}}
+{{ } }}
+
+
+
+{{?it.config&&it.config.levelNum&&it.config.levelNum.value.indexOf("B")>-1}}
+    {{? it.itemB && it.itemB.content}}
+    <div class="wswbox100per item" id="itemB" data-type="textLink" data-id="itemB" imgSize="1920X" data-height="10" style="background: {{=it.itemB.content}}">
+    {{??}}
+    <div class="wswbox100per item" id="itemB" data-type="textLink" data-id="itemB" imgSize="1920X" data-height="10">
+    {{?}}
+        <div class="wswbox1200 " data-type="imgLinkList" data-id="adv_B" imgSize="1200宽,随机尺寸浮动">
+            <ul class="imgADD">
+                {{?it.adv_B && it.adv_B.length > 0}}
+                {{~it.adv_B:value:index}}
+                <li>
+                    <a href="{{=value.linkTo}}" target="_blank"><img src="{{=value.imgUrl}}"/></a>
+                </li>
+                {{~}}
+                {{??}}
+                <img src="../res/images/adv.gif" width="1000" height="50" />
+                {{?}}
+            </ul>
+        </div>
+	</div>
+{{?}}
+
+
+{{?it.config&&it.config.levelNum&&it.config.levelNum.value.indexOf("C")>-1}}
+<div class="wswbox1000 item pt10" id="itemC">
+    <div class="imglist_FJ_Img" data-type="imgLinkList" data-id="adv_imgL_C">
+        <ul>
+            {{?it.adv_imgL_C && it.adv_imgL_C.length > 0}}
+            {{~it.adv_imgL_C:value:index}}
+            <li>
+                <a href="{{=value.linkTo}}" target="_blank">
+                    <img src="{{=value.imgUrl}}"/>
+                </a>
+            </li>
+            {{~}}
+            {{??}}
+            <li><a href="#"><img src="../res/images/adv.gif" width="163" height="128"/></a></li>
+            {{?}}
+        </ul>
+    </div>
+</div>
+{{?}}
+
+
+
+
+</div>
+{{?}}
+
+
+
+
+
+<script>
+	$(document).ready(function(){
+        $("#menubox, .fix").hide();
+        $(window).scroll(function(){
+            var scrollTop = $(this).scrollTop();
+            if(scrollTop > 380){
+                $("#menubox, .fix").show();
+            }else{
+                $("#menubox, .fix").hide();
+            }
+        });
+
+        $("#backToTop, .top-btn").click(function(){
+           $('html, body').animate({scrollTop:0}, 'slow');
+       });
+
+    });
+</script>
+
+{{?it.config&&it.config.levelNum&&it.config.levelNum.value.indexOf("N")>-1}}
+
+<div  id="menubox" class="wswbox1200" >
+    <div class="menuimg" data-type="imgLinkList" data-id="menuimg">
+        <ul>
+            {{?it.menuimg && it.menuimg.length>0}}
+            {{~it.menuimg:value:index}}
+            <li><a href="{{=value.linkTo}}" target="_blank"><img src="{{=value.imgUrl}}"></a></li>
+            {{~}}
+            {{??}}
+            <li ><img src="../res/images/adv.gif"></li>
+            {{?}}
+        </ul>
+    </div>
+    {{? it.config && it.config.dtnavBg.value}}
+    {{ var dtnavBg = it.config.dtnavBg.value; }}
+    <div id="menu" data-type="textLinkList" data-id="animNav1">
+        <ul>
+            {{?it.animNav1&&it.animNav1.length>0}}
+            {{~it.animNav1:value:index}}
+            <li style="background: {{=dtnavBg}}"><a href="{{=value.linkTo}}"  >{{=value.content}}</a></li>
+            {{~}}
+            {{??}}
+            <li><a href="#item1" class="current">1F 男装</a></li>
+            <li><a href="#item2">2F 女装</a></li>
+            <li><a href="#item3">3F 美妆</a></li>
+            <li><a href="#item4">4F 数码</a></li>
+            <li><a href="#item5">5F 母婴</a></li>
+            {{?}}
+            <li><a id="backToTop" style="color: #fff">Top</a></li>
+        </ul>
+    </div>
+    {{?}}
+</div>
+
+{{?}}
+<!--
+<script type="text/javascript" src="../res/js/dt_nav.js"></script>
+-->
+<!--end 主体-->
+{{?it.productionMode}}
+{{=$.importUrl("/kjgFooter.html?m=head_merchant&productionMode=true")}}
+{{??}}
+{{=$.importUrl("/kjgFooter.html?m=head_merchant&productionMode=false")}}
+{{?}}

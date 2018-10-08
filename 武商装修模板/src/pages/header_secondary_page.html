@@ -1,0 +1,324 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <meta name="keywords" content="{{=it.config&&it.config.keywords&&it.config.keywords.value}}"/>
+    <meta name="description" content="{{=it.config&&it.config.description&&it.config.description.value}}"/>
+    <link href="../res/images/wushangicon.png" rel="shortcut icon" type="image/x-icon"/>
+    <link href="../res/images/wushangicon.png" rel="icon" type="image/x-icon"/>
+    <link href="../res/images/wushangicon.png" rel="Bookmark"  type="image/x-icon"/>
+    <title>
+        {{?it.config&&it.config.title}}
+        {{=it.config.title.value}}
+        {{??}}
+        武商首页
+        {{?}}
+    </title>
+    <link href="../res/style/header_New.css" rel="stylesheet">
+    <link href="../res/style/header_secondary_page.css" rel="stylesheet">
+    {{?it.productionMode}}
+    <script type="text/javascript">
+        if (typeof jQuery=='undefined'){
+            document.write('<script type="text/javascript" src="../res/js/jquery-1.10.2.min.js">\x3C/script>');
+        }
+    </script>
+
+    {{?it.specCode}}
+    {{=it.specCode}}
+    {{?}}
+    {{?it.config&&it.config.headerCode}}
+    {{=it.config.headerCode.value}}
+    {{?}}
+    <script src="/resources/juicer-min.js" type="text/javascript"></script>
+    <script src="../res/js/appEditor.js" type="text/javascript"></script>
+    <script src="../res/js/header_New.js" type="text/javascript"></script>
+    <script src="../res/js/cart.js" type="text/javascript"></script>
+    <script type="text/javascript" src="/track/track.js"></script>
+    <script type="text/javascript" src="/resources/appEditor/autoSuggest.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#keyword").autoSuggest({url:"/appMarket/appEditor/autoSuggest.jsp",callback:function(keyword,columnId){
+                $("#keyword").val(keyword);
+                $("#cid").val(columnId);
+                $("#search_form").submit();
+            }});
+        });
+    </script>
+    <script id="cartLayerTemplate" type="text/template">
+        <h4>最新加入的商品</h4>
+        <div class="cartBox">
+            {@each buyItems as item}
+            <dl>
+                <dt class="pic"><a href="/product.jsp?id=${item.productId}"><img src="${item.icon}" alt=""/></a></dt>
+                <dd class="name"><a href="/product.jsp?id=${item.productId}">${item.productName}</a></dd>
+                <dd class="price">
+                    <b>&yen;${item.unitPrice}</b>×${item.number}
+                    <a href="#" class="del">删除</a>
+                    <input type="hidden" name="itemId" value="${item.itemKey}">
+                    <input type="hidden" name="cartId" value="${item.cartId}">
+                </dd>
+                <dd class="clear"></dd >
+            </dl>
+            {@/each}
+        </div>
+        <div class="totalbox">
+            <p class="total clearfix">
+                共<span>${totalNumber}</span>件商品&nbsp;&nbsp;&nbsp;共计<b>&yen;${totalPrice}</b>
+            </p>
+            <p class="cartBtn"><a href="/shopping/cart.jsp">去购物车结算</a></p>
+            <p class="clear"></p>
+        </div>
+    </script>
+    {{?}}
+</head>
+
+<body>
+{{?it.productionMode}}
+{{=$.importUrl("/defaultHeaderTop.html?m=head_merchant&productionMode=true")}}
+{{??}}
+{{=$.importUrl("/defaultHeaderTop.html?m=head_merchant&productionMode=false")}}
+{{?}}
+
+<!--顶部导航-->
+<div class="topnav">
+    <div class="wbox clearfix">
+        {{?(!it.productionMode || !it.alreadyLogin)}}
+        <div class="login_info fl" data-type="html" data-id="header:topNav1_notLogin" subType="notLogin" title="未登录">
+            {{?it.header &&it.header.topNav1_notLogin}}
+            {{=it.header.topNav1_notLogin}}
+            {{??}}
+            <p>您好，欢迎来到武商网上商城！</p>
+            <a target="_blank" href="/login/sign_in.jsp">请登录</a>
+            <a target="_blank" href="/login/register.jsp">免费注册</a>
+            {{?}}
+        </div>
+        {{?}}
+        {{?(!it.productionMode || it.alreadyLogin)}}
+        <div class="login_info fl" data-type="html" data-id="header:topNav1_login" subType="logined" title="登录后">
+            {{?it.header &&it.header.topNav1_login}}
+            {{=it.header.topNav1_login}}
+            {{??}}
+            <p>{userName}，欢迎来到武商网上商城！</p>
+            <a  href="/login/handle/logout_handler.jsp" class="t_login">退出</a>
+            {{?}}
+        </div>
+        {{?}}
+
+        <div class="topmenu fr">
+            <ul>
+                <!--
+                <li class="sn_menu" data-type="imgLink" data-id="header:sjimg" imgSize="195x133">
+                    {{?it.header.sjimg&&it.header.sjimg.imgUrl}}
+                    <a href="{{=it.header.sjimg.imgLinkTo}}" class="menu_hd">{{=it.header.sjimg.description}}<b></b></a>
+                    <div class="menu_bd siteNav" style="display:none;">
+                        <a target="_blank" href="{{=it.header.sjimg.imgLinkTo}}"><img src="{{=it.header.sjimg.imgUrl}}"  width="195" height="133" /></a>
+                    </div>
+                    {{??}}
+                    <a href="#" class="menu_hd">帮助中心<b></b></a>
+                    <div class="menu_bd siteNav" style="display:none;">
+                        <a href=""> <img src="../res/case/ad210x280_3.jpg" width="195" height="133" /> </a>
+                    </div>
+                    {{?}}
+                </li>
+                -->
+				<li class="sn_menu"  data-type="textLinkList" data-id="header:topNav_xin">
+                    {{?it.header && it.header.topNav_xin&&it.header.topNav_xin.length>0}}
+                    {{~it.header.topNav_xin:value:index}}
+                    <a target="_blank" href="{{=value.linkTo}}" class="menu_hd">{{=value.content}}</a>
+                    {{~}}
+                    {{??}}
+                    <a href="#" class="menu_hd">我的订单<b></b></a>
+                    {{?}}
+                </li>
+
+                <li class="sn_menu" data-type="textLinkList" data-id="header:topNav1"> <!--滑上去添加 hover-->
+                    {{?it.header && it.header.topNav1&&it.header.topNav1.length>0}}
+                    {{~it.header.topNav1:value:index}}
+                    {{?index==0}}
+                    <a href="{{=value.linkTo}}" class="menu_hd">{{=value.content}}<b></b></a>
+                    <div class="menu_bd" style="display:none;">
+                        {{??index==it.header.topNav1.length-1}}
+                        <a href="{{=value.linkTo}}">{{=value.content}}</a>
+                    </div>
+                    {{??}}
+                    <a href="{{=value.linkTo}}">{{=value.content}}</a>
+                    {{?}}
+                    {{~}}
+                    {{??}}
+                    <a href="#" class="menu_hd">我的武商<b></b></a>
+                    <div class="menu_bd" style="display:none;">
+                        <a href="#">我的订单</a>
+                        <a href="#">我的收藏</a>
+                    </div>
+                    {{?}}
+                </li>
+                <li class="sn_menu" data-type="textLinkList" data-id="header:topNav2">
+                    {{?it.header && it.header.topNav2&&it.header.topNav2.length>0}}
+                    {{~it.header.topNav2:value:index}}
+                    {{?index==0}}
+                    <a href="{{=value.linkTo}}" class="menu_hd">{{=value.content}}<b></b></a>
+                    <div class="menu_bd" style="display:none;">
+                        {{??index==it.header.topNav2.length-1}}
+                        <a href="{{=value.linkTo}}">{{=value.content}}</a>
+                    </div>
+                    {{??}}
+                    <a href="{{=value.linkTo}}">{{=value.content}}</a>
+                    {{?}}
+                    {{~}}
+                    {{??}}
+                    <a href="#" class="menu_hd">帮助中心<b></b></a>
+
+                    <div class="menu_bd" style="display:none;">
+                        <a href="#">购物流程</a>
+                        <a href="#">常见问题</a>
+                        <a href="#">支付方式</a>
+                        <a href="#">退换货流程</a>
+                    </div>
+                    {{?}}
+                </li>
+
+                <li class="sn_menu" data-type="textLinkList" data-id="header:topNav5">
+                    {{?it.header && it.header.topNav5&&it.header.topNav5.length>0}}
+                    {{~it.header.topNav5:value:index}}
+                    {{?index==0}}
+                    <a href="{{=value.linkTo}}" class="menu_hd" target="_blank">{{=value.content}}<b></b></a>
+                    <div class="menu_bd" style="display:none;">
+                        {{??index==it.header.topNav5.length-1}}
+                        <a href="{{=value.linkTo}}" target="_blank">{{=value.content}}</a>
+                    </div>
+                    {{??}}
+                    <a href="{{=value.linkTo}}">{{=value.content}}</a>
+                    {{?}}
+                    {{~}}
+                    {{??}}
+                    <a href="#" class="menu_hd" target="_blank">商家入驻<b></b></a>
+
+                    <div class="menu_bd" style="display:none;">
+                        <a href="#">入驻流程</a>
+                        <a href="#">常见问题</a>
+                        <a href="#">入驻品牌</a>
+                    </div>
+                    {{?}}
+                </li>
+                <!--
+                <li class="sn_menu" data-type="textLinkList" data-id="header:topNav5">
+                    {{?it.header && it.header.topNav5&&it.header.topNav5.length>0}}
+                    {{~it.header.topNav5:value:index}}
+                    <a target="_blank" href="{{=value.linkTo}}" class="menu_hd">{{=value.content}}</a>
+                    {{~}}
+                    {{??}}
+                    <a href="#" class="menu_hd">帮助中心<b></b></a>
+                    {{?}}
+                </li>
+                -->
+            </ul>
+        </div>
+    </div>
+</div>
+<!--顶部导航-->
+
+<!-- 页头-->
+<div class="wbox header">
+
+    <div class="logo fl" data-type="imgLink" data-id="header:logo">
+        {{?it.header &&it.header.logo&&it.header.logo.imgUrl}}
+        <a target="_blank" href="{{=it.header.logo.imgLinkTo}}"><img src="{{=it.header.logo.imgUrl}}"/></a>
+        {{??}}
+        <a target="_blank" href="#"><img src="../res/images/logo.png"/></a>
+        {{?}}
+    </div>
+
+    <div class="logoricon fl" data-type="imgLink" data-id="logo929">
+        {{?it.logo929 && it.logo929.imgUrl}}
+        <a target="_blank" href="{{=it.logo929.imgLinkTo}}"><img src="{{=it.logo929.imgUrl}}"/></a>
+        {{??}}
+        <a target="_blank" href="#"><img src="../res/images/929adv.jpg"/></a>
+        {{?}}
+    </div>
+
+    <div class="secondary_page">
+    	<a class="more_page">更多<b></b></a>
+         <ul data-type="textLinkList" data-id="header:secondary_page">
+            {{?it.header.secondary_page&&it.header.secondary_page.length>0}}
+            {{~it.header.secondary_page:value:index}}
+            <li><a target="_blank" href="{{=value.linkTo}}" >{{=value.content}}</a></li>
+            {{~}}
+            {{??}}
+            <li><a href="#">频道</a></li>
+            <li><a href="#">频道</a></li>
+            <li><a href="#">频道</a></li>
+            <li><a href="#">频道</a></li>
+            <li><a href="#">频道</a></li>
+            <li><a href="#">频道</a></li>
+            <li><a href="#">频道</a></li>
+            {{?}}
+        </ul>
+    </div>
+
+    <div class="mycart miniCart fr" data-type="htmlSource" data-id="header:topNav4">
+        <!--滑上去添加 “hover”样式-->
+        {{?it.header && it.header.topNav4}}
+        {{=it.header.topNav4}}
+        {{??}}
+        <span class="mini_num">0</span>
+        <span class="c_link "><a href="/shopping/cart.jsp">购物车</a></span>
+        <!--购物车为空层-->
+        <div class="cartLayer" style="display:none;"></div>
+        <!--end 购物车层-->
+        {{?}}
+    </div>
+
+    <div class="wsectopsearch fr">
+        <div class="topsearch">
+            <form id="search_form" name="search_form" method="get" action="/product_list.jsp">
+                <input type="text" name="keyword" id="keyword" class="search_put" value="请输入要查找的内容" autocomplete="off"/>
+
+                <div id="suggest_content" class="suggest_content"></div>
+                <input type="hidden" value="c_10000" name="cid" id="columnId">
+                <button class="search_btn" id="search_btn">搜 索</button>
+            </form>
+        </div>
+        <div class="wsectoptextarea">
+            <div class="wsectoptex" data-type="textLinkList" data-id="header:search_text">
+                <ul>
+                    {{?it.header.search_text&&it.header.search_text.length>0}}
+                    {{~it.header.search_text:value:index}}
+                    {{?index == 0}}
+                    <li><a target="_blank" href="{{=value.linkTo}}" class="cur">{{=value.content}}</a></li>
+                    {{??}}
+                    <li><a target="_blank" href="{{=value.linkTo}}" >{{=value.content}}</a></li>
+                    {{?}}
+                    {{~}}
+                    {{??}}
+                    <li><a href="#" class="cur">二级分类</a></li>
+                    <li><a href="#">二级分类</a></li>
+                    <li><a href="#">二级分类</a></li>
+                    <li><a href="#">二级分类</a></li>
+                    <li><a href="#">二级分类</a></li>
+                    <li><a href="#">二级分类</a></li>
+                    <li><a href="#">二级分类</a></li>
+                    {{?}}
+                </ul>
+            </div>
+        </div>
+    </div> 
+
+</div>
+<!--end 页头-->
+<script type="text/javascript">
+$(document).ready(function(){ 
+	$(".secondary_page").find("ul").hide();
+	$(".secondary_page").hover(
+		function(){ 
+			$(".secondary_page").find("ul").show();
+		},
+		function(){ 
+			$(".secondary_page").find("ul").hide();
+		});
+})
+</script>
+</body>
+</html>

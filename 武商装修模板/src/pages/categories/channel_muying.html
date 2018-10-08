@@ -1,0 +1,671 @@
+//#import ../header_secondary_page.html
+
+{{?it.config&&it.config.showCategory&&it.config.temname.value=='muying'}}
+<link href="../res/style/channel_muying.css" rel="stylesheet">
+{{??it.config&&it.config.showCategory&&it.config.temname.value=='huangjing'}}
+<link href="../res/style/channel_huangjing.css" rel="stylesheet">
+{{??}}
+<link href="../res/style/channel_yundong.css" rel="stylesheet">
+{{?}}
+
+<i></i>  
+<div class="wbox">
+	<div class="mallCategory" categoryShow="{{=it.config&&it.config.showCategory&&it.config.showCategory.value||'F'}}">
+		<div class="mallSort" data-type='fcat' dataId="sortLayer_channel">
+			{{? it.sortLayer_channel}}
+			<div class="sort-m" style="display:block;">
+				<div class="sort" style="display:{{?it.config&&it.config.showCategory&&it.config.showCategory.value=='F'}}none{{??}}block{{?}};">
+					{{~it.sortLayer_channel.children:value:index}}
+					{{?index<7}}
+					<div class="item">
+						<h3><a target="_blank" href="{{=value.url}}">{{=value.name}}</a></h3><i>></i>
+						{{var dataId="hf" + index; var data=it[dataId]; }}
+						<p data-type="textLinkList" data-id="{{=dataId}}">
+							{{?data && data.length>0}}
+							{{~data:valuehf:indexhf}}
+							<a target="_blank" href="{{=valuehf.linkTo}}">{{=valuehf.content}}</a>
+							{{~}}
+							{{??}}
+							<a target="_blank">hf</a>
+							{{?}}
+						</p>
+					</div>
+					{{?}}
+					{{~}}
+			</div>
+			<div class="sort-two">
+				<!--第二层商品分类层-->
+				{{~it.sortLayer_channel.children:value:index}}
+				{{?value!=null}}
+				{{?value.children && value.children.length>0}}
+				<div class="sortLayer" style="display:none; opacity: 0.8;">
+					<div class="itemBg"></div>
+					{{~value.children:level2:index2}}
+					<div class="itemCon">
+						<div class="subMain">
+							<dl>
+								<dt><a target="_blank" href="{{=level2.url}}">{{=level2.name}}</a></dt>
+								<dd>
+									{{~level2.children:level3:index3}}
+									<a target="_blank" href="{{=level3.url}}">{{=level3.name}}</a>
+									{{~}}<!--level3-->
+								</dd>
+							</dl>
+						</div>
+					</div>
+					{{~}}                        </div>
+					{{?}}
+					{{?}}
+					{{~}}
+					<!--end 第二层商品分类层-->
+				</div>
+			</div>
+			{{??}}
+			<!--end 所有商品分类-->
+			<!--所有商品分类-->
+			<div class="sort" style="display:{{?it.config&&it.config.showCategory&&it.config.showCategory.value=='F'}}none{{??}}block{{?}};" data-type='fcat' dataId="header:cat_nav">
+
+				<div class="item">
+					<h3><a href="#">进口食品</a><s></s></h3>
+				</div>
+				<div class="item">
+					<h3><a href="#">食品饮料生鲜</a><s></s></h3>
+					<div class="sortLayer" style=" display:none; ">
+						<div class="itemCon">
+							<div class="subMain">
+								<dl>
+									<dt><a href="#">食品</a></dt>
+									<dd>
+										<a href="#">粮油</a>
+										<a href="#">厨房调味</a>
+										<a href="#">冲调品</a>
+										<a href="#">果汁饮料</a>
+										<a href="#">酒类 </a>
+										<a href="#">奶制品 </a>
+										<a href="#">母婴产品 </a>
+										<a href="#">休闲食品 </a>
+										<a href="#">饼干蛋糕 </a>
+										<a href="#">早餐产品 </a>
+										<a href="#">方便食品 </a>
+										<a href="#">茶品 </a>
+										<a href="#">进口食品 </a>                                        </dd>
+									</dl>
+							</div>
+						</div>
+
+						<div class="itemCon">
+							<div class="subMain">
+								<dl>
+									<dt><a href="#">日用百货</a></dt>
+									<dd>
+										<a href="#">粮油</a>
+										<a href="#">厨房调味</a>
+										<a href="#">冲调品</a>
+										<a href="#">果汁饮料</a>
+										<a href="#">酒类 </a>
+										<a href="#">奶制品 </a>
+										<a href="#">母婴产品 </a>
+										<a href="#">休闲食品 </a>
+										<a href="#">饼干蛋糕 </a>
+										<a href="#">早餐产品 </a>
+										<a href="#">方便食品 </a>
+										<a href="#">茶品 </a>
+										<a href="#">进口食品 </a>                                        </dd>
+									</dl>
+							</div>
+						</div>
+
+						<div class="itemCon">
+							<div class="subMain">
+								<dl>
+									<dt><a href="#">生鲜蔬果</a></dt>
+									<dd>
+										<a href="#">粮油</a>
+										<a href="#">厨房调味</a>
+										<a href="#">冲调品</a>
+										<a href="#">果汁饮料</a>
+										<a href="#">酒类 </a>
+										<a href="#">奶制品 </a>
+										<a href="#">母婴产品 </a>
+										<a href="#">休闲食品 </a>
+										<a href="#">饼干蛋糕 </a>
+										<a href="#">早餐产品 </a>
+										<a href="#">方便食品 </a>
+										<a href="#">茶品 </a>
+										<a href="#">进口食品 </a>                                        </dd>
+									</dl>
+							</div>
+						</div>
+
+						<div class="itemCon last">
+							<div class="subMain">
+								<dl>
+									<dt><a href="#">宠物食品、用品</a></dt>
+									<dd>
+										<a href="#">粮油</a>
+										<a href="#">厨房调味</a>
+										<a href="#">冲调品</a>
+										<a href="#">果汁饮料</a>
+										<a href="#">酒类 </a>
+										<a href="#">奶制品 </a>
+										<a href="#">母婴产品 </a>                                        </dd>
+								</dl>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--end 所有商品分类层-->
+				<div class="item">
+					<h3><a href="#">家居厨卫</a><s></s></h3>
+				</div>
+				<div class="item">
+					<h3><a href="#">国际精品</a><s></s></h3>
+				</div>
+				<div class="item">
+					<h3><a href="#">美容美妆</a><s></s></h3>
+				</div>
+				<div class="item">
+					<h3><a href="#">黄金珠宝</a><s></s></h3>
+				</div>
+				<div class="item">
+					<h3><a href="#">母婴童品</a><s></s></h3>
+				</div>
+				<div class="item">
+					<h3><a href="#">滋补保健</a><s></s></h3>
+				</div>
+				<div class="item">
+					<h3><a href="#">箱包鞋靴</a><s></s></h3>
+				</div>
+				<div class="item">
+					<h3><a href="#">男装女装</a><s></s></h3>
+				</div>
+				<div class="item">
+					<h3><a href="#">内衣配饰</a><s></s></h3>
+				</div>
+				<div class="item">
+					<h3><a href="#">运动户外</a><s></s></h3>
+				</div>
+				<div class="item last">
+					<h3><a href="#">餐饮娱乐</a><s></s></h3>
+				</div>
+			</div>
+			{{?}}
+			<!--end 所有商品分类-->
+		</div>
+	</div>
+	<div class="banner">
+		<ul class="pic" id="slide_adv">
+			{{for(var i=1; i<=5; i++){ }}
+			{{var dataId="bigAdvTab" + i; var data=it[dataId];if(!data){data = {} }; }}
+			{{?data.recommendImg && data.recommendImg.imgUrl}}
+			<li id="{{=dataId}}" style="background:url({{=data.recommendImg.imgUrl}}) no-repeat center 0;display: none">
+				<div class="box">
+					<a class="large" href="{{=data.recommendImg.imgLinkTo}}" data-type="imgLink" data-id="{{=dataId}}.recommendImg" data-height="340" imgSize="1440x420"></a>
+				</div>
+			</li>
+			{{??}}
+			<li id="{{=dataId}}" style="background:url(../res/case/jqqd.jpg) no-repeat center 0;display: none">
+				<div class="box">
+					<a class="large" href="#" data-type="imgLink" data-id="{{=dataId}}.recommendImg" data-height="340" imgSize="1440x420"></a>
+				</div>
+			</li>
+			{{?}}
+			{{ } }}
+		</ul>
+		<div class="num">
+			<p data-type="tabs" data-id="bigAdvTab" >
+				{{?it.bigAdvTab}}
+				{{=it.bigAdvTab}}
+				{{??}}
+				<span>
+					<b class="cur" tab-target="bigAdvTab1"></b>
+					<b tab-target="bigAdvTab2"></b>
+					<b tab-target="bigAdvTab3"></b>
+					<b tab-target="bigAdvTab4"></b>
+					<b tab-target="bigAdvTab5"></b>
+				</span>
+				{{?}}
+			</p>
+		</div>
+	</div>
+	<div class="banner_mini" data-type="imgLinkList" data-id="banner_mini" >
+		<ul>
+			{{?it.banner_mini&&it.banner_mini.length>0}}
+			{{~it.banner_mini:value:index}}
+			{{?index==2}}
+			<li class="last">
+				{{??}}
+				<li>
+				{{?}}
+				<a href="{{=value.linkTo}}"><img src="{{=value.imgUrl}}"></a></li>
+				{{~}}
+				{{??}}
+				<li><a href="#"><img src="../res/images/adv.gif"></a></li>
+				<li><a href="#"><img src="../res/images/adv.gif"></a></li>
+				<li class="last"><a href="#"><img src="../res/images/adv.gif"></a>
+			</li>
+			{{?}}
+		</ul>
+	</div>
+</div>
+
+{{?it.config&&it.config.levelNum&&it.config.levelNum.value.indexOf("A")>-1}}
+<div class="wbox floor">
+	<div class="brand_banner fl" data-type="imgLink" data-id="brand_banner" >
+		{{?it.brand_banner &&it.brand_banner.imgUrl}}
+		<a href="{{=it.brand_banner.imgLinkTo}}"><img src="{{=it.brand_banner.imgUrl}}" alt="{{=it.brand_banner.description}}" width="530" height="300" /></a>
+		{{??}}
+		<a href=""><img src="../res/images/adv.gif" width="530" height="300" /></a>
+		{{?}}	 
+	</div>
+
+	<div class="brandWall fl">
+		<div class="tit" data-type="tabs" data-id="brandWall">
+			{{?it.brandWall}}
+			{{=it.brandWall}}
+			{{??}}
+			<ul class="tab">
+				<li class="cur" tab-target="brandTab1">人气爆款</li>
+				<li tab-target="brandTab2">限时抢购</li>
+				<li tab-target="brandTab3">新品推荐</li>
+			</ul>
+			{{?}}
+		</div>
+		{{for(var i=1; i<=3; i++){ }}
+		{{var dataId="brandTab" + i; var data=it[dataId]; }}
+		<ul class="brandWall_list" id="{{=dataId}}" data-type="imgLinkList" data-id="{{=dataId}}" style="display: none;">
+			{{?data&&data.length>0}}
+			{{~data :value:index}}
+			{{?index<15}}
+			<li><a href="{{=value.linkTo}}"><img src="{{=value.imgUrl}}" /></a></li>
+			{{??}}
+			{{?}}
+			{{~}}
+			{{??}}
+			<li><a href="#"><img src="../res/images/adv.gif" /></a></li>
+			{{?}}
+		</ul>
+		{{ } }}
+	</div>
+</div>
+{{?}}
+
+{{?it.config&&it.config.levelNum&&it.config.levelNum.value.indexOf("B")>-1}}
+<div class="wbox floor">
+
+	<div class="mother_tit">
+		<span data-type="textLinkList" data-id="left_tit" >
+			{{?it.left_tit&&it.left_tit.length>0}}
+			{{~it.left_tit:value:index}}
+			{{=value.content}}
+			{{~}}
+			{{??}}
+			二级分类
+			{{?}}	 
+		</span>
+		<span data-type="textLinkList" data-id="right_tit" class="fr">
+			{{?it.right_tit&&it.right_tit.length>0}}
+			{{~it.right_tit:value:index}}
+			{{=value.content}}
+			{{~}}
+			{{??}}
+			二级分类
+			{{?}}	 
+		</span>
+	</div>
+
+	<div class="recommend fl">
+
+        <div class="area_L">
+            <div class="area_T">
+		        <div class="tit" data-type="tabs" data-id="recommend" >
+			    {{?it.recommend}}
+			    {{=it.recommend}}
+			    {{??}}
+			    <ul class="tab">
+				    <li class="cur" tab-target="recommend1"><span>人气爆款1</span></li>
+				    <li tab-target="recommend2"><span>限时抢购2</span></li>
+				    <li tab-target="recommend3"><span>新品推荐3</span></li>
+				    <li tab-target="recommend4"><span>限时抢购4</span></li>
+				    <li tab-target="recommend5"><span>新品推荐5</span></li>
+				    <li tab-target="recommend6"><span>限时抢购6</span></li>
+				    <li tab-target="recommend7"><span>新品推荐7</span></li>
+			    </ul>
+			    {{?}}
+			
+		        </div>
+            </div>
+
+            <div class="area_B">
+                <div data-id="recommend_banner" data-type="imgLink" class="recommend_banner" imgSize="152x200">
+				    {{?it.recommend_banner && it.recommend_banner.imgUrl }}
+				    <a href="{{=it.recommend_banner.imgLinkTo}}" target="_blank"><img src="{{=it.recommend_banner.imgUrl}}" width="152" height="200"/></a>
+				    {{??}}
+				    <a href="javascript:void(0);"><img src="../res/images/adv.gif" width="152" height="200"/></a>
+				    {{?}}
+	            </div>
+            </div>
+        </div>
+
+		{{for(var i=1; i<=7; i++){ }}
+		{{var dataId="recommend" + i; var data=it[dataId]; }}
+		<div id="{{=dataId}}" class="recommend_con"  data-type="productGroup" data-id="{{=dataId}}" style="display: none;" data-spec="190X190">
+			<ul>
+				{{?data&&data.length>0}}
+				{{~data:value:index}}
+				{{?(index+1)%4 == 0}}
+				<li class="last">
+				{{??}}
+				<li>
+				{{?}}
+					<div class="pic"><a target="_blank" href="/product.jsp?id={{=value.id}}"><img src="{{=value.imgUrl}}"  alt="{{=value.name}}" width="190" height="190"/></a></div>
+					<div class="title"><a target="_blank" href="/product.jsp?id={{=value.id}}" title="{{=value.name}}">{{=value.name}}</a></div>
+					<div class="price"><h2><span>&yen;</span>{{=value.memberPrice}}<div class="bnt"><i></i><a target="_blank" href="/product.jsp?id={{=value.id}}">抢购</a></div></h2></div>
+					
+				</li>
+				{{~}}
+				{{??}}
+				<li>
+					<a href="#"><img src="../res/images/adv.gif" alt="" title=""/>
+						<span>罗莱家纺布毯，温柔舒适</span>
+					</a>
+				</li>
+				{{?}}
+			</ul>
+		</div>
+		{{ } }}
+	</div>
+
+	<div class="saleHot">
+		<div class="tit" data-type="tabs" data-id="saleHot">
+			{{?it.saleHot}}
+			{{=it.saleHot}}
+			{{??}}
+			<ul class="tab">
+				<li class="cur" tab-target="saleHot1"><span>人气爆款1</span></li>
+				<li tab-target="saleHot2"><span>限时抢购2</span></li>
+			</ul>
+			{{?}}
+		</div>
+		{{for(var i=1; i<=2; i++){ }}
+		{{var dataId="saleHot" + i; var data=it[dataId]; }}
+		<div id="{{=dataId}}" class="saleHot_con" data-type="productGroup" data-id="{{=dataId}}" style="display: none;" data-spec="118X118">
+			<ul>
+				{{?data&&data.length>0}}
+				{{~data:value:index}}
+				{{?index == 0}}
+				<li>
+				<i class="no1"></i>
+				{{??index == 1}}
+				<li>
+				<i class="no2"></i>
+				{{??index == 2}}
+				<li>
+				<i class="no3"></i>
+				{{??}}
+				<li>
+				{{?}}
+				<div class="pic"><a target="_blank" href="/product.jsp?id={{=value.id}}"><img src="{{=value.imgUrl}}"  alt="{{=value.name}}" width="118" height="118"/></a></div>
+				<a target="_blank" href="/product.jsp?id={{=value.id}}">
+				<div class="title">{{=value.name}}</div></a>
+				<div class="price">&yen;{{=value.memberPrice}}</div>
+				<div class="amount">已热销<span>{{=value.salesAmount}}</span>件</div></a>
+				</li>
+				{{~}}
+				{{??}}
+				<li><a href="#"><img src="../res/images/adv.gif" alt="" title=""/><span>罗莱家纺布毯，温柔舒适</span></a>
+				</li>
+				{{?}}
+			</ul>
+		</div>
+		{{ } }}
+	</div>
+</div>
+{{?}}
+
+{{?it.config&&it.config.levelNum&&it.config.levelNum.value.indexOf("C")>-1}}
+<div class="wbox floor">
+
+	<div class="mother_tit">
+		<span data-type="textLinkList" data-id="left_titC" >
+			{{?it.left_titC&&it.left_titC.length>0}}
+			{{~it.left_titC:value:index}}
+			{{=value.content}}
+			{{~}}
+			{{??}}
+			二级分类
+			{{?}}	 
+		</span>
+		<span data-type="textLinkList" data-id="right_titC" class="fr">
+			{{?it.right_titC&&it.right_titC.length>0}}
+			{{~it.right_titC:value:index}}
+			{{=value.content}}
+			{{~}}
+			{{??}}
+			二级分类
+			{{?}}	 
+		</span>
+	</div>
+
+	<div class="recommend fl">
+
+        <div class="area_L">
+            <div class="area_T">
+		        <div class="tit" data-type="tabs" data-id="recommendC" >
+			    {{?it.recommendC}}
+			    {{=it.recommendC}}
+			    {{??}}
+			    <ul class="tab">
+				    <li class="cur" tab-target="recommendC1"><span>人气爆款1</span></li>
+				    <li tab-target="recommendC2"><span>限时抢购2</span></li>
+				    <li tab-target="recommendC3"><span>新品推荐3</span></li>
+				    <li tab-target="recommendC4"><span>限时抢购4</span></li>
+				    <li tab-target="recommendC5"><span>新品推荐5</span></li>
+				    <li tab-target="recommendC6"><span>限时抢购6</span></li>
+			    </ul>
+			    {{?}}
+			
+		        </div>
+            </div>
+
+            <div class="area_B">
+                <div data-id="recommend_bannerC" data-type="imgLink" class="recommend_banner" imgSize="152x200">
+				    {{?it.recommend_bannerC && it.recommend_bannerC.imgUrl }}
+				    <a href="{{=it.recommend_bannerC.imgLinkTo}}" target="_blank"><img src="{{=it.recommend_bannerC.imgUrl}}" width="152" height="200"/></a>
+				    {{??}}
+				    <a href="javascript:void(0);"><img src="../res/images/adv.gif" width="152" height="200"/></a>
+				    {{?}}
+	            </div>
+            </div>
+        </div>
+
+		{{for(var i=1; i<=7; i++){ }}
+		{{var dataId="recommendC" + i; var data=it[dataId]; }}
+		<div id="{{=dataId}}" class="recommend_con"  data-type="productGroup" data-id="{{=dataId}}" style="display: none;" data-spec="190X190">
+			<ul>
+				{{?data&&data.length>0}}
+				{{~data:value:index}}
+				{{?(index+1)%4 == 0}}
+				<li class="last">
+				{{??}}
+				<li>
+				{{?}}
+					<div class="pic"><a target="_blank" href="/product.jsp?id={{=value.id}}"><img src="{{=value.imgUrl}}"  alt="{{=value.name}}" width="190" height="190"/></a></div>
+					<div class="title"><a target="_blank" href="/product.jsp?id={{=value.id}}" title="{{=value.name}}">{{=value.name}}</a></div>
+					<div class="price"><h2><span>&yen;</span>{{=value.memberPrice}}<div class="bnt"><i></i><a target="_blank" href="/product.jsp?id={{=value.id}}">抢购</a></div></h2></div>
+					
+				</li>
+				{{~}}
+				{{??}}
+				<li>
+					<a href="#"><img src="../res/images/adv.gif" alt="" title=""/>
+						<span>罗莱家纺布毯，温柔舒适</span>
+					</a>
+				</li>
+				{{?}}
+			</ul>
+		</div>
+		{{ } }}
+	</div>
+
+	<div class="saleHot">
+		<div class="tit" data-type="tabs" data-id="saleHotC">
+			{{?it.saleHotC}}
+			{{=it.saleHotC}}
+			{{??}}
+			<ul class="tab">
+				<li class="cur" tab-target="saleHotC1"><span>人气爆款1</span></li>
+				<li tab-target="saleHotC2"><span>限时抢购2</span></li>
+			</ul>
+			{{?}}
+		</div>
+		{{for(var i=1; i<=2; i++){ }}
+		{{var dataId="saleHotC" + i; var data=it[dataId]; }}
+		<div id="{{=dataId}}" class="saleHot_con" data-type="productGroup" data-id="{{=dataId}}" style="display: none;" data-spec="120X120">
+			<ul>
+				{{?data&&data.length>0}}
+				{{~data:value:index}}
+				{{?index == 0}}
+				<li>
+				<i class="no1"></i>
+				{{??index == 1}}
+				<li>
+				<i class="no2"></i>
+				{{??index == 2}}
+				<li>
+				<i class="no3"></i>
+				{{??}}
+				<li>
+				{{?}}
+				<div class="pic"><a target="_blank" href="/product.jsp?id={{=value.id}}"><img src="{{=value.imgUrl}}"  alt="{{=value.name}}" width="120" height="120"/></a></div>
+				<a target="_blank" href="/product.jsp?id={{=value.id}}">
+				<div class="title">{{=value.name}}</div></a>
+				<div class="price">&yen;{{=value.memberPrice}}</div>
+				</a>
+				</li>
+				{{~}}
+				{{??}}
+				<li><a href="#"><img src="../res/images/adv.gif" alt="" title=""/><span>罗莱家纺布毯，温柔舒适</span></a>
+				</li>
+				{{?}}
+			</ul>
+		</div>
+		{{ } }}
+	</div>
+</div>
+{{?}}
+
+{{?it.config&&it.config.levelNum&&it.config.levelNum.value.indexOf("D")>-1}}
+<div class="wbox floor">
+    <div class="fl imglist232" data-type="imgLinkList" data-id="adv_imgL_D" data-height="311" imgSize="232X311">
+        <ul>
+		{{?it.adv_imgL_D && it.adv_imgL_D.length > 0}}
+		{{~it.adv_imgL_D:value:index}}
+        {{?(index+1)%5==0}}
+            <li class="last">
+        {{??}}
+			<li>
+        {{?}}
+                <a href="{{=value.linkTo}}"><img src="{{=value.imgUrl}}" alt="{{=value.description}}" width="232"/></a></li>
+		{{~}}
+		{{??}}
+			<li><a href="#"><img src="../res/images/adv.gif" width="232"/></a></li>
+	    {{?}}
+	    </ul>
+    </div>
+</div>
+{{?}}
+
+{{for(var i = 1; i <= 9; i++){}}
+{{?it.config&&it.config.levelNum&&it.config.levelNum.value.indexOf(''+i)>-1}}
+<div class="wbox floor">
+	<div class="floor_text">
+	{{var f_title_h2Id="f_title_h2"+i; var f_title_h2=it[f_title_h2Id];if(!f_title_h2){f_title_h2 = {} }; }}	
+	<div class="f_title fl" data-type="textLink" data-id="{{=f_title_h2Id}}">
+		{{?f_title_h2 && f_title_h2.content }}
+		<h2>{{=f_title_h2.content}}</h2>
+		{{??}}
+		<h2>喂养用品</h2>
+		{{?}}
+	</div>
+	{{var f_title_h3Id="f_title_h3"+i; var f_title_h3=it[f_title_h3Id];if(!f_title_h3){f_title_h3 = {} }; }}
+	<div class="f_title fl" data-type="textLink" data-id="{{=f_title_h3Id}}">
+		{{?f_title_h3 && f_title_h3.content }}
+		<h3>{{=f_title_h3.content}}</h3>
+		{{??}}
+		<h3>一站式购齐</h3>
+		{{?}}
+	</div>
+		<div class="f_brand fr">
+		{{var f_brandId="f_brand"+i; var f_brand=it[f_brandId];if(!f_brand){f_brand = {} }; }}
+			<ul data-id="{{=f_brandId}}" data-type="textLinkList">
+				{{?f_brand && f_brand.length > 0}}
+				{{~f_brand:value:index}}
+				{{?index== f_brand.length-1}}
+				<li style="border-right:none">
+				{{??}}
+				<li>
+				{{?}}
+				<a href="{{=value.linkTo}}" target="_blank">{{=value.content}}</a></li>
+				{{~}}
+				{{??}}
+				<li><a href="javascript:void(0);">周大福</a></li>
+				<li><a href="javascript:void(0);">周先生</a></li>
+				<li><a href="javascript:void(0);">六福珠宝</a></li>
+				<li><a href="javascript:void(0);">金太福</a></li>
+				<li><a href="javascript:void(0);">千禧之星</a></li>
+				<li><a href="javascript:void(0);">周大生</a></li>
+				{{?}}
+			</ul>
+			{{var f_moreId="f_more"+i; var f_more=it[f_moreId];if(!f_more){f_more = {} }; }}
+			<span data-id="{{=f_moreId}}" data-type="textLink">
+				{{?f_more && f_more.linkTo}}
+				<a href="{{=f_more.linkTo}}" target="_blank">{{=f_more.content}}</a>
+				{{??}}
+				<a href="javascript:void(0);">更多</a>
+				{{?}}
+			</span>
+			</div>
+		</div>
+		<div class="wbox con">
+			{{var f_bannerId="f_banner"+i; var f_banner=it[f_bannerId];if(!f_banner){f_banner = {} }; }}
+			<div data-id="{{=f_bannerId}}" data-type="imgLink" class="fl">
+				{{?f_banner && f_banner.imgUrl }}
+				<a href="{{=f_banner.imgLinkTo}}" target="_blank"><img src="{{=f_banner.imgUrl}}" width="420" height="420"/></a>
+				{{??}}
+				<a href="javascript:void(0);"><img src="../res/images/adv.gif" width="420" height="420"/></a>
+				{{?}}
+			</div>
+			{{var f_prolistId="f_prolist"+i; var f_prolist=it[f_prolistId];if(!f_prolist){f_prolist = {} }; }}
+			<ul class="f_prolist" data-type="productGroup" data-id="{{=f_prolistId}}"  data-spec="158X158">
+				{{?f_prolist&&f_prolist.length>0}}
+				{{~f_prolist:value:index}}
+				{{?index<8}}
+				<li>
+					<div class="pic"><a target="_blank" href="/product.jsp?id={{=value.id}}"><img src="{{=value.imgUrl}}" alt="{{=value.name}}"  title="{{=value.name}}" height="158"/></a></div>
+					<div class="title"><a target="_blank" href="/product.jsp?id={{=value.id}}" title="{{=value.name}}">{{=value.name}}</a></div>
+					<div class="price"><h2>&yen;{{=value.memberPrice}}</h2></div>
+				</li>
+				{{??}}
+				{{?}}
+				{{~}}
+				{{??}}
+				<li>
+					<div class="pic"><a href="#"><img src="../res/images/adv.gif"></a></div>
+					<div class="title"><a href="#">优乐美奶茶(麦香味)80g/杯明星产品，重点推荐</a></div>
+					<div class="price">&yen;59.90</div>
+				</li>
+				{{?}}
+			</ul>  
+		</div>
+	</div>
+</div>
+{{?}}
+{{ } }}
+
+<!--end page-->
+{{?it.productionMode}}
+{{=$.importUrl("/defaultFooter.html?m=head_merchant&productionMode=true")}}
+{{??}}
+{{=$.importUrl("/defaultFooter.html?m=head_merchant&productionMode=false")}}
+{{?}}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="../bootstrap/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" type="text/css" href="/resources/bootstrap3.3.0/css/bootstrap.css" rel="stylesheet">
+    <script type="text/javascript" src="/resources/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="/resources/bootstrap3.3.0/js/bootstrap.js"></script>
+    <script>
+        var merchantId = '{{=it.merchantId}}';
+    </script>
+    <script type="text/javascript" src="../js/ManualIndex.js"></script>
+</head>
+<body>
+
+{{=$.inc("pages/include_nav.jsx")}}
+
+<div class="container-fluid">
+    <div class="">
+        <form class="form form-horizontal" role="form">
+            <div class="form-group">
+                <label class="col-sm-2 control-label">大会员系统接口</label>
+                <div class="col-sm-3">
+                    <select class="form-control" id="iType">
+                        <option value="memberQuery">1绑定前会员信息查询</option>
+                        <option value="appRegister">2开卡注册接口</option>
+                        <option value="appBind">4绑卡</option>
+                        <option value="getMemInfo">5会员信息查询</option>
+                        <option value="getBranchPointList">6获取各实体积分信息列表</option>
+                        <option value="getAllValueList">7获取积分明细信息列表</option>
+                        <option value="updateBranchPoint">8当前机构积分调整</option>
+                        <option value="memAddPassword">9新增修改密码</option>
+                        <option value="addSaleList">10会员消费  （线上消费明细信息提供给大会员系统）</option>
+                        <option value="getAllSaleList">11获取消费明细信息</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">请求数据</label>
+                <div class="col-sm-8">
+                    <textarea class="form-control" rows="8" id="postData"></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">响应数据</label>
+                <div class="col-sm-8">
+                    <textarea class="form-control" rows="8" id="responseData"></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label"></label>
+                <div class="col-sm-8">
+                    <input type="hidden" value="{{=it.merchantId}}" id="merchantId">
+                    <button type="button" id="submit_form" class="btn btn-primary btn-lg">提交</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
