@@ -1,0 +1,6 @@
+{
+    "libs_namespace": "popupsManage",
+    "libs": ["services/PopupsService.jsx","services/PopupsQuery.jsx"],
+    "obj_prefixes": ["popupsManageObj"],
+    "list_prefixes": ["popupsManageList"]
+}

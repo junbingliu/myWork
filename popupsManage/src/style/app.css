@@ -1,0 +1,19 @@
+.label_name{float: left;padding-top: 5px;padding-right: 10px;}
+.orderState{color:#FF3300;}
+
+#separate{text-align: center;}
+
+body{
+    font-family: 'MicrosoftYaHei-Bold', 'Microsoft YaHei Bold', 'Microsoft YaHei';
+    font-style: normal;
+}
+.center-block {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*.checkbox{*/
+/*width:15px;*/
+/*height:15px;*/
+/*}*/

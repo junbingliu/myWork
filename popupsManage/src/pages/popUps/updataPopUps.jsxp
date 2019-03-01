@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" type="text/css" href="/resources/bootstrap3.3.0/css/bootstrap.css">
+    <link href="/resources/jquery/jqueryui_date/css/redmond/jquery-ui-1.10.3.custom.min.css" rel="stylesheet">
+    <link href="/resources/zTree3.5/zTreeStyle/zTreeStyle.css" rel="stylesheet"/>
+    <script type="text/javascript" src="/resources/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="/resources/bootstrap3.3.0/js/bootstrap.js"></script>
+    <script type="text/javascript" src="/resources/jquery/jqueryui_date/js/jquery-ui-1.10.3.custom.min.js"></script>
+    <script type="text/javascript" src="/resources/jquery/jqueryui_date/js/jquery.ui.datepicker-zh-CN.js"></script>
+    <script src="/resources/zTree3.5/jquery.ztree.core-3.5.js"></script>
+    <script src="/resources/knockout-3.0.0.js"></script>
+    <script src="../../js/addPopUps.js"></script>
+    <script>
+        var merchantId = '{{=it.merchantId}}';
+        var t = '{{=it.t}}';
+        var m = '{{=it.merchantId}}';
+    </script>
+    <script src="/fileManager/jsloader.jsx?m={{=it.merchantId}}"></script>
+</head>
+<body>
+{{=$.inc("pages/include_nav.jsx")}}
+<form class="form-horizontal" id="addForm">
+    <div class="form-group">
+        <label class="col-md-2 control-label">类型</label>
+        <div class="col-md-6">
+            <label class="radio-inline">
+                <input type="radio" name="type" value="弹窗"/>弹窗</label>
+            <label class="radio-inline">
+                <input type="radio" name="type" value="浮标"/>浮标</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-md-2 control-label">是否生效</label>
+        <div class="col-md-6">
+            <label class="radio-inline">
+                <input type="radio" name="isEnable" value="true"/>是</label>
+            &nbsp; &nbsp;
+            <label class="radio-inline">
+                <input type="radio" name="isEnable" value="false"/>否</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-md-2 control-label">图片</label>
+        <!--<div class="col-md-3">-->
+        <input type="hidden" id="detailImage" value="{{=it.image}}">
+        <div class="col-sm-4 col-md-3" style="width: 240px;">
+            <div class="thumbnail">
+                <a id="previewA" href="javascript:;" target="_blank"><img id="previewImage"
+                                                                          src="{{=it.imageUrl}}"></a>
+                <div class="caption">
+                    <p>&nbsp;</p>
+                    <p>
+                        <a href="javascript:;" class="btn btn-info" role="button" id="detailImageSelectBtn">选择图片</a>
+                        <a href="javascript:;" class="btn btn-default" role="button" id="detailImageDeleteBtn">删除</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!--</div>-->
+    </div>
+    <div class="form-group">
+        <label class="col-md-2 control-label">跳转连接</label>
+        <div class="col-md-6">
+            <input type="text" class="form-control" id="returnUrl" name="returnUrl" value="{{=it.returnUrl}}"
+                   placeholder="点击弹窗或者浮标后跳转的连接，如：http://www.ewj.com/"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">有效起止时间</label>
+        <div class="col-xs-4" style="width: auto;margin-bottom: 10px;">
+            <input type="text" style="width: 90px;border-radius: 4px 0 0 4px;display: inline;"
+                   class="date form-control input-sm" id="beginDate" value="{{=it.beginDate}}" name="beginDate"/>
+            <input type="text" style="width: 70px;border-radius: 0 4px 4px 0;display: inline;"
+                   class="form-control input-sm" value="{{=it.beginTime}}" id="beginTime" name="beginTime"/>
+            <span class="date_split" style="padding-top: 5px;">
+                至
+            </span>
+            <input type="text" style="width: 90px;border-radius: 4px 0 0 4px;display: inline;"
+                   class="date form-control input-sm" id="endDate" name="endDate" value="{{=it.endDate}}"/>
+            <input type="text" style="width: 80px;border-radius: 0 4px 4px 0;display: inline;"
+                   class="form-control input-sm" value="{{=it.endTime}}" id="endTime" name="endTime"/>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-md-2 control-label">渠道</label>
+        <div class="col-md-8">
+            <div class="col-md-3">
+                <div class="checkbox">
+                    <input type="checkbox" name="channel" value="全部" checked data-bind="checked:channel"/>全部
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="checkbox">
+                    <input type="checkbox" name="channel" value="APP" data-bind="checked:channel"/>APP
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="checkbox">
+                    <input type="checkbox" name="channel" value="微商城" data-bind="checked:channel"/>微商城
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-2 control-label">适用的页面</label>
+        <div class="col-md-8">
+            <div class="col-md-3">
+                <div class="checkbox">
+                    <input type="checkbox" name="applicablePage" value="所有页面"/>所有页面
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="checkbox">
+                    <input type="checkbox" name="applicablePage" value="列表页"/>列表页
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="checkbox">
+                    <input type="checkbox" name="applicablePage" value="首页"/>首页
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-2 control-label">说明</label>
+        <div class="col-md-6">
+            <textarea class="form-control" rows="3" name="description"
+                      id="description"></textarea>
+        </div>
+    </div>
+
+    <div class="col-md-12">
+        <div class="modal-footer">
+            <div class="col-md-6">
+                <a href="popUpsList.jsx?m={{=it.merchantId}}&t=all">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                </a>
+                <button type="button" class="btn btn-success" value="update" data-id="{{=it.id}}" id="saveAddBtn">保存修改
+                </button>
+            </div>
+        </div>
+    </div>
+</form>
+<script>
+    $("input[name=type][value='{{=it.type}}']").attr("checked", 'checked');
+    $("input[name=isEnable][value='{{=it.isEnable}}']").attr("checked", 'checked');
+
+    $("input[name=channel][value='{{=it.channel}}']").attr("checked", 'checked');
+    $("input[name=applicablePage][value='{{=it.applicablePage}}']").attr("checked", 'checked');
+
+    $("#description").val("{{=it.description}}");
+    var chanDa="{{=it.channel}}";
+    var newa1 = chanDa.split(",");
+    if (newa1.length == 1) {
+        $("input[name=channel][value='{{=it.channel}}']").attr("checked", 'checked');
+    } else if (newa1.length > 1) {
+        $.each(newa1, function(){
+            if(this=="全部"){
+                $("input[name=channel][value='全部']").attr("checked", 'checked');
+            }else if(this=="APP"){
+                $("input[name=channel][value='APP']").attr("checked", 'checked');
+            }else {
+                $("input[name=channel][value='微商城']").attr("checked", 'checked');
+            }
+        });
+    }
+
+    var applData="{{=it.applicablePage}}";
+    var newa = applData.split(",");
+    if (newa.length == 1) {
+        $("input[name=applicablePage][value='{{=it.applicablePage}}']").attr("checked", 'checked');
+    } else{
+        $.each(newa, function(){
+            if(this=="所有页面"){
+                $("input[name=applicablePage][value='所有页面']").attr("checked", 'checked');
+            }else if(this=="首页"){
+                $("input[name=applicablePage][value='首页']").attr("checked", 'checked');
+            }else {
+                $("input[name=applicablePage][value='列表页']").attr("checked", 'checked');
+            }
+        });
+    }
+
+
+</script>
+</body>
+</html>
+
+
+
+

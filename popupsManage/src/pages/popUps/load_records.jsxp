@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Document</title>
+    <!--<script src="../../js/delPopUps.js"></script>-->
+</head>
+<body>
+<table class="table table-striped table-bordered table-over" id="record_table">
+    <thead>
+    <tr >
+        <th width="100px;">ID</th>
+        <th width="60px;">图片</th>
+        <th width="180px;">跳转地址</th>
+        <th width="60px;">类型</th>
+        <th width="100px;">适用渠道</th>
+        <th width="100px;">适用页面</th>
+        <th width="80px;">是否生效</th>
+        <th width="100px;">创建时间</th>
+        <th width="180px;">有效起始时间</th>
+        {{? it.t == 'deleted'}}
+        <th width="100px;">删除时间</th>
+        <th width="80px;">删除人</th>
+       {{??}}
+        <th>操作</th>
+        {{?}}
+    </tr>
+    </thead>
+    <tbody>
+    {{~it.recordList:value:index}}
+    <tr>
+        <td>{{=value.id}}</td>
+        <td>
+            <a href="{{=value.imageFullPath}}" target="_blank">
+                <img src="{{=value.imageLogo}}" style="height: 50px;width: 50px">
+            </a>
+        </td>
+        <td style="word-break: break-all;word-wrap: break-word;" >{{=value.returnUrl}}</td>
+        <td>{{=value.type}}</td>
+        <td>{{=value.channel}}</td>
+        <td>{{=value.applicablePage}}</td>
+        <td style="padding-top: 12px">
+            {{? value.isEnable == "true"}}
+            <span class="label label-success">有效</span>
+            {{??}}
+            <span class="label label-primary">失效</span>
+            {{?}}
+        </td>
+        <td>{{=value.formatCreateTime}}</td>
+        <td>{{=value.beginTime}}到{{=value.endTime}}</td>
+
+        {{? it.t == 'deleted'}}
+        <td>{{=value.formatDeleteTime}}</td>
+        <td>{{=value.deleteUserName}}</td>
+        {{??}}
+        <td>
+            <!--{{? it.t != 'deleted'}}-->
+            <a class="btn btn-success btn-sm" href="updataPopUps.jsx?id={{=value.id}}&m={{=it.merchantId}}&t={{=it.t}}&image={{=it.image}}">修改</a>
+            <a class="btn btn-warning btn-sm deleteRecord" href="javascript:;" data-id="{{=value.id}}" id="deleteRecord">删除</a>
+            <!--{{?}}-->
+        </td>
+        {{?}}
+    </tr>
+    {{~}}
+    </tbody>
+</table>
+<div class="pagination_params" totalPages="{{=it.pageParams.totalPages}}"
+     currentPage="{{=it.pageParams.currentPage}}" totalRecords="{{=it.pageParams.totalRecords}}"
+     displayNum="{{=it.pageParams.displayNum}}" pageLimit="{{=it.pageParams.pageLimit}}"
+     recordType="{{=it.pageParams.recordType}}">
+</div>
+</body>
+</html>
+
+
+
