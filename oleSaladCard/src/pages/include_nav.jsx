@@ -12,4 +12,3 @@
     var pageFn = doT.template(template);
     out.print(pageFn(pageData));
 })();
-

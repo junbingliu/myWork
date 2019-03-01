@@ -1,0 +1,14 @@
+{
+    "libs_namespace": "oleSaladCard",
+    "libs": [
+        "services/SignLogService.jsx",
+        "services/saladCardCodeService.jsx",
+        "services/saladCardService.jsx",
+        "services/saladCardQuery.jsx",
+        "services/saladCardBuildIndex.jsx",
+        "services/saladCardCodeBuildIndex.jsx",
+        "services/saladCardCodeQuery.jsx"
+    ],
+    "obj_prefixes": ["oleSaladCardObj"],
+    "list_prefixes": ["oleSaladCardList"]
+}

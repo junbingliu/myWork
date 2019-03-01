@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <link rel="stylesheet" href="/resources/bootstrap3.3.4/css/bootstrap.min.css"/>
+    <link href="/resources/jquery/jqueryui_date/css/redmond/jquery-ui-1.10.3.custom.min.css" rel="stylesheet">
+    <link href="/resources/zTree3.5/zTreeStyle/zTreeStyle.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="../res/css/bootstrap-datetimepicker.min.css"/>
+    <script src="/resources/jquery-1.10.2.min.js"></script>
+    <script src="/resources/bootbox.min.js"></script>
+    <script src="/resources/bootstrap3.3.4/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/resources/jquery/jqueryui_date/js/jquery-ui-1.10.3.custom.min.js"></script>
+    <script type="text/javascript" src="/resources/jquery/jqueryui_date/js/jquery.ui.datepicker-zh-CN.js"></script>
+    <script src="/resources/zTree3.5/jquery.ztree.core-3.5.js"></script>
+    <script src="/resources/knockout-3.0.0.js"></script>
+
+    <script type="text/javascript" src="/resources/pagination/IsoneAjaxPagination-1.10.js"></script>
+
+    <script src="../res/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="../res/js/bootstrap-datetimepicker.zh-CN.js"></script>
+    <script type="text/javascript" src="../js/activityList.js"></script>
+    <script>
+        var merchantId = '{{=it.merchantId}}';
+        var m = '{{=it.merchantId}}';
+    </script>
+    <script src="/fileManager/jsloader.jsx?m={{=it.merchantId}}"></script>
+</head>
+<body>
+
+{{=$.inc("pages/include_nav.jsx")}}
+
+<div class="container-fluid">
+    <div >
+        <div class="row" style="margin-bottom: 10px;">
+
+            <div class="col-xs-3">
+                <input type="text" class="form-control" id="keyword" placeholder="请输入名称">
+            </div>
+
+                <input type="hidden" value="{{=it.merchantId}}" name="merchantId" id="merchantId">
+                <button type="button" class="btn btn-default" id="search">搜 索</button>
+
+
+                <button type="button" style="margin-left: 20px" class="btn btn-primary add_record" id="addObj">添加</button>
+
+        </div>
+
+    </div>
+    <div>
+        <!--异步加载数据列表部分-->
+        <div class="row-fluid">
+            <div id="record_list" class="record_list span12">
+            </div>
+        </div>
+
+        <!--分页部分-->
+        <div class="row-fluid">
+            <div style="margin-top: 5px;padding-top: 10px; border-top: 1px solid #DDDDDD;text-align: left;">
+                <div class="pagination" style="margin: 0; ">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="add_recordModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 class="modal-title">添加活动</h3>
+            </div>
+            <div class="modal-body" >
+                <div>
+                    <form class="form-horizontal" id="add_activity_form" role="form" action="add_activity.jsx?m={{=it.merchantId}}" method="post">
+                        <div class="form-group">
+                            <label for="title" class="col-sm-2 control-label">名称*</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="title" name="title" >
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="disc" class="col-sm-2 control-label">说明</label>
+                            <div class="col-sm-10">
+                                <textarea class="form-control" id="disc" name="disc" ></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">开始时间</label>
+                            <div class="col-sm-3  input-group date form_date">
+                                <input class="form-control" style="min-width: 180px;" size="16" type="text" readonly id="startDate" >
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">结束时间</label>
+                            <div class="col-sm-3  input-group date form_date">
+                                <input class="form-control" style="min-width: 180px;" size="16" type="text" readonly id="endDate" >
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="shareTitle" class="col-sm-2 control-label">分享标题</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="shareTitle" name="shareTitle" >
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="shareDisc" class="col-sm-2 control-label">分享简介</label>
+                            <div class="col-sm-10">
+                                <textarea class="form-control" id="shareDisc" name="shareDisc" ></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="shareLink" class="col-sm-2 control-label">分享链接</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="shareLink" name="shareLink" >
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">分享图片</label>
+                            <!--<div class="col-md-3">-->
+                            <input type="hidden" id="detailImage">
+                            <div class="col-sm-4 col-md-3" style="width: 240px;">
+                                <div class="thumbnail">
+                                    <a id="previewA" href="javascript:;" target="_blank"><img id="previewImage"
+                                                                                              ></a>
+                                    <div class="caption">
+                                        <p>&nbsp;</p>
+                                        <p>
+                                            <a href="javascript:;" class="btn btn-info" role="button" id="detailImageSelectBtn">选择图片</a>
+                                            <a href="javascript:;" class="btn btn-default" role="button" id="detailImageDeleteBtn">删除</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal">取消</button>
+                <button class="btn btn-primary" id="add_activity">提交</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" id="doUpdateStateModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">编辑活动</h4>
+                <input type="hidden" id="updateId"/>
+            </div>
+            <div class="modal-body" id="doUpdateStateModalDiv">
+                <div>
+                    <form class="form-horizontal" id="update_activity_form" role="form" >
+                        <div class="form-group">
+                            <label for="update_title" class="col-sm-2 control-label">名称*</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="update_title" name="title" >
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="update_disc" class="col-sm-2 control-label">说明</label>
+                            <div class="col-sm-10">
+                                <textarea class="form-control" id="update_disc" name="disc" ></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">开始时间</label>
+                            <div class="col-sm-3  input-group date form_date">
+                                <input class="form-control" style="min-width: 180px;" size="16" type="text" readonly id="update_startDate" >
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">结束时间</label>
+                            <div class="col-sm-3  input-group date form_date">
+                                <input class="form-control" style="min-width: 180px;" size="16" type="text" readonly id="update_endDate" >
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="update_shareTitle" class="col-sm-2 control-label">分享标题</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="update_shareTitle" name="shareTitle" >
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="update_shareDisc" class="col-sm-2 control-label">分享简介</label>
+                            <div class="col-sm-10">
+                                <textarea class="form-control" id="update_shareDisc" name="shareDisc" ></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="update_shareLink" class="col-sm-2 control-label">分享链接</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="update_shareLink" name="shareLink" >
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" style="margin-right: 18px">分享图片</label>
+
+                            <input type="file" id="update_shareImg" name="shareImg" >
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal">取消</button>
+                <button class="btn btn-primary" id="update_activity">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

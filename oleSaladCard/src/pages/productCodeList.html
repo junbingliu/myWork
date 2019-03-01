@@ -1,0 +1,114 @@
+    <!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="/resources/bootstrap3.3.4/css/bootstrap.min.css" >
+    <script src="/resources/jquery-1.10.2.min.js"></script>
+    <script src="/resources/bootbox.min.js"></script>
+    <script src="/resources/bootstrap3.3.4/js/bootstrap.min.js"></script>
+    <script>
+        var merchantId = '{{=it.merchantId}}';
+        var m = '{{=it.merchantId}}';
+    </script>
+    <script type="text/javascript" src="../js/productCodeList.js"></script>
+</head>
+<body>
+{{=$.inc("pages/include_nav.jsx")}}
+
+<div class="container-fluid">
+    <div >
+        <div class="row" style="margin-bottom: 10px;">
+            <div class="col-xs-2">
+                <a class="btn btn-default" href="RecordList.jsx?m={{=it.merchantId}}" style="margin-right: 20px">返回</a>
+                <button type="button" class="btn btn-primary add_record" id="addProCode">添加</button>
+            </div>
+        </div>
+
+    </div>
+    <div>
+        <!--异步加载数据列表部分-->
+        <div class="row-fluid">
+            <div id="record_list" class="record_list span12">
+                <table class="table table-striped table-bordered table-over" id="record_table">
+                    <thead>
+                    <tr>
+                        <th width="160px;">商品编码</th>
+                        <th width="260px;">操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {{~it.productList:value:index}}
+                    <tr>
+                        <td >{{=value}}</td>
+                        <td>
+                            <a class="btn btn-primary btn-sm doUpdate" href="javascript:;" data-a="{{=value}}">编辑</a>
+                            <a class="btn btn-danger btn-sm delete" href="javascript:;" data-a="{{=value}}" data-b="{{=it.activityId}}">删除</a>
+                        </td>
+                    </tr>
+                    {{~}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div id="add_recordModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 class="modal-title">添加商品编码</h3>
+            </div>
+            <div class="modal-body" >
+                <div>
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label for="proCode" class="col-sm-2 control-label">商品编码 *</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control" id="proCode" name="proCode" >
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal">取消</button>
+                <button class="btn btn-primary" id="add_submit" data-a="{{=it.activityId}}">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" id="doUpdateStateModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">编辑</h4>
+            </div>
+            <div class="modal-body" id="doUpdateStateModalDiv">
+                <div>
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label for="update_proCode" class="col-sm-2 control-label">商品编码 *</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control" id="update_proCode" name="update_proCode" >
+                                <input type="hidden" id="oriProCode"/>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal">取消</button>
+                <button class="btn btn-primary" id="update_submit" data-a="{{=it.activityId}}">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -12,5 +12,8 @@
     <buildFile url="file://$PROJECT_DIR$/173共享妈妈首页装修模板/build.xml" />
     <buildFile url="file://$PROJECT_DIR$/平台意见反馈管理/build.xml" />
     <buildFile url="file://$PROJECT_DIR$/批量修改订单物流信息/build.xml" />
+    <buildFile url="file://$PROJECT_DIR$/ole沙拉打卡/build.xml" />
+    <buildFile url="file://$PROJECT_DIR$/popupsManage/build.xml" />
+    <buildFile url="file://$PROJECT_DIR$/oleSaladCard/build.xml" />
   </component>
 </project>

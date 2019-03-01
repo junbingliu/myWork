@@ -28,7 +28,7 @@
         loginName: loginName
     };
 
-    var template = $.getProgram(appMd5, "pages/include_nav.jsxp");
+    var template = $.getProgram(appMd5, "pages/include_nav.html");
     var pageFn = doT.template(template);
     out.print(pageFn(pageData));
 })();
